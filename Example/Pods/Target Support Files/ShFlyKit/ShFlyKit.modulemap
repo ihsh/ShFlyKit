@@ -1,0 +1,6 @@
+framework module ShFlyKit {
+  umbrella header "ShFlyKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

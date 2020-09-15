@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ShFlyKit_Example' do
+  pod 'ShFlyKit', :path => '../'
+
+  target 'ShFlyKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

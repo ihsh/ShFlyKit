@@ -1,0 +1,6 @@
+framework module Pods_ShFlyKit_Example {
+  umbrella header "Pods-ShFlyKit_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
