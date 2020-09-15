@@ -2,42 +2,42 @@
 
 Pod::Spec.new do |spec|
   spec.name         = "ShFlyKit"
-  spec.version      = "1.0.4"
-  spec.summary      = "A Kit with components such as Foundation ,network"
+  spec.version      = "1.0.5"
+  spec.summary      = "A framework that is often used in enterprise development"
   spec.description  = <<-DESC
-  A Kit with components such as Foundation ,network ...
-                   DESC
+                      A framework that is often used in enterprise development
+                      DESC
 
   spec.homepage     = "https://github.com/ihsh/ShFlyKit"
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
   spec.author       = { 'ihsh' => '957929697@qq.com' }
   spec.source       = { :git => 'https://github.com/ihsh/ShFlyKit.git', :tag => spec.version.to_s }
-  
   spec.ios.deployment_target = '10.0'
+  #swift版本
   spec.swift_versions = '4.0'
   spec.pod_target_xcconfig = {
     'ENABLE_BITCODE' => 'NO'
   }
-  
   spec.static_framework = true
- 
+  #全局依赖
   spec.dependency 'Bugly'
   spec.dependency 'Masonry'
   spec.dependency 'YYModel'
   spec.dependency 'SDWebImage'
   spec.dependency 'FMDB'
   spec.dependency 'AFNetworking'
-  spec.dependency 'Masonry'
   
+  #基础库
   spec.subspec 'Base' do |sp|
         sp.source_files = 'ShFlyKit/Classes/Base/**/*'
   end
   
+  #图表
   spec.subspec 'Chart' do |sp|
         sp.source_files = 'ShFlyKit/Classes/Chart/**/*'
         sp.dependency 'ShFlyKit/Base'
   end
-  
+  #图形图像
   spec.subspec 'Graphics' do |sp|
         sp.source_files = 'ShFlyKit/Classes/Graphics/**/*'
         sp.dependency 'ShFlyKit/Base'
@@ -46,7 +46,7 @@ Pod::Spec.new do |spec|
             'Graphics' => ['ShFlyKit/Assets/Graphics/**/*']
         }
   end
-
+  #UI组件
   spec.subspec 'Components' do |sp|
         sp.source_files = 'ShFlyKit/Classes/Components/**/*'
         sp.dependency 'ShFlyKit/Base'
@@ -73,12 +73,13 @@ Pod::Spec.new do |spec|
 #            'Pay' => ['ShFlyKit/Assets/Pay/**/*']
 #        }
 #  end
-
+  
+  #多媒体
   spec.subspec 'Media' do |sp|
         sp.source_files = 'ShFlyKit/Classes/Media/**/*'
         sp.dependency 'ShFlyKit/Base'
   end
-
+  #网络请求
   spec.subspec 'Network' do |sp|
         sp.source_files = 'ShFlyKit/Classes/Network/**/*'
         sp.dependency 'ShFlyKit/Base'

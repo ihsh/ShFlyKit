@@ -1,3 +1,11 @@
+//
+//  PrefixHeader.pch
+//  ShFlyKit_Example
+//
+//  Created by mac on 2020/9/15.
+//  Copyright © 2020 CocoaPods. All rights reserved.
+//
+
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #else
@@ -11,6 +19,4 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_ShFlyKit_TestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_ShFlyKit_TestsVersionString[];
-
+@import ShFlyKit;

@@ -1,8 +1,8 @@
 {
   "name": "ShFlyKit",
-  "version": "1.0.4",
-  "summary": "A Kit with components such as Foundation ,network",
-  "description": "A Kit with components such as Foundation ,network ...",
+  "version": "1.0.5",
+  "summary": "A framework that is often used in enterprise development",
+  "description": "A framework that is often used in enterprise development",
   "homepage": "https://github.com/ihsh/ShFlyKit",
   "license": {
     "type": "MIT",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/ihsh/ShFlyKit.git",
-    "tag": "1.0.4"
+    "tag": "1.0.5"
   },
   "platforms": {
     "ios": "10.0"

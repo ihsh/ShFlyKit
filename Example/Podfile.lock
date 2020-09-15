@@ -22,28 +22,28 @@ PODS:
   - SDWebImage (5.9.1):
     - SDWebImage/Core (= 5.9.1)
   - SDWebImage/Core (5.9.1)
-  - ShFlyKit (1.0.4):
+  - ShFlyKit (1.0.5):
     - AFNetworking
     - Bugly
     - FMDB
     - Masonry
     - SDWebImage
-    - ShFlyKit/Base (= 1.0.4)
-    - ShFlyKit/Chart (= 1.0.4)
-    - ShFlyKit/Components (= 1.0.4)
-    - ShFlyKit/Graphics (= 1.0.4)
-    - ShFlyKit/Media (= 1.0.4)
-    - ShFlyKit/Network (= 1.0.4)
-    - ShFlyKit/Server (= 1.0.4)
+    - ShFlyKit/Base (= 1.0.5)
+    - ShFlyKit/Chart (= 1.0.5)
+    - ShFlyKit/Components (= 1.0.5)
+    - ShFlyKit/Graphics (= 1.0.5)
+    - ShFlyKit/Media (= 1.0.5)
+    - ShFlyKit/Network (= 1.0.5)
+    - ShFlyKit/Server (= 1.0.5)
     - YYModel
-  - ShFlyKit/Base (1.0.4):
+  - ShFlyKit/Base (1.0.5):
     - AFNetworking
     - Bugly
     - FMDB
     - Masonry
     - SDWebImage
     - YYModel
-  - ShFlyKit/Chart (1.0.4):
+  - ShFlyKit/Chart (1.0.5):
     - AFNetworking
     - Bugly
     - FMDB
@@ -51,7 +51,7 @@ PODS:
     - SDWebImage
     - ShFlyKit/Base
     - YYModel
-  - ShFlyKit/Components (1.0.4):
+  - ShFlyKit/Components (1.0.5):
     - AFNetworking
     - Bugly
     - FMDB
@@ -61,7 +61,7 @@ PODS:
     - ShFlyKit/Graphics
     - ShFlyKit/Media
     - YYModel
-  - ShFlyKit/Graphics (1.0.4):
+  - ShFlyKit/Graphics (1.0.5):
     - AFNetworking
     - Bugly
     - FMDB
@@ -70,7 +70,7 @@ PODS:
     - ShFlyKit/Base
     - ShFlyKit/Media
     - YYModel
-  - ShFlyKit/Media (1.0.4):
+  - ShFlyKit/Media (1.0.5):
     - AFNetworking
     - Bugly
     - FMDB
@@ -78,7 +78,7 @@ PODS:
     - SDWebImage
     - ShFlyKit/Base
     - YYModel
-  - ShFlyKit/Network (1.0.4):
+  - ShFlyKit/Network (1.0.5):
     - AFNetworking
     - Bugly
     - FMDB
@@ -86,7 +86,7 @@ PODS:
     - SDWebImage
     - ShFlyKit/Base
     - YYModel
-  - ShFlyKit/Server (1.0.4):
+  - ShFlyKit/Server (1.0.5):
     - AFNetworking
     - Bugly
     - FMDB
@@ -118,9 +118,9 @@ SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
-  ShFlyKit: 5f6ae88cd766a03393f4b5ba324ef331fc1487e1
+  ShFlyKit: 0dc377542fe8dc364fe67d102d8e7b7d628a04be
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: e372797ac55528a6bf5b3f8a61a1420525243429
+PODFILE CHECKSUM: 27168c0a83358621aa08590e161bbe3fadf7b484
 
 COCOAPODS: 1.9.3
