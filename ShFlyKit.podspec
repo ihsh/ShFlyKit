@@ -16,8 +16,10 @@ Pod::Spec.new do |spec|
   #swift版本
   spec.swift_versions = '4.0'
   spec.pod_target_xcconfig = {
-    'ENABLE_BITCODE' => 'NO'
+    'ENABLE_BITCODE' => 'NO',
+    'OTHER_LDFLAGS' => '-ObjC'
   }
+  spec.libraries = "c++"
   spec.static_framework = true
   #全局依赖
   spec.dependency 'Bugly'
@@ -42,6 +44,9 @@ Pod::Spec.new do |spec|
         sp.source_files = 'ShFlyKit/Classes/Graphics/**/*'
         sp.dependency 'ShFlyKit/Base'
         sp.dependency 'ShFlyKit/Media'
+        sp.dependency 'AipOcrSdk'
+#        sp.ios.vendored_framework,s = 'ShFlyKit/Classes/Graphics/OCR/*'
+#        sp.vendored_libraries = 'ShFlyKit/Classes/Graphics/OCR/*.a'
         sp.resource_bundles = {
             'Graphics' => ['ShFlyKit/Assets/Graphics/**/*']
         }
@@ -52,6 +57,7 @@ Pod::Spec.new do |spec|
         sp.dependency 'ShFlyKit/Base'
         sp.dependency 'ShFlyKit/Media'
         sp.dependency 'ShFlyKit/Graphics'
+        sp.dependency 'GT3Captcha'
         sp.resource_bundles = {
             'Components' => ['ShFlyKit/Assets/Components/**/*']
         }

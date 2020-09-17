@@ -1,5 +1,6 @@
 use_frameworks!
 platform :ios, '10.0'
+install! 'cocoapods', :deterministic_uuids => false
 
 target 'ShFlyKit_Example' do
   pod 'ShFlyKit', :path => '../'

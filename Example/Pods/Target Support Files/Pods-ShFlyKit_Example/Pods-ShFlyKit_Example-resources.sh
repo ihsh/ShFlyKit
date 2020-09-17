@@ -97,10 +97,12 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/GT3Captcha/ios/GT3Captcha.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Components.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Graphics.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/GT3Captcha/ios/GT3Captcha.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Components.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Graphics.bundle"
 fi
