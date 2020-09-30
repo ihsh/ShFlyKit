@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MAMapKit
+import AMapNaviKit
 
 ///脉冲动画渐变图层，水波扩散
 

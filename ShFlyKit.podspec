@@ -45,8 +45,6 @@ Pod::Spec.new do |spec|
         sp.dependency 'ShFlyKit/Base'
         sp.dependency 'ShFlyKit/Media'
         sp.dependency 'AipOcrSdk'
-#        sp.ios.vendored_framework,s = 'ShFlyKit/Classes/Graphics/OCR/*'
-#        sp.vendored_libraries = 'ShFlyKit/Classes/Graphics/OCR/*.a'
         sp.resource_bundles = {
             'Graphics' => ['ShFlyKit/Assets/Graphics/**/*']
         }
@@ -98,43 +96,30 @@ Pod::Spec.new do |spec|
 
   spec.frameworks = "UIKit"
   
-  #  spec.subspec 'Map' do |sp|
-  #      sp.source_files = 'SHKit/Classes/Map/**/*'
-  #      sp.dependency 'ShFlyKit/Base'
-  #
-  #
-  #         sp.subspec 'Amap' do |asp|
-  #           asp.source_files = 'SHKit/Classes/Map/Amap/**/*.{h,m}'
-  ##           asp.public_header_files = 'SHKit/Classes/Map/Amap/*.h'
-  #           asp.ios.vendored_frameworks = 'SHKit/Classes/Map/Amap/SDKs/*.framework'
-  #           asp.libraries = 'z', 'c++'
-  #           asp.frameworks = 'GLKit', 'CoreLocation', 'SystemConfiguration', 'CoreGraphics', 'Security', 'CoreTelephony','ExternalAccessory'
-  #           asp.resource_bundles = {
-  #               'AMap' => ['SHKit/Classes/Map/Amap/Resources/*']
-  #           }
-  #           asp.dependency 'ShFlyKit/Base'
-  #           asp.pod_target_xcconfig = {
-  #               'OTHER_LDFLAGS' => '-ObjC'
-  #           }
-  #         end
-  #
-  #         sp.subspec 'BaiduMap' do |bsp|
-  #           bsp.source_files = 'SHKit/Classes/Map/BaiduMap/**/*.{h,m}'
-  ##           bsp.public_header_files = 'SHKit/Classes/Map/BaiduMap/*.h'
-  #           bsp.ios.vendored_frameworks = 'SHKit/Classes/Map/BaiduMap/SDKs/*.framework'
-  #           bsp.vendored_libraries = 'SHKit/Classes/Map/BaiduMap/SDKs/thirdlibs/*.a'
-  #           bsp.libraries = 'sqlite3', 'c++'
-  #           bsp.frameworks = 'CoreLocation', 'QuartzCore', 'OpenGLES', 'SystemConfiguration', 'CoreGraphics', 'Security', 'CoreTelephony', 'MobileCoreServices'
-  #           bsp.resource_bundles = {
-  #               'BaiduMap' => ['SHKit/Classes/Map/BaiduMap/Resources/*']
-  #           }
-  #           bsp.resource = 'SHKit/Classes/Map/BaiduMapSDKs/BaiduMapAPI_Map.framework/mapapi.bundle'
-  #           bsp.dependency 'ShFlyKit/Base'
-  #           bsp.pod_target_xcconfig = {
-  #               'OTHER_LDFLAGS' => '-ObjC',
-  #               'ENABLE_BITCODE' => 'NO'
-  #           }
-  #         end
-  #
-  #   end
+  spec.subspec 'Map' do |sp|
+        sp.dependency 'ShFlyKit/Base'
+        sp.subspec 'General' do |gesp|
+            gesp.source_files = 'ShFlyKit/Classes/Map/General/**/*'
+        end
+        
+        sp.subspec 'Amap' do |asp|
+            asp.source_files = 'ShFlyKit/Classes/Map/Amap/**/*'
+            asp.dependency 'ShFlyKit/Map/General'
+            asp.dependency 'ShFlyKit/Components'
+            asp.dependency 'AMapSearch'
+            asp.dependency 'AMapLocation'
+            asp.dependency 'AMapNavi'
+        end
+  
+#        sp.subspec 'BaiduMap' do |bsp|
+#            bsp.source_files = 'ShFlyKit/Classes/Map/BaiduMap/**/*'
+#            bsp.dependency 'BaiduMapKit'
+#            bsp.dependency 'BMKLocationKit'
+#            bsp.libraries = 'sqlite3', 'c++'
+#            bsp.resource_bundles = {
+#                'BaiduMap' => ['ShFlyKit/Classes/Map/BaiduMap/Resources/*']
+#            }
+#        end
+  end
+  
 end

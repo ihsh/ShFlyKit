@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MAMapKit
+import AMapNaviKit
 
 
 ///代理方法

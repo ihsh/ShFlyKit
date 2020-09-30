@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MAMapKit
+import AMapNaviKit
 
 
 ///带交通状况的overlay图层类

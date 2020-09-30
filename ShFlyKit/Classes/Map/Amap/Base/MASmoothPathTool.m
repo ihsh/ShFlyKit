@@ -7,7 +7,7 @@
 //
 
 #import "MASmoothPathTool.h"
-#import <MAMapKit/MAMapKit.h>
+#import <AMapNaviKit/MAMapKit.h>
 
 @implementation MALonLatPoint
 @end

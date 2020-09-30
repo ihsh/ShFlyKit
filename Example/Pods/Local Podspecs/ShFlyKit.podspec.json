@@ -129,6 +129,41 @@
 
         ]
       }
+    },
+    {
+      "name": "Map",
+      "dependencies": {
+        "ShFlyKit/Base": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "General",
+          "source_files": "ShFlyKit/Classes/Map/General/**/*"
+        },
+        {
+          "name": "Amap",
+          "source_files": "ShFlyKit/Classes/Map/Amap/**/*",
+          "dependencies": {
+            "ShFlyKit/Map/General": [
+
+            ],
+            "ShFlyKit/Components": [
+
+            ],
+            "AMapSearch": [
+
+            ],
+            "AMapLocation": [
+
+            ],
+            "AMapNavi": [
+
+            ]
+          }
+        }
+      ]
     }
   ],
   "swift_version": "4.0"

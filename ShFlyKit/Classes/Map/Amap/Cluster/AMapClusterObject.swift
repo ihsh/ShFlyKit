@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import MAMapKit
+import AMapNaviKit
 import AMapSearchKit
 
 
 ///点聚合annotation类
-class ClusterAnnotation: NSObject,MAAnnotation {
+open class ClusterAnnotation: NSObject,MAAnnotation {
     ///MARK
     @objc public var coordinate = CLLocationCoordinate2D()  //对应坐标点
     @objc public var count:NSInteger = 0                    //对应点数
@@ -22,16 +22,16 @@ class ClusterAnnotation: NSObject,MAAnnotation {
     
     
     ///MARK-Load
-    @objc init(coordinate:CLLocationCoordinate2D,count:NSInteger) {
-        super.init();
+    @objc public func inits(coordinate:CLLocationCoordinate2D,count:NSInteger) ->ClusterAnnotation{
         self.coordinate = coordinate;
         self.count = count;
         self.pois = NSMutableArray()
+        return self;
     }
     
     
     //是否相等
-    override func isEqual(_ object: Any?) -> Bool {
+    override open func isEqual(_ object: Any?) -> Bool {
         if let com:ClusterAnnotation = object as? ClusterAnnotation {
             return hash(anno: self) == hash(anno: com);
         }else{
@@ -52,7 +52,7 @@ class ClusterAnnotation: NSObject,MAAnnotation {
 
 ///点集合数据模型
 @objcMembers
-class AMapClusterModel:NSObject{
+open class AMapClusterModel:NSObject{
 
    ///MARK
    @objc public var uid:String!      //编号

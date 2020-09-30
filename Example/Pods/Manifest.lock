@@ -21,15 +21,22 @@ PODS:
   - AipOcrSdk/AipBase (0.1.0)
   - AipOcrSdk/AipOcrSdk (0.1.0)
   - AipOcrSdk/IdcardQuality (0.1.0)
+  - AMapFoundation (1.6.4)
+  - AMapLocation (2.6.7):
+    - AMapFoundation (~> 1.6.4)
+  - AMapNavi (7.6.0):
+    - AMapFoundation (~> 1.6.4)
+  - AMapSearch (7.6.0):
+    - AMapFoundation (~> 1.6.3)
   - Bugly (2.5.71)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
   - GT3Captcha (0.1.6)
   - Masonry (1.1.0)
-  - SDWebImage (5.9.1):
-    - SDWebImage/Core (= 5.9.1)
-  - SDWebImage/Core (5.9.1)
+  - SDWebImage (5.9.2):
+    - SDWebImage/Core (= 5.9.2)
+  - SDWebImage/Core (5.9.2)
   - ShFlyKit (1.0.5):
     - AFNetworking
     - Bugly
@@ -40,6 +47,7 @@ PODS:
     - ShFlyKit/Chart (= 1.0.5)
     - ShFlyKit/Components (= 1.0.5)
     - ShFlyKit/Graphics (= 1.0.5)
+    - ShFlyKit/Map (= 1.0.5)
     - ShFlyKit/Media (= 1.0.5)
     - ShFlyKit/Network (= 1.0.5)
     - ShFlyKit/Server (= 1.0.5)
@@ -80,6 +88,37 @@ PODS:
     - ShFlyKit/Base
     - ShFlyKit/Media
     - YYModel
+  - ShFlyKit/Map (1.0.5):
+    - AFNetworking
+    - Bugly
+    - FMDB
+    - Masonry
+    - SDWebImage
+    - ShFlyKit/Base
+    - ShFlyKit/Map/Amap (= 1.0.5)
+    - ShFlyKit/Map/General (= 1.0.5)
+    - YYModel
+  - ShFlyKit/Map/Amap (1.0.5):
+    - AFNetworking
+    - AMapLocation
+    - AMapNavi
+    - AMapSearch
+    - Bugly
+    - FMDB
+    - Masonry
+    - SDWebImage
+    - ShFlyKit/Base
+    - ShFlyKit/Components
+    - ShFlyKit/Map/General
+    - YYModel
+  - ShFlyKit/Map/General (1.0.5):
+    - AFNetworking
+    - Bugly
+    - FMDB
+    - Masonry
+    - SDWebImage
+    - ShFlyKit/Base
+    - YYModel
   - ShFlyKit/Media (1.0.5):
     - AFNetworking
     - Bugly
@@ -113,6 +152,10 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - AipOcrSdk
+    - AMapFoundation
+    - AMapLocation
+    - AMapNavi
+    - AMapSearch
     - Bugly
     - FMDB
     - GT3Captcha
@@ -127,14 +170,18 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   AipOcrSdk: 6d471b3f02ec0a440aa96ea45752298ee3b26d49
+  AMapFoundation: 3638198dfa40be54648570c3520edefad288286b
+  AMapLocation: a46c30d9930d0f3a3bd21139d8f845d10ac3f01d
+  AMapNavi: ca9fe7272aff9cede055e4cbfcb462d5a4896f8a
+  AMapSearch: ea3151e626c91b1ef99ec0ec72afdbdb577e16b2
   Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   GT3Captcha: 6c2724cf9a2e7c3411b1cc1b2aa56b76be48df87
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
-  ShFlyKit: c0e1072349d583e6a7a22e7578c02ad290b62237
+  SDWebImage: 0b42b8719ab0c5257177d5894306e8a336b21cbb
+  ShFlyKit: de71731b85d9f08da84cb75d092a045e397bf5dc
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 612c888a82f38870a15931924c5328d3dcd350cf
+PODFILE CHECKSUM: 7fb2c5584abc08a9c066adf8c4269fefcd6d5053
 
 COCOAPODS: 1.9.3

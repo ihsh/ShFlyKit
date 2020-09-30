@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import MAMapKit
-
+import AMapNaviKit
+import Masonry
 
 class AMapBaseView: UIView,MAMapViewDelegate,MAMultiPointOverlayRendererDelegate{
     //mark

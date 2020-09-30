@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Masonry
 
 ///自定义的点聚合AnnoView类
 class AMapClusterAnnoView: MAAnnotationView {

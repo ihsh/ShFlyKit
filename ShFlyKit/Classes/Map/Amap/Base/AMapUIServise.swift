@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MAMapKit
+import AMapNaviKit
 
 
 ///高德UI设置类

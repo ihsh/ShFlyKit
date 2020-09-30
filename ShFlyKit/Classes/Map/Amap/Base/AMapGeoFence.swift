@@ -8,7 +8,9 @@
 
 import UIKit
 import AMapLocationKit
-
+import AMapSearchKit
+import AMapNaviKit
+import AMapFoundationKit
 
 ///地理围栏代理
 @objc protocol AMapGeoFenceDelegate : NSObjectProtocol {

@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreLocation
-import MAMapKit
+import AMapNaviKit
 
 class AMapRouteRecord: NSObject {
     

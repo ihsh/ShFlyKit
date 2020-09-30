@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import MAMapKit
+import AMapNaviKit
 import AMapSearchKit
-
+import Masonry
 
 ///位置选点类
 

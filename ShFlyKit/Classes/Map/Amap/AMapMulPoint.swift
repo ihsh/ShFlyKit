@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MAMapKit
+import AMapNaviKit
 
 ///海量点图层控制类
 

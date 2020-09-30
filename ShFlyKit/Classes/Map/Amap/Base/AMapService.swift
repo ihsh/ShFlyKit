@@ -9,7 +9,7 @@
 import UIKit
 import AMapFoundationKit
 import AMapSearchKit
-import MAMapKit
+import AMapNaviKit
 
 
 //添加依赖库说明https://lbs.amap.com/api/ios-sdk/guide/create-project/manual-configuration

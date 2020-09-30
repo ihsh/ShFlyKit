@@ -199,14 +199,16 @@ class SHPhoneAssetsTool: NSObject,UIImagePickerControllerDelegate,UINavigationCo
     public func checkCameraAuthorised()->(Bool,String){
         let status:AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video);
         switch status {
-        case .authorized:
-            return (true,"相机权限已授权");
-        case .denied:
-            return (false,"相机权限已拒绝");
-        case .notDetermined:
-            return (false,"相机权限未决定");
-        case .restricted:
-            return (false,"用户不能使用");
+            case .authorized:
+                return (true,"相机权限已授权");
+            case .denied:
+                return (false,"相机权限已拒绝");
+            case .notDetermined:
+                return (false,"相机权限未决定");
+            case .restricted:
+                return (false,"用户不能使用");
+            default:
+            return (false,"");
         }
     }
     
@@ -218,14 +220,16 @@ class SHPhoneAssetsTool: NSObject,UIImagePickerControllerDelegate,UINavigationCo
         }else{
             let status:PHAuthorizationStatus = PHPhotoLibrary.authorizationStatus();
             switch status{
-            case .authorized:
-                return (true,"相册权限已授权");
-            case .denied:
-                return (false,"相册权限已拒绝");
-            case .notDetermined:
-                return (false,"相册权限未决定");
-            case .restricted:
-                return (false,"用户不能使用");
+                case .authorized:
+                    return (true,"相册权限已授权");
+                case .denied:
+                    return (false,"相册权限已拒绝");
+                case .notDetermined:
+                    return (false,"相册权限未决定");
+                case .restricted:
+                    return (false,"用户不能使用");
+                default:
+                    return (false,"");
             }
         }
     }

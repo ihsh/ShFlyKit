@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 ///自定义的百度点聚合AnnoView
 class BMKClusterAnnoView: BMKAnnotationView {
 

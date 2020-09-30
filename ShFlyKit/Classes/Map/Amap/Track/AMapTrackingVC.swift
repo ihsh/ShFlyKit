@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import MAMapKit
+import AMapNaviKit
+import Masonry
 
 class AMapTrackingVC: UIViewController,MAMapViewDelegate{
     // MARK: - Variable
