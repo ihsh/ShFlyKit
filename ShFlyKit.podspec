@@ -1,6 +1,7 @@
 
 
 Pod::Spec.new do |spec|
+  #基础配置
   spec.name         = "ShFlyKit"
   spec.version      = "1.0.5"
   spec.summary      = "A framework that is often used in enterprise development"
@@ -18,6 +19,7 @@ Pod::Spec.new do |spec|
   spec.pod_target_xcconfig = {
     'ENABLE_BITCODE' => 'NO',
   }
+  #其他配置
   spec.libraries = "c++"
   spec.static_framework = true
   #全局依赖
@@ -27,6 +29,10 @@ Pod::Spec.new do |spec|
   spec.dependency 'SDWebImage'
   spec.dependency 'FMDB'
   spec.dependency 'AFNetworking'
+  #依赖系统库
+  spec.frameworks = "UIKit"
+  
+  
   
   #基础库
   spec.subspec 'Base' do |sp|
@@ -44,6 +50,19 @@ Pod::Spec.new do |spec|
         sp.source_files = 'ShFlyKit/Classes/Media/**/*'
         sp.dependency 'ShFlyKit/Base'
   end
+  
+  #网络请求
+  spec.subspec 'Network' do |sp|
+        sp.source_files = 'ShFlyKit/Classes/Network/**/*'
+        sp.dependency 'ShFlyKit/Base'
+  end
+  
+  #网络直连
+  spec.subspec 'Server' do |sp|
+        sp.source_files = 'ShFlyKit/Classes/Server/**/*'
+        sp.dependency 'ShFlyKit/Base'
+  end
+   
   #图形图像
   spec.subspec 'Graphics' do |sp|
         sp.source_files = 'ShFlyKit/Classes/Graphics/**/*'
@@ -54,6 +73,7 @@ Pod::Spec.new do |spec|
             'Graphics' => ['ShFlyKit/Assets/Graphics/**/*']
         }
   end
+  
   #UI组件
   spec.subspec 'Components' do |sp|
         sp.source_files = 'ShFlyKit/Classes/Components/**/*'
@@ -83,19 +103,6 @@ Pod::Spec.new do |spec|
 #        }
 #  end
   
-  #网络请求
-  spec.subspec 'Network' do |sp|
-        sp.source_files = 'ShFlyKit/Classes/Network/**/*'
-        sp.dependency 'ShFlyKit/Base'
-  end
-  
-  spec.subspec 'Server' do |sp|
-        sp.source_files = 'ShFlyKit/Classes/Server/**/*'
-        sp.dependency 'ShFlyKit/Base'
-  end
-
-  spec.frameworks = "UIKit"
-  
 #  spec.subspec 'Map' do |sp|
 #        sp.dependency 'ShFlyKit/Base'
 #        sp.subspec 'General' do |gesp|
@@ -121,5 +128,6 @@ Pod::Spec.new do |spec|
 #            }
 #        end
 #  end
+  
   
 end

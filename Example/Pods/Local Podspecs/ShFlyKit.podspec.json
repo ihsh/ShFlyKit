@@ -66,6 +66,24 @@
       }
     },
     {
+      "name": "Network",
+      "source_files": "ShFlyKit/Classes/Network/**/*",
+      "dependencies": {
+        "ShFlyKit/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Server",
+      "source_files": "ShFlyKit/Classes/Server/**/*",
+      "dependencies": {
+        "ShFlyKit/Base": [
+
+        ]
+      }
+    },
+    {
       "name": "Graphics",
       "source_files": "ShFlyKit/Classes/Graphics/**/*",
       "dependencies": {
@@ -99,24 +117,6 @@
       "resource_bundles": {
         "Components": [
           "ShFlyKit/Assets/Components/**/*"
-        ]
-      }
-    },
-    {
-      "name": "Network",
-      "source_files": "ShFlyKit/Classes/Network/**/*",
-      "dependencies": {
-        "ShFlyKit/Base": [
-
-        ]
-      }
-    },
-    {
-      "name": "Server",
-      "source_files": "ShFlyKit/Classes/Server/**/*",
-      "dependencies": {
-        "ShFlyKit/Base": [
-
         ]
       }
     }
