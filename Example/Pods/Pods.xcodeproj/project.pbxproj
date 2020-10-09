@@ -3668,7 +3668,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -3729,7 +3729,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3745,7 +3745,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002800 /* AFNetworking.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3758,7 +3757,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AFNetworking/AFNetworking-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/AFNetworking/AFNetworking.modulemap";
 				PRODUCT_MODULE_NAME = AFNetworking;
@@ -3778,7 +3777,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000027F0 /* AFNetworking.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3791,7 +3789,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AFNetworking/AFNetworking-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/AFNetworking/AFNetworking.modulemap";
 				PRODUCT_MODULE_NAME = AFNetworking;
@@ -3810,7 +3808,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000029F0 /* FMDB.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3823,7 +3820,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FMDB/FMDB-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/FMDB/FMDB.modulemap";
 				PRODUCT_MODULE_NAME = FMDB;
@@ -3843,7 +3840,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000029E0 /* FMDB.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3856,7 +3852,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FMDB/FMDB-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/FMDB/FMDB.modulemap";
 				PRODUCT_MODULE_NAME = FMDB;
@@ -3875,7 +3871,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002CC0 /* Masonry.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3888,7 +3883,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Masonry/Masonry-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Masonry/Masonry.modulemap";
 				PRODUCT_MODULE_NAME = Masonry;
@@ -3908,7 +3903,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002CB0 /* Masonry.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3921,7 +3915,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Masonry/Masonry-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Masonry/Masonry.modulemap";
 				PRODUCT_MODULE_NAME = Masonry;
@@ -3940,7 +3934,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000036E0 /* SDWebImage.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3953,7 +3946,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/SDWebImage-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SDWebImage/SDWebImage.modulemap";
 				PRODUCT_MODULE_NAME = SDWebImage;
@@ -3973,7 +3966,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000036D0 /* SDWebImage.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3986,7 +3978,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/SDWebImage-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SDWebImage/SDWebImage.modulemap";
 				PRODUCT_MODULE_NAME = SDWebImage;
@@ -4005,7 +3997,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004B50 /* ShFlyKit.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -4019,7 +4010,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ShFlyKit/ShFlyKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ShFlyKit/ShFlyKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/ShFlyKit/ShFlyKit.modulemap";
@@ -4040,7 +4031,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004B40 /* ShFlyKit.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -4054,7 +4044,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ShFlyKit/ShFlyKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ShFlyKit/ShFlyKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/ShFlyKit/ShFlyKit.modulemap";
@@ -4078,7 +4068,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/ShFlyKit";
 				IBSC_MODULE = ShFlyKit;
 				INFOPLIST_FILE = "Target Support Files/ShFlyKit/ResourceBundle-Components-ShFlyKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_NAME = Components;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -4095,7 +4085,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/ShFlyKit";
 				IBSC_MODULE = ShFlyKit;
 				INFOPLIST_FILE = "Target Support Files/ShFlyKit/ResourceBundle-Components-ShFlyKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_NAME = Components;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -4112,7 +4102,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/ShFlyKit";
 				IBSC_MODULE = ShFlyKit;
 				INFOPLIST_FILE = "Target Support Files/ShFlyKit/ResourceBundle-Graphics-ShFlyKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_NAME = Graphics;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -4129,7 +4119,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/ShFlyKit";
 				IBSC_MODULE = ShFlyKit;
 				INFOPLIST_FILE = "Target Support Files/ShFlyKit/ResourceBundle-Graphics-ShFlyKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_NAME = Graphics;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -4142,7 +4132,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004CE0 /* YYModel.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -4155,7 +4144,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/YYModel/YYModel-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/YYModel/YYModel-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/YYModel/YYModel.modulemap";
 				PRODUCT_MODULE_NAME = YYModel;
@@ -4175,7 +4164,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004CD0 /* YYModel.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -4188,7 +4176,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/YYModel/YYModel-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/YYModel/YYModel-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/YYModel/YYModel.modulemap";
 				PRODUCT_MODULE_NAME = YYModel;
@@ -4208,7 +4196,6 @@
 			baseConfigurationReference = 46EB2E00004E70 /* Pods-ShFlyKit_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -4221,7 +4208,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-ShFlyKit_Example/Pods-ShFlyKit_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-ShFlyKit_Example/Pods-ShFlyKit_Example.modulemap";
@@ -4244,7 +4231,6 @@
 			baseConfigurationReference = 46EB2E00004E80 /* Pods-ShFlyKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -4257,7 +4243,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-ShFlyKit_Example/Pods-ShFlyKit_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-ShFlyKit_Example/Pods-ShFlyKit_Example.modulemap";
