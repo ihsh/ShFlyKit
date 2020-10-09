@@ -55,10 +55,9 @@ class TTSManager: NSObject , AVSpeechSynthesizerDelegate {
     //停止
     public func stop(_ type:TTSStopType)->Bool{
         var finish:Bool = false;
-        switch type {
-        case .Immediate:
+        if type == .Immediate {
             finish = self.synthesizer.stopSpeaking(at: .immediate);
-        case .WordEnd:
+        }else if (type == .WordEnd){
             finish = self.synthesizer.stopSpeaking(at: .word);
         }
         if finish {
@@ -71,10 +70,9 @@ class TTSManager: NSObject , AVSpeechSynthesizerDelegate {
     //暂停
     public func pause(_ type:TTSStopType)->Bool{
         var finish:Bool = false;
-        switch type {
-        case .Immediate:
+        if type == .Immediate {
             finish = self.synthesizer.pauseSpeaking(at: .immediate);
-        case .WordEnd:
+        }else if (type == .WordEnd){
             finish = self.synthesizer.pauseSpeaking(at: .word);
         }
         if finish {

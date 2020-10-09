@@ -110,5 +110,14 @@ class AMapGeoFence: NSObject,AMapGeoFenceManagerDelegate{
         }
     }
     
+    
+    func amapLocationManager(_ manager: AMapGeoFenceManager!, doRequireTemporaryFullAccuracyAuth locationManager: CLLocationManager!, completion: ((Error?) -> Void)!) {
+        
+    }
 
+    
+    func amapGeoFenceManager(_ manager: AMapGeoFenceManager!, doRequireLocationAuth locationManager: CLLocationManager!) {
+        
+    }
+    
 }

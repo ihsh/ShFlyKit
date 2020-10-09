@@ -198,16 +198,15 @@ class SHPhoneAssetsTool: NSObject,UIImagePickerControllerDelegate,UINavigationCo
     //相机权限检测
     public func checkCameraAuthorised()->(Bool,String){
         let status:AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video);
-        switch status {
-            case .authorized:
-                return (true,"相机权限已授权");
-            case .denied:
-                return (false,"相机权限已拒绝");
-            case .notDetermined:
-                return (false,"相机权限未决定");
-            case .restricted:
-                return (false,"用户不能使用");
-            default:
+        if status == .authorized {
+            return (true,"相机权限已授权");
+        }else if (status == .denied){
+            return (false,"相机权限已拒绝");
+        }else if (status == .notDetermined){
+            return (false,"相机权限未决定");
+        }else if (status == .restricted){
+            return (false,"用户不能使用");
+        }else{
             return (false,"");
         }
     }
@@ -219,17 +218,16 @@ class SHPhoneAssetsTool: NSObject,UIImagePickerControllerDelegate,UINavigationCo
             return (true,"相册权限已打开");
         }else{
             let status:PHAuthorizationStatus = PHPhotoLibrary.authorizationStatus();
-            switch status{
-                case .authorized:
-                    return (true,"相册权限已授权");
-                case .denied:
-                    return (false,"相册权限已拒绝");
-                case .notDetermined:
-                    return (false,"相册权限未决定");
-                case .restricted:
-                    return (false,"用户不能使用");
-                default:
-                    return (false,"");
+            if status == .authorized {
+                return (true,"相机权限已授权");
+            }else if (status == .denied){
+                return (false,"相机权限已拒绝");
+            }else if (status == .notDetermined){
+                return (false,"相机权限未决定");
+            }else if (status == .restricted){
+                return (false,"用户不能使用");
+            }else{
+                return (false,"");
             }
         }
     }

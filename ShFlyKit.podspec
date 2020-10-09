@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
   spec.author       = { 'ihsh' => '957929697@qq.com' }
   spec.source       = { :git => 'https://github.com/ihsh/ShFlyKit.git', :tag => spec.version.to_s }
-  spec.ios.deployment_target = '10.0'
+  spec.ios.deployment_target = '12.0'
   #swift版本
   spec.swift_versions = '4.0'
   spec.pod_target_xcconfig = {
@@ -22,7 +22,7 @@ Pod::Spec.new do |spec|
   spec.libraries = "c++"
   spec.static_framework = true
   #全局依赖
-  spec.dependency 'Bugly'
+#  spec.dependency 'Bugly'
   spec.dependency 'Masonry'
   spec.dependency 'YYModel'
   spec.dependency 'SDWebImage'
@@ -39,12 +39,18 @@ Pod::Spec.new do |spec|
         sp.source_files = 'ShFlyKit/Classes/Chart/**/*'
         sp.dependency 'ShFlyKit/Base'
   end
+  
+  #多媒体
+  spec.subspec 'Media' do |sp|
+        sp.source_files = 'ShFlyKit/Classes/Media/**/*'
+        sp.dependency 'ShFlyKit/Base'
+  end
   #图形图像
   spec.subspec 'Graphics' do |sp|
         sp.source_files = 'ShFlyKit/Classes/Graphics/**/*'
         sp.dependency 'ShFlyKit/Base'
         sp.dependency 'ShFlyKit/Media'
-        sp.dependency 'AipOcrSdk'
+#        sp.dependency 'AipOcrSdk'
         sp.resource_bundles = {
             'Graphics' => ['ShFlyKit/Assets/Graphics/**/*']
         }
@@ -55,7 +61,7 @@ Pod::Spec.new do |spec|
         sp.dependency 'ShFlyKit/Base'
         sp.dependency 'ShFlyKit/Media'
         sp.dependency 'ShFlyKit/Graphics'
-        sp.dependency 'GT3Captcha'
+#        sp.dependency 'GT3Captcha'
         sp.resource_bundles = {
             'Components' => ['ShFlyKit/Assets/Components/**/*']
         }
@@ -78,11 +84,6 @@ Pod::Spec.new do |spec|
 #        }
 #  end
   
-  #多媒体
-  spec.subspec 'Media' do |sp|
-        sp.source_files = 'ShFlyKit/Classes/Media/**/*'
-        sp.dependency 'ShFlyKit/Base'
-  end
   #网络请求
   spec.subspec 'Network' do |sp|
         sp.source_files = 'ShFlyKit/Classes/Network/**/*'
@@ -96,20 +97,20 @@ Pod::Spec.new do |spec|
 
   spec.frameworks = "UIKit"
   
-  spec.subspec 'Map' do |sp|
-        sp.dependency 'ShFlyKit/Base'
-        sp.subspec 'General' do |gesp|
-            gesp.source_files = 'ShFlyKit/Classes/Map/General/**/*'
-        end
-        
-        sp.subspec 'Amap' do |asp|
-            asp.source_files = 'ShFlyKit/Classes/Map/Amap/**/*'
-            asp.dependency 'ShFlyKit/Map/General'
-            asp.dependency 'ShFlyKit/Components'
-            asp.dependency 'AMapSearch'
-            asp.dependency 'AMapLocation'
-            asp.dependency 'AMapNavi'
-        end
+#  spec.subspec 'Map' do |sp|
+#        sp.dependency 'ShFlyKit/Base'
+#        sp.subspec 'General' do |gesp|
+#            gesp.source_files = 'ShFlyKit/Classes/Map/General/**/*'
+#        end
+#        
+#        sp.subspec 'Amap' do |asp|
+#            asp.source_files = 'ShFlyKit/Classes/Map/Amap/**/*'
+#            asp.dependency 'ShFlyKit/Map/General'
+#            asp.dependency 'ShFlyKit/Components'
+#            asp.dependency 'AMapSearch'
+#            asp.dependency 'AMapLocation'
+#            asp.dependency 'AMapNavi'
+#        end
   
 #        sp.subspec 'BaiduMap' do |bsp|
 #            bsp.source_files = 'ShFlyKit/Classes/Map/BaiduMap/**/*'
@@ -120,6 +121,6 @@ Pod::Spec.new do |spec|
 #                'BaiduMap' => ['ShFlyKit/Classes/Map/BaiduMap/Resources/*']
 #            }
 #        end
-  end
+#  end
   
 end

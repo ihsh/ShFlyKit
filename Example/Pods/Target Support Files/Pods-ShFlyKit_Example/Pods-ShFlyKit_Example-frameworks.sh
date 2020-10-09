@@ -198,9 +198,6 @@ fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
-  install_framework "${PODS_ROOT}/AipOcrSdk/AipOcrSdk/Classes/AipBase.framework"
-  install_framework "${PODS_ROOT}/AipOcrSdk/AipOcrSdk/Classes/AipOcrSdk.framework"
-  install_framework "${PODS_ROOT}/AipOcrSdk/AipOcrSdk/Classes/IdcardQuality.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
@@ -208,9 +205,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
-  install_framework "${PODS_ROOT}/AipOcrSdk/AipOcrSdk/Classes/AipBase.framework"
-  install_framework "${PODS_ROOT}/AipOcrSdk/AipOcrSdk/Classes/AipOcrSdk.framework"
-  install_framework "${PODS_ROOT}/AipOcrSdk/AipOcrSdk/Classes/IdcardQuality.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
