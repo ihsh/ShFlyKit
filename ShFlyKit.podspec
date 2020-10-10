@@ -3,10 +3,10 @@
 Pod::Spec.new do |spec|
   #基础配置
   spec.name         = "ShFlyKit"
-  spec.version      = "1.0.5"
+  spec.version      = "1.0.6"
   spec.summary      = "A framework that is often used in enterprise development"
   spec.description  = <<-DESC
-                      A framework that is often used in enterprise development
+                      A framework that is often used in enterprise developments
                       DESC
 
   spec.homepage     = "https://github.com/ihsh/ShFlyKit"
@@ -18,6 +18,8 @@ Pod::Spec.new do |spec|
   spec.swift_versions = '4.0'
   spec.pod_target_xcconfig = {
     'ENABLE_BITCODE' => 'NO',
+    'CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF' => 'NO',
+    'LIBRARY_SEARCH_PATHS' => ['$(inherited)']
   }
   #其他配置
   spec.libraries = "c++"
@@ -44,24 +46,24 @@ Pod::Spec.new do |spec|
         sp.source_files = 'ShFlyKit/Classes/Chart/**/*'
         sp.dependency 'ShFlyKit/Base'
   end
-  
+
   #多媒体
   spec.subspec 'Media' do |sp|
         sp.source_files = 'ShFlyKit/Classes/Media/**/*'
         sp.dependency 'ShFlyKit/Base'
   end
-  
-  #网络请求
-  spec.subspec 'Network' do |sp|
-        sp.source_files = 'ShFlyKit/Classes/Network/**/*'
-        sp.dependency 'ShFlyKit/Base'
-  end
-  
-  #网络直连
-  spec.subspec 'Server' do |sp|
-        sp.source_files = 'ShFlyKit/Classes/Server/**/*'
-        sp.dependency 'ShFlyKit/Base'
-  end
+#
+#  #网络请求
+#  spec.subspec 'Network' do |sp|
+#        sp.source_files = 'ShFlyKit/Classes/Network/**/*'
+#        sp.dependency 'ShFlyKit/Base'
+#  end
+#
+#  #网络直连
+#  spec.subspec 'Server' do |sp|
+#        sp.source_files = 'ShFlyKit/Classes/Server/**/*'
+#        sp.dependency 'ShFlyKit/Base'
+#  end
    
   #图形图像
   spec.subspec 'Graphics' do |sp|
@@ -86,16 +88,23 @@ Pod::Spec.new do |spec|
         }
   end
 
-#spec.subspec 'Share' do |sp|
-#      sp.source_files = 'ShFlyKit/Classes/Share/**/*'
-#      sp.dependency 'ShFlyKit/Base'
-#      sp.ios.vendored_frameworks = 'ShFlyKit/Classes/Share/**/*.framework'
-#      sp.vendored_libraries = 'ShFlyKit/Classes/Share/**/*.a'
-#end
+  #分享
+  spec.subspec 'Share' do |sp|
+        sp.source_files = 'ShFlyKit/Classes/Share/**/*'
+        sp.dependency 'ShFlyKit/Base'
+        sp.frameworks = 'SystemConfiguration'
+        sp.libraries = "c++", "z","sqlite3"
+        
+        sp.ios.vendored_frameworks = 'ShFlyKit/Classes/Share/**/*.framework'
+        sp.vendored_libraries = 'ShFlyKit/Classes/Share/**/*.a'
+  end
 
 #  spec.subspec 'Pay' do |sp|
 #        sp.source_files = 'ShFlyKit/Classes/Pay/**/*'
 #        sp.dependency 'ShFlyKit/Base'
+#        sp.dependency 'ShFlyKit/Share'
+#        sp.frameworks = "SystemConfiguration","CoreTelephony","QuartzCore","CoreText","CoreGraphics","","UIKit","Foundation","CFNetwork","CoreMotion"
+#        sp.libraries = "c++", "z"
 #        sp.ios.vendored_frameworks = 'ShFlyKit/Classes/Pay/**/*.framework'
 #        sp.vendored_libraries = 'ShFlyKit/Classes/Pay/**/*.a'
 #        sp.resource_bundles = {

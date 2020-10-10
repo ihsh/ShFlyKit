@@ -39,7 +39,7 @@
 
 
 
-static NSString * host = @"";
+static NSString * _Nullable host = @"";
 
 ///组件通信类
 @interface SHMedium : NSObject

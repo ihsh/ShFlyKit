@@ -1,8 +1,8 @@
 {
   "name": "ShFlyKit",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "summary": "A framework that is often used in enterprise development",
-  "description": "A framework that is often used in enterprise development",
+  "description": "A framework that is often used in enterprise developments",
   "homepage": "https://github.com/ihsh/ShFlyKit",
   "license": {
     "type": "MIT",
@@ -13,14 +13,18 @@
   },
   "source": {
     "git": "https://github.com/ihsh/ShFlyKit.git",
-    "tag": "1.0.5"
+    "tag": "1.0.6"
   },
   "platforms": {
     "ios": "10.0"
   },
   "swift_versions": "4.0",
   "pod_target_xcconfig": {
-    "ENABLE_BITCODE": "NO"
+    "ENABLE_BITCODE": "NO",
+    "CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF": "NO",
+    "LIBRARY_SEARCH_PATHS": [
+      "$(inherited)"
+    ]
   },
   "libraries": "c++",
   "static_framework": true,
@@ -66,24 +70,6 @@
       }
     },
     {
-      "name": "Network",
-      "source_files": "ShFlyKit/Classes/Network/**/*",
-      "dependencies": {
-        "ShFlyKit/Base": [
-
-        ]
-      }
-    },
-    {
-      "name": "Server",
-      "source_files": "ShFlyKit/Classes/Server/**/*",
-      "dependencies": {
-        "ShFlyKit/Base": [
-
-        ]
-      }
-    },
-    {
       "name": "Graphics",
       "source_files": "ShFlyKit/Classes/Graphics/**/*",
       "dependencies": {
@@ -119,6 +105,25 @@
           "ShFlyKit/Assets/Components/**/*"
         ]
       }
+    },
+    {
+      "name": "Share",
+      "source_files": "ShFlyKit/Classes/Share/**/*",
+      "dependencies": {
+        "ShFlyKit/Base": [
+
+        ]
+      },
+      "frameworks": "SystemConfiguration",
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
+      ],
+      "ios": {
+        "vendored_frameworks": "ShFlyKit/Classes/Share/**/*.framework"
+      },
+      "vendored_libraries": "ShFlyKit/Classes/Share/**/*.a"
     }
   ],
   "swift_version": "4.0"

@@ -11,7 +11,7 @@
 @implementation OCViewController
 
 -(void)viewDidLoad{
-    UIView *lay = [[LineChartView alloc]init];
+   
 }
 
 @end

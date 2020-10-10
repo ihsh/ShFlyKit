@@ -17,11 +17,7 @@
     UIApplication *app = [UIApplication sharedApplication];
     if (![app canOpenURL:url]) return;
     
-    if (@available(iOS 10.0,*)) {
-        [app openURL:url options:@{} completionHandler:nil];
-    }else{
-        [app openURL:url];
-    }
+    [app openURL:url options:@{} completionHandler:nil];
 }
 
 
