@@ -19,6 +19,7 @@ Pod::Spec.new do |spec|
   spec.pod_target_xcconfig = {
     'ENABLE_BITCODE' => 'NO',
     'CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF' => 'NO',
+    'OTHER_LDFLAGS' => '-ObjC',
     'LIBRARY_SEARCH_PATHS' => ['$(inherited)']
   }
   #其他配置
@@ -99,18 +100,21 @@ Pod::Spec.new do |spec|
         sp.vendored_libraries = 'ShFlyKit/Classes/Share/**/*.a'
   end
 
-#  spec.subspec 'Pay' do |sp|
-#        sp.source_files = 'ShFlyKit/Classes/Pay/**/*'
-#        sp.dependency 'ShFlyKit/Base'
-#        sp.dependency 'ShFlyKit/Share'
-#        sp.frameworks = "SystemConfiguration","CoreTelephony","QuartzCore","CoreText","CoreGraphics","","UIKit","Foundation","CFNetwork","CoreMotion"
-#        sp.libraries = "c++", "z"
-#        sp.ios.vendored_frameworks = 'ShFlyKit/Classes/Pay/**/*.framework'
-#        sp.vendored_libraries = 'ShFlyKit/Classes/Pay/**/*.a'
-#        sp.resource_bundles = {
-#            'Pay' => ['ShFlyKit/Assets/Pay/**/*']
-#        }
-#  end
+  #支付
+  spec.subspec 'Pay' do |sp|
+        sp.dependency 'ShFlyKit/Base'
+        sp.dependency 'ShFlyKit/Share'
+        sp.source_files = 'ShFlyKit/Classes/Pay/**/*'
+        sp.libraries = "c++", "z","sqlite3"
+        sp.frameworks = 'CFNetwork', 'SystemConfiguration', 'PassKit','CFNetwork', 'Security', 'CoreTelephony', 'SystemConfiguration', 'CoreMotion', 'QuartzCore', 'CoreText', 'CoreGraphics', 'WebKit'
+        sp.resource_bundles = {
+            'Pay' => ['ShFlyKit/Assets/Pay/**/*']
+        }
+        
+        sp.ios.vendored_frameworks = 'ShFlyKit/Classes/Pay/**/AlipaySDK.framework'
+        sp.resources = 'ShFlyKit/Classes/Pay/**/AlipaySDK.bundle'
+        sp.vendored_libraries = 'ShFlyKit/Classes/Pay/**/*.a'
+  end
   
 #  spec.subspec 'Map' do |sp|
 #        sp.dependency 'ShFlyKit/Base'

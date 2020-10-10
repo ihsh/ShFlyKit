@@ -22,6 +22,7 @@
   "pod_target_xcconfig": {
     "ENABLE_BITCODE": "NO",
     "CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF": "NO",
+    "OTHER_LDFLAGS": "-ObjC",
     "LIBRARY_SEARCH_PATHS": [
       "$(inherited)"
     ]
@@ -124,6 +125,47 @@
         "vendored_frameworks": "ShFlyKit/Classes/Share/**/*.framework"
       },
       "vendored_libraries": "ShFlyKit/Classes/Share/**/*.a"
+    },
+    {
+      "name": "Pay",
+      "dependencies": {
+        "ShFlyKit/Base": [
+
+        ],
+        "ShFlyKit/Share": [
+
+        ]
+      },
+      "source_files": "ShFlyKit/Classes/Pay/**/*",
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
+      ],
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "PassKit",
+        "CFNetwork",
+        "Security",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CoreMotion",
+        "QuartzCore",
+        "CoreText",
+        "CoreGraphics",
+        "WebKit"
+      ],
+      "resource_bundles": {
+        "Pay": [
+          "ShFlyKit/Assets/Pay/**/*"
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": "ShFlyKit/Classes/Pay/**/AlipaySDK.framework"
+      },
+      "resources": "ShFlyKit/Classes/Pay/**/AlipaySDK.bundle",
+      "vendored_libraries": "ShFlyKit/Classes/Pay/**/*.a"
     }
   ],
   "swift_version": "4.0"

@@ -99,10 +99,14 @@ EOM
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Components.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Graphics.bundle"
+  install_resource "${PODS_ROOT}/../../ShFlyKit/Classes/Pay/Frameworks/AlipaySDK.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Pay.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Components.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Graphics.bundle"
+  install_resource "${PODS_ROOT}/../../ShFlyKit/Classes/Pay/Frameworks/AlipaySDK.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Pay.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

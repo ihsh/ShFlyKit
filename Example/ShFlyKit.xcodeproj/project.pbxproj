@@ -250,11 +250,15 @@
 				"${PODS_ROOT}/Target Support Files/Pods-ShFlyKit_Example/Pods-ShFlyKit_Example-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Components.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Graphics.bundle",
+				"${PODS_ROOT}/../../ShFlyKit/Classes/Pay/Frameworks/AlipaySDK.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Pay.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Components.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Graphics.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Pay.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
