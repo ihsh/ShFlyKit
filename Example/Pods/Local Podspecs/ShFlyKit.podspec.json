@@ -144,9 +144,6 @@
       ],
       "frameworks": [
         "CFNetwork",
-        "SystemConfiguration",
-        "PassKit",
-        "CFNetwork",
         "Security",
         "CoreTelephony",
         "SystemConfiguration",
@@ -154,18 +151,19 @@
         "QuartzCore",
         "CoreText",
         "CoreGraphics",
-        "WebKit"
+        "WebKit",
+        "PassKit"
       ],
+      "ios": {
+        "vendored_frameworks": "ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.framework"
+      },
+      "resources": "ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle",
+      "vendored_libraries": "ShFlyKit/Classes/Pay/**/*.a",
       "resource_bundles": {
         "Pay": [
           "ShFlyKit/Assets/Pay/**/*"
         ]
-      },
-      "ios": {
-        "vendored_frameworks": "ShFlyKit/Classes/Pay/**/AlipaySDK.framework"
-      },
-      "resources": "ShFlyKit/Classes/Pay/**/AlipaySDK.bundle",
-      "vendored_libraries": "ShFlyKit/Classes/Pay/**/*.a"
+      }
     }
   ],
   "swift_version": "4.0"

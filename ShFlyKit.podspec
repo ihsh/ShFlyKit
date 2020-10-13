@@ -106,14 +106,14 @@ Pod::Spec.new do |spec|
         sp.dependency 'ShFlyKit/Share'
         sp.source_files = 'ShFlyKit/Classes/Pay/**/*'
         sp.libraries = "c++", "z","sqlite3"
-        sp.frameworks = 'CFNetwork', 'SystemConfiguration', 'PassKit','CFNetwork', 'Security', 'CoreTelephony', 'SystemConfiguration', 'CoreMotion', 'QuartzCore', 'CoreText', 'CoreGraphics', 'WebKit'
+        sp.frameworks = 'CFNetwork', 'Security', 'CoreTelephony', 'SystemConfiguration', 'CoreMotion', 'QuartzCore', 'CoreText', 'CoreGraphics', 'WebKit' ,'PassKit'
+        sp.ios.vendored_frameworks = 'ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.framework'
+        sp.resources = 'ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle'
+        sp.vendored_libraries = 'ShFlyKit/Classes/Pay/**/*.a'
         sp.resource_bundles = {
             'Pay' => ['ShFlyKit/Assets/Pay/**/*']
         }
         
-        sp.ios.vendored_frameworks = 'ShFlyKit/Classes/Pay/**/AlipaySDK.framework'
-        sp.resources = 'ShFlyKit/Classes/Pay/**/AlipaySDK.bundle'
-        sp.vendored_libraries = 'ShFlyKit/Classes/Pay/**/*.a'
   end
   
 #  spec.subspec 'Map' do |sp|

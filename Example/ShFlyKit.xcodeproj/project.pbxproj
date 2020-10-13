@@ -8,13 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		04534EE92510C55300660966 /* OCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04534EE82510C55300660966 /* OCViewController.m */; };
+		04B4E86B25354E2E00BAFDAC /* Pods_ShFlyKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB88F117AC1B0FBC4CF09752 /* Pods_ShFlyKit_Example.framework */; };
+		04B4E86C25354E2E00BAFDAC /* Pods_ShFlyKit_Example.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB88F117AC1B0FBC4CF09752 /* Pods_ShFlyKit_Example.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		9FD5EFCA54296A4654EBA1FE /* Pods_ShFlyKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB88F117AC1B0FBC4CF09752 /* Pods_ShFlyKit_Example.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		04B4E86D25354E2E00BAFDAC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				04B4E86C25354E2E00BAFDAC /* Pods_ShFlyKit_Example.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		04534EE52510C2DE00660966 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -41,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FD5EFCA54296A4654EBA1FE /* Pods_ShFlyKit_Example.framework in Frameworks */,
+				04B4E86B25354E2E00BAFDAC /* Pods_ShFlyKit_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +148,7 @@
 				607FACCE1AFB9204008FA782 /* Resources */,
 				3180FB24DC6FCECEF3BDFFF3 /* [CP] Embed Pods Frameworks */,
 				8379744BE8FCE2CB59A6BD2A /* [CP] Copy Pods Resources */,
+				04B4E86D25354E2E00BAFDAC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,7 +266,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-ShFlyKit_Example/Pods-ShFlyKit_Example-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Components.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Graphics.bundle",
-				"${PODS_ROOT}/../../ShFlyKit/Classes/Pay/Frameworks/AlipaySDK.bundle",
+				"${PODS_ROOT}/../../ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Pay.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -412,7 +428,10 @@
 				DEVELOPMENT_TEAM = LZ4WWU27SQ;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INPUT_FILETYPE = automatic;
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				INFOPLIST_FILE = ShFlyKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -424,7 +443,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				VALID_ARCHS = "armv7 armv7s arm64 arm64e";
 			};
 			name = Debug;
 		};
@@ -437,7 +455,10 @@
 				DEVELOPMENT_TEAM = LZ4WWU27SQ;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INPUT_FILETYPE = automatic;
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				INFOPLIST_FILE = ShFlyKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -447,7 +468,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "ShFlyKit/ShFlyKit_Example-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				VALID_ARCHS = "armv7 armv7s arm64 arm64e";
 			};
 			name = Release;
 		};
