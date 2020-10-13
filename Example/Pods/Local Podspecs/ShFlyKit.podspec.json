@@ -30,6 +30,9 @@
   "libraries": "c++",
   "static_framework": true,
   "dependencies": {
+    "Bugly": [
+
+    ],
     "Masonry": [
 
     ],
@@ -64,6 +67,24 @@
     {
       "name": "Media",
       "source_files": "ShFlyKit/Classes/Media/**/*",
+      "dependencies": {
+        "ShFlyKit/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": "ShFlyKit/Classes/Network/**/*",
+      "dependencies": {
+        "ShFlyKit/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Server",
+      "source_files": "ShFlyKit/Classes/Server/**/*",
       "dependencies": {
         "ShFlyKit/Base": [
 
@@ -135,6 +156,49 @@
         "ShFlyKit/Classes/Share/lib/Wechat/libWeChatSDK.a",
         "ShFlyKit/Classes/Share/lib/Weibo/libWeiboSDK.a"
       ]
+    },
+    {
+      "name": "Pay",
+      "source_files": "ShFlyKit/Classes/Pay/**/*.{h,m,swift}",
+      "public_header_files": "ShFlyKit/Classes/Pay/**/*.h",
+      "dependencies": {
+        "ShFlyKit/Base": [
+
+        ],
+        "ShFlyKit/Share": [
+
+        ],
+        "ShFlyKit/Graphics": [
+
+        ]
+      },
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
+      ],
+      "frameworks": [
+        "CFNetwork",
+        "Security",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CoreMotion",
+        "QuartzCore",
+        "CoreText",
+        "CoreGraphics",
+        "WebKit",
+        "PassKit"
+      ],
+      "ios": {
+        "vendored_frameworks": "ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.framework"
+      },
+      "resources": "ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle",
+      "vendored_libraries": "ShFlyKit/Classes/Pay/**/*.a",
+      "resource_bundles": {
+        "Pay": [
+          "ShFlyKit/Assets/Pay/**/*"
+        ]
+      }
     }
   ],
   "swift_version": "4.0"

@@ -55,7 +55,7 @@ class PayFunction: NSObject,WXApiDelegate,UPAPayPluginDelegate{
     //配置微信的appid和mchid
     public func configWechat(appId:String,mchId:String){
         if (appId != wechatAppId) {
-           let result = [WXApi .registerApp(appId, enableMTA: false)];
+           let result = [WXApi .registerApp(appId, universalLink: "")];
             print(result);
         }
         wechatAppId = appId;
@@ -123,10 +123,12 @@ class PayFunction: NSObject,WXApiDelegate,UPAPayPluginDelegate{
         req.timeStamp = timeStamp;      //时间戳，防重发
         req.package = package;          //商家根据财付通文档填写的数据和签名
         req.sign = sign;                //商家根据微信开放平台文档对数据做的签名
-        if (WXApi.send(req) == false) {
-            let block:BlockPair = pairForType(PayType.WeChat);
-            block.failureBlock(-999,"发起微信支付失败");
-            deletePairForType(PayType.WeChat);
+        WXApi.send(req) { (finish) in
+            if (finish == false){
+                let block:BlockPair = self.pairForType(PayType.WeChat);
+                block.failureBlock(-999,"发起微信支付失败");
+                self.deletePairForType(PayType.WeChat);
+            }
         }
     }
     

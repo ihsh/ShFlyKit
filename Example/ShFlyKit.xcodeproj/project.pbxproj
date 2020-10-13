@@ -146,9 +146,9 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				3180FB24DC6FCECEF3BDFFF3 /* [CP] Embed Pods Frameworks */,
 				8379744BE8FCE2CB59A6BD2A /* [CP] Copy Pods Resources */,
 				04B4E86D25354E2E00BAFDAC /* Embed Frameworks */,
+				4D1ABAF9EA8101F671DDE757 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,7 +209,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3180FB24DC6FCECEF3BDFFF3 /* [CP] Embed Pods Frameworks */ = {
+		4D1ABAF9EA8101F671DDE757 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -266,12 +266,16 @@
 				"${PODS_ROOT}/Target Support Files/Pods-ShFlyKit_Example/Pods-ShFlyKit_Example-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Components.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Graphics.bundle",
+				"${PODS_ROOT}/../../ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Pay.bundle",
 				"${PODS_ROOT}/../../ShFlyKit/Classes/Share/lib/Weibo/WeiboSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Components.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Graphics.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Pay.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,7 +26,7 @@ Pod::Spec.new do |spec|
   spec.libraries = "c++"
   spec.static_framework = true
   #全局依赖
-#  spec.dependency 'Bugly'
+  spec.dependency 'Bugly'
   spec.dependency 'Masonry'
   spec.dependency 'YYModel'
   spec.dependency 'SDWebImage'
@@ -53,18 +53,18 @@ Pod::Spec.new do |spec|
         sp.source_files = 'ShFlyKit/Classes/Media/**/*'
         sp.dependency 'ShFlyKit/Base'
   end
-#
-#  #网络请求
-#  spec.subspec 'Network' do |sp|
-#        sp.source_files = 'ShFlyKit/Classes/Network/**/*'
-#        sp.dependency 'ShFlyKit/Base'
-#  end
-#
-#  #网络直连
-#  spec.subspec 'Server' do |sp|
-#        sp.source_files = 'ShFlyKit/Classes/Server/**/*'
-#        sp.dependency 'ShFlyKit/Base'
-#  end
+
+  #网络请求
+  spec.subspec 'Network' do |sp|
+        sp.source_files = 'ShFlyKit/Classes/Network/**/*'
+        sp.dependency 'ShFlyKit/Base'
+  end
+
+  #网络直连
+  spec.subspec 'Server' do |sp|
+        sp.source_files = 'ShFlyKit/Classes/Server/**/*'
+        sp.dependency 'ShFlyKit/Base'
+  end
    
   #图形图像
   spec.subspec 'Graphics' do |sp|
@@ -102,23 +102,23 @@ Pod::Spec.new do |spec|
         sp.vendored_libraries = 'ShFlyKit/Classes/Share/lib/Wechat/libWeChatSDK.a','ShFlyKit/Classes/Share/lib/Weibo/libWeiboSDK.a'
   end
 
-#  #支付
-#  spec.subspec 'Pay' do |sp|
-#        sp.source_files = 'ShFlyKit/Classes/Pay/**/*.{h,m,swift}'
-#        sp.public_header_files = 'ShFlyKit/Classes/Pay/**/*.h'
-#        sp.dependency 'ShFlyKit/Base'
-#        sp.dependency 'ShFlyKit/Share'
-#        sp.dependency 'ShFlyKit/Graphics'
-#        sp.libraries = "c++", "z","sqlite3"
-#        sp.frameworks = 'CFNetwork', 'Security', 'CoreTelephony', 'SystemConfiguration', 'CoreMotion', 'QuartzCore', 'CoreText', 'CoreGraphics', 'WebKit' ,'PassKit'
-#        sp.ios.vendored_frameworks = 'ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.framework'
-#        sp.resources = 'ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle'
-#        sp.vendored_libraries = 'ShFlyKit/Classes/Pay/**/*.a'
-#        sp.resource_bundles = {
-#            'Pay' => ['ShFlyKit/Assets/Pay/**/*']
-#        }
-#
-#  end
+  #支付
+  spec.subspec 'Pay' do |sp|
+        sp.source_files = 'ShFlyKit/Classes/Pay/**/*.{h,m,swift}'
+        sp.public_header_files = 'ShFlyKit/Classes/Pay/**/*.h'
+        sp.dependency 'ShFlyKit/Base'
+        sp.dependency 'ShFlyKit/Share'
+        sp.dependency 'ShFlyKit/Graphics'
+        sp.libraries = "c++", "z","sqlite3"
+        sp.frameworks = 'CFNetwork', 'Security', 'CoreTelephony', 'SystemConfiguration', 'CoreMotion', 'QuartzCore', 'CoreText', 'CoreGraphics', 'WebKit' ,'PassKit'
+        sp.ios.vendored_frameworks = 'ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.framework'
+        sp.resources = 'ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle'
+        sp.vendored_libraries = 'ShFlyKit/Classes/Pay/**/*.a'
+        sp.resource_bundles = {
+            'Pay' => ['ShFlyKit/Assets/Pay/**/*']
+        }
+
+  end
   
 #  spec.subspec 'Map' do |sp|
 #        sp.dependency 'ShFlyKit/Base'

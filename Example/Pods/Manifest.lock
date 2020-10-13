@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - Bugly (2.5.71)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -23,6 +24,7 @@ PODS:
   - SDWebImage/Core (5.9.3)
   - ShFlyKit (1.0.6):
     - AFNetworking
+    - Bugly
     - FMDB
     - Masonry
     - SDWebImage
@@ -31,16 +33,21 @@ PODS:
     - ShFlyKit/Components (= 1.0.6)
     - ShFlyKit/Graphics (= 1.0.6)
     - ShFlyKit/Media (= 1.0.6)
+    - ShFlyKit/Network (= 1.0.6)
+    - ShFlyKit/Pay (= 1.0.6)
+    - ShFlyKit/Server (= 1.0.6)
     - ShFlyKit/Share (= 1.0.6)
     - YYModel
   - ShFlyKit/Base (1.0.6):
     - AFNetworking
+    - Bugly
     - FMDB
     - Masonry
     - SDWebImage
     - YYModel
   - ShFlyKit/Chart (1.0.6):
     - AFNetworking
+    - Bugly
     - FMDB
     - Masonry
     - SDWebImage
@@ -48,6 +55,7 @@ PODS:
     - YYModel
   - ShFlyKit/Components (1.0.6):
     - AFNetworking
+    - Bugly
     - FMDB
     - Masonry
     - SDWebImage
@@ -57,6 +65,7 @@ PODS:
     - YYModel
   - ShFlyKit/Graphics (1.0.6):
     - AFNetworking
+    - Bugly
     - FMDB
     - Masonry
     - SDWebImage
@@ -65,6 +74,33 @@ PODS:
     - YYModel
   - ShFlyKit/Media (1.0.6):
     - AFNetworking
+    - Bugly
+    - FMDB
+    - Masonry
+    - SDWebImage
+    - ShFlyKit/Base
+    - YYModel
+  - ShFlyKit/Network (1.0.6):
+    - AFNetworking
+    - Bugly
+    - FMDB
+    - Masonry
+    - SDWebImage
+    - ShFlyKit/Base
+    - YYModel
+  - ShFlyKit/Pay (1.0.6):
+    - AFNetworking
+    - Bugly
+    - FMDB
+    - Masonry
+    - SDWebImage
+    - ShFlyKit/Base
+    - ShFlyKit/Graphics
+    - ShFlyKit/Share
+    - YYModel
+  - ShFlyKit/Server (1.0.6):
+    - AFNetworking
+    - Bugly
     - FMDB
     - Masonry
     - SDWebImage
@@ -72,6 +108,7 @@ PODS:
     - YYModel
   - ShFlyKit/Share (1.0.6):
     - AFNetworking
+    - Bugly
     - FMDB
     - Masonry
     - SDWebImage
@@ -85,6 +122,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - Bugly
     - FMDB
     - Masonry
     - SDWebImage
@@ -96,10 +134,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: a31ee8e90a97303529e03fb0c333eae0eacb88e9
-  ShFlyKit: 732e1524833f662596c543637dc0b961f02efda0
+  ShFlyKit: 16af1bff72b9845e6bf8b6a34a1874fbce97c4f1
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
 PODFILE CHECKSUM: 19d25e61bfee25b15bf4cc49a5b2c49071371384
