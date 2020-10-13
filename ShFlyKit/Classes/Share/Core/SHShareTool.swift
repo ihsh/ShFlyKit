@@ -67,7 +67,7 @@ WeiboSDKDelegate,WXApiDelegate,TencentLoginDelegate,TencentSessionDelegate{
     public func registerAppkey(appkey:String,appType:LoginType){
         switch appType {
         case .WeChat:
-            WXApi.registerApp(appkey, enableMTA: false);
+            WXApi.registerApp(appkey, universalLink: "");
         case .QQ:
             self.tencentOauth = TencentOAuth.init(appId: appkey, andDelegate: self);
         case .Weibo:
@@ -125,7 +125,10 @@ WeiboSDKDelegate,WXApiDelegate,TencentLoginDelegate,TencentSessionDelegate{
             let message:WXMediaMessage = WXMediaMessage()
             message.title = dataObject.title;
             message.description = dataObject.content;
-            message.setThumbImage(dataObject.image);        //设置缩略图
+            //设置缩略图
+            if dataObject.image != nil {
+                message.setThumbImage(dataObject.image!);
+            }
             //分享的媒体类型
             if (dataObject.mediaType == .Vedio){
                 let vedioObjct:WXVideoObject = WXVideoObject()

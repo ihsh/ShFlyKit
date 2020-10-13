@@ -116,59 +116,25 @@
 
         ]
       },
-      "frameworks": "SystemConfiguration",
-      "libraries": [
-        "c++",
-        "z",
-        "sqlite3"
-      ],
-      "ios": {
-        "vendored_frameworks": "ShFlyKit/Classes/Share/**/*.framework"
-      },
-      "vendored_libraries": "ShFlyKit/Classes/Share/**/*.a"
-    },
-    {
-      "name": "Pay",
-      "source_files": "ShFlyKit/Classes/Pay/**/*.{h,m,swift}",
-      "public_header_files": "ShFlyKit/Classes/Pay/**/*.h",
-      "dependencies": {
-        "ShFlyKit/Base": [
-
-        ],
-        "ShFlyKit/Share": [
-
-        ],
-        "ShFlyKit/Graphics": [
-
-        ]
-      },
-      "libraries": [
-        "c++",
-        "z",
-        "sqlite3"
-      ],
       "frameworks": [
-        "CFNetwork",
-        "Security",
-        "CoreTelephony",
         "SystemConfiguration",
-        "CoreMotion",
-        "QuartzCore",
-        "CoreText",
+        "Security",
         "CoreGraphics",
-        "WebKit",
-        "PassKit"
+        "WebKit"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
       ],
       "ios": {
-        "vendored_frameworks": "ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.framework"
+        "vendored_frameworks": "ShFlyKit/Classes/Share/lib/Tencent/TencentOpenAPI.framework"
       },
-      "resources": "ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle",
-      "vendored_libraries": "ShFlyKit/Classes/Pay/**/*.a",
-      "resource_bundles": {
-        "Pay": [
-          "ShFlyKit/Assets/Pay/**/*"
-        ]
-      }
+      "resources": "ShFlyKit/Classes/Share/lib/Weibo/WeiboSDK.bundle",
+      "vendored_libraries": [
+        "ShFlyKit/Classes/Share/lib/Wechat/libWeChatSDK.a",
+        "ShFlyKit/Classes/Share/lib/Weibo/libWeiboSDK.a"
+      ]
     }
   ],
   "swift_version": "4.0"

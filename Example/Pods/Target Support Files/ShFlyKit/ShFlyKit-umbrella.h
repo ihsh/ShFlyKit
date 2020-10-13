@@ -49,16 +49,7 @@
 #import "UIImage+QRCode.h"
 #import "LivePhotoMaker.h"
 #import "liveSourceModel.h"
-#import "AFServiceCenter.h"
-#import "AFServiceResponse.h"
-#import "AlipaySDK.h"
-#import "APayAuthInfo.h"
-#import "UPAPayPlugin.h"
-#import "UPAPayPluginDelegate.h"
-#import "UPPaymentControl.h"
 #import "ScreenSnap.h"
-#import "WBHttpRequest.h"
-#import "WeiboSDK.h"
 #import "QQApiInterface.h"
 #import "QQApiInterfaceObject.h"
 #import "sdkdef.h"
@@ -66,6 +57,8 @@
 #import "WechatAuthSDK.h"
 #import "WXApi.h"
 #import "WXApiObject.h"
+#import "WBHttpRequest.h"
+#import "WeiboSDK.h"
 
 FOUNDATION_EXPORT double ShFlyKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char ShFlyKitVersionString[];

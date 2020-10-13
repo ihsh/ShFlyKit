@@ -99,14 +99,12 @@ EOM
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Components.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Graphics.bundle"
-  install_resource "${PODS_ROOT}/../../ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle"
-  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Pay.bundle"
+  install_resource "${PODS_ROOT}/../../ShFlyKit/Classes/Share/lib/Weibo/WeiboSDK.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Components.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Graphics.bundle"
-  install_resource "${PODS_ROOT}/../../ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle"
-  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Pay.bundle"
+  install_resource "${PODS_ROOT}/../../ShFlyKit/Classes/Share/lib/Weibo/WeiboSDK.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
