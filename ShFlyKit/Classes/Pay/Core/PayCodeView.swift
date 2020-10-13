@@ -8,6 +8,7 @@
 
 import UIKit
 import QuartzCore
+import Masonry
 
 @objc protocol PayCodeViewDelegate:NSObjectProtocol {
     //点击放大条形码

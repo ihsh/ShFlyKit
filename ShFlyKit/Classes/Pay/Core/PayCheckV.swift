@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Masonry
 
 ///支付结果页查询代理
 @objc protocol PayCheckDelegate:NSObjectProtocol {

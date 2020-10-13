@@ -8,7 +8,7 @@
 
 
 import UIKit
-
+import Masonry
 
 ///查询支付结果的转圈圈及结果动画--支付宝支付后的转圈圈效果
 class QueryCircleAnimateV: UIView,CAAnimationDelegate,DisplayDelegate{

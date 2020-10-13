@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Masonry
 
 //UI的代理
 @objc protocol SHShareUIDelegate:NSObjectProtocol {

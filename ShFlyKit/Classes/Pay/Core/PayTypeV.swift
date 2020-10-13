@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Masonry
 
 //自定义UI代理
 protocol PayTypeDelegate:NSObjectProtocol {

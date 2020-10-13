@@ -91,7 +91,8 @@ Pod::Spec.new do |spec|
 
   #分享
   spec.subspec 'Share' do |sp|
-        sp.source_files = 'ShFlyKit/Classes/Share/**/*'
+        sp.source_files = 'ShFlyKit/Classes/Share/**/*.{h,m,swift}'
+        sp.public_header_files = 'ShFlyKit/Classes/Share/**/*.h'
         sp.dependency 'ShFlyKit/Base'
         sp.frameworks = 'SystemConfiguration'
         sp.libraries = "c++", "z","sqlite3"
@@ -102,9 +103,11 @@ Pod::Spec.new do |spec|
 
   #支付
   spec.subspec 'Pay' do |sp|
+        sp.source_files = 'ShFlyKit/Classes/Pay/**/*.{h,m,swift}'
+        sp.public_header_files = 'ShFlyKit/Classes/Pay/**/*.h'
         sp.dependency 'ShFlyKit/Base'
         sp.dependency 'ShFlyKit/Share'
-        sp.source_files = 'ShFlyKit/Classes/Pay/**/*'
+        sp.dependency 'ShFlyKit/Graphics'
         sp.libraries = "c++", "z","sqlite3"
         sp.frameworks = 'CFNetwork', 'Security', 'CoreTelephony', 'SystemConfiguration', 'CoreMotion', 'QuartzCore', 'CoreText', 'CoreGraphics', 'WebKit' ,'PassKit'
         sp.ios.vendored_frameworks = 'ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.framework'

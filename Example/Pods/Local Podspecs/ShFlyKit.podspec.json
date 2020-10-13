@@ -109,7 +109,8 @@
     },
     {
       "name": "Share",
-      "source_files": "ShFlyKit/Classes/Share/**/*",
+      "source_files": "ShFlyKit/Classes/Share/**/*.{h,m,swift}",
+      "public_header_files": "ShFlyKit/Classes/Share/**/*.h",
       "dependencies": {
         "ShFlyKit/Base": [
 
@@ -128,15 +129,19 @@
     },
     {
       "name": "Pay",
+      "source_files": "ShFlyKit/Classes/Pay/**/*.{h,m,swift}",
+      "public_header_files": "ShFlyKit/Classes/Pay/**/*.h",
       "dependencies": {
         "ShFlyKit/Base": [
 
         ],
         "ShFlyKit/Share": [
 
+        ],
+        "ShFlyKit/Graphics": [
+
         ]
       },
-      "source_files": "ShFlyKit/Classes/Pay/**/*",
       "libraries": [
         "c++",
         "z",
