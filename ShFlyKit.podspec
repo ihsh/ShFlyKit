@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
     'ENABLE_BITCODE' => 'NO',
     'CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF' => 'NO',
     'OTHER_LDFLAGS' => '-ObjC',
-    'LIBRARY_SEARCH_PATHS' => ['$(inherited)']
+    'LIBRARY_SEARCH_PATHS' => ['$(inherited)'],
   }
   #其他配置
   spec.libraries = "c++"

@@ -18,9 +18,9 @@ PODS:
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
   - Masonry (1.1.0)
-  - SDWebImage (5.9.2):
-    - SDWebImage/Core (= 5.9.2)
-  - SDWebImage/Core (5.9.2)
+  - SDWebImage (5.9.3):
+    - SDWebImage/Core (= 5.9.3)
+  - SDWebImage/Core (5.9.3)
   - ShFlyKit (1.0.6):
     - AFNetworking
     - FMDB
@@ -98,7 +98,7 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  SDWebImage: 0b42b8719ab0c5257177d5894306e8a336b21cbb
+  SDWebImage: a31ee8e90a97303529e03fb0c333eae0eacb88e9
   ShFlyKit: 732e1524833f662596c543637dc0b961f02efda0
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
