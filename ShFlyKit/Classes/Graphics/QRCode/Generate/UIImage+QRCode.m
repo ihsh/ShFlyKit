@@ -7,7 +7,6 @@
 //
 
 #import "UIImage+QRCode.h"
-//#import <ShFlyKit/ShFlyKit-Swift.h>
 
 
 @implementation UIImage (QRCode)
@@ -56,9 +55,11 @@
         if ((*pCurPtr & 0xffffff00) < 0xd0d0d000) {
             //将黑点变成自定义的颜色
             uint8_t* ptr = (uint8_t*)pCurPtr;
-//            ptr[3] = color.redCompont*255;
-//            ptr[2] = color.greenCompont*255;
-//            ptr[1] = color.blueCompont*255;
+            CGColorRef cgColor = [color CGColor];
+            const CGFloat *components = CGColorGetComponents(cgColor);
+            ptr[3] = (components[0] ?: 0)*255;
+            ptr[2] = (components[1] ?: 0)*255;
+            ptr[1] = (components[2] ?: 0)*255;
         }else{
 //            //开启后条纹为黑色，空白为所选色
 //            uint8_t* ptr = (uint8_t*)pCurPtr;
@@ -193,9 +194,11 @@ void ProviderReleaseData(void * info, const void * data, size_t size) {
     for (int i = 0; i<pixelNum; i++, pCurPtr++) {
         if ((*pCurPtr & 0xFFFFFF00) < 0x99999900) {
             uint8_t* ptr = (uint8_t*)pCurPtr;
-//            ptr[3] = color.redCompont*255;
-//            ptr[2] = color.greenCompont*255;
-//            ptr[1] = color.blueCompont*255;
+            CGColorRef cgColor = [color CGColor];
+            const CGFloat *components = CGColorGetComponents(cgColor);
+            ptr[3] = (components[0] ?: 0)*255;
+            ptr[2] = (components[1] ?: 0)*255;
+            ptr[1] = (components[2] ?: 0)*255;
         }else{
             uint8_t* ptr = (uint8_t*)pCurPtr;
             ptr[0] = 0;

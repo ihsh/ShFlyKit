@@ -1,6 +1,6 @@
 {
   "name": "ShFlyKit",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "summary": "A framework that is often used in enterprise development",
   "description": "A framework that is often used in enterprise developments",
   "homepage": "https://github.com/ihsh/ShFlyKit",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/ihsh/ShFlyKit.git",
-    "tag": "1.0.6"
+    "tag": "1.0.7"
   },
   "platforms": {
     "ios": "10.0"
@@ -100,6 +100,9 @@
         ],
         "ShFlyKit/Media": [
 
+        ],
+        "AipOcrSdk": [
+
         ]
       },
       "resource_bundles": {
@@ -119,6 +122,9 @@
 
         ],
         "ShFlyKit/Graphics": [
+
+        ],
+        "GT3Captcha": [
 
         ]
       },

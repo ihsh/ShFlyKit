@@ -14,38 +14,46 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - AipOcrSdk (0.1.0):
+    - AipOcrSdk/AipBase (= 0.1.0)
+    - AipOcrSdk/AipOcrSdk (= 0.1.0)
+    - AipOcrSdk/IdcardQuality (= 0.1.0)
+  - AipOcrSdk/AipBase (0.1.0)
+  - AipOcrSdk/AipOcrSdk (0.1.0)
+  - AipOcrSdk/IdcardQuality (0.1.0)
   - Bugly (2.5.71)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - GT3Captcha (0.1.6)
   - Masonry (1.1.0)
   - SDWebImage (5.9.3):
     - SDWebImage/Core (= 5.9.3)
   - SDWebImage/Core (5.9.3)
-  - ShFlyKit (1.0.6):
+  - ShFlyKit (1.0.7):
     - AFNetworking
     - Bugly
     - FMDB
     - Masonry
     - SDWebImage
-    - ShFlyKit/Base (= 1.0.6)
-    - ShFlyKit/Chart (= 1.0.6)
-    - ShFlyKit/Components (= 1.0.6)
-    - ShFlyKit/Graphics (= 1.0.6)
-    - ShFlyKit/Media (= 1.0.6)
-    - ShFlyKit/Network (= 1.0.6)
-    - ShFlyKit/Pay (= 1.0.6)
-    - ShFlyKit/Server (= 1.0.6)
-    - ShFlyKit/Share (= 1.0.6)
+    - ShFlyKit/Base (= 1.0.7)
+    - ShFlyKit/Chart (= 1.0.7)
+    - ShFlyKit/Components (= 1.0.7)
+    - ShFlyKit/Graphics (= 1.0.7)
+    - ShFlyKit/Media (= 1.0.7)
+    - ShFlyKit/Network (= 1.0.7)
+    - ShFlyKit/Pay (= 1.0.7)
+    - ShFlyKit/Server (= 1.0.7)
+    - ShFlyKit/Share (= 1.0.7)
     - YYModel
-  - ShFlyKit/Base (1.0.6):
+  - ShFlyKit/Base (1.0.7):
     - AFNetworking
     - Bugly
     - FMDB
     - Masonry
     - SDWebImage
     - YYModel
-  - ShFlyKit/Chart (1.0.6):
+  - ShFlyKit/Chart (1.0.7):
     - AFNetworking
     - Bugly
     - FMDB
@@ -53,18 +61,20 @@ PODS:
     - SDWebImage
     - ShFlyKit/Base
     - YYModel
-  - ShFlyKit/Components (1.0.6):
+  - ShFlyKit/Components (1.0.7):
     - AFNetworking
     - Bugly
     - FMDB
+    - GT3Captcha
     - Masonry
     - SDWebImage
     - ShFlyKit/Base
     - ShFlyKit/Graphics
     - ShFlyKit/Media
     - YYModel
-  - ShFlyKit/Graphics (1.0.6):
+  - ShFlyKit/Graphics (1.0.7):
     - AFNetworking
+    - AipOcrSdk
     - Bugly
     - FMDB
     - Masonry
@@ -72,7 +82,7 @@ PODS:
     - ShFlyKit/Base
     - ShFlyKit/Media
     - YYModel
-  - ShFlyKit/Media (1.0.6):
+  - ShFlyKit/Media (1.0.7):
     - AFNetworking
     - Bugly
     - FMDB
@@ -80,7 +90,7 @@ PODS:
     - SDWebImage
     - ShFlyKit/Base
     - YYModel
-  - ShFlyKit/Network (1.0.6):
+  - ShFlyKit/Network (1.0.7):
     - AFNetworking
     - Bugly
     - FMDB
@@ -88,7 +98,7 @@ PODS:
     - SDWebImage
     - ShFlyKit/Base
     - YYModel
-  - ShFlyKit/Pay (1.0.6):
+  - ShFlyKit/Pay (1.0.7):
     - AFNetworking
     - Bugly
     - FMDB
@@ -98,7 +108,7 @@ PODS:
     - ShFlyKit/Graphics
     - ShFlyKit/Share
     - YYModel
-  - ShFlyKit/Server (1.0.6):
+  - ShFlyKit/Server (1.0.7):
     - AFNetworking
     - Bugly
     - FMDB
@@ -106,7 +116,7 @@ PODS:
     - SDWebImage
     - ShFlyKit/Base
     - YYModel
-  - ShFlyKit/Share (1.0.6):
+  - ShFlyKit/Share (1.0.7):
     - AFNetworking
     - Bugly
     - FMDB
@@ -122,8 +132,10 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - AipOcrSdk
     - Bugly
     - FMDB
+    - GT3Captcha
     - Masonry
     - SDWebImage
     - YYModel
@@ -134,11 +146,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AipOcrSdk: 6d471b3f02ec0a440aa96ea45752298ee3b26d49
   Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  GT3Captcha: 6c2724cf9a2e7c3411b1cc1b2aa56b76be48df87
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: a31ee8e90a97303529e03fb0c333eae0eacb88e9
-  ShFlyKit: 16af1bff72b9845e6bf8b6a34a1874fbce97c4f1
+  ShFlyKit: e5ff71db633ca75da40922024c95227e7954d8a1
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
 PODFILE CHECKSUM: 19d25e61bfee25b15bf4cc49a5b2c49071371384

@@ -3,7 +3,7 @@
 Pod::Spec.new do |spec|
   #基础配置
   spec.name         = "ShFlyKit"
-  spec.version      = "1.0.6"
+  spec.version      = "1.0.7"
   spec.summary      = "A framework that is often used in enterprise development"
   spec.description  = <<-DESC
                       A framework that is often used in enterprise developments
@@ -71,7 +71,7 @@ Pod::Spec.new do |spec|
         sp.source_files = 'ShFlyKit/Classes/Graphics/**/*'
         sp.dependency 'ShFlyKit/Base'
         sp.dependency 'ShFlyKit/Media'
-#        sp.dependency 'AipOcrSdk'
+        sp.dependency 'AipOcrSdk'
         sp.resource_bundles = {
             'Graphics' => ['ShFlyKit/Assets/Graphics/**/*']
         }
@@ -83,7 +83,7 @@ Pod::Spec.new do |spec|
         sp.dependency 'ShFlyKit/Base'
         sp.dependency 'ShFlyKit/Media'
         sp.dependency 'ShFlyKit/Graphics'
-#        sp.dependency 'GT3Captcha'
+        sp.dependency 'GT3Captcha'
         sp.resource_bundles = {
             'Components' => ['ShFlyKit/Assets/Components/**/*']
         }
