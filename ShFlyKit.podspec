@@ -139,17 +139,20 @@ Pod::Spec.new do |spec|
             asp.dependency 'AMapNavi'
         end
   
-#        sp.subspec 'BaiduMap' do |bsp|
-#            bsp.source_files = 'ShFlyKit/Classes/Map/BaiduMap/**/*.{h,m,swift}'
-#            bsp.public_header_files = 'ShFlyKit/Classes/Map/BaiduMap/**/*.h'
-#            bsp.dependency 'ShFlyKit/Map/General'
-#            bsp.dependency 'BaiduMapKit'
-#            bsp.dependency 'BMKLocationKit'
-#            bsp.libraries = 'sqlite3', 'c++'
-#            bsp.resource_bundles = {
-#                'BaiduMap' => ['ShFlyKit/Classes/Map/BaiduMap/Resources/*']
-#            }
-#        end
+        sp.subspec 'BaiduMap' do |bsp|
+            bsp.source_files = 'ShFlyKit/Classes/Map/BaiduMap/**/*.{h,m,swift}'
+            bsp.public_header_files = 'ShFlyKit/Classes/Map/BaiduMap/**/*.h'
+            bsp.dependency 'ShFlyKit/Map/General'
+
+            bsp.ios.vendored_frameworks = 'ShFlyKit/Classes/Map/BaiduMap/SDKs/*.framework'
+            bsp.vendored_libraries = 'ShFlyKit/Classes/Map/BaiduMap/SDKs/thirdlibs/*.a'
+            bsp.frameworks = 'CoreLocation', 'QuartzCore', 'OpenGLES', 'SystemConfiguration', 'CoreGraphics', 'Security', 'CoreTelephony', 'MobileCoreServices','AdSupport'
+            bsp.libraries = 'sqlite3', 'c++'
+            bsp.resource = 'ShFlyKit/Classes/Map/BaiduMap/SDKs/BaiduMapAPI_Map.framework/mapapi.bundle'
+            bsp.resource_bundles = {
+                'BaiduMap' => ['ShFlyKit/Classes/Map/BaiduMap/Resources/*']
+            }
+        end
   end
   
   

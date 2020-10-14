@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AMapNaviKit/MAMapKit.h>
+@import AMapNaviKit;
+
 
 @protocol AMapTrackingDelegate;
 

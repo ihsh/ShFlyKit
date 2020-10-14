@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AMapNaviKit/MAMapKit.h>
 #import "QuadTree.h"
-
+#import "AMapClusterObject.h"
+@import AMapNaviKit;
 
 @interface CoordinateQuadTree : NSObject
 @property (nonatomic, assign) QuadTreeNode * root;

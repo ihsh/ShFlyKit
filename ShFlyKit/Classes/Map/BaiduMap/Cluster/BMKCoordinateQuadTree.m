@@ -7,7 +7,7 @@
 //
 
 #import "BMKCoordinateQuadTree.h"
-#import "SHKit-Swift.h"
+#import "BMKGeometry.h"
 
 
 QuadTreeNodeData BMKQuadTreeNodeDataForAMapPOI(BMKClusterModel* poi){

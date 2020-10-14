@@ -9,7 +9,6 @@
 import UIKit
 import PassKit
 
-
 //支持的支付方式
 enum PayType {
     case ZhiFubao,WeChat,Union,ApplePay, Wallet,Cash,Custom                   //支付宝，微信，银联(云闪付),ApplePay,个人钱包,现金,自定义

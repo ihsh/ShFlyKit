@@ -8,7 +8,7 @@
 
 import UIKit
 import AMapNaviKit
-import Masonry
+
 
 ///轨迹类代理
 protocol AMapPathTrackViewDelegate :NSObjectProtocol {

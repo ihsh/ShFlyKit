@@ -8,8 +8,7 @@
 
 import UIKit
 import AMapNaviKit
-import AMapNaviKit
-import Masonry
+
 
 ///多路径视图代理
 @objc protocol AMapMultlRouteViewDelegate : NSObjectProtocol {

@@ -6,10 +6,9 @@
 //  Copyright (c) 2014年 AutoNavi. All rights reserved.
 //
 
-#import <AMapNaviKit/MAMapKit.h>
+
 #import <AMapSearchKit/AMapCommonObj.h>
 #import "CoordinateQuadTree.h"
-#import <ShFlyKit/ShFlyKit-Swift.h>
 
 
 QuadTreeNodeData QuadTreeNodeDataForAMapPOI(AMapClusterModel* poi){
@@ -84,7 +83,7 @@ BoundingBox quadTreeNodeDataArrayForPOIs(QuadTreeNodeData *dataArray, NSArray * 
         AMapClusterModel *aPoi = (__bridge AMapClusterModel *)data.data;
         
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(aPoi.location.latitude, aPoi.location.longitude);
-        ClusterAnnotation *annotation = [[ClusterAnnotation alloc]initsWithCoordinate:coordinate count:1];
+        ClusterAnnotation *annotation = [[ClusterAnnotation alloc] initWithCoordinate:coordinate count:1];
         annotation.pois = @[aPoi].mutableCopy;
         
         [clusteredAnnotations addObject:annotation];
@@ -127,14 +126,14 @@ BoundingBox quadTreeNodeDataArrayForPOIs(QuadTreeNodeData *dataArray, NSArray * 
             /* 若区域内仅有一个数据. */
             if (count == 1){
                 CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(totalX, totalY);
-                ClusterAnnotation *annotation = [[ClusterAnnotation alloc] initsWithCoordinate:coordinate count:count];
+                ClusterAnnotation *annotation = [[ClusterAnnotation alloc] initWithCoordinate:coordinate count:count];
                 annotation.pois = pois;
                 [clusteredAnnotations addObject:annotation];
             }
             /* 若区域内有多个数据 按数据的中心位置画点. */
             if (count > 1){
                 CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(totalX / count, totalY / count);
-                ClusterAnnotation *annotation = [[ClusterAnnotation alloc] initsWithCoordinate:coordinate count:count];
+                ClusterAnnotation *annotation = [[ClusterAnnotation alloc] initWithCoordinate:coordinate count:count];
                 annotation.pois  = pois;
                 [clusteredAnnotations addObject:annotation];
             }
@@ -160,7 +159,7 @@ BoundingBox quadTreeNodeDataArrayForPOIs(QuadTreeNodeData *dataArray, NSArray * 
         
         ClusterAnnotation *cluster = [self getClusterForAnnotation:aAnnotation inClusteredAnnotations:clusteredAnnotations withDistance:distance];
         if (cluster == nil) {
-            ClusterAnnotation *aResult = [[ClusterAnnotation alloc] initsWithCoordinate:resultCoor count:1];
+            ClusterAnnotation *aResult = [[ClusterAnnotation alloc] initWithCoordinate:resultCoor count:1];
             aResult.pois = @[aAnnotation].mutableCopy;
             
             [clusteredAnnotations addObject:aResult];

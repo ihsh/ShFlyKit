@@ -240,6 +240,41 @@
 
             ]
           }
+        },
+        {
+          "name": "BaiduMap",
+          "source_files": "ShFlyKit/Classes/Map/BaiduMap/**/*.{h,m,swift}",
+          "public_header_files": "ShFlyKit/Classes/Map/BaiduMap/**/*.h",
+          "dependencies": {
+            "ShFlyKit/Map/General": [
+
+            ]
+          },
+          "ios": {
+            "vendored_frameworks": "ShFlyKit/Classes/Map/BaiduMap/SDKs/*.framework"
+          },
+          "vendored_libraries": "ShFlyKit/Classes/Map/BaiduMap/SDKs/thirdlibs/*.a",
+          "frameworks": [
+            "CoreLocation",
+            "QuartzCore",
+            "OpenGLES",
+            "SystemConfiguration",
+            "CoreGraphics",
+            "Security",
+            "CoreTelephony",
+            "MobileCoreServices",
+            "AdSupport"
+          ],
+          "libraries": [
+            "sqlite3",
+            "c++"
+          ],
+          "resources": "ShFlyKit/Classes/Map/BaiduMap/SDKs/BaiduMapAPI_Map.framework/mapapi.bundle",
+          "resource_bundles": {
+            "BaiduMap": [
+              "ShFlyKit/Classes/Map/BaiduMap/Resources/*"
+            ]
+          }
         }
       ]
     }

@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BMKClusterObject.h"
+#import "BMKTypes.h"
 #import "QuadTree.h"
-#import <BaiduMapAPI_Map/BMKMapView.h>
+
 
 
 @interface BMKCoordinateQuadTree : NSObject

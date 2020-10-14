@@ -8,7 +8,7 @@
 
 import UIKit
 import AMapSearchKit
-import Masonry
+
 //位置选点中表格视图控件
 
 protocol AMapPoiResultTableDelegate {

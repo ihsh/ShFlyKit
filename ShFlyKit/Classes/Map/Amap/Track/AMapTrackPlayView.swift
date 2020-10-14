@@ -8,7 +8,7 @@
 
 import UIKit
 import AMapNaviKit
-import Masonry
+
 
 ///显示地图轨迹视图类
 

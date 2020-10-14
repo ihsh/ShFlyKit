@@ -275,6 +275,8 @@
 				"${PODS_ROOT}/GT3Captcha/ios/GT3Captcha.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Components.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Graphics.bundle",
+				"${PODS_ROOT}/../../ShFlyKit/Classes/Map/BaiduMap/SDKs/BaiduMapAPI_Map.framework/mapapi.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/BaiduMap.bundle",
 				"${PODS_ROOT}/../../ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Pay.bundle",
 				"${PODS_ROOT}/../../ShFlyKit/Classes/Share/lib/Weibo/WeiboSDK.bundle",
@@ -286,6 +288,8 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GT3Captcha.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Components.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Graphics.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BaiduMap.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Pay.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
@@ -438,9 +442,10 @@
 			baseConfigurationReference = A4E794DC0EAF370DAC9484E9 /* Pods-ShFlyKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LZ4WWU27SQ;
+				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INPUT_FILETYPE = automatic;
@@ -467,9 +472,10 @@
 			baseConfigurationReference = 59164E6049399F7AA322840C /* Pods-ShFlyKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LZ4WWU27SQ;
+				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INPUT_FILETYPE = automatic;
