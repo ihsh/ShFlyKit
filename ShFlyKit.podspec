@@ -120,23 +120,29 @@ Pod::Spec.new do |spec|
 
   end
   
-#  spec.subspec 'Map' do |sp|
-#        sp.dependency 'ShFlyKit/Base'
-#        sp.subspec 'General' do |gesp|
-#            gesp.source_files = 'ShFlyKit/Classes/Map/General/**/*'
-#        end
-#        
-#        sp.subspec 'Amap' do |asp|
-#            asp.source_files = 'ShFlyKit/Classes/Map/Amap/**/*'
-#            asp.dependency 'ShFlyKit/Map/General'
-#            asp.dependency 'ShFlyKit/Components'
-#            asp.dependency 'AMapSearch'
-#            asp.dependency 'AMapLocation'
-#            asp.dependency 'AMapNavi'
-#        end
+  #地图
+  spec.subspec 'Map' do |sp|
+        sp.dependency 'ShFlyKit/Base'
+        
+        sp.subspec 'General' do |gesp|
+            gesp.public_header_files = 'ShFlyKit/Classes/Map/General/**/*.h'
+            gesp.source_files = 'ShFlyKit/Classes/Map/General/**/*.{h,m,swift}'
+        end
+        
+        sp.subspec 'Amap' do |asp|
+            asp.source_files = 'ShFlyKit/Classes/Map/Amap/**/*.{h,m,swift}'
+            asp.public_header_files = 'ShFlyKit/Classes/Map/Amap/**/*.h'
+            asp.dependency 'ShFlyKit/Map/General'
+            asp.dependency 'ShFlyKit/Components'
+            asp.dependency 'AMapSearch'
+            asp.dependency 'AMapLocation'
+            asp.dependency 'AMapNavi'
+        end
   
 #        sp.subspec 'BaiduMap' do |bsp|
-#            bsp.source_files = 'ShFlyKit/Classes/Map/BaiduMap/**/*'
+#            bsp.source_files = 'ShFlyKit/Classes/Map/BaiduMap/**/*.{h,m,swift}'
+#            bsp.public_header_files = 'ShFlyKit/Classes/Map/BaiduMap/**/*.h'
+#            bsp.dependency 'ShFlyKit/Map/General'
 #            bsp.dependency 'BaiduMapKit'
 #            bsp.dependency 'BMKLocationKit'
 #            bsp.libraries = 'sqlite3', 'c++'
@@ -144,7 +150,7 @@ Pod::Spec.new do |spec|
 #                'BaiduMap' => ['ShFlyKit/Classes/Map/BaiduMap/Resources/*']
 #            }
 #        end
-#  end
+  end
   
   
 end

@@ -97,6 +97,8 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/AMapNavi/AMapNaviKit.framework/AMapNavi.bundle"
+  install_resource "${PODS_ROOT}/AMapNavi/AMapNaviKit.framework/AMap.bundle"
   install_resource "${PODS_ROOT}/GT3Captcha/ios/GT3Captcha.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Components.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Graphics.bundle"
@@ -105,6 +107,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/../../ShFlyKit/Classes/Share/lib/Weibo/WeiboSDK.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/AMapNavi/AMapNaviKit.framework/AMapNavi.bundle"
+  install_resource "${PODS_ROOT}/AMapNavi/AMapNaviKit.framework/AMap.bundle"
   install_resource "${PODS_ROOT}/GT3Captcha/ios/GT3Captcha.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Components.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Graphics.bundle"

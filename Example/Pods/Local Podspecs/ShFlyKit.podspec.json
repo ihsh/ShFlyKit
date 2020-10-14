@@ -205,6 +205,43 @@
           "ShFlyKit/Assets/Pay/**/*"
         ]
       }
+    },
+    {
+      "name": "Map",
+      "dependencies": {
+        "ShFlyKit/Base": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "General",
+          "public_header_files": "ShFlyKit/Classes/Map/General/**/*.h",
+          "source_files": "ShFlyKit/Classes/Map/General/**/*.{h,m,swift}"
+        },
+        {
+          "name": "Amap",
+          "source_files": "ShFlyKit/Classes/Map/Amap/**/*.{h,m,swift}",
+          "public_header_files": "ShFlyKit/Classes/Map/Amap/**/*.h",
+          "dependencies": {
+            "ShFlyKit/Map/General": [
+
+            ],
+            "ShFlyKit/Components": [
+
+            ],
+            "AMapSearch": [
+
+            ],
+            "AMapLocation": [
+
+            ],
+            "AMapNavi": [
+
+            ]
+          }
+        }
+      ]
     }
   ],
   "swift_version": "4.0"
