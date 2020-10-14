@@ -22,7 +22,7 @@ pod 'ShFlyKit'
 
 ## Author
 
-957929697@qq.com, huolalamac@163.com
+957929697@qq.com
 
 ## License
 

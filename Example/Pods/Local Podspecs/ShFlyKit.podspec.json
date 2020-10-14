@@ -25,7 +25,8 @@
     "OTHER_LDFLAGS": "-ObjC",
     "LIBRARY_SEARCH_PATHS": [
       "$(inherited)"
-    ]
+    ],
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
   },
   "libraries": "c++",
   "static_framework": true,
@@ -269,12 +270,7 @@
             "sqlite3",
             "c++"
           ],
-          "resources": "ShFlyKit/Classes/Map/BaiduMap/SDKs/BaiduMapAPI_Map.framework/mapapi.bundle",
-          "resource_bundles": {
-            "BaiduMap": [
-              "ShFlyKit/Classes/Map/BaiduMap/Resources/*"
-            ]
-          }
+          "resources": "ShFlyKit/Classes/Map/BaiduMap/SDKs/BaiduMapAPI_Map.framework/mapapi.bundle"
         }
       ]
     }

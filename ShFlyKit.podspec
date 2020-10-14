@@ -21,6 +21,7 @@ Pod::Spec.new do |spec|
     'CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF' => 'NO',
     'OTHER_LDFLAGS' => '-ObjC',
     'LIBRARY_SEARCH_PATHS' => ['$(inherited)'],
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
   }
   #其他配置
   spec.libraries = "c++"
@@ -149,9 +150,6 @@ Pod::Spec.new do |spec|
             bsp.frameworks = 'CoreLocation', 'QuartzCore', 'OpenGLES', 'SystemConfiguration', 'CoreGraphics', 'Security', 'CoreTelephony', 'MobileCoreServices','AdSupport'
             bsp.libraries = 'sqlite3', 'c++'
             bsp.resource = 'ShFlyKit/Classes/Map/BaiduMap/SDKs/BaiduMapAPI_Map.framework/mapapi.bundle'
-            bsp.resource_bundles = {
-                'BaiduMap' => ['ShFlyKit/Classes/Map/BaiduMap/Resources/*']
-            }
         end
   end
   

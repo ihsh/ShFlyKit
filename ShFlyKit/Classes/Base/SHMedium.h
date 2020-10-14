@@ -61,7 +61,6 @@ static NSString * _Nullable host = @"";
 /**
  URLScheme跳转
  格式：scheme://[host]/[path]?[params] (path最后一层作为目标控制器识别码，层级2层或以上，第一层作为tab控制器的设别码，其他的层级会被忽略)
- 举例：hlldapp://huolala.cn/me/welfare?id=403
  
  @param url 调用方URL
  @param instanceHandler 回调跳转到的实例

@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BMKBaseComponent.h"
 #import "BMKClusterObject.h"
-#import "BMKTypes.h"
 #import "QuadTree.h"
 
 
