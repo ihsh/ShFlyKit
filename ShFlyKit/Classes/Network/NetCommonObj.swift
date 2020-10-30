@@ -13,7 +13,7 @@ import AVFoundation
 
 
 ///设备信息 -- 不变
-class DeviceInfo:NSObject{
+public class DeviceInfo:NSObject{
     //设备名称
     public let deviceName = SystemInfo.deviceName()
     //手机系统版本
@@ -24,7 +24,7 @@ class DeviceInfo:NSObject{
 
 
 ///应用的信息 -- 不变
-class AppInfo:NSObject{
+public class AppInfo:NSObject{
     //当前应用版本
     public let version = SystemInfo.appVersion()
     //当前应用名称
@@ -37,7 +37,7 @@ class AppInfo:NSObject{
 
 
 ///设备UI信息
-class UIInfo:NSObject{
+public class UIInfo:NSObject{
     //屏幕宽
     public let screenWidth = UIScreen.main.bounds.size.width
     //屏幕高
@@ -46,7 +46,7 @@ class UIInfo:NSObject{
 
 
 ///权限信息
-class PermissionInfo:NSObject{
+public class PermissionInfo:NSObject{
     //定位许可
     public var locationAccess:Bool = false
     //通讯录许可
@@ -102,7 +102,7 @@ class PermissionInfo:NSObject{
 
 
 ///设备动态的信息
-class DynamicInfo:NSObject{//从不变到变化越快的
+public class DynamicInfo:NSObject{//从不变到变化越快的
     //手机总内存
     public var memoryTotal:Double = 0.0
     //运营商
@@ -179,7 +179,7 @@ class DynamicInfo:NSObject{//从不变到变化越快的
 
 
 ///网络质量
-enum NetQuality:String {
+public enum NetQuality:String {
    case best = "好",            //网络快，响应快                       <0.2
         good = "不错",          //网络良好，偶尔延时高                  0.2-1
         poor = "缓慢",          //网络缓慢                            1-2
@@ -189,7 +189,7 @@ enum NetQuality:String {
 
 
 ///ping信息
-class PingInfo:NSObject{
+public class PingInfo:NSObject{
     //网络状况-默认网络状况好
     public var quality:NetQuality = NetQuality.good
     ///ping的次数

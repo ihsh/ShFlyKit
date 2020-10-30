@@ -11,7 +11,7 @@ import UIKit
 
 
 ///照片信息读取
-class ImageInfo: NSObject {
+public class ImageInfo: NSObject {
     //Variable
     public var dateTime:String!             //拍摄的日期时间
     public var model:String!                //相机品牌

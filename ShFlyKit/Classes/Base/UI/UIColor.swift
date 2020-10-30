@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIColor {
+public extension UIColor {
 
     /// 生成RGB颜色
     ///
@@ -18,7 +18,7 @@ extension UIColor {
     ///   - b: 蓝色值
     ///   - alpha: 透明度
     /// - Returns: 返回的颜色值
-   @objc public static func colorRGB(red:Int,green:Int,blue:Int,alpha:CGFloat = 1)->UIColor{
+    @objc static func colorRGB(red:Int,green:Int,blue:Int,alpha:CGFloat = 1)->UIColor{
         return UIColor(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: alpha);
     }
     
@@ -29,7 +29,7 @@ extension UIColor {
     ///   - rgbValue: 十六进制字符串 带#
     ///   - alpha: 透明度
     /// - Returns: 返回的颜色值
-   @objc public static func colorHexValue(_ hexStr:String,alpha:CGFloat = 1)->UIColor{
+    @objc static func colorHexValue(_ hexStr:String,alpha:CGFloat = 1)->UIColor{
         var red:   CGFloat = 0.0
         var green: CGFloat = 0.0
         var blue:  CGFloat = 0.0
@@ -72,28 +72,28 @@ extension UIColor {
 
     
     //颜色中的红色值
-    @objc public func redCompont()->CGFloat{
+    @objc func redCompont()->CGFloat{
         let components = self.cgColor.components;
         return components?[0] ?? 0;
     }
     
     
     //颜色中的绿色值
-    @objc public func greenCompont()->CGFloat{
+    @objc func greenCompont()->CGFloat{
         let components = self.cgColor.components;
         return components?[1] ?? 0;
     }
     
     
     //颜色中的蓝色值
-    @objc public func blueCompont()->CGFloat{
+    @objc func blueCompont()->CGFloat{
         let components = self.cgColor.components;
         return components?[2] ?? 0;
     }
     
     
     //生成随机色
-    @objc public static func randomColor(alpha:CGFloat = 1)->UIColor{
+    @objc static func randomColor(alpha:CGFloat = 1)->UIColor{
         let red = CGFloat(arc4random()%256)/255.0;
         let grren = CGFloat(arc4random()%256)/255.0;
         let blue = CGFloat(arc4random()%256)/255.0;
@@ -102,13 +102,13 @@ extension UIColor {
     
     
     //背景色
-    @objc public static func background()->UIColor{
+    @objc static func background()->UIColor{
         return UIColor.colorRGB(red: 237, green: 237, blue: 237);
     }
     
     
     //彩虹色
-    @objc public static func rainbowColor(_ i:Int)->UIColor{
+    @objc static func rainbowColor(_ i:Int)->UIColor{
         switch i {
         case 0:
             return UIColor.colorRGB(red: 255, green: 0, blue: 0);
@@ -131,7 +131,7 @@ extension UIColor {
     
     
     //随机颜色
-    @objc public static func randomForColors(_ colors:[UIColor])->UIColor{
+    @objc static func randomForColors(_ colors:[UIColor])->UIColor{
         let index:Int = Int(arc4random()) % colors.count;
         return colors[index];
     }

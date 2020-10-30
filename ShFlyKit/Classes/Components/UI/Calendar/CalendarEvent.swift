@@ -12,13 +12,13 @@ import EventKit
 
 
 ///结果枚举
-enum EventResult{
+public enum EventResult{
     case Error,NotGranted,SaveEror,Success      //错误，未授权，异常，成功
 }
 
 
 //protocol
-protocol CalendarEventDelegate:NSObjectProtocol {
+public protocol CalendarEventDelegate:NSObjectProtocol {
     //回传调用结果
     func handleResult(status:EventResult,error:Error?)
     //回传日历事件
@@ -28,7 +28,7 @@ protocol CalendarEventDelegate:NSObjectProtocol {
 
 
 ///处理日历日程
-class CalendarEventHandler: UIView {
+public class CalendarEventHandler: UIView {
     //Variable
     public weak var delegate:CalendarEventDelegate?
     //Private

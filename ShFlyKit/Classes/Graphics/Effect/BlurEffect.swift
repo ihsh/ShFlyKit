@@ -10,7 +10,7 @@ import UIKit
 
 //创建一个高斯模糊的视图
 
-class BlurEffect: UIView {
+public class BlurEffect: UIView {
 
     
     //添加高斯模糊效果

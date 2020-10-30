@@ -11,7 +11,7 @@ import Masonry
 
 ///地图上控制层，处理空白与按钮的点击
 
-class MapControlView: UIView {
+public class MapControlView: UIView {
     // MARK: - 属性
     public var bottomBar:UIView!              //底部视图
     public var topBar:UIView!                 //顶部视图
@@ -19,7 +19,7 @@ class MapControlView: UIView {
     
     
     // MARK: - 事件处理
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         //自己不能接收事件
         if (self.isUserInteractionEnabled == false ||
             self.isHidden == true ||

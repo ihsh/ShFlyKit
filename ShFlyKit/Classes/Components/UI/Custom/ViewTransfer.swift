@@ -18,7 +18,7 @@ public enum TransDirection{
 }
 
 
-class ViewTransfer: UIView {
+public class ViewTransfer: UIView {
     // MARK: - 属性
     private var direction:TransDirection!  //运动的方向
     private var originRect:CGRect!         //添加前的位置
@@ -126,7 +126,7 @@ class ViewTransfer: UIView {
 
     
     //点击去除视图
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event);
         let touch = ((touches as NSSet).anyObject() as AnyObject);
         let point = touch.location(in: self);

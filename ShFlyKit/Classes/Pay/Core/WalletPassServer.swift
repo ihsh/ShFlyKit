@@ -10,7 +10,7 @@ import UIKit
 
 
 //Wallet
-class WalletPassServer: UIView {
+public class WalletPassServer: UIView {
 
    
 

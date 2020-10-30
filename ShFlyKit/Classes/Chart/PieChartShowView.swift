@@ -11,7 +11,7 @@ import UIKit
 
 
 ///饼图-简易绘制
-class PieChartShowView: UIView {
+public class PieChartShowView: UIView {
     //mark-Variable
     private var radius:CGFloat = 0                  //绘制圆的半径
     private var comonents:[PieComponent] = []       //绘制的数据
@@ -26,7 +26,7 @@ class PieChartShowView: UIView {
     
     
     ///load
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews();
         if radius == 0 {
              radius = self.height / 2 - radiusSub;
@@ -43,7 +43,7 @@ class PieChartShowView: UIView {
     
     
     //绘制
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         //累加和
         var sum:CGFloat = 0;
         for component in comonents {
@@ -224,7 +224,7 @@ class PieChartShowView: UIView {
 
 
 ///图表的数据模型
-class PieComponent: NSObject {
+public class PieComponent: NSObject {
     public var value:CGFloat = 0            //数值
     public var color:UIColor!               //对应部分饼图的颜色
     public var content:NSString!            //饼图对应的文字

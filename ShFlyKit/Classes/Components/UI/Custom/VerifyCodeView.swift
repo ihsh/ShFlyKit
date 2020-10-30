@@ -10,19 +10,19 @@
 import UIKit
 
 
-protocol VerifyCodeViewDelegate:NSObjectProtocol {
+public protocol VerifyCodeViewDelegate:NSObjectProtocol {
     //结束输入
     func endInputVerifyCode(_ code:String);
 }
 
 ///样式
-enum CodeStyle {
+public enum CodeStyle {
     case Line,Square
 }
 
 
 //验证码输入视图
-class VerifyCodeView: UIView,CustomTextFieldDelegate,UITextFieldDelegate {
+public class VerifyCodeView: UIView,CustomTextFieldDelegate,UITextFieldDelegate {
     //Variable
     public weak var delegate:VerifyCodeViewDelegate?
     public var style:CodeStyle = .Square                                //默认样式
@@ -101,7 +101,7 @@ class VerifyCodeView: UIView,CustomTextFieldDelegate,UITextFieldDelegate {
     
     
     ///CustomTextFieldDelegate
-    func textFieldBackPressed(_ textField: UITextField, clear: Bool) {
+    public func textFieldBackPressed(_ textField: UITextField, clear: Bool) {
         //当前是已经清空的回退，往前一格退
         if clear == false {
             moveToLast();
@@ -109,7 +109,7 @@ class VerifyCodeView: UIView,CustomTextFieldDelegate,UITextFieldDelegate {
     }
     
     
-    func textFieldDidChange(_ textField: UITextField, text: String?) {
+    public func textFieldDidChange(_ textField: UITextField, text: String?) {
         //文字发生变更，如果当前已经有文字了，就往前移动
         if textField.text?.count ?? 0 >= 1 {
             moveToNext(text);
@@ -117,7 +117,7 @@ class VerifyCodeView: UIView,CustomTextFieldDelegate,UITextFieldDelegate {
     }
     
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //限制输入的字符仅为数字
         let str = string.trimmingCharacters(in: NSCharacterSet.decimalDigits);
         if string.count > 0 && str.count > 0 {
@@ -127,7 +127,7 @@ class VerifyCodeView: UIView,CustomTextFieldDelegate,UITextFieldDelegate {
     }
     
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
         for item in itemViews {
             //清空已有输入
             item.showLabel.text = nil;
@@ -136,7 +136,7 @@ class VerifyCodeView: UIView,CustomTextFieldDelegate,UITextFieldDelegate {
     
     
     //往后移动
-    func moveToNext(_ text:String?) {
+    private func moveToNext(_ text:String?) {
         //保存值
         for (i,item) in itemViews.enumerated() {
             if i == curIndex {
@@ -151,7 +151,7 @@ class VerifyCodeView: UIView,CustomTextFieldDelegate,UITextFieldDelegate {
       
     
     //往前移动
-    func moveToLast() {
+    private func moveToLast() {
         //清空当前及之前的输入
         for (i,item) in itemViews.enumerated() {
             if i == curIndex - 1 {
@@ -225,7 +225,7 @@ class VerifyCodeView: UIView,CustomTextFieldDelegate,UITextFieldDelegate {
 
 
 //验证码单视图
-class CodeItemV: UIView {
+public class CodeItemV: UIView {
     //Variable
     public var showLabel:UILabel!           //显示的文本
     //私有变量

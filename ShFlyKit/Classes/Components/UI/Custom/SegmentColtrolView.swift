@@ -9,13 +9,13 @@
 import UIKit
 
 
-protocol SegmentColtrolViewDelegate:NSObjectProtocol {
+public protocol SegmentColtrolViewDelegate:NSObjectProtocol {
     func segmentDidSelectIndex(_ index:Int,title:String)
 }
 
 
 ///滑动的segmengControl
-class SegmentColtrolView: UIView {
+public class SegmentColtrolView: UIView {
     //Variable
     public weak var delegate:SegmentColtrolViewDelegate?
     public var indicaterColor = UIColor.colorRGB(red: 58, green: 156, blue: 254)        //指示条颜色

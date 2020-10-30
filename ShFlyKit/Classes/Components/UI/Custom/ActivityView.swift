@@ -10,11 +10,11 @@ import UIKit
 import SDWebImage
 
 //关闭按钮的位置
-enum ClosePosition {
+public enum ClosePosition {
     case Bottom,RightCorner     //底部，右上角
 }
 
-@objc protocol ActivityViewDelegate:NSObjectProtocol {
+@objc public protocol ActivityViewDelegate:NSObjectProtocol {
     //点击链接
     func clickActivity(_ url:String)
     //点击消失
@@ -23,7 +23,7 @@ enum ClosePosition {
 
 
 ///活动闪屏
-class ActivityView: UIView,HeatBeatTimerDelegate{
+public class ActivityView: UIView,HeatBeatTimerDelegate{
     //Variable
     public weak var delegate:ActivityViewDelegate?
     
@@ -41,7 +41,7 @@ class ActivityView: UIView,HeatBeatTimerDelegate{
     
     
     //HeatBeatTimerDelegate
-    func timeTaskCalled(identifier: String) {
+    public func timeTaskCalled(identifier: String) {
         //当前无正在处理再继续
         if curModel == nil {
             let first = queues.first;
@@ -201,7 +201,7 @@ class ActivityView: UIView,HeatBeatTimerDelegate{
     
     
     //点击消失
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event);
         if curModel.touchDismiss {
             let touch = ((touches as NSSet).anyObject() as AnyObject);
@@ -219,7 +219,7 @@ class ActivityView: UIView,HeatBeatTimerDelegate{
 
 
 //活动数据模型
-class ActivityModel:NSObject{
+public class ActivityModel:NSObject{
     
     public var id:String!
     public var imgUrl:String!               //图片地址 例如 1.png/http:// 本地或者远程

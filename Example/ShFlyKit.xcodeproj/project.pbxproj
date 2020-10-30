@@ -10,6 +10,54 @@
 		04534EE92510C55300660966 /* OCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04534EE82510C55300660966 /* OCViewController.m */; };
 		04B4E86B25354E2E00BAFDAC /* Pods_ShFlyKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB88F117AC1B0FBC4CF09752 /* Pods_ShFlyKit_Example.framework */; };
 		04B4E86C25354E2E00BAFDAC /* Pods_ShFlyKit_Example.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB88F117AC1B0FBC4CF09752 /* Pods_ShFlyKit_Example.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04BEA852254BB03C0095F73A /* RouteInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA820254BB03C0095F73A /* RouteInfoView.swift */; };
+		04BEA853254BB03C0095F73A /* MultiRoutePlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA821254BB03C0095F73A /* MultiRoutePlanVC.swift */; };
+		04BEA854254BB03C0095F73A /* BottomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA822254BB03C0095F73A /* BottomInfoView.swift */; };
+		04BEA855254BB03C0095F73A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA823254BB03C0095F73A /* MapViewController.swift */; };
+		04BEA856254BB03C0095F73A /* AMapTrackPlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA824254BB03C0095F73A /* AMapTrackPlayVC.swift */; };
+		04BEA857254BB03C0095F73A /* AMapClusterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA825254BB03C0095F73A /* AMapClusterVC.swift */; };
+		04BEA858254BB03C0095F73A /* AMapTrackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA826254BB03C0095F73A /* AMapTrackVC.swift */; };
+		04BEA859254BB03C0095F73A /* BaiduMaoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA827254BB03C0095F73A /* BaiduMaoVC.swift */; };
+		04BEA85A254BB03C0095F73A /* BMKTrackPlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA828254BB03C0095F73A /* BMKTrackPlayVC.swift */; };
+		04BEA85B254BB03C0095F73A /* AMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA829254BB03C0095F73A /* AMapVC.swift */; };
+		04BEA85C254BB03C0095F73A /* BMKClusterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA82A254BB03C0095F73A /* BMKClusterVC.swift */; };
+		04BEA85D254BB03C0095F73A /* AnimateItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA82C254BB03C0095F73A /* AnimateItemVC.swift */; };
+		04BEA85E254BB03C0095F73A /* ImageColorFetchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA82D254BB03C0095F73A /* ImageColorFetchVC.swift */; };
+		04BEA85F254BB03C0095F73A /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA82E254BB03C0095F73A /* ChartVC.swift */; };
+		04BEA860254BB03C0095F73A /* OcrTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA82F254BB03C0095F73A /* OcrTestVC.swift */; };
+		04BEA861254BB03C0095F73A /* GifFrameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA830254BB03C0095F73A /* GifFrameVC.swift */; };
+		04BEA862254BB03C0095F73A /* UIViewCurveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA831254BB03C0095F73A /* UIViewCurveVC.swift */; };
+		04BEA863254BB03C0095F73A /* SystemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA832254BB03C0095F73A /* SystemInfoVC.swift */; };
+		04BEA864254BB03C0095F73A /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA833254BB03C0095F73A /* GradientViewController.swift */; };
+		04BEA865254BB03C0095F73A /* JiYanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA834254BB03C0095F73A /* JiYanVC.swift */; };
+		04BEA866254BB03C0095F73A /* HealthTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA835254BB03C0095F73A /* HealthTestVC.swift */; };
+		04BEA867254BB03C0095F73A /* TextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA836254BB03C0095F73A /* TextVC.swift */; };
+		04BEA868254BB03C0095F73A /* QueryAnimateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA837254BB03C0095F73A /* QueryAnimateVC.swift */; };
+		04BEA869254BB03C0095F73A /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA838254BB03C0095F73A /* CalendarVC.swift */; };
+		04BEA86A254BB03C0095F73A /* WaveLineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA839254BB03C0095F73A /* WaveLineVC.swift */; };
+		04BEA86B254BB03C0095F73A /* LocationPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA83A254BB03C0095F73A /* LocationPickerVC.swift */; };
+		04BEA86C254BB03C0095F73A /* GradientLayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA83B254BB03C0095F73A /* GradientLayerVC.swift */; };
+		04BEA86D254BB03C0095F73A /* QRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA83C254BB03C0095F73A /* QRCodeVC.swift */; };
+		04BEA86E254BB03C0095F73A /* ColorWheelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA83D254BB03C0095F73A /* ColorWheelVC.swift */; };
+		04BEA86F254BB03C0095F73A /* TrackPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA83E254BB03C0095F73A /* TrackPathView.swift */; };
+		04BEA870254BB03C0095F73A /* VedioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA83F254BB03C0095F73A /* VedioVC.swift */; };
+		04BEA871254BB03C0095F73A /* PrintTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA840254BB03C0095F73A /* PrintTestVC.swift */; };
+		04BEA872254BB03C0095F73A /* HandBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA841254BB03C0095F73A /* HandBoardVC.swift */; };
+		04BEA873254BB03C0095F73A /* OtherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA842254BB03C0095F73A /* OtherVC.swift */; };
+		04BEA874254BB03C0095F73A /* custom_map_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BEA844254BB03C0095F73A /* custom_map_config.json */; };
+		04BEA875254BB03C0095F73A /* style.data in Resources */ = {isa = PBXBuildFile; fileRef = 04BEA845254BB03C0095F73A /* style.data */; };
+		04BEA876254BB03C0095F73A /* running_record.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BEA846254BB03C0095F73A /* running_record.json */; };
+		04BEA877254BB03C0095F73A /* jietu.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BEA847254BB03C0095F73A /* jietu.png */; };
+		04BEA878254BB03C0095F73A /* loading3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04BEA848254BB03C0095F73A /* loading3.gif */; };
+		04BEA879254BB03C0095F73A /* loading2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04BEA849254BB03C0095F73A /* loading2.gif */; };
+		04BEA87A254BB03C0095F73A /* loading1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04BEA84A254BB03C0095F73A /* loading1.gif */; };
+		04BEA87B254BB03C0095F73A /* aip.license in Resources */ = {isa = PBXBuildFile; fileRef = 04BEA84B254BB03C0095F73A /* aip.license */; };
+		04BEA87C254BB03C0095F73A /* SecurityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA84D254BB03C0095F73A /* SecurityVC.swift */; };
+		04BEA87D254BB03C0095F73A /* TransVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA84E254BB03C0095F73A /* TransVC.swift */; };
+		04BEA87E254BB03C0095F73A /* ShareDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA84F254BB03C0095F73A /* ShareDemoVC.swift */; };
+		04BEA87F254BB03C0095F73A /* NetWorkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA850254BB03C0095F73A /* NetWorkVC.swift */; };
+		04BEA880254BB03C0095F73A /* MainTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA851254BB03C0095F73A /* MainTabVC.swift */; };
+		04BEA969254BE5BE0095F73A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BEA968254BE5BE0095F73A /* HealthKit.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -36,6 +84,55 @@
 		04534EE62510C55300660966 /* ShFlyKit_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShFlyKit_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		04534EE72510C55300660966 /* OCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCViewController.h; sourceTree = "<group>"; };
 		04534EE82510C55300660966 /* OCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCViewController.m; sourceTree = "<group>"; };
+		04BEA820254BB03C0095F73A /* RouteInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteInfoView.swift; sourceTree = "<group>"; };
+		04BEA821254BB03C0095F73A /* MultiRoutePlanVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiRoutePlanVC.swift; sourceTree = "<group>"; };
+		04BEA822254BB03C0095F73A /* BottomInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomInfoView.swift; sourceTree = "<group>"; };
+		04BEA823254BB03C0095F73A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		04BEA824254BB03C0095F73A /* AMapTrackPlayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMapTrackPlayVC.swift; sourceTree = "<group>"; };
+		04BEA825254BB03C0095F73A /* AMapClusterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMapClusterVC.swift; sourceTree = "<group>"; };
+		04BEA826254BB03C0095F73A /* AMapTrackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMapTrackVC.swift; sourceTree = "<group>"; };
+		04BEA827254BB03C0095F73A /* BaiduMaoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaiduMaoVC.swift; sourceTree = "<group>"; };
+		04BEA828254BB03C0095F73A /* BMKTrackPlayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMKTrackPlayVC.swift; sourceTree = "<group>"; };
+		04BEA829254BB03C0095F73A /* AMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMapVC.swift; sourceTree = "<group>"; };
+		04BEA82A254BB03C0095F73A /* BMKClusterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMKClusterVC.swift; sourceTree = "<group>"; };
+		04BEA82C254BB03C0095F73A /* AnimateItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimateItemVC.swift; sourceTree = "<group>"; };
+		04BEA82D254BB03C0095F73A /* ImageColorFetchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageColorFetchVC.swift; sourceTree = "<group>"; };
+		04BEA82E254BB03C0095F73A /* ChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
+		04BEA82F254BB03C0095F73A /* OcrTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OcrTestVC.swift; sourceTree = "<group>"; };
+		04BEA830254BB03C0095F73A /* GifFrameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifFrameVC.swift; sourceTree = "<group>"; };
+		04BEA831254BB03C0095F73A /* UIViewCurveVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewCurveVC.swift; sourceTree = "<group>"; };
+		04BEA832254BB03C0095F73A /* SystemInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInfoVC.swift; sourceTree = "<group>"; };
+		04BEA833254BB03C0095F73A /* GradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
+		04BEA834254BB03C0095F73A /* JiYanVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JiYanVC.swift; sourceTree = "<group>"; };
+		04BEA835254BB03C0095F73A /* HealthTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthTestVC.swift; sourceTree = "<group>"; };
+		04BEA836254BB03C0095F73A /* TextVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextVC.swift; sourceTree = "<group>"; };
+		04BEA837254BB03C0095F73A /* QueryAnimateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryAnimateVC.swift; sourceTree = "<group>"; };
+		04BEA838254BB03C0095F73A /* CalendarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
+		04BEA839254BB03C0095F73A /* WaveLineVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveLineVC.swift; sourceTree = "<group>"; };
+		04BEA83A254BB03C0095F73A /* LocationPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationPickerVC.swift; sourceTree = "<group>"; };
+		04BEA83B254BB03C0095F73A /* GradientLayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientLayerVC.swift; sourceTree = "<group>"; };
+		04BEA83C254BB03C0095F73A /* QRCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeVC.swift; sourceTree = "<group>"; };
+		04BEA83D254BB03C0095F73A /* ColorWheelVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWheelVC.swift; sourceTree = "<group>"; };
+		04BEA83E254BB03C0095F73A /* TrackPathView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackPathView.swift; sourceTree = "<group>"; };
+		04BEA83F254BB03C0095F73A /* VedioVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VedioVC.swift; sourceTree = "<group>"; };
+		04BEA840254BB03C0095F73A /* PrintTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintTestVC.swift; sourceTree = "<group>"; };
+		04BEA841254BB03C0095F73A /* HandBoardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandBoardVC.swift; sourceTree = "<group>"; };
+		04BEA842254BB03C0095F73A /* OtherVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherVC.swift; sourceTree = "<group>"; };
+		04BEA844254BB03C0095F73A /* custom_map_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_map_config.json; sourceTree = "<group>"; };
+		04BEA845254BB03C0095F73A /* style.data */ = {isa = PBXFileReference; lastKnownFileType = file; path = style.data; sourceTree = "<group>"; };
+		04BEA846254BB03C0095F73A /* running_record.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = running_record.json; sourceTree = "<group>"; };
+		04BEA847254BB03C0095F73A /* jietu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jietu.png; sourceTree = "<group>"; };
+		04BEA848254BB03C0095F73A /* loading3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading3.gif; sourceTree = "<group>"; };
+		04BEA849254BB03C0095F73A /* loading2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading2.gif; sourceTree = "<group>"; };
+		04BEA84A254BB03C0095F73A /* loading1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading1.gif; sourceTree = "<group>"; };
+		04BEA84B254BB03C0095F73A /* aip.license */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = aip.license; sourceTree = "<group>"; };
+		04BEA84D254BB03C0095F73A /* SecurityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityVC.swift; sourceTree = "<group>"; };
+		04BEA84E254BB03C0095F73A /* TransVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransVC.swift; sourceTree = "<group>"; };
+		04BEA84F254BB03C0095F73A /* ShareDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareDemoVC.swift; sourceTree = "<group>"; };
+		04BEA850254BB03C0095F73A /* NetWorkVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkVC.swift; sourceTree = "<group>"; };
+		04BEA851254BB03C0095F73A /* MainTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabVC.swift; sourceTree = "<group>"; };
+		04BEA967254BE5BE0095F73A /* ShFlyKit_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShFlyKit_Example.entitlements; sourceTree = "<group>"; };
+		04BEA968254BE5BE0095F73A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		212AEA3E07CB74D4784E4459 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		59164E6049399F7AA322840C /* Pods-ShFlyKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShFlyKit_Example.release.xcconfig"; path = "Target Support Files/Pods-ShFlyKit_Example/Pods-ShFlyKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ShFlyKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShFlyKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,15 +154,103 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B4E86B25354E2E00BAFDAC /* Pods_ShFlyKit_Example.framework in Frameworks */,
+				04BEA969254BE5BE0095F73A /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04BEA81E254BB03C0095F73A /* demo */ = {
+			isa = PBXGroup;
+			children = (
+				04BEA81F254BB03C0095F73A /* MapDemo */,
+				04BEA82B254BB03C0095F73A /* Other */,
+				04BEA843254BB03C0095F73A /* Bundle */,
+				04BEA84C254BB03C0095F73A /* main */,
+			);
+			path = demo;
+			sourceTree = "<group>";
+		};
+		04BEA81F254BB03C0095F73A /* MapDemo */ = {
+			isa = PBXGroup;
+			children = (
+				04BEA820254BB03C0095F73A /* RouteInfoView.swift */,
+				04BEA821254BB03C0095F73A /* MultiRoutePlanVC.swift */,
+				04BEA822254BB03C0095F73A /* BottomInfoView.swift */,
+				04BEA823254BB03C0095F73A /* MapViewController.swift */,
+				04BEA824254BB03C0095F73A /* AMapTrackPlayVC.swift */,
+				04BEA825254BB03C0095F73A /* AMapClusterVC.swift */,
+				04BEA826254BB03C0095F73A /* AMapTrackVC.swift */,
+				04BEA827254BB03C0095F73A /* BaiduMaoVC.swift */,
+				04BEA828254BB03C0095F73A /* BMKTrackPlayVC.swift */,
+				04BEA829254BB03C0095F73A /* AMapVC.swift */,
+				04BEA82A254BB03C0095F73A /* BMKClusterVC.swift */,
+			);
+			path = MapDemo;
+			sourceTree = "<group>";
+		};
+		04BEA82B254BB03C0095F73A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				04BEA82C254BB03C0095F73A /* AnimateItemVC.swift */,
+				04BEA82D254BB03C0095F73A /* ImageColorFetchVC.swift */,
+				04BEA82E254BB03C0095F73A /* ChartVC.swift */,
+				04BEA82F254BB03C0095F73A /* OcrTestVC.swift */,
+				04BEA830254BB03C0095F73A /* GifFrameVC.swift */,
+				04BEA831254BB03C0095F73A /* UIViewCurveVC.swift */,
+				04BEA832254BB03C0095F73A /* SystemInfoVC.swift */,
+				04BEA833254BB03C0095F73A /* GradientViewController.swift */,
+				04BEA834254BB03C0095F73A /* JiYanVC.swift */,
+				04BEA835254BB03C0095F73A /* HealthTestVC.swift */,
+				04BEA836254BB03C0095F73A /* TextVC.swift */,
+				04BEA837254BB03C0095F73A /* QueryAnimateVC.swift */,
+				04BEA838254BB03C0095F73A /* CalendarVC.swift */,
+				04BEA839254BB03C0095F73A /* WaveLineVC.swift */,
+				04BEA83A254BB03C0095F73A /* LocationPickerVC.swift */,
+				04BEA83B254BB03C0095F73A /* GradientLayerVC.swift */,
+				04BEA83C254BB03C0095F73A /* QRCodeVC.swift */,
+				04BEA83D254BB03C0095F73A /* ColorWheelVC.swift */,
+				04BEA83E254BB03C0095F73A /* TrackPathView.swift */,
+				04BEA83F254BB03C0095F73A /* VedioVC.swift */,
+				04BEA840254BB03C0095F73A /* PrintTestVC.swift */,
+				04BEA841254BB03C0095F73A /* HandBoardVC.swift */,
+				04BEA842254BB03C0095F73A /* OtherVC.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		04BEA843254BB03C0095F73A /* Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				04BEA844254BB03C0095F73A /* custom_map_config.json */,
+				04BEA845254BB03C0095F73A /* style.data */,
+				04BEA846254BB03C0095F73A /* running_record.json */,
+				04BEA847254BB03C0095F73A /* jietu.png */,
+				04BEA848254BB03C0095F73A /* loading3.gif */,
+				04BEA849254BB03C0095F73A /* loading2.gif */,
+				04BEA84A254BB03C0095F73A /* loading1.gif */,
+				04BEA84B254BB03C0095F73A /* aip.license */,
+			);
+			path = Bundle;
+			sourceTree = "<group>";
+		};
+		04BEA84C254BB03C0095F73A /* main */ = {
+			isa = PBXGroup;
+			children = (
+				04BEA84D254BB03C0095F73A /* SecurityVC.swift */,
+				04BEA84E254BB03C0095F73A /* TransVC.swift */,
+				04BEA84F254BB03C0095F73A /* ShareDemoVC.swift */,
+				04BEA850254BB03C0095F73A /* NetWorkVC.swift */,
+				04BEA851254BB03C0095F73A /* MainTabVC.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				04BEA967254BE5BE0095F73A /* ShFlyKit_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for ShFlyKit */,
 				607FACD11AFB9204008FA782 /* Products */,
@@ -85,6 +270,7 @@
 		607FACD21AFB9204008FA782 /* Example for ShFlyKit */ = {
 			isa = PBXGroup;
 			children = (
+				04BEA81E254BB03C0095F73A /* demo */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				04534EE72510C55300660966 /* OCViewController.h */,
@@ -121,6 +307,7 @@
 		86B65255DAAE56C7595DC71E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04BEA968254BE5BE0095F73A /* HealthKit.framework */,
 				AB88F117AC1B0FBC4CF09752 /* Pods_ShFlyKit_Example.framework */,
 			);
 			name = Frameworks;
@@ -146,9 +333,9 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				8379744BE8FCE2CB59A6BD2A /* [CP] Copy Pods Resources */,
 				04B4E86D25354E2E00BAFDAC /* Embed Frameworks */,
 				4D1ABAF9EA8101F671DDE757 /* [CP] Embed Pods Frameworks */,
+				0D927C199317CDDEE6A2A23A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -201,14 +388,286 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				04BEA879254BB03C0095F73A /* loading2.gif in Resources */,
+				04BEA878254BB03C0095F73A /* loading3.gif in Resources */,
+				04BEA87A254BB03C0095F73A /* loading1.gif in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				04BEA876254BB03C0095F73A /* running_record.json in Resources */,
+				04BEA87B254BB03C0095F73A /* aip.license in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				04BEA875254BB03C0095F73A /* style.data in Resources */,
+				04BEA877254BB03C0095F73A /* jietu.png in Resources */,
+				04BEA874254BB03C0095F73A /* custom_map_config.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0D927C199317CDDEE6A2A23A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShFlyKit_Example/Pods-ShFlyKit_Example-resources.sh",
+				"${PODS_ROOT}/AMapNavi/AMapNaviKit.framework/AMapNavi.bundle",
+				"${PODS_ROOT}/AMapNavi/AMapNaviKit.framework/AMap.bundle",
+				"${PODS_ROOT}/GT3Captcha/ios/GT3Captcha.bundle",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-button-input-highlighted@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-button-input@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-button-tab-highlighted@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-button-tab@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-moment-button-highlighted@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-moment-button@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-moment-icon-camera-highlighted@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-moment-icon-camera@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-moment-icon-music-highlighted@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-moment-icon-music@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-moment-icon-place-highlighted@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-moment-icon-place@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-moment-icon-sleep-highlighted@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-moment-icon-sleep@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-moment-icon-thought-highlighted@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation/chooser-moment-icon-thought@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Ticket/seat_available@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Ticket/seat_selected@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Ticket/seat_sold@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/WebView/ic_navbar_back@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/WebView/ic_navbar_back@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/WebView/ic_navbar_close@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/WebView/ic_navbar_close@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/WebView/ic_navbar_more@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/WebView/ic_navbar_more@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Animation",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/UI/Ticket",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Components/WebView",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/SperePhotos/piggy.JPG",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_rainLine1.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_rainLine2.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_rainLine3.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_snow.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_sunnySun.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_sunnySunshine.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_white_cloud_0.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_white_cloud_1.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_white_cloud_10.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_white_cloud_11.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_white_cloud_12.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_white_cloud_2.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_white_cloud_3.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_white_cloud_4.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_white_cloud_5.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_white_cloud_6.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_white_cloud_7.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_white_cloud_8.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/ele_white_cloud_9.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/rain.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather/red_paceket@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Line/line.plist",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Line/shenzhen.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/SperePhotos",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Effect/Weather",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Graphics/Line",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/ball@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/camera@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/car2@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/car@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/custtexture_bad.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/custtexture_gray.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/custtexture_green.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/custtexture_no.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/custtexture_serious.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/custtexture_slow.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/gpsnormal@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/gpsnormal@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/gpssearchbutton@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/gpssearchbutton@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/locate_btn.jpg",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/location _drop_blue@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/location_end@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/location_point@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/location_point@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/location_start@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/redPin@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/redPin@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/street_location@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/street_location@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/trackingPoints@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/userPosition.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/userPosition@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/wateRedBlank@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Map/wateRedBlank@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/icon_attention@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/icon_attention@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_arrow_right_gray@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_arrow_right_gray@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_diselected@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_diselected@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_payment_alipay_on@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_payment_alipay_on@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_payment_applepay@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_payment_applepay@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_payment_arrow_adown@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_payment_arrow_adown@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_payment_cash_on@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_payment_cash_on@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_payment_wallet_on@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_payment_wallet_on@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_payment_wechat_on@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_payment_wechat_on@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_payment_yunquickpass@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_payment_yunquickpass@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_quickpass@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_quickpass@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_selected@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_selected@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_yinlian@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/ic_yinlian@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/navi_close_ex@2x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Pay/navi_close_ex@3x.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Share/share_qq.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Share/share_qzone.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Share/share_sina.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Share/share_sms.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Share/share_wechat.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Share/share_wechat_favorite.png",
+				"${PODS_ROOT}/../../ShFlyKit/Assets/Share/share_wechat_timeline.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMapNavi.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GT3Captcha.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-button-input-highlighted@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-button-input@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-button-tab-highlighted@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-button-tab@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-moment-button-highlighted@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-moment-button@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-moment-icon-camera-highlighted@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-moment-icon-camera@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-moment-icon-music-highlighted@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-moment-icon-music@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-moment-icon-place-highlighted@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-moment-icon-place@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-moment-icon-sleep-highlighted@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-moment-icon-sleep@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-moment-icon-thought-highlighted@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/chooser-moment-icon-thought@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/seat_available@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/seat_selected@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/seat_sold@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_navbar_back@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_navbar_back@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_navbar_close@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_navbar_close@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_navbar_more@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_navbar_more@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UI",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Animation",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ticket",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WebView",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/piggy.JPG",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_rainLine1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_rainLine2.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_rainLine3.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_snow.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_sunnySun.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_sunnySunshine.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_white_cloud_0.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_white_cloud_1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_white_cloud_10.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_white_cloud_11.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_white_cloud_12.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_white_cloud_2.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_white_cloud_3.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_white_cloud_4.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_white_cloud_5.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_white_cloud_6.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_white_cloud_7.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_white_cloud_8.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ele_white_cloud_9.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/rain.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/red_paceket@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/line.plist",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/shenzhen.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Effect",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SperePhotos",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Weather",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Line",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ball@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/camera@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/car2@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/car@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/custtexture_bad.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/custtexture_gray.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/custtexture_green.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/custtexture_no.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/custtexture_serious.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/custtexture_slow.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gpsnormal@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gpsnormal@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gpssearchbutton@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gpssearchbutton@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/locate_btn.jpg",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/location _drop_blue@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/location_end@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/location_point@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/location_point@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/location_start@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/redPin@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/redPin@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/street_location@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/street_location@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/trackingPoints@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/userPosition.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/userPosition@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/wateRedBlank@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/wateRedBlank@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/icon_attention@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/icon_attention@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_arrow_right_gray@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_arrow_right_gray@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_diselected@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_diselected@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_payment_alipay_on@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_payment_alipay_on@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_payment_applepay@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_payment_applepay@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_payment_arrow_adown@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_payment_arrow_adown@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_payment_cash_on@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_payment_cash_on@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_payment_wallet_on@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_payment_wallet_on@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_payment_wechat_on@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_payment_wechat_on@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_payment_yunquickpass@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_payment_yunquickpass@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_quickpass@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_quickpass@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_selected@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_selected@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_yinlian@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ic_yinlian@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/navi_close_ex@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/navi_close_ex@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/share_qq.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/share_qzone.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/share_sina.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/share_sms.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/share_wechat.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/share_wechat_favorite.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/share_wechat_timeline.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShFlyKit_Example/Pods-ShFlyKit_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4D1ABAF9EA8101F671DDE757 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -263,40 +722,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8379744BE8FCE2CB59A6BD2A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShFlyKit_Example/Pods-ShFlyKit_Example-resources.sh",
-				"${PODS_ROOT}/AMapNavi/AMapNaviKit.framework/AMapNavi.bundle",
-				"${PODS_ROOT}/AMapNavi/AMapNaviKit.framework/AMap.bundle",
-				"${PODS_ROOT}/GT3Captcha/ios/GT3Captcha.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Components.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Graphics.bundle",
-				"${PODS_ROOT}/../../ShFlyKit/Classes/Map/BaiduMap/SDKs/BaiduMapAPI_Map.framework/mapapi.bundle",
-				"${PODS_ROOT}/../../ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ShFlyKit/Pay.bundle",
-				"${PODS_ROOT}/../../ShFlyKit/Classes/Share/lib/Weibo/WeiboSDK.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMapNavi.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GT3Captcha.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Components.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Graphics.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Pay.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShFlyKit_Example/Pods-ShFlyKit_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -304,9 +729,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BEA857254BB03C0095F73A /* AMapClusterVC.swift in Sources */,
+				04BEA853254BB03C0095F73A /* MultiRoutePlanVC.swift in Sources */,
+				04BEA859254BB03C0095F73A /* BaiduMaoVC.swift in Sources */,
+				04BEA85F254BB03C0095F73A /* ChartVC.swift in Sources */,
+				04BEA872254BB03C0095F73A /* HandBoardVC.swift in Sources */,
+				04BEA87E254BB03C0095F73A /* ShareDemoVC.swift in Sources */,
+				04BEA854254BB03C0095F73A /* BottomInfoView.swift in Sources */,
+				04BEA869254BB03C0095F73A /* CalendarVC.swift in Sources */,
+				04BEA870254BB03C0095F73A /* VedioVC.swift in Sources */,
+				04BEA86B254BB03C0095F73A /* LocationPickerVC.swift in Sources */,
+				04BEA860254BB03C0095F73A /* OcrTestVC.swift in Sources */,
+				04BEA85B254BB03C0095F73A /* AMapVC.swift in Sources */,
+				04BEA852254BB03C0095F73A /* RouteInfoView.swift in Sources */,
+				04BEA87F254BB03C0095F73A /* NetWorkVC.swift in Sources */,
+				04BEA863254BB03C0095F73A /* SystemInfoVC.swift in Sources */,
+				04BEA85D254BB03C0095F73A /* AnimateItemVC.swift in Sources */,
+				04BEA862254BB03C0095F73A /* UIViewCurveVC.swift in Sources */,
+				04BEA85E254BB03C0095F73A /* ImageColorFetchVC.swift in Sources */,
+				04BEA866254BB03C0095F73A /* HealthTestVC.swift in Sources */,
+				04BEA880254BB03C0095F73A /* MainTabVC.swift in Sources */,
+				04BEA864254BB03C0095F73A /* GradientViewController.swift in Sources */,
+				04BEA867254BB03C0095F73A /* TextVC.swift in Sources */,
+				04BEA861254BB03C0095F73A /* GifFrameVC.swift in Sources */,
+				04BEA865254BB03C0095F73A /* JiYanVC.swift in Sources */,
+				04BEA856254BB03C0095F73A /* AMapTrackPlayVC.swift in Sources */,
+				04BEA86A254BB03C0095F73A /* WaveLineVC.swift in Sources */,
+				04BEA873254BB03C0095F73A /* OtherVC.swift in Sources */,
+				04BEA87D254BB03C0095F73A /* TransVC.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				04BEA87C254BB03C0095F73A /* SecurityVC.swift in Sources */,
+				04BEA858254BB03C0095F73A /* AMapTrackVC.swift in Sources */,
+				04BEA86F254BB03C0095F73A /* TrackPathView.swift in Sources */,
+				04BEA871254BB03C0095F73A /* PrintTestVC.swift in Sources */,
+				04BEA86D254BB03C0095F73A /* QRCodeVC.swift in Sources */,
+				04BEA85C254BB03C0095F73A /* BMKClusterVC.swift in Sources */,
+				04BEA86E254BB03C0095F73A /* ColorWheelVC.swift in Sources */,
+				04BEA85A254BB03C0095F73A /* BMKTrackPlayVC.swift in Sources */,
+				04BEA86C254BB03C0095F73A /* GradientLayerVC.swift in Sources */,
+				04BEA868254BB03C0095F73A /* QueryAnimateVC.swift in Sources */,
 				04534EE92510C55300660966 /* OCViewController.m in Sources */,
+				04BEA855254BB03C0095F73A /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,8 +904,10 @@
 			baseConfigurationReference = A4E794DC0EAF370DAC9484E9 /* Pods-ShFlyKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ShFlyKit_Example.entitlements;
+				CURRENT_PROJECT_VERSION = 1000;
 				DEVELOPMENT_TEAM = LZ4WWU27SQ;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -454,14 +920,16 @@
 				INFOPLIST_FILE = ShFlyKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				MODULE_NAME = ExampleApp;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = huangshaohuiSHKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ShFlyKit/ShFlyKit_Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Debug;
 		};
@@ -470,8 +938,10 @@
 			baseConfigurationReference = 59164E6049399F7AA322840C /* Pods-ShFlyKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ShFlyKit_Example.entitlements;
+				CURRENT_PROJECT_VERSION = 1000;
 				DEVELOPMENT_TEAM = LZ4WWU27SQ;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
@@ -484,12 +954,14 @@
 				INFOPLIST_FILE = ShFlyKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = huangshaohuiSHKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ShFlyKit/ShFlyKit_Example-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Release;
 		};

@@ -10,11 +10,11 @@ import UIKit
 import CoreImage
 
 
-typealias ColorCallBack = ((_ color:UIColor)->Void)
+public typealias ColorCallBack = ((_ color:UIColor)->Void)
 
 
 //色环
-class ColorWheel: UIView {
+public class ColorWheel: UIView {
     //Variable
     public var choosedHide:Bool = true      //选择后隐藏
     private var hue:CGFloat = 0             //色相
@@ -47,21 +47,21 @@ class ColorWheel: UIView {
     
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event);
         let touch = ((touches as NSSet).anyObject() as AnyObject);
         let point = touch.location(in: self);
         onTouchEvent(point);
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event);
         let touch = ((touches as NSSet).anyObject() as AnyObject);
         let point = touch.location(in: self);
         onTouchEvent(point);
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event);
         let touch = ((touches as NSSet).anyObject() as AnyObject);
         let point = touch.location(in: self);

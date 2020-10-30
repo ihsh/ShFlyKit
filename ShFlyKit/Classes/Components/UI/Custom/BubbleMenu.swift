@@ -10,18 +10,18 @@ import UIKit
 
 
 //菜单的位置
-enum MenuDirection {
+public enum MenuDirection {
     case TopLeft,TopRight,BottemLeft,BottomRight
 }
 
 
-protocol BubbleMenuDelegate:NSObjectProtocol {
+public protocol BubbleMenuDelegate:NSObjectProtocol {
     func menuSelect(index:Int,title:String)
 }
 
 
 ///下拉菜单
-class BubbleMenu: UIView {
+public class BubbleMenu: UIView {
     //Variable
     public weak var delegate:BubbleMenuDelegate?
     public var itemH:CGFloat = 50                           //单元格高度
@@ -164,7 +164,7 @@ class BubbleMenu: UIView {
     
     
     
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let hitView = super.hitTest(point, with: event);
         //如果点击在当前视图，则透过到下层
         if hitView?.isKind(of: type(of: self)) ?? false {

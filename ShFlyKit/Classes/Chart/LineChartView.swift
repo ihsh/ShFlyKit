@@ -8,6 +8,6 @@
 
 import UIKit
 
-open class LineChartView: NSObject {
+public class LineChartView: NSObject {
 
 }

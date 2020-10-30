@@ -11,7 +11,7 @@ import AVFoundation
 
 
 //协议
-@objc protocol QRCodeRecognizerDelegate:NSObjectProtocol {
+@objc public protocol QRCodeRecognizerDelegate:NSObjectProtocol {
     //识别出结果
     func recognizerResult(_ result:String);
     //识别失败
@@ -23,7 +23,7 @@ import AVFoundation
 
 
 ///二维码扫描核心类
-class QRCodeRecognizer:UIView,AVCaptureMetadataOutputObjectsDelegate,
+public class QRCodeRecognizer:UIView,AVCaptureMetadataOutputObjectsDelegate,
                         AVCaptureVideoDataOutputSampleBufferDelegate,SHPhoneAssetsToolDelegate{
     //Variable
     public weak var delegate:QRCodeRecognizerDelegate?
@@ -122,7 +122,7 @@ class QRCodeRecognizer:UIView,AVCaptureMetadataOutputObjectsDelegate,
     
     
     //光线强弱
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+    public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let metaDataDict = CMCopyDictionaryOfAttachments(nil, sampleBuffer, kCMAttachmentMode_ShouldPropagate) else { return };
         let metaData = NSMutableDictionary.init(dictionary: metaDataDict);
         let exifData:NSDictionary = metaData.object(forKey: kCGImagePropertyExifDictionary) as! NSDictionary;
@@ -141,7 +141,7 @@ class QRCodeRecognizer:UIView,AVCaptureMetadataOutputObjectsDelegate,
     
     
     //识别照片
-    func pickerImage(_ image: UIImage) {
+    private func pickerImage(_ image: UIImage) {
         //声明一格CIDetector,并设定识别类型CIDetectorTypeQRCode
         let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh]);
         
@@ -163,7 +163,7 @@ class QRCodeRecognizer:UIView,AVCaptureMetadataOutputObjectsDelegate,
     }
     
     
-    func permissionDenyed(_ msg: String) {
+    public func permissionDenyed(_ msg: String) {
         delegate?.failRecognizer(1, msg: "没有相册权限");
     }
     

@@ -10,7 +10,7 @@ import UIKit
 
 
 //设置图案解锁时的
-class LockDotThumbV: UIView {
+public class LockDotThumbV: UIView {
     ///Variable
     public var dotRadius:CGFloat = 4;
     public var norColor:UIColor!
@@ -21,7 +21,7 @@ class LockDotThumbV: UIView {
     
     
     ///Draw
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext();
         let size = self.bounds.size;
         for i in 0...dotCount-1 {

@@ -21,7 +21,7 @@ import AFNetworking
  CSV 格式文件和本地文件。*/
 
 ///预览并打印文件--例如发票，面单
-class PreviewTool: NSObject,QLPreviewControllerDelegate,QLPreviewControllerDataSource {
+public class PreviewTool: NSObject,QLPreviewControllerDelegate,QLPreviewControllerDataSource {
     //Variable
     private var qlPreviewVC:QLPreviewController!    //打开word文档需要引入的视图控制器
     private var holdVC:UIViewController!            //当前控制器
@@ -78,12 +78,12 @@ class PreviewTool: NSObject,QLPreviewControllerDelegate,QLPreviewControllerDataS
     
     
     //Delegate & DataSource
-    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
+    public func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
         return 1;
     }
     
     
-    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
+    public func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
         let item:QLPreviewCustomItem = QLPreviewCustomItem()
         item.previewItemURL = path;
         item.previewItemTitle = customTitle;
@@ -91,7 +91,7 @@ class PreviewTool: NSObject,QLPreviewControllerDelegate,QLPreviewControllerDataS
     }
     
     
-    func previewController(_ controller: QLPreviewController, shouldOpen url: URL, for item: QLPreviewItem) -> Bool {
+    private func previewController(_ controller: QLPreviewController, shouldOpen url: URL, for item: QLPreviewItem) -> Bool {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil);
         }
@@ -104,7 +104,7 @@ class PreviewTool: NSObject,QLPreviewControllerDelegate,QLPreviewControllerDataS
 
 
 //自定义的QLPreviewItem
-class QLPreviewCustomItem: NSObject,QLPreviewItem {
+public class QLPreviewCustomItem: NSObject,QLPreviewItem {
     //variable
     public var previewItemURL: URL?
     public var previewItemTitle: String?

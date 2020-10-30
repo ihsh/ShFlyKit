@@ -11,7 +11,7 @@ import AMapNaviKit
 
 
 ///带交通状况的overlay图层类
-class AMapTrafficOverlay: MAMultiPolyline {
+public class AMapTrafficOverlay: MAMultiPolyline {
 
     public var routeID:NSInteger!                   //对应的RouteID
     public var selected:Bool = false                //是否选中

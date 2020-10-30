@@ -10,7 +10,7 @@ import UIKit
 
 
 ///座位的信息
-class TicketInfo: NSObject {
+public class TicketInfo: NSObject {
     ///最优配置
     public var optimalRow:Int = 4                       //最优行的开始-例从第四行开始最优
     public var optimalCount:Int = 4                     //最优行有几个-例从4-7都是最优行
@@ -271,7 +271,7 @@ class TicketInfo: NSObject {
 
 
 //每行的信息
-class TicketRowInfo:NSObject{
+public class TicketRowInfo:NSObject{
     public var row:Int = 0                  //行数
     public var seats:[TicketSeatInfo] = []  //没有位置，则这是一个空的一行，间隔
     
@@ -322,13 +322,13 @@ class TicketRowInfo:NSObject{
 
 
 //位置的状态
-enum SeatStatus {
+public enum SeatStatus {
     case availble,solded,select;                //分别是可用，已售，选择(操作的时候才有选择)
 }
 
 
 //单个座位信息
-class TicketSeatInfo:NSObject{
+public class TicketSeatInfo:NSObject{
     public var row:Int = 0                      //第一排从1开始       - 为0是无效的
     public var column:Int = 0                   //第一列从1开始       - 为0是无效的
     public var status:SeatStatus = .availble;   //位置的状态          - 默认可用

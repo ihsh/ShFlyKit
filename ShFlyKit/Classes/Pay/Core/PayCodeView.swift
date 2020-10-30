@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 import Masonry
 
-@objc protocol PayCodeViewDelegate:NSObjectProtocol {
+@objc public protocol PayCodeViewDelegate:NSObjectProtocol {
     //点击放大条形码
     @objc optional func amplifyBarCode(_ code:String)
     //点击放大二维码
@@ -19,7 +19,7 @@ import Masonry
 
 
 //付款码界面
-class PayCodeView: UIView , ScreenSnapToolDelegate {
+public class PayCodeView: UIView , ScreenSnapToolDelegate {
     //Variable
     public weak var delegate:PayCodeViewDelegate?
     public var barEdge:CGFloat = 16             //条形码两边边距
@@ -103,19 +103,19 @@ class PayCodeView: UIView , ScreenSnapToolDelegate {
     
     
     //发生了截图
-    func DidTakeScreenshot(image: UIImage, window: UIWindow) {
+    public func DidTakeScreenshot(image: UIImage, window: UIWindow) {
         coverV.isHidden = false;
     }
     
     
     //发生了录屏
-    func CaptureStatusChange(_ capture: Bool) {
+    private func CaptureStatusChange(_ capture: Bool) {
         coverV.isHidden = !capture;
     }
 
     
     //点击处理
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event);
         //触摸点位置
         let touch = ((touches as NSSet).anyObject() as AnyObject);
@@ -142,7 +142,7 @@ class PayCodeView: UIView , ScreenSnapToolDelegate {
 
 
 //付款码截图时遮挡用视图
-class PayCodeCover:UIView{
+public class PayCodeCover:UIView{
     public var icon:UIImageView!        //显示的图标，最上
     public var tipL:UILabel!            //文本-居中
     public var knowBtn:UIButton!        //我知道了按钮
@@ -198,7 +198,7 @@ class PayCodeCover:UIView{
 
 
 //优先支付方式
-class PayBankPriorityV: UIView {
+public class PayBankPriorityV: UIView {
     static var height:CGFloat = 60          //显示的高度
     
     public var logoImg:UIImageView!         //支付行logo

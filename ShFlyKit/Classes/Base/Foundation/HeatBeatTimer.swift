@@ -10,7 +10,7 @@
 import UIKit
 
 ///定时器回调
-@objc protocol HeatBeatTimerDelegate:NSObjectProtocol {
+@objc public protocol HeatBeatTimerDelegate:NSObjectProtocol {
     //定时器调用
     @objc optional func timeTaskCalled(identifier:String)
     //定时器调用含次数
@@ -19,13 +19,13 @@ import UIKit
 
 
 ///CADisplayLink回调
-@objc protocol DisplayDelegate:NSObjectProtocol {
+@objc public protocol DisplayDelegate:NSObjectProtocol {
     func displayCalled()
 }
 
 
 ///定时任务信息
-class TimerTask: NSObject {
+public class TimerTask: NSObject {
     public weak var delegate:HeatBeatTimerDelegate?                 //定时回调
     public var taskIdentifier:String!                               //任务识别键
     public var taskBeatSpan:Int!                                    //任务执行间隔
@@ -45,15 +45,15 @@ class TimerTask: NSObject {
 
 
 ///display任务信息
-class DisplayTask:NSObject{
+public class DisplayTask:NSObject{
     public weak var delegate:DisplayDelegate?
 }
 
 
 ///定时器类
-class HeatBeatTimer: NSObject {
+public class HeatBeatTimer: NSObject {
     /// MARK: - Variable
-    static  let shared = HeatBeatTimer();
+    public static let shared = HeatBeatTimer();
     private var heartbeatTimer:Timer!                                                   //心跳定时器
     private var beatTaskSet:[TimerTask] = []                                            //任务信息
     
@@ -63,7 +63,7 @@ class HeatBeatTimer: NSObject {
     
     
     //循环任务
-    @objc func distrubuteTask()->Void{
+    @objc public func distrubuteTask()->Void{
         var clearArr:[Int] = [];
         for (index,task) in self.beatTaskSet.enumerated() {
             if task.delegate != nil{

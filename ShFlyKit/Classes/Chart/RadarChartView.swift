@@ -10,7 +10,7 @@ import UIKit
 
 
 //雷达图
-class RadarChartView: UIView {
+public class RadarChartView: UIView {
     
     
 }

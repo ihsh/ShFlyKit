@@ -11,19 +11,19 @@ import AMapNaviKit
 
 
 ///多路径视图代理
-@objc protocol AMapMultlRouteViewDelegate : NSObjectProtocol {
-    //返回所有的路径信息
-    func setAllRouteInfoForChoose(allInfos:[RouteInfoModel]);
+public protocol AMapMultlRouteViewDelegate : NSObjectProtocol {
     //返回选择的路径ID
     func selectRouteID(routeID:NSInteger);
     //选择路径失败
-    @objc optional func chooseRouteFailure();
+    func chooseRouteFailure();
+    //返回所有的路径信息
+    func setAllRouteInfoForChoose(allInfos:[RouteInfoModel]);
 }
 
 
 
 ///路线信息模型
-class RouteInfoModel: NSObject {
+public class RouteInfoModel: NSObject {
     public var routeID:NSInteger = 0           //路线ID
     public var routeTime:NSInteger = 0         //路线时长
     public var routeTag:String?                //路线tag
@@ -33,7 +33,7 @@ class RouteInfoModel: NSObject {
 
 
 ///多路径展示视图
-class AMapMultiRouteView: UIView,MAMapViewDelegate {
+open class AMapMultiRouteView: UIView,MAMapViewDelegate {
     /// MARK: - Variable
     public var mapView:MAMapView!                                           //高德地图
     public weak var delegate:AMapMultlRouteViewDelegate?                    //代理对象
@@ -61,7 +61,7 @@ class AMapMultiRouteView: UIView,MAMapViewDelegate {
         initMapView()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
         initMapView()
     }
@@ -153,7 +153,7 @@ class AMapMultiRouteView: UIView,MAMapViewDelegate {
         if (AMapNaviDriveManager.sharedInstance().selectNaviRoute(withRouteID: routeID)) {
             self.selectedOverlayWithRouteID(routeID: routeID);
         }else{//选择失败
-            delegate?.chooseRouteFailure?()
+            delegate?.chooseRouteFailure()
         }
     }
     
@@ -321,7 +321,7 @@ class AMapMultiRouteView: UIView,MAMapViewDelegate {
     
     
     //返回Annotation
-    func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
+    public func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
         if (annotation is MAPointAnnotation) {
             let reuseStr = "point";
             var annoView:MAAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: reuseStr);
@@ -345,7 +345,7 @@ class AMapMultiRouteView: UIView,MAMapViewDelegate {
     
     
     //返回对应的render
-    func mapView(_ mapView: MAMapView!, rendererFor overlay: MAOverlay!) -> MAOverlayRenderer! {
+    public func mapView(_ mapView: MAMapView!, rendererFor overlay: MAOverlay!) -> MAOverlayRenderer! {
         if (overlay.isKind(of: AMapTrafficOverlay.self)) {
             let routeOverlay:AMapTrafficOverlay = overlay as! AMapTrafficOverlay
             

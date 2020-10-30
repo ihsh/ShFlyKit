@@ -10,20 +10,20 @@ import UIKit
 
 
 //动画效果
-enum AnimationStyle {
+public enum AnimationStyle {
     case Move,Grid,Wave,None        //向下单线移动，向下网格,上下往返，无动画
 }
 
 
 //四个角与边框的位置关系
-enum AngleStyle {
+public enum AngleStyle {
     case Inner,Outer,On,None       //靠内,靠外,在上,没有边角
 }
 
 
 
 //做动画的视图
-class ScanAnimateLayer:UIView{
+public class ScanAnimateLayer:UIView{
     public var animaStyle:AnimationStyle = .Grid                //默认网格样式
     public var angleStyle:AngleStyle = .Outer                   //默认四个角在外
     public var speed:CGFloat = 3                                //扫描动画速度
@@ -185,7 +185,7 @@ class ScanAnimateLayer:UIView{
     
      
     //画边框
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         
         let ctx = UIGraphicsGetCurrentContext();
         //画边框

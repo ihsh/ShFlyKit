@@ -20,7 +20,7 @@ import CoreImage
  */
 
 
-class QRCodeGenerator: UIView {
+public class QRCodeGenerator: UIView {
     
     
     //创建二维码通用方法-文字内容越复杂，二维码密度越大

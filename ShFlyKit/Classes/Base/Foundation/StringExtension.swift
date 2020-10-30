@@ -9,7 +9,7 @@
 import UIKit
 
 ///字符串拓展
-extension String {
+public extension String {
     
     //转拼音--转的可能不对，比如厦门-shamen
     func transformToPinYin()->String{

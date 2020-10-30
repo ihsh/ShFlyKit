@@ -10,7 +10,7 @@ import UIKit
 
 
 ///简单的搜索输入栏
-class SearchTextFieldV: UIView , UITextFieldDelegate{
+public class SearchTextFieldV: UIView , UITextFieldDelegate{
     //Variable
     public var leftRight:CGFloat = 30                                   //左右边距
     public var topMargin:CGFloat = 12                                   //距顶部距离
@@ -64,7 +64,7 @@ class SearchTextFieldV: UIView , UITextFieldDelegate{
     }
     
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.3, animations: {
             textField.frame = CGRect(x: self.leftRight, y: self.topMargin, width: ScreenSize().width - self.leftRight * 2 - 45, height: self.inputHeight);
         }) { (_) in
@@ -73,7 +73,7 @@ class SearchTextFieldV: UIView , UITextFieldDelegate{
     }
     
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    public func textFieldDidEndEditing(_ textField: UITextField) {
         cancelBtn.isHidden = true;
         UIView.animate(withDuration: 0.3) {
             self.textFiled.frame = CGRect(x: self.leftRight, y: self.topMargin, width: ScreenSize().width - self.leftRight * 2, height: self.inputHeight);

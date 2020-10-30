@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 
 //代理方法 - 建议创建一个UIView类，实现这些协议，成为WebVC的代理
-@objc protocol SHWebBaseVCDelegate:NSObjectProtocol {
+@objc public protocol SHWebBaseVCDelegate:NSObjectProtocol {
     @objc optional func webWillDoAction(_ action:String)           //JS回调action即将执行
     @objc optional func webDidDoAction(_ action:String)            //JS回调action执行完成
     @objc optional func moreBtnClick()                             //更多按钮已经点击
@@ -25,7 +25,7 @@ import WebKit
 
 
 //浏览器基础类
-class SHWebBaseVC: UIViewController,WKNavigationDelegate,WKUIDelegate {
+public class SHWebBaseVC: UIViewController,WKNavigationDelegate,WKUIDelegate {
     //Varivale
     public weak var delegate:SHWebBaseVCDelegate?           //代理对象
     public var webView:SHWKWebView!                         //网页
@@ -91,7 +91,7 @@ class SHWebBaseVC: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     
     //Load
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         isNavHide = self.navigationController?.navigationBar.isHidden;
         self.navigationController?.navigationBar.isHidden = true;
         //初始化UI,JS
@@ -114,12 +114,12 @@ class SHWebBaseVC: UIViewController,WKNavigationDelegate,WKUIDelegate {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         self.navigationController?.navigationBar.isHidden = true;
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated);
         self.navigationController?.navigationBar.isHidden = isNavHide;
     }
@@ -127,7 +127,7 @@ class SHWebBaseVC: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     
     //observeKeypath
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if (keyPath == "estimatedProgress") {
             let number:NSNumber = change?[NSKeyValueChangeKey.newKey] as! NSNumber
             let progress:Float = number.floatValue;
@@ -184,7 +184,7 @@ class SHWebBaseVC: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     //WKNavigationDelegate
     //提示框
-    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+    public func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         let vc = viewController();
         if (vc != nil && vc!.isViewLoaded && self.webView != nil && self.webView.superview != nil) {
             let alert = UIAlertController.init(title: nil, message: message, preferredStyle: .alert);
@@ -199,7 +199,7 @@ class SHWebBaseVC: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     
     //确认框
-    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+    public func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         let vc = viewController();
         if (vc != nil && vc!.isViewLoaded && self.webView != nil && self.webView.superview != nil) {
             let alert = UIAlertController.init(title: nil, message: message, preferredStyle: .alert);
@@ -216,7 +216,7 @@ class SHWebBaseVC: UIViewController,WKNavigationDelegate,WKUIDelegate {
     }
    
     
-    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
+    public func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
         let vc = viewController();
         if (vc != nil && vc!.isViewLoaded && self.webView != nil && self.webView.superview != nil) {
             let alert = UIAlertController.init(title: prompt, message: defaultText, preferredStyle: .alert);
@@ -233,14 +233,14 @@ class SHWebBaseVC: UIViewController,WKNavigationDelegate,WKUIDelegate {
     }
     
     
-    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+    public func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         delegate?.webfailLoad?();
     }
     
     
     
     //在发送请求之前，决定是否跳转的代理
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         let urlString:String = navigationAction.request.url?.absoluteString ?? "";
         if (delegate?.webHandlePolicy?(urlString) == true) {
             decisionHandler(WKNavigationActionPolicy.cancel);
@@ -251,7 +251,7 @@ class SHWebBaseVC: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     
     //准备加载页面 == UIWebView shouldStartLoadWithRequest
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+    public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         naviBar.progressView.isHidden = false;
         delegate?.webBeginLoad?()
         errorV.isHidden = true;
@@ -259,14 +259,14 @@ class SHWebBaseVC: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     
     //内容开始==UIWebViewDelegate -- webViewDidStartLoad
-    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+    public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         delegate?.webBeginLoad?()
         errorV.isHidden = true;
     }
     
     
     //页面加载完成 ==UIWebViewDelegate - webViewDidFinishLoad
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if (webView.isLoading){
             return;
         }
@@ -279,7 +279,7 @@ class SHWebBaseVC: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     
     //页面加载失败 == UIWebViewDelegate-didFailLoadWithError
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+    public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         naviBar.progressView.isHidden = true;
         updateNavigationItems();
         errorV.isHidden = false;
@@ -289,7 +289,7 @@ class SHWebBaseVC: UIViewController,WKNavigationDelegate,WKUIDelegate {
     
     
     //意外终止-重新加载
-    func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
+    public func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
         webView.reload();
     }
     
@@ -422,7 +422,7 @@ class SHWebBaseVC: UIViewController,WKNavigationDelegate,WKUIDelegate {
 
 
 //全局的网页配置项
-class SHWebConfig:NSObject{
+public class SHWebConfig:NSObject{
     //Variable
     public var timeoutInterval:TimeInterval = 15            //超时时间
     public var navTitle:String = ""                         //导航栏标题

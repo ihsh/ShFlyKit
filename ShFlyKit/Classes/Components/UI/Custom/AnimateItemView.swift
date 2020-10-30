@@ -10,7 +10,7 @@ import UIKit
 
 
 //外部代理方法
-protocol AnimateItemViewDelegate:NSObjectProtocol {
+public protocol AnimateItemViewDelegate:NSObjectProtocol {
     //更改高度
     func changeHeight(_ height:CGFloat,obj:AnimateItemView)
     //非编辑状态下点击的下标
@@ -19,14 +19,14 @@ protocol AnimateItemViewDelegate:NSObjectProtocol {
 
 
 //内部使用代理方法(另一个代理是本类)
-protocol AnimateItemViewDataSource:NSObjectProtocol {
+public protocol AnimateItemViewDataSource:NSObjectProtocol {
     //移除当前界面的元素到代理视图中去
     func transforToDelegateView(item:AnimateItemFrame)
 }
 
 
 ///增删减项目动画
-class AnimateItemView: UIView,AnimateItemViewDataSource {
+public class AnimateItemView: UIView,AnimateItemViewDataSource {
     //Variable
     public weak var delegate:AnimateItemViewDelegate?               //UI代理
     public weak var dataSource:AnimateItemViewDataSource?           //数据代理
@@ -102,7 +102,7 @@ class AnimateItemView: UIView,AnimateItemViewDataSource {
     
     
     //从上个视图移除，添加到新的视图
-    func transforToDelegateView(item: AnimateItemFrame) {
+    public func transforToDelegateView(item: AnimateItemFrame) {
         //数据添加到代理视图中去
         item.index = self.items.count;
         self.items.append(item);
@@ -120,7 +120,7 @@ class AnimateItemView: UIView,AnimateItemViewDataSource {
     
     //Private Method
     //触摸点击的处理回调
-    private func indexOfTouch(_ touches: Set<UITouch>,block:((_ index:NSInteger,_ item:AnimateItemFrame)->Void)){
+    public func indexOfTouch(_ touches: Set<UITouch>,block:((_ index:NSInteger,_ item:AnimateItemFrame)->Void)){
         let touch = ((touches as NSSet).anyObject() as AnyObject)
         let point = touch.location(in: self)
         for (index,item) in self.items.enumerated() {
@@ -134,7 +134,7 @@ class AnimateItemView: UIView,AnimateItemViewDataSource {
     
     
     //移动操作
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event);
         if isEdit == true{
             indexOfTouch(touches) { (index, item) in
@@ -145,7 +145,7 @@ class AnimateItemView: UIView,AnimateItemViewDataSource {
     }
     
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event);
         isTap = false;
         if moveView != nil {
@@ -171,7 +171,7 @@ class AnimateItemView: UIView,AnimateItemViewDataSource {
     
     
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event);
         //获取当前下标
         if moveView != nil {
@@ -380,7 +380,7 @@ class AnimateItemView: UIView,AnimateItemViewDataSource {
 
 
 //动画模型
-class AnimateItemFrame: NSObject {
+public class AnimateItemFrame: NSObject {
     public var text:String!                     //文本
     public var originFrame:CGRect!              //原坐标
     public var targetFrame:CGRect!              //目标坐标

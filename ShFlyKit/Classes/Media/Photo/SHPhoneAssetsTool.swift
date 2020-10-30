@@ -12,7 +12,7 @@ import Photos
 
 
 //相机工具代理
-@objc protocol SHPhoneAssetsToolDelegate:NSObjectProtocol {
+@objc public protocol SHPhoneAssetsToolDelegate:NSObjectProtocol {
     func permissionDenyed( _ msg:String);                       //没有权限
     @objc optional func pickerImage(_ image:UIImage)            //获取了一个图片
     @objc optional func pickerImageUrl(_ url:URL?)              //获取图片的URL
@@ -21,13 +21,13 @@ import Photos
 
 
 //多媒体类型
-enum AssetType {
+public enum AssetType {
     case TakePhoto,ChoosePhoto,RecordMovie,ChooseMovie          //照相，相册选择照片，录像，相册选择视频
 }
 
 
 //调用相机相册工具类
-class SHPhoneAssetsTool: NSObject,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+public class SHPhoneAssetsTool: NSObject,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     //Variable
     public var holdVC:UIViewController?                          //支撑的VC
     public var maxMovieDuration:TimeInterval = 10;               //录像最大时常
@@ -162,19 +162,19 @@ class SHPhoneAssetsTool: NSObject,UIImagePickerControllerDelegate,UINavigationCo
     
     
     //取消选择
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil);
     }
     
     
     //获取图片或者视频
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let key:String = info[UIImagePickerControllerMediaType] as! String;
         if (key == "public.image") {
             let image:UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage;
             var url:URL?
             if #available(iOS 11.0, *) {
-                url = info[UIImagePickerControllerImageURL] as! URL
+                url = (info[UIImagePickerControllerImageURL] as! URL)
             } else {
                 // Fallback on earlier versions
             };

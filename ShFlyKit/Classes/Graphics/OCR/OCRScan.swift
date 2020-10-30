@@ -10,13 +10,13 @@ import UIKit
 import AipOcrSdk
 
 //成功回调
-typealias Successblock = ((_ image:UIImage?,_ result:NSDictionary)->Void)
+public typealias Successblock = ((_ image:UIImage?,_ result:NSDictionary)->Void)
 //失败回调
-typealias FailureBlock = ((_ error: Error?)->Void)
+public typealias FailureBlock = ((_ error: Error?)->Void)
 
 
 ///OCR扫描证件类
-class OCRScan: NSObject {
+public class OCRScan: NSObject {
     
     
     ///MARK-Interface

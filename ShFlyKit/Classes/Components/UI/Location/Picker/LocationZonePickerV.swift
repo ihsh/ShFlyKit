@@ -11,7 +11,7 @@ import UIKit
 
 
 //协议
-protocol LocationZonePickerDelegate:NSObjectProtocol {
+public protocol LocationZonePickerDelegate:NSObjectProtocol {
     //完成选择地址
     func chooseAddress(result:AddressResult,type:AddressType)
     //没有数据重新请求
@@ -20,7 +20,7 @@ protocol LocationZonePickerDelegate:NSObjectProtocol {
 
 
 ///选择地理区域的控件---PickerView样式
-class LocationZonePickerV: UIView , UIPickerViewDelegate , UIPickerViewDataSource{
+public class LocationZonePickerV: UIView , UIPickerViewDelegate , UIPickerViewDataSource{
     //Variable
     public weak var delegate:LocationZonePickerDelegate?
     //配置项
@@ -127,7 +127,7 @@ class LocationZonePickerV: UIView , UIPickerViewDelegate , UIPickerViewDataSourc
     
     
     ///Delegate
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         if pickerDataSource.provinces.count > 0 {
             return onlyCity ? 2 : 3;
         }
@@ -136,7 +136,7 @@ class LocationZonePickerV: UIView , UIPickerViewDelegate , UIPickerViewDataSourc
     
     
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 0 {
             return pickerDataSource.provinces.count;
         }else if component == 1{
@@ -157,7 +157,7 @@ class LocationZonePickerV: UIView , UIPickerViewDelegate , UIPickerViewDataSourc
     }
     
     
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+    public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         var pickV:PickerV? = view as? LocationZonePickerV.PickerV;
         if pickV == nil {
             pickV = PickerV()
@@ -192,7 +192,7 @@ class LocationZonePickerV: UIView , UIPickerViewDelegate , UIPickerViewDataSourc
 
     
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
             components.provinceIndex = row;
             components.cityIndex = 0;
@@ -291,7 +291,7 @@ class LocationZonePickerV: UIView , UIPickerViewDelegate , UIPickerViewDataSourc
 
     
     //自定义的Picker-View
-    class PickerV: UIView {
+    public class PickerV: UIView {
         public static var font:UIFont = kFont(16)
         public var label:UILabel!
         

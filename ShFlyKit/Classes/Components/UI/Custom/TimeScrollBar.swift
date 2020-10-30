@@ -9,7 +9,7 @@
 import UIKit
 
 
-@objc protocol TimeScrollBarDelegate:NSObjectProtocol {
+@objc public protocol TimeScrollBarDelegate:NSObjectProtocol {
     //选择时间戳
     func scrollSelectTime(time:TimeInterval);
     //更改刻度视图的属性,在创建后-如果实现，可以修改对应的属性
@@ -18,7 +18,7 @@ import UIKit
 
 
 ///时间轴选择器
-class TimeScrollBar: UIView ,UIScrollViewDelegate{
+public class TimeScrollBar: UIView ,UIScrollViewDelegate{
     //Variable
     public weak var delegate:TimeScrollBarDelegate?
     public var dayTabHet:CGFloat = 40               //日期按钮一栏高度
@@ -270,11 +270,11 @@ class TimeScrollBar: UIView ,UIScrollViewDelegate{
     
     
     //视图滚动
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.endScroll(scrollView);
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         isScroll = false;
         DispatchQueue.main.asyncAfter(deadline: .now()+2) {
             if self.isScroll == false{
@@ -283,7 +283,7 @@ class TimeScrollBar: UIView ,UIScrollViewDelegate{
         }
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         isScroll = true;
     }
     
@@ -369,7 +369,7 @@ class TimeScrollBar: UIView ,UIScrollViewDelegate{
 
 
 //加载日期刻度的视图
-class TimeSpanView: UIView {
+public class TimeSpanView: UIView {
     //variable
     public var scaleColor:UIColor = UIColor.colorHexValue("FFFFFF", alpha: 0.3)         //刻度线颜色
     public var spanColor:UIColor = UIColor.colorHexValue("F16622", alpha: 0.3)          //范围颜色
@@ -517,7 +517,7 @@ class TimeSpanView: UIView {
 
 
 //时间模型
-class TimeModel:NSObject{
+public class TimeModel:NSObject{
     public var day:String!                                  //日期的文字
     public var dayBegin:TimeInterval = 0                    //日期起点的时刻
     public var contentWid:CGFloat = 0                       //暂存,外部使用4
@@ -556,7 +556,7 @@ class TimeModel:NSObject{
     
     
     //时间模型
-    class TimeSpan:NSObject{
+    public class TimeSpan:NSObject{
         public var start:TimeInterval = 0       //起点时间戳
         public var end:TimeInterval = 0         //终点时间戳
         public var beginX:CGFloat = 0           //起点的坐标X

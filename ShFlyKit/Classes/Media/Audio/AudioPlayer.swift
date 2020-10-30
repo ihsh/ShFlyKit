@@ -11,7 +11,7 @@ import AVFoundation
 
 
 ///音频播放器
-class AudioPlayer: NSObject {
+public class AudioPlayer: NSObject {
     //Variable
     private var audioPlayer:AVQueuePlayer!          //播放器
     

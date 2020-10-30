@@ -10,12 +10,12 @@ import UIKit
 import WebKit
 
 //WebView
-class SHWKWebView: WKWebView {
+public class SHWKWebView: WKWebView {
     
     
     //加载请求
     @discardableResult
-    override func load(_ request:URLRequest)->WKNavigation?{
+    public override func load(_ request:URLRequest)->WKNavigation?{
         if #available(iOS 11.0,*) {
             return super.load(request)!;
         }

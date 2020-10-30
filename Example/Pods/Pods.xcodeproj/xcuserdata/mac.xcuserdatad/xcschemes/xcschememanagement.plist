@@ -64,26 +64,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ShFlyKit-BaiduMap.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ShFlyKit-Components.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ShFlyKit-Graphics.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ShFlyKit-Pay.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>ShFlyKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>

@@ -10,7 +10,7 @@ import UIKit
 
 
 ///UI配置
-class TicketUIConfig: NSObject {
+public class TicketUIConfig: NSObject {
     //Variable
     public var screen = TicketUIConfig.Screen()
     public var indicater = TicketUIConfig.Indicater()
@@ -22,7 +22,7 @@ class TicketUIConfig: NSObject {
     
 
     //荧幕
-    class Screen:NSObject{
+    public class Screen:NSObject{
         public var backColor = UIColor.colorHexValue("F3F4F5")          //荧幕背景色
         public var screenText:String?                                   //银幕中显示的文字
         public var font:UIFont = kFont(10)                              //银幕中显示的文字字号
@@ -44,7 +44,7 @@ class TicketUIConfig: NSObject {
     
     
     //左侧指示条
-    class Indicater:NSObject{
+    public class Indicater:NSObject{
         public var leftSpan:CGFloat = 6                                 //距左边距
         public var backColor = UIColor.colorHexValue("4A4A4A")          //背景色
         public var alpha:CGFloat = 0.3                                  //透明度
@@ -56,7 +56,7 @@ class TicketUIConfig: NSObject {
     
     
     //头部
-    class Head:NSObject{
+    public class Head:NSObject{
         public var height:CGFloat = 40                                  //整个高度
         public var subWidth:CGFloat = 80                                //子视图宽度
         public var btnWidth:CGFloat = 16                                //子视图中按钮宽高
@@ -73,7 +73,7 @@ class TicketUIConfig: NSObject {
     
     
     //缩略图
-    class Thumbnail:NSObject{
+    public class Thumbnail:NSObject{
         public var backColor = UIColor.colorHexValue("000000", alpha: 0.4)//背景色
         public var gridColor = UIColor.white                              //可选颜色
         public var soldColor = UIColor.red                                //已售颜色
@@ -91,7 +91,7 @@ class TicketUIConfig: NSObject {
     
     
     //滚动视图
-    class Scroll:NSObject{
+    public class Scroll:NSObject{
         public var topSpan:CGFloat = 80                                     //距离最顶部间距
         public var xMargin:CGFloat = 5                                      //水平方向上座位之间的间距
         public var yMargin:CGFloat = 10                                     //垂直方向上座位之间的间距
@@ -107,7 +107,7 @@ class TicketUIConfig: NSObject {
     
     
     //图片
-    class Image: NSObject {
+    public class Image: NSObject {
         public var soldImage:UIImage? = UIImage.name("seat_sold")           //已售状态位置的图片
         public var norImage:UIImage? = UIImage.name("seat_available")       //正常状态位置的图片
         public var selectImage:UIImage? = UIImage.name("seat_selected")     //选中状态位置的图片

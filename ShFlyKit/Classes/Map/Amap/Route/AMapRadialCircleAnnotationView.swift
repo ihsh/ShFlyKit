@@ -11,7 +11,7 @@ import AMapNaviKit
 
 ///脉冲动画渐变图层，水波扩散
 
-class AMapRadialCircleAnnotationView: MAAnnotationView {
+public class AMapRadialCircleAnnotationView: MAAnnotationView {
     //MARK-Varibale
     public var pulseCount = 4                //脉冲圈个数
     public var animationDuration = 8.0       //单个脉冲圈动画时长

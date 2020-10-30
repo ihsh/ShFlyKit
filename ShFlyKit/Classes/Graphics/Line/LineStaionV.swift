@@ -11,14 +11,14 @@ import UIKit
 
 
 //数据代理
-protocol LineDataSource:NSObjectProtocol {
+public protocol LineDataSource:NSObjectProtocol {
     //陆续的返回数据
     func returnDataAsync(_ plans:[PlanInfo]);
 }
 
 
 //站点信息处理类
-class LineStaionV: UIView {
+public class LineStaionV: UIView {
     //Variable
     static let shared = LineStaionV()              //单例
     public weak var delegate:LineDataSource?       //代理
@@ -422,7 +422,7 @@ class LineStaionV: UIView {
 
 
 //线路信息
-class LineInfo:NSObject,NSCopying{
+public class LineInfo:NSObject,NSCopying{
     public var code:Int = 1             //线路编号
     public var name:String!             //站点名称
     public var nickName:String?         //昵称
@@ -434,7 +434,7 @@ class LineInfo:NSObject,NSCopying{
     public var select:String?           //选择的点-拷贝值
     
     
-    func copy(with zone: NSZone? = nil) -> Any {
+    public func copy(with zone: NSZone? = nil) -> Any {
         let info = LineInfo()
         info.code = self.code;
         info.name = self.name;
@@ -475,7 +475,7 @@ class LineInfo:NSObject,NSCopying{
             //生成主线与支线2的路径
             generateLine(sub: self.subLine2);
             //两个支线构成一条线
-            var center:DotInfo = (subFirst == true ? self.stations.first! : self.stations.last)!;
+            let center:DotInfo = (subFirst == true ? self.stations.first! : self.stations.last)!;
             //直接构成路径的临时数组
             var lineTmp:[DotInfo] = [];
             var tmpStations:[DotInfo] = [];
@@ -604,7 +604,7 @@ class LineInfo:NSObject,NSCopying{
 
 
 //站点信息
-class DotInfo:NSObject{
+public class DotInfo:NSObject{
     public var point:CGPoint!           //对应图例的位置
     public var name:String!             //站点的名称
     public var timeBase:Int = 0         //相对时间，起始点为0
@@ -614,7 +614,7 @@ class DotInfo:NSObject{
 
 
 //路径树
-class SearchPath:NSObject{
+public class SearchPath:NSObject{
     //variable
     public var rootName:String!                                     //根节点
     public private(set) var subPaths:[ChildStation] = []            //子节点数组
@@ -622,7 +622,7 @@ class SearchPath:NSObject{
     
     
     //子节点
-    class ChildStation:NSObject{
+    public class ChildStation:NSObject{
         public var code:Int = 0                //当前所在点及其线路
         public var station:String!             //当前节点名称
         public var parent:String!              //父节点
@@ -702,7 +702,7 @@ class SearchPath:NSObject{
 
 
 //规划的路线信息
-class PlanInfo:NSObject{
+public class PlanInfo:NSObject{
     public var start:DotInfo!                               //起点
     public var end:DotInfo!                                 //终点
     public private(set) var changes:[DotInfo] = []          //转乘点
@@ -799,7 +799,7 @@ class PlanInfo:NSObject{
     
     
     //每一段的路线信息
-    class lineSum:NSObject{
+    public class lineSum:NSObject{
         public private(set) var line:Int = 0                         //线路
         public private(set) var time:Int = 0                         //时间间隔
         public private(set) var last:DotInfo!                        //最后的点

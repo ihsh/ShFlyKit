@@ -25,9 +25,9 @@ public enum UserDefaultsDataType{
 
 
 ///数据持久化类
-class SHPersister: NSObject {
+public class SHPersister: NSObject {
     ///MARK-Variable
-    static let shareInstance = SHPersister.init();
+    public static let shareInstance = SHPersister.init();
     private var database:FMDatabase!            //数据库
     private var queue:FMDatabaseQueue!          //线程
     
@@ -208,7 +208,7 @@ class SHPersister: NSObject {
     
     ///MARK - UserDefault
     //保存到配置中
-    class func defaultSave(key:String,value:Any,type:UserDefaultsDataType){
+    public class func defaultSave(key:String,value:Any,type:UserDefaultsDataType){
         let uDefault = UserDefaults.standard
         switch type {
             case .Int:
@@ -237,7 +237,7 @@ class SHPersister: NSObject {
     
     
     //获取值
-    class func defaultValueFor(key:String)->Any?{
+    public class func defaultValueFor(key:String)->Any?{
         let uDefault = UserDefaults.standard
         let value = uDefault.value(forKey: key)
         return value
@@ -245,7 +245,7 @@ class SHPersister: NSObject {
     
     
     //清空UserDefaults或指定值
-    class func clearNSUserDefault(targetKey:String?)->Void{
+    public class func clearNSUserDefault(targetKey:String?)->Void{
         if targetKey != nil {
             UserDefaults.standard.removeObject(forKey: targetKey!);
         }else{

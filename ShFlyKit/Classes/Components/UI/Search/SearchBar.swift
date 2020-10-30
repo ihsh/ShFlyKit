@@ -17,7 +17,7 @@ public enum LayoutType{
 }
 
 
-class SearchBar: UIView {
+public class SearchBar: UIView {
     // MARK: - 按钮存储
     private let _leftOutBtns = NSMutableArray()
     private let _leftInnerBtns = NSMutableArray()
@@ -76,7 +76,7 @@ class SearchBar: UIView {
     
     
     //布局
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         //移除所有，重新布局
         for view in self.subviews{
             view.removeFromSuperview();

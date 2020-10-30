@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import AMapNaviKit
 
-class AMapRouteRecord: NSObject {
+public class AMapRouteRecord: NSObject {
     
     public var locations = [CLLocation]()
     public var tracedLocations = [MATracePoint]()

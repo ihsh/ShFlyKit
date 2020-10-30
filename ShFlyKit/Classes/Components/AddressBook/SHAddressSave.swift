@@ -12,10 +12,9 @@ import ContactsUI
 
 
 ///通讯录写入
-class SHAddressSave: NSObject {
+public class SHAddressSave: NSObject {
 
-    
-    
+
     //保存或更新联系人
     public func saveAddressItem(_ item:SHAddressItem){
         let contact = CNMutableContact()

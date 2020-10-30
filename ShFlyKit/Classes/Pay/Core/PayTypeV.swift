@@ -10,7 +10,7 @@ import UIKit
 import Masonry
 
 //自定义UI代理
-protocol PayTypeDelegate:NSObjectProtocol {
+public protocol PayTypeDelegate:NSObjectProtocol {
     //自定义Cell
     func customCellForIndex(indexPath:IndexPath,data:PayTypeData)->UITableViewCell?
     //展开更多的视图
@@ -21,7 +21,7 @@ protocol PayTypeDelegate:NSObjectProtocol {
 
 
 ///支付方式界面
-class PayTypeV: UIView,UITableViewDataSource,UITableViewDelegate{
+public class PayTypeV: UIView,UITableViewDataSource,UITableViewDelegate{
     //Variable
     public weak var delegate:PayTypeDelegate?
     
@@ -82,18 +82,18 @@ class PayTypeV: UIView,UITableViewDataSource,UITableViewDelegate{
     
     ///Delegate
     //UITableViewDataSource,UITableViewDelegate
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count;
     }
     
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let data = dataSource[indexPath.row];
         return data.cellHeight;
     }
     
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = dataSource[indexPath.row];
         if delegate != nil{
             let cell = delegate?.customCellForIndex(indexPath: indexPath, data: data);
@@ -108,7 +108,7 @@ class PayTypeV: UIView,UITableViewDataSource,UITableViewDelegate{
     }
     
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         for (index,data) in dataSource.enumerated() {
             data.isSelect = indexPath.row == index;
         }
@@ -116,13 +116,13 @@ class PayTypeV: UIView,UITableViewDataSource,UITableViewDelegate{
     }
     
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         let height = delegate?.heightForUnFoldMore();
         return foldRow == 0 ? 0 : height ?? 0;
     }
     
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view = delegate?.viewForUnFoldMore();
         return foldRow == 0 ? nil : view;
     }
@@ -156,7 +156,7 @@ class PayTypeV: UIView,UITableViewDataSource,UITableViewDelegate{
 
 
 //支付数据
-class  PayTypeData: NSObject {
+public class  PayTypeData: NSObject {
     public var type:PayType!                //支付方式
     public var content:String!              //描述的内容
     public var cellHeight:CGFloat = 56      //行高
@@ -173,7 +173,7 @@ class  PayTypeData: NSObject {
 
 
 //支付方式Cell
-class PayTypeCell: UITableViewCell {
+public class PayTypeCell: UITableViewCell {
     //variable
     private var icon:UIImageView!           //图标
     private var titleLable:UILabel!         //支付方式标题

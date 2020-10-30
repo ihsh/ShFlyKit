@@ -11,7 +11,7 @@ import UIKit
 
 
 //地铁线路图
-class MetrolLineV: UIView , UIScrollViewDelegate , CAAnimationDelegate ,LineDataSource{
+public class MetrolLineV: UIView , UIScrollViewDelegate , CAAnimationDelegate ,LineDataSource{
     //Variable
     private var scrollV:UIScrollView!               //滚动视图
     private var lineImageV:UIImageView!             //展示的图片
@@ -65,7 +65,7 @@ class MetrolLineV: UIView , UIScrollViewDelegate , CAAnimationDelegate ,LineData
    
     
     //需要放大的图片
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+    public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return lineImageV;
     }
     
@@ -102,7 +102,7 @@ class MetrolLineV: UIView , UIScrollViewDelegate , CAAnimationDelegate ,LineData
     
     
     //异步返回路线规划
-    func returnDataAsync(_ plans: [PlanInfo]) {
+    public func returnDataAsync(_ plans: [PlanInfo]) {
         results.removeAll();
         animateIndex = 0;
         results.append(contentsOf: plans);
@@ -112,7 +112,7 @@ class MetrolLineV: UIView , UIScrollViewDelegate , CAAnimationDelegate ,LineData
     
     
     //一个动画结束
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if flag == true {
             DispatchQueue.main.async {
                 if self.animateIndex <= self.results.count - 1 && self.start != nil && self.end != nil{

@@ -10,9 +10,9 @@ import UIKit
 
 
 //天气配置
-class WeatherConfig: NSObject {
+public class WeatherConfig: NSObject {
     //打雷
-    class Thunder:NSObject{
+    public class Thunder:NSObject{
         public var color:UIColor = UIColor.white                    //颜色
         public var startY:CGFloat = 10                              //起点
         public var startRange:UInt32 = 20                           //起点动态范围
@@ -28,7 +28,7 @@ class WeatherConfig: NSObject {
         public var lineRangeW:UInt32 = 20                           //线宽动态范围/10.0
     }
     //下雨
-    class Rain: NSObject {
+    public class Rain: NSObject {
         public var count:Int = 80                                   //同时出现的点数
         public var images:UInt32 = 3                                //图片资源数
         public var from:CGPoint = CGPoint(x: -10, y: -150)          //起点
@@ -38,7 +38,7 @@ class WeatherConfig: NSObject {
         public var imagePrefix:String = "ele_rainLine"              //图片资源名前缀 png
     }
     //下雪
-    class Snow: NSObject {
+    public class Snow: NSObject {
         public var count:UInt32 = 100                               //雪花的数量
         public var from:CGPoint = CGPoint(x: 0, y: -200)            //起点
         public var toY:CGFloat = ScreenSize().height                //终点
@@ -52,7 +52,7 @@ class WeatherConfig: NSObject {
         public var image:UIImage = UIImage.name("ele_snow")         //雪花图片
     }
     //太阳
-    class Sun:NSObject{
+    public class Sun:NSObject{
         public var rotationDuration:CGFloat = 80                    //自旋时间
         public var center:CGPoint = CGPoint(x: ScreenSize().height*0.1, y: ScreenSize().height*0.1)//中心店位置
         public var sunImage:UIImage = UIImage.name("ele_sunnySun")  //太阳图片
@@ -65,7 +65,7 @@ class WeatherConfig: NSObject {
 
 
 //粒子发射的配置
-class EmitterConfig:NSObject{
+public class EmitterConfig:NSObject{
     public var content:UIImage!                 //粒子的图片
     public var size = CGSize(width: ScreenSize().width, height: 1)
     public var position = CGPoint(x: ScreenSize().width/2.0, y: -60)

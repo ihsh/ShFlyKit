@@ -7,16 +7,35 @@
 //
 
 import UIKit
-
+import ShFlyKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,ScreenSnapToolDelegate {
+    
+    func DidTakeScreenshot(image: UIImage, window: UIWindow) {
+        
+    }
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        //集成Bugly
+        BuglyReporter.initBugLyWithAppkey(appKey: "3864583fc1");
+        //高德地图
+        AMapServices.shared()?.apiKey = "f9830ba96e270eabbfbceb766177c61a";
+//        //百度地图
+//        BMKService.shareInstance.registerBaidu(key: "1ARVCXTsUzOl2uSXpNoepa4G5n8ZYZdl")
+//        //地图
+//        BMKService.customMapStyle(fileName: "custom_map_config");
+        ScreenSnapTool.shared.registerSnapNotifa(delegate: self);
+
+        self.window = UIWindow(frame: UIScreen.main.bounds);
+        self.window?.makeKeyAndVisible();
+        let main:MainTabVC = MainTabVC();
+        let nav:UINavigationController = UINavigationController(rootViewController: main);
+        self.window?.rootViewController = nav;
         return true
     }
 

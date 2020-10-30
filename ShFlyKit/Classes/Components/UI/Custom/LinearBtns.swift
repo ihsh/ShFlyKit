@@ -17,7 +17,7 @@ public enum LinearDirection{
 }
 
 
-class LinearBtns: UIView {
+public class LinearBtns: UIView {
 
     //用于操作的视图数组
     private var managerViews = [UIView]()           //内部多个视图

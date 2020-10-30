@@ -11,9 +11,9 @@ import UIKit
 
 
 //日历数据来源
-class CalendarDataSource: NSObject {
+public class CalendarDataSource: NSObject {
     //variable
-    static public var restDays:[String:[String:Bool]] = [:]    //休假加班的信息 例如 ["2019":["1-1":true,"1-2":true,"12-31":false]]
+    public static var restDays:[String:[String:Bool]] = [:]    //休假加班的信息 例如 ["2019":["1-1":true,"1-2":true,"12-31":false]]
     
     
     //传入一个当月的日期，创建当月的数据
@@ -146,7 +146,7 @@ class CalendarDataSource: NSObject {
 
 
 //日历每天的数据
-class CalendarData: NSObject {
+public class CalendarData: NSObject {
     public var day:Int!                 //日期
     public var month:Int!               //月份
     public var year:Int!                //年份
@@ -164,7 +164,7 @@ class CalendarData: NSObject {
 
 
 //一个月数据
-class CalendarSectionData:NSObject {
+public class CalendarSectionData:NSObject {
     public var year:Int!                        //年份
     public var month:Int!                       //月份
     public var firstWeekDay:Int!                //每个月第一天是星期几 0-6 周日-周六

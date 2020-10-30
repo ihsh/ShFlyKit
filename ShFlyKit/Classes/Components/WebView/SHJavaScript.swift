@@ -12,11 +12,11 @@ import WebKit
 //全局搜索#web#,与web相关的点
 
 //JS调用OC
-typealias jsHandler = ((_ jsObj:NSDictionary)->Void)
+public typealias jsHandler = ((_ jsObj:NSDictionary)->Void)
 
 
 //消息处理中心
-class SHJavaScript: NSObject , WKScriptMessageHandler{
+public class SHJavaScript: NSObject , WKScriptMessageHandler{
     //Variable
     public var scriptHandleName:String = "app"          //WKScriptMessageHandler中ABC位置的字符串，网页端需要对应#web#
     private var jsHandler:jsHandler?                    //JS的d回调
@@ -29,7 +29,7 @@ class SHJavaScript: NSObject , WKScriptMessageHandler{
     
     
     //WKScriptMessageHandler -- window.webkit.messageHandlers.ABC.postMessage("xxx");#web#
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+    public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if (message.name == scriptHandleName) {
             callApp(message: message.body as AnyObject);
         }

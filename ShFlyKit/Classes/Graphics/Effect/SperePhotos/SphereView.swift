@@ -10,7 +10,7 @@ import UIKit
 
 
 ///立体相册
-class SphereView: UIView , UIGestureRecognizerDelegate , DisplayDelegate {
+public class SphereView: UIView , UIGestureRecognizerDelegate , DisplayDelegate {
     //Variable
     private var tags:[UIView] = []
     private var coordinate:[SpherePoint] = []
@@ -58,7 +58,7 @@ class SphereView: UIView , UIGestureRecognizerDelegate , DisplayDelegate {
     }
     
 
-    func displayCalled() {
+    public func displayCalled() {
         innerStep();
     }
     

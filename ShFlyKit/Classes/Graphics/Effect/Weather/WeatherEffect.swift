@@ -10,7 +10,7 @@ import UIKit
 import Masonry
 
 ///天气效果视图
-class WeatherEffect: IgnoreTouchView {
+public class WeatherEffect: IgnoreTouchView {
     //Variable
     private var emiterV:IgnoreTouchView!
     

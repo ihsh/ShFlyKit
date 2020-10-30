@@ -11,20 +11,20 @@ import AVFoundation
 
 
 //结束的类型
-enum TTSStopType {
+public enum TTSStopType {
     case Immediate,WordEnd          //立即,完整词语结束
 }
 
 
 //状态枚举
-enum TTSStatus{
+public enum TTSStatus{
     case Default,Start,Pause,Continue,Finish
 }
 
 
 
 ///TTS语音播放
-class TTSManager: NSObject , AVSpeechSynthesizerDelegate {
+public class TTSManager: NSObject , AVSpeechSynthesizerDelegate {
     //variable
     static let shared = TTSManager()
     //只读

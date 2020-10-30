@@ -21,7 +21,7 @@ import AMapNaviKit
  */
 
 
-@objc protocol AMapDriveNavDelegate : NSObjectProtocol {
+@objc public protocol AMapDriveNavDelegate : NSObjectProtocol {
     //关闭导航
     func driveNavClockBtnClick()
     //点击更多按钮
@@ -30,7 +30,7 @@ import AMapNaviKit
 
 ///驾驶控制器界面
 
-class AMapDriveNavigateVC: UIViewController,AMapNaviDriveViewDelegate {
+public class AMapDriveNavigateVC: UIViewController,AMapNaviDriveViewDelegate {
     /// MARK: - Variable
     public weak var delegate:AMapDriveNavDelegate?      //驾驶控制器的代理对象
     public var driveView:AMapNaviDriveView?             //驾车导航界面--有很多默认设置为YES
@@ -49,7 +49,7 @@ class AMapDriveNavigateVC: UIViewController,AMapNaviDriveViewDelegate {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         self.navigationController?.isNavigationBarHidden = true;
         self.navigationController?.isToolbarHidden = true;
@@ -94,13 +94,13 @@ class AMapDriveNavigateVC: UIViewController,AMapNaviDriveViewDelegate {
     
     // MARK: - AMapDriveDelegate
     ///导航界面关闭按钮点击时的回调函数
-    func driveViewCloseButtonClicked(_ driveView: AMapNaviDriveView) {
+    public func driveViewCloseButtonClicked(_ driveView: AMapNaviDriveView) {
         delegate?.driveNavClockBtnClick()
     }
 
     
     ///导航界面转向指示View点击时的回调函数
-    func driveViewTrunIndicatorViewTapped(_ driveView: AMapNaviDriveView) {
+    public func driveViewTrunIndicatorViewTapped(_ driveView: AMapNaviDriveView) {
         if self.driveView!.showMode == .carPositionLocked {
             self.driveView!.showMode = .normal;
         }else if (self.driveView!.showMode == .normal) {
@@ -113,7 +113,7 @@ class AMapDriveNavigateVC: UIViewController,AMapNaviDriveViewDelegate {
     
     
     ///导航界面更多按钮点击时的回调函数
-    func driveViewMoreButtonClicked(_ driveView: AMapNaviDriveView) {
+    public func driveViewMoreButtonClicked(_ driveView: AMapNaviDriveView) {
         delegate?.driveNavMoreBtnClick?()
     }
     

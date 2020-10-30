@@ -9,7 +9,7 @@
 import UIKit
 import AMapNaviKit
 
-class AMapTrackingVC: UIViewController,MAMapViewDelegate{
+public class AMapTrackingVC: UIViewController,MAMapViewDelegate{
     // MARK: - Variable
     public var mapView:MAMapView!
     public var traceManager:MATraceManager!
@@ -25,7 +25,7 @@ class AMapTrackingVC: UIViewController,MAMapViewDelegate{
     private var totalTraceLength:Double = 0
     
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "轨迹"
         self.view.backgroundColor = UIColor.white
@@ -46,7 +46,7 @@ class AMapTrackingVC: UIViewController,MAMapViewDelegate{
     
     
     //定位
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         mapView.showsUserLocation = true;
         mapView.userTrackingMode = .follow;
@@ -204,7 +204,7 @@ class AMapTrackingVC: UIViewController,MAMapViewDelegate{
     
     
     //MARK:- MAMapViewDelegate
-    func mapView(_ mapView: MAMapView!, didUpdate userLocation: MAUserLocation!, updatingLocation: Bool) {
+    public func mapView(_ mapView: MAMapView!, didUpdate userLocation: MAUserLocation!, updatingLocation: Bool) {
         if updatingLocation == false {
             return
         }
@@ -248,7 +248,7 @@ class AMapTrackingVC: UIViewController,MAMapViewDelegate{
     
     
     
-    func mapView(_ mapView: MAMapView, didChange mode: MAUserTrackingMode, animated: Bool) {
+    public func mapView(_ mapView: MAMapView, didChange mode: MAUserTrackingMode, animated: Bool) {
         if mode == MAUserTrackingMode.none {
 //            locationButton?.setImage(imageNotLocate, for: UIControlState.normal)
         }else {
@@ -258,7 +258,7 @@ class AMapTrackingVC: UIViewController,MAMapViewDelegate{
     
     
     
-    func mapView(_ mapView: MAMapView!, rendererFor overlay: MAOverlay!) -> MAOverlayRenderer! {
+    public func mapView(_ mapView: MAMapView!, rendererFor overlay: MAOverlay!) -> MAOverlayRenderer! {
         if self.polyLine != nil && overlay.isEqual(self.polyLine!) {
             let view = MAPolylineRenderer(polyline: overlay as? MAPolyline)
             view?.lineWidth = 5.0

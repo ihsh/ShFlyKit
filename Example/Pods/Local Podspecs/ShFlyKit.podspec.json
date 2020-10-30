@@ -54,11 +54,13 @@
   "subspecs": [
     {
       "name": "Base",
-      "source_files": "ShFlyKit/Classes/Base/**/*"
+      "source_files": "ShFlyKit/Classes/Base/**/*.{h,m,swift}",
+      "public_header_files": "ShFlyKit/Classes/Base/**/*.h"
     },
     {
       "name": "Chart",
-      "source_files": "ShFlyKit/Classes/Chart/**/*",
+      "source_files": "ShFlyKit/Classes/Chart/**/*.{h,m,swift}",
+      "public_header_files": "ShFlyKit/Classes/Chart/**/*.h",
       "dependencies": {
         "ShFlyKit/Base": [
 
@@ -67,7 +69,8 @@
     },
     {
       "name": "Media",
-      "source_files": "ShFlyKit/Classes/Media/**/*",
+      "source_files": "ShFlyKit/Classes/Media/**/*.{h,m,swift}",
+      "public_header_files": "ShFlyKit/Classes/Media/**/*.h",
       "dependencies": {
         "ShFlyKit/Base": [
 
@@ -76,7 +79,8 @@
     },
     {
       "name": "Network",
-      "source_files": "ShFlyKit/Classes/Network/**/*",
+      "source_files": "ShFlyKit/Classes/Network/**/*.{h,m,swift}",
+      "public_header_files": "ShFlyKit/Classes/Network/**/*.h",
       "dependencies": {
         "ShFlyKit/Base": [
 
@@ -85,7 +89,8 @@
     },
     {
       "name": "Server",
-      "source_files": "ShFlyKit/Classes/Server/**/*",
+      "source_files": "ShFlyKit/Classes/Server/**/*.{h,m,swift}",
+      "public_header_files": "ShFlyKit/Classes/Server/**/*.h",
       "dependencies": {
         "ShFlyKit/Base": [
 
@@ -94,7 +99,8 @@
     },
     {
       "name": "Graphics",
-      "source_files": "ShFlyKit/Classes/Graphics/**/*",
+      "source_files": "ShFlyKit/Classes/Graphics/**/*.{h,m,swift}",
+      "public_header_files": "ShFlyKit/Classes/Graphics/**/*.h",
       "dependencies": {
         "ShFlyKit/Base": [
 
@@ -106,11 +112,9 @@
 
         ]
       },
-      "resource_bundles": {
-        "Graphics": [
-          "ShFlyKit/Assets/Graphics/**/*"
-        ]
-      }
+      "resources": [
+        "ShFlyKit/Assets/Graphics/**/*"
+      ]
     },
     {
       "name": "Components",
@@ -129,11 +133,9 @@
 
         ]
       },
-      "resource_bundles": {
-        "Components": [
-          "ShFlyKit/Assets/Components/**/*"
-        ]
-      }
+      "resources": [
+        "ShFlyKit/Assets/Components/**/*"
+      ]
     },
     {
       "name": "Share",
@@ -158,7 +160,9 @@
       "ios": {
         "vendored_frameworks": "ShFlyKit/Classes/Share/lib/Tencent/TencentOpenAPI.framework"
       },
-      "resources": "ShFlyKit/Classes/Share/lib/Weibo/WeiboSDK.bundle",
+      "resources": [
+        "ShFlyKit/Assets/Share/**/*"
+      ],
       "vendored_libraries": [
         "ShFlyKit/Classes/Share/lib/Wechat/libWeChatSDK.a",
         "ShFlyKit/Classes/Share/lib/Weibo/libWeiboSDK.a"
@@ -199,13 +203,10 @@
       "ios": {
         "vendored_frameworks": "ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.framework"
       },
-      "resources": "ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle",
-      "vendored_libraries": "ShFlyKit/Classes/Pay/**/*.a",
-      "resource_bundles": {
-        "Pay": [
-          "ShFlyKit/Assets/Pay/**/*"
-        ]
-      }
+      "resources": [
+        "ShFlyKit/Assets/Pay/**/*"
+      ],
+      "vendored_libraries": "ShFlyKit/Classes/Pay/**/*.a"
     },
     {
       "name": "Map",
@@ -214,6 +215,9 @@
 
         ]
       },
+      "resources": [
+        "ShFlyKit/Assets/Map/**/*"
+      ],
       "subspecs": [
         {
           "name": "General",
@@ -241,36 +245,6 @@
 
             ]
           }
-        },
-        {
-          "name": "BaiduMap",
-          "source_files": "ShFlyKit/Classes/Map/BaiduMap/**/*.{h,m,swift}",
-          "public_header_files": "ShFlyKit/Classes/Map/BaiduMap/**/*.h",
-          "dependencies": {
-            "ShFlyKit/Map/General": [
-
-            ]
-          },
-          "ios": {
-            "vendored_frameworks": "ShFlyKit/Classes/Map/BaiduMap/SDKs/*.framework"
-          },
-          "vendored_libraries": "ShFlyKit/Classes/Map/BaiduMap/SDKs/thirdlibs/*.a",
-          "frameworks": [
-            "CoreLocation",
-            "QuartzCore",
-            "OpenGLES",
-            "SystemConfiguration",
-            "CoreGraphics",
-            "Security",
-            "CoreTelephony",
-            "MobileCoreServices",
-            "AdSupport"
-          ],
-          "libraries": [
-            "sqlite3",
-            "c++"
-          ],
-          "resources": "ShFlyKit/Classes/Map/BaiduMap/SDKs/BaiduMapAPI_Map.framework/mapapi.bundle"
         }
       ]
     }

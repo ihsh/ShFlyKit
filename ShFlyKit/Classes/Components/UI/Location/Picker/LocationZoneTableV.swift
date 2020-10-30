@@ -10,7 +10,7 @@ import UIKit
 
 
 //协议
-protocol LocationZoneTableDelegate:NSObjectProtocol {
+public protocol LocationZoneTableDelegate:NSObjectProtocol {
     //完成选择地址
     func selectAddress(result:AddressResult,type:AddressType)
     //没有数据重新请求
@@ -19,7 +19,7 @@ protocol LocationZoneTableDelegate:NSObjectProtocol {
 
 
 ///选择地理区域的控件--列表样式
-class LocationZoneTableV: UIView , UITableViewDelegate , UITableViewDataSource , LocSegmentDelegate {
+public class LocationZoneTableV: UIView , UITableViewDelegate , UITableViewDataSource , LocSegmentDelegate {
     //Variable
     public weak var delegate:LocationZoneTableDelegate?         //代理协议
     //配置项
@@ -88,7 +88,7 @@ class LocationZoneTableV: UIView , UITableViewDelegate , UITableViewDataSource ,
     
     
     //Delegate
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if listDataSource != nil {
             if components.current == 0 {return listDataSource.provinces.count};
             let province = listDataSource.provinces[components.provinceIndex];
@@ -102,7 +102,7 @@ class LocationZoneTableV: UIView , UITableViewDelegate , UITableViewDataSource ,
     }
     
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var tmpStr:String?
         let cell:LocationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LocationTableViewCell;
         switch components.current{
@@ -137,7 +137,7 @@ class LocationZoneTableV: UIView , UITableViewDelegate , UITableViewDataSource ,
     }
     
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch components.current {
         case 0:
             components.provinceIndex = indexPath.row;
@@ -238,7 +238,7 @@ class LocationZoneTableV: UIView , UITableViewDelegate , UITableViewDataSource ,
     
     
     //Delegate-切换选择的级别
-    func selectComponent(_ component: Int) {
+    public func selectComponent(_ component: Int) {
         components.current = component;
         listView.reloadData()
     }
@@ -289,13 +289,13 @@ class LocationZoneTableV: UIView , UITableViewDelegate , UITableViewDataSource ,
 
 
 
-protocol LocSegmentDelegate:NSObjectProtocol {
+public protocol LocSegmentDelegate:NSObjectProtocol {
     func selectComponent(_ component:Int)
 }
 
 
 //选择的视图
-class LocSegment:UIView{
+public class LocSegment:UIView{
     //配置
     public static var font:UIFont = kFont(16)               //分段标题的字号
     public static var color:UIColor = UIColor.black         //分段标题有值的颜色
@@ -432,7 +432,7 @@ class LocSegment:UIView{
 
 
 ///自定义的cell
-class LocationTableViewCell:UITableViewCell{
+public class LocationTableViewCell:UITableViewCell{
     public static var selectColor:UIColor = UIColor.colorRGB(red: 205, green: 0, blue: 13)  //cell选中的颜色样式
     public static var normalColor:UIColor = UIColor.colorHexValue("4A4A4A")                 //正常的cell文字颜色
     public static var font:UIFont = kFont(16)                                               //字体

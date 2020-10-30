@@ -10,14 +10,14 @@ import UIKit
 
 
 ///二维码识别控制器
-class QRCodeRecognizerVC: UIViewController ,QRCodeRecognizerDelegate{
+public class QRCodeRecognizerVC: UIViewController ,QRCodeRecognizerDelegate{
     //Variable
     public var recognizer:QRCodeRecognizer!         //扫描视图
     public var navHide:Bool = true                  //导航栏是否隐藏
     
     
     ///Load
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         //背景色
         self.view.backgroundColor = UIColor.black;
@@ -36,14 +36,14 @@ class QRCodeRecognizerVC: UIViewController ,QRCodeRecognizerDelegate{
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         //启动扫描动画
         recognizer.animateLayer.startAnimate();
     }
     
     
-    override func viewWillDisappear(_ animated: Bool) {
+    public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated);
         //恢复导航栏隐藏
         if navHide {
@@ -54,14 +54,14 @@ class QRCodeRecognizerVC: UIViewController ,QRCodeRecognizerDelegate{
     
     
     ///继承重写这些方法
-    func recognizerResult(_ result: String) {
+    public func recognizerResult(_ result: String) {
         print(result);
         recognizer.stopCapture();
         self.navigationController?.popViewController(animated: true);
     }
     
     
-    func needOpenTorchLight(_ need: Bool) {
+    public func needOpenTorchLight(_ need: Bool) {
         if need {
              recognizer.animateLayer.stopAnimate();
         }else{
@@ -70,7 +70,7 @@ class QRCodeRecognizerVC: UIViewController ,QRCodeRecognizerDelegate{
     }
     
     
-    func failRecognizer(_ ret: Int, msg: String) {
+    public func failRecognizer(_ ret: Int, msg: String) {
         print(msg);
     }
     

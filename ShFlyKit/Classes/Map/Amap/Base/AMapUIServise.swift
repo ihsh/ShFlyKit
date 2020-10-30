@@ -11,7 +11,7 @@ import AMapNaviKit
 
 
 ///高德UI设置类
-class AMapUIServise: NSObject {
+public class AMapUIServise: NSObject {
     ///MARK
     static let shareInstance = AMapUIServise.init()
     //单例的地图

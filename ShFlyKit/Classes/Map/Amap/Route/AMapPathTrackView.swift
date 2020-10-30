@@ -11,14 +11,14 @@ import AMapNaviKit
 
 
 ///轨迹类代理
-protocol AMapPathTrackViewDelegate :NSObjectProtocol {
+public protocol AMapPathTrackViewDelegate :NSObjectProtocol {
     //路径规划成功后传下标点
     func calculRouteSuccess(coordinates:[CLLocationCoordinate2D])
 }
 
 
 ///展示轨迹类--给一个起点和终点/给高德路径ID
-class AMapPathTrackView: UIView,MAMapViewDelegate,AMapNaviDriveManagerDelegate {
+public class AMapPathTrackView: UIView,MAMapViewDelegate,AMapNaviDriveManagerDelegate {
     /// MARK: -Variable
     public weak var delegate:AMapPathTrackViewDelegate?                      //代理
     public var lineWidth:CGFloat = 9;                                        //绘制的线宽
@@ -347,7 +347,7 @@ class AMapPathTrackView: UIView,MAMapViewDelegate,AMapNaviDriveManagerDelegate {
     
     /// MARK: - AMapNaviDriveManagerDelegate
     //导航规划成功回调
-    func driveManager(onCalculateRouteSuccess driveManager: AMapNaviDriveManager) {
+    public func driveManager(onCalculateRouteSuccess driveManager: AMapNaviDriveManager) {
         //导航路线数量
         if ((AMapNaviDriveManager.sharedInstance().naviRoutes?.count)! <= 0){
             return;
@@ -365,7 +365,7 @@ class AMapPathTrackView: UIView,MAMapViewDelegate,AMapNaviDriveManagerDelegate {
     
     
     /// MARK: - MAMapViewDelegate
-    func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
+    public func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
         if (annotation.isEqual(self.carAni)) {
             let reuseStr = "car"
             var annoView:MAAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: reuseStr);
@@ -399,7 +399,7 @@ class AMapPathTrackView: UIView,MAMapViewDelegate,AMapNaviDriveManagerDelegate {
     
     
     //返回渲染器
-    func mapView(_ mapView: MAMapView!, rendererFor overlay: MAOverlay!) -> MAOverlayRenderer! {
+    public func mapView(_ mapView: MAMapView!, rendererFor overlay: MAOverlay!) -> MAOverlayRenderer! {
         if ((overlay as! MAPolyline) == self.passedTraceLine) {
             let render = MAPolylineRenderer(polyline: (overlay as! MAPolyline));
             render?.lineWidth = lineWidth+1;
@@ -432,7 +432,7 @@ class AMapPathTrackView: UIView,MAMapViewDelegate,AMapNaviDriveManagerDelegate {
     
     
     //用户改变zoomlevel，不再自动定位中心点
-    func mapView(_ mapView: MAMapView!, mapDidZoomByUser wasUserAction: Bool) {
+    public func mapView(_ mapView: MAMapView!, mapDidZoomByUser wasUserAction: Bool) {
         if wasUserAction == true {
              zoomByUser = true
         }
@@ -440,7 +440,7 @@ class AMapPathTrackView: UIView,MAMapViewDelegate,AMapNaviDriveManagerDelegate {
     
     
     //用户移动地图
-    func mapView(_ mapView: MAMapView!, mapDidMoveByUser wasUserAction: Bool) {
+    public func mapView(_ mapView: MAMapView!, mapDidMoveByUser wasUserAction: Bool) {
         if wasUserAction == true {
             moveByUser = true
         }

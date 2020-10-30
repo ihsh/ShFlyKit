@@ -10,7 +10,7 @@ import UIKit
 
 
 
-protocol CityHeadViewDelegate :NSObjectProtocol {
+public protocol CityHeadViewDelegate :NSObjectProtocol {
     //选择城市
     func selectCity(_ city:CityItem)
     //调用定位
@@ -21,7 +21,7 @@ protocol CityHeadViewDelegate :NSObjectProtocol {
 
 
 ///城市列表头部的热门和搜索
-class CityHeadView: UIView , ItemsViewDelegate , DelayTextFieldDelegate{
+public class CityHeadView: UIView , ItemsViewDelegate , DelayTextFieldDelegate{
     //Variable
     public weak var delegate:CityHeadViewDelegate?
     public var allHeight:CGFloat = 0                 //整个视图的高度
@@ -154,7 +154,7 @@ class CityHeadView: UIView , ItemsViewDelegate , DelayTextFieldDelegate{
     
     
     //点击其中的项目
-    func objClickTitle(_ title: String) {
+    private func objClickTitle(_ title: String) {
         if title == "定位" {
             delegate?.callUserLocation();
         }else{
@@ -169,7 +169,7 @@ class CityHeadView: UIView , ItemsViewDelegate , DelayTextFieldDelegate{
     
     
     //文字更改停下来调用
-    func textFieldDelayDidChange(_ text: String) {
+    public func textFieldDelayDidChange(_ text: String) {
         if text.count == 0 {
             resultView.isHidden = true;
         }else{
@@ -206,14 +206,14 @@ class CityHeadView: UIView , ItemsViewDelegate , DelayTextFieldDelegate{
     }
     
     
-    func textBeiginEdit() {
+    public func textBeiginEdit() {
         maskV.isHidden = false;
         resultView.isHidden = true;
         delegate?.tableViewScrollEnable(false);
     }
     
     
-    func textDidEndEdit() {
+    public func textDidEndEdit() {
         maskV.isHidden = true;
         delegate?.tableViewScrollEnable(true);
     }

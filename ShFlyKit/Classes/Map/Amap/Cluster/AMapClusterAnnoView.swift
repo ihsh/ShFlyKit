@@ -10,7 +10,7 @@ import UIKit
 import AMapNaviKit
 
 ///自定义的点聚合AnnoView类
-class AMapClusterAnnoView: MAAnnotationView {
+public class AMapClusterAnnoView: MAAnnotationView {
 
     public var label:UILabel!
     

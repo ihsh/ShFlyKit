@@ -11,7 +11,7 @@ import FMDB
 
 
 //网络模型
-class NetModel:NSObject{
+public class NetModel:NSObject{
     //(url+body+time)请求的唯一标识码,可通过保存这个反向取出,只有一条
     public var md5:String = ""
     //(url+body)字符串的MD5值，可索引出多个值
@@ -82,7 +82,7 @@ class NetModel:NSObject{
 
 
 ///网络请求库的数据
-class NetDataSource: NSObject {
+public class NetDataSource: NSObject {
     ///MARK
     private var database:FMDatabase!                                    //数据库
     private var queue:FMDatabaseQueue!                                  //线程

@@ -10,7 +10,7 @@ import UIKit
 
 //创建一个带渐变图层的视图
 
-class GradientLayerView: UIView {
+public class GradientLayerView: UIView {
 
     
     

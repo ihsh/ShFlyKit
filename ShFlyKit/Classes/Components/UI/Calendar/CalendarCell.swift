@@ -10,7 +10,7 @@ import UIKit
 
 
 //日历显示cell
-class CalendarCell: UICollectionViewCell {
+public class CalendarCell: UICollectionViewCell {
     //Variable
     private var backV:UIView!                   //容器视图
     private var dayL:UILabel!                   //日期

@@ -10,7 +10,7 @@ import UIKit
 import Masonry
 
 ///支付结果页查询代理
-protocol PayFuncDelegate:NSObjectProtocol {
+public protocol PayFuncDelegate:NSObjectProtocol {
     //支付结果回调,是否来自SDK
     func payResult(suc:Bool,fromSDk:Bool)
     //刷新账单界面
@@ -23,7 +23,7 @@ protocol PayFuncDelegate:NSObjectProtocol {
 
 
 ///支付选择页面
-class PayFuncView: UIView , UIGestureRecognizerDelegate , HeatBeatTimerDelegate , PayTypeDelegate{
+public class PayFuncView: UIView , UIGestureRecognizerDelegate , HeatBeatTimerDelegate , PayTypeDelegate{
     //Variable
     public weak var delegate:PayFuncDelegate?
     //界面元素--从上到下,给出界面元素，可以自定义子类，往上面加元素
@@ -91,7 +91,7 @@ class PayFuncView: UIView , UIGestureRecognizerDelegate , HeatBeatTimerDelegate 
     
     ///Delegate
     //TapGestureDelegate
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if forbidV.isHidden == false {
             return false;
         }
@@ -107,7 +107,7 @@ class PayFuncView: UIView , UIGestureRecognizerDelegate , HeatBeatTimerDelegate 
     
     
     //HeatBeatTimerDelegate
-    func timeCallTimes(times: Int, identifier: String) {
+    public func timeCallTimes(times: Int, identifier: String) {
         //上次发起的时间
         let now = NSDate().timeIntervalSince1970;
         let span = now - (PayCheckV.shared.lastPayTime ?? now);
@@ -194,7 +194,7 @@ class PayFuncView: UIView , UIGestureRecognizerDelegate , HeatBeatTimerDelegate 
     
     
     //PayTypeDelegate
-    func viewForUnFoldMore() -> UIView {
+    public func viewForUnFoldMore() -> UIView {
         let view = UIView()
         view.backgroundColor = UIColor.white;
         //线
@@ -228,13 +228,13 @@ class PayFuncView: UIView , UIGestureRecognizerDelegate , HeatBeatTimerDelegate 
     
     
     //展开的视图高度
-    func heightForUnFoldMore() -> CGFloat {
+    public func heightForUnFoldMore() -> CGFloat {
         return 56;
     }
     
     
     //自定义cell
-    func customCellForIndex(indexPath: IndexPath, data: PayTypeData) -> UITableViewCell? {
+    public func customCellForIndex(indexPath: IndexPath, data: PayTypeData) -> UITableViewCell? {
         return nil;
     }
     

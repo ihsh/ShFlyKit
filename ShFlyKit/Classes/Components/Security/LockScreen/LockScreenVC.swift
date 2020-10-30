@@ -16,7 +16,7 @@ public enum LockScreenType{
 
 
 //代理
-protocol LockScreenDelegate:NSObjectProtocol{
+public protocol LockScreenDelegate:NSObjectProtocol{
     ///设置密码
     func lockScreenDidFinishSetPassword(pwd:String)
     func lockScreenCancelSetting()
@@ -30,7 +30,7 @@ protocol LockScreenDelegate:NSObjectProtocol{
 
 
 //图案解锁类
-class LockScreenVC: UIViewController , PassWordDeleagate {
+public class LockScreenVC: UIViewController , PassWordDeleagate {
     // MARK: - Variale
     public weak var lockDelegate:LockScreenDelegate?
     public var viewType:LockScreenType = .Unlock
@@ -60,7 +60,7 @@ class LockScreenVC: UIViewController , PassWordDeleagate {
     
     
     ///Mark
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         //背景色
         self.view.backgroundColor = backColor;
         //密码设置图
@@ -182,7 +182,7 @@ class LockScreenVC: UIViewController , PassWordDeleagate {
     
     
     ///PassWordDeleagate
-    func passWordDidEndInput(pwd: String) {
+    public func passWordDidEndInput(pwd: String) {
         if viewType == .Unlock{
             lockDelegate?.unlockScreenResult(pwd: pwd);
         }else{
@@ -210,7 +210,7 @@ class LockScreenVC: UIViewController , PassWordDeleagate {
     
     
     //设置中，字符在变化
-    func passWordDidChange(pwd: String) {
+    public func passWordDidChange(pwd: String) {
         tipsL.text = nil;
         if pwd.count == 1 && viewType == .Setting{
             thumbV?.resetIndex();
@@ -227,7 +227,7 @@ class LockScreenVC: UIViewController , PassWordDeleagate {
     }
     
     
-    func passWordDidChangeIndex(index: Int, select: Bool) {
+    public func passWordDidChangeIndex(index: Int, select: Bool) {
         thumbV?.setIndexes(index: index, select: select);
     }
     
@@ -261,13 +261,13 @@ class LockScreenVC: UIViewController , PassWordDeleagate {
     
     
     ///进来隐藏导航条，出去再显示
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         isHiddenBar = self.navigationController!.isNavigationBarHidden;
         self.navigationController?.setNavigationBarHidden(true, animated: true);
     }
     
     
-    override func viewWillDisappear(_ animated: Bool) {
+    public override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(isHiddenBar, animated: true);
     }
     

@@ -10,7 +10,7 @@ import UIKit
 
 
 ///文件路径管理者
-class FilePathManager: NSObject {
+public class FilePathManager: NSObject {
 
     class public func documentPath()->URL?{
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last;

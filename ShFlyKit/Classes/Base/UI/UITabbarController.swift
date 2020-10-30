@@ -10,11 +10,11 @@ import UIKit
 
 
 ///Tabbar控制器扩展
-extension UITabBarController{
+public extension UITabBarController{
     
     
     //添加子控制器
-    public func addChildControllers(_ vcs:[UIViewController],titles:[String],nors:[UIImage],hights:[UIImage]){
+    func addChildControllers(_ vcs:[UIViewController],titles:[String],nors:[UIImage],hights:[UIImage]){
         for (index,vc) in vcs.enumerated(){
             let title = index < titles.count ? titles[index] : "";
             let nor = index < nors.count ? nors[index] : nil;

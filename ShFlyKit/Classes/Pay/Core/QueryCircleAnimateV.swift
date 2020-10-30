@@ -11,7 +11,7 @@ import UIKit
 import Masonry
 
 ///查询支付结果的转圈圈及结果动画--支付宝支付后的转圈圈效果
-class QueryCircleAnimateV: UIView,CAAnimationDelegate,DisplayDelegate{
+public class QueryCircleAnimateV: UIView,CAAnimationDelegate,DisplayDelegate{
     //Variable
     public var lineColor:UIColor?               //线条颜色
     public var backColor:UIColor = UIColor.white//背景颜色
@@ -87,7 +87,7 @@ class QueryCircleAnimateV: UIView,CAAnimationDelegate,DisplayDelegate{
     
     ///DisplayDelegate
     //更新进度--定时器调用
-    func displayCalled() {
+    public func displayCalled() {
         var step:CGFloat = 2/60.0;
         if endAngle > CGFloat(Double.pi) {
             step = 0.3/60.0;

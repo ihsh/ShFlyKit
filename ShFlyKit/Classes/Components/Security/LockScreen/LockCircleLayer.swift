@@ -11,7 +11,7 @@ import QuartzCore
 
 
 //密码圆圈类
-class LockCircleLayer: CALayer {
+public class LockCircleLayer: CALayer {
     // Variable
     public var highlighted:Bool = false                     //是否高亮-选中
     public var isError:Bool = false                         //是否错误
@@ -24,7 +24,7 @@ class LockCircleLayer: CALayer {
     
     
     // MARK: - draw
-    override func draw(in ctx: CGContext) {
+    public override func draw(in ctx: CGContext) {
         
         UIGraphicsPushContext(ctx)
         

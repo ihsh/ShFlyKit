@@ -11,18 +11,17 @@ import UIKit
 import WebKit
 
 ///打印机功能--图片,html
-class Printer: NSObject {
+public class Printer: NSObject {
     
     //介质类型
-    enum Medium {
+    public enum Medium {
         case paper,     //纸张-通常是A4.A5.A3
              photo      //照片纸--通常是4*6
     }
     //颜色选择
-    enum ColorType {
+    public enum ColorType {
         case colorful,grayScale     //色彩，灰阶(黑白)
     }
-    
     
     
     ///打印照片

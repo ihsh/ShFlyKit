@@ -11,13 +11,13 @@ import UIKit
 
 
 //地址类型
-enum AddressType{
+public enum AddressType{
     case Send,Receive                       //寄件，收件
 }
 
 
 //查询的地址结果
-class AddressResult: NSObject {
+public class AddressResult: NSObject {
     public var province:String!             //省名称
     public var provinceCode:Int = 0         //省编码
     public var city:String!                 //城市
@@ -33,9 +33,9 @@ class AddressResult: NSObject {
 
 
 //数据保存
-class LocDataSource: NSObject {
+public class LocDataSource: NSObject {
     //variable
-    static let shared = LocDataSource.init()               //单例保存数据
+    public static let shared = LocDataSource.init()               //单例保存数据
     public var sendAddress:AddressModel!                   //寄件地址
     public var receiveAddress:AddressModel!                //收件地址
 
@@ -99,13 +99,13 @@ class LocDataSource: NSObject {
 
 
 //地理位置模型
-class AddressModel: NSObject {
+public class AddressModel: NSObject {
     //Variable
     public var provinces:[ProvinceModel] = []
     
     
     //初始化数据
-    class func initWithDict(_ dict:NSDictionary)->AddressModel{
+    public class func initWithDict(_ dict:NSDictionary)->AddressModel{
         let address = AddressModel()
         //全部省份
         let province:NSArray? = dict.value(forKey: "provinces") as? NSArray;
@@ -211,7 +211,7 @@ class AddressModel: NSObject {
 
 
 //省
-class ProvinceModel: NSObject {
+public class ProvinceModel: NSObject {
     public var provinceName:String!
     public var provinceCode:Int = 0
     public var citys:[CityModel] = []
@@ -219,7 +219,7 @@ class ProvinceModel: NSObject {
 
 
 //市
-class CityModel: NSObject {
+public class CityModel: NSObject {
     public var cityName:String!
     public var cityCode:Int = 0
     public var parentID:Int = 0
@@ -228,7 +228,7 @@ class CityModel: NSObject {
 
 
 //区/县
-class CoutryModel: NSObject {
+public class CoutryModel: NSObject {
     public var coutryName:String!
     public var coutryCode:Int = 0
     public var towns:[TownModel] = []
@@ -236,21 +236,21 @@ class CoutryModel: NSObject {
 
 
 //乡镇
-class TownModel:NSObject{
+public class TownModel:NSObject{
     public var townName:String!
     public var townCode:Int = 0
 }
 
 
 //定位信息
-class LocationAddress:NSObject{
+public class LocationAddress:NSObject{
     public var city:String!         //定位的城市名-可能没有-市
     public var coutry:String?       //区/县名称-可能是-县级市-例茂名市-化州市
 }
 
 
 //用于匹配数据
-class LocMatchComponents:NSObject{
+public class LocMatchComponents:NSObject{
     public var current:Int = 0                 //当前选择的级别
     public var provinceIndex:Int = 0           //省选择的下标
     public var cityIndex:Int = 0               //城市选择的下标

@@ -9,9 +9,9 @@
 import UIKit
 import Masonry
 
-typealias ImageColorCallBack = ((_ color:UIColor)->Void)
+public typealias ImageColorCallBack = ((_ color:UIColor)->Void)
 //图片颜色取色器
-class ImageColorFetch: UIView {
+public class ImageColorFetch: UIView {
     //Variable
     public var imageView:UIImageView!
     public var indicateView:UIView?
@@ -37,21 +37,21 @@ class ImageColorFetch: UIView {
     
     
     //Touch事件
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event);
         let touch = ((touches as NSSet).anyObject() as AnyObject);
         let point = touch.location(in: self);
         onTouchEvent(point);
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event);
         let touch = ((touches as NSSet).anyObject() as AnyObject);
         let point = touch.location(in: self);
         onTouchEvent(point);
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event);
         let touch = ((touches as NSSet).anyObject() as AnyObject);
         let point = touch.location(in: self);

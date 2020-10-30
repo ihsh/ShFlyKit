@@ -10,7 +10,7 @@ import UIKit
 
 
 ///弹框
-class DiaLog: UIView,HeatBeatTimerDelegate {
+public class DiaLog: UIView,HeatBeatTimerDelegate {
 
     
     ///Interface

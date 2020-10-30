@@ -11,7 +11,7 @@ import AMapNaviKit
 
 
 ///代理方法
-protocol AMapClusterDelegate :NSObjectProtocol {
+public protocol AMapClusterDelegate :NSObjectProtocol {
     //点击了标注点
     func didSelectCluster(annoView:MAAnnotationView)
     //返回点的显示
@@ -20,7 +20,7 @@ protocol AMapClusterDelegate :NSObjectProtocol {
 
 
 ///点聚合视图
-class AMapClusterService: UIView , MAMapViewDelegate {
+public class AMapClusterService: UIView , MAMapViewDelegate {
     ///MARK
     public var mapView:MAMapView!
     public weak var delegate:AMapClusterDelegate?
@@ -142,19 +142,19 @@ class AMapClusterService: UIView , MAMapViewDelegate {
     
     //MARK-MAMapViewDelegate
     //区域改变重新计算
-    func mapView(_ mapView: MAMapView!, regionDidChangeAnimated animated: Bool) {
+    public func mapView(_ mapView: MAMapView!, regionDidChangeAnimated animated: Bool) {
         self.addAnnotationsToMapView(self.mapView);
     }
     
     
     //点击事件
-    func mapView(_ mapView: MAMapView!, didSelect view: MAAnnotationView!) {
+    public func mapView(_ mapView: MAMapView!, didSelect view: MAAnnotationView!) {
         delegate?.didSelectCluster(annoView: view);
     }
     
     
     //视图代理
-    func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
+    public func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
         //由代理设置
         if delegate != nil {
             let annoView:MAAnnotationView? = delegate?.viewForAnnotation(annotation);

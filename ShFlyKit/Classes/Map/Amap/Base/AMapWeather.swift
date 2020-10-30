@@ -11,7 +11,7 @@ import AMapSearchKit
 
 
 ///搜索天气代理
-@objc protocol AMapWeatherDelegate : NSObjectProtocol {
+@objc public protocol AMapWeatherDelegate : NSObjectProtocol {
     //返回实时天气数组
     func weatherSearchDone(_ llives:[AMapLocalWeatherLive])
     //搜索失败
@@ -20,7 +20,7 @@ import AMapSearchKit
 
 
 ///搜索天气类
-class AMapWeather: NSObject,AMapSearchDelegate {
+public class AMapWeather: NSObject,AMapSearchDelegate {
     ///MARK
     private var searchApi = AMapSearchAPI()
     public weak var delegate:AMapWeatherDelegate?

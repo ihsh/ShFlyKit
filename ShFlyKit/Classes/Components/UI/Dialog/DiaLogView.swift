@@ -10,14 +10,14 @@ import UIKit
 
 
 //基类弹窗视图，要自定义继承该视图,重写方法
-class DialogBaseView:UIView,DiaLogConfigDelegate,UIGestureRecognizerDelegate{
+public class DialogBaseView:UIView,DiaLogConfigDelegate,UIGestureRecognizerDelegate{
     //Variable
     public var config:DiaLogConfig!
     public var containV:UIView!             //容器视图
     public var containSize:CGSize!          //容器视图的尺寸
     
     //DiaLogConfigDelegate
-    func initWithConfig(_ config: DiaLogConfig) {
+    public func initWithConfig(_ config: DiaLogConfig) {
         self.config = config;
         //设置点击消息
         if config.touchDismiss {
@@ -27,7 +27,7 @@ class DialogBaseView:UIView,DiaLogConfigDelegate,UIGestureRecognizerDelegate{
         }
     }
     
-    func didAddSubviews(superV: UIView) {}
+    public func didAddSubviews(superV: UIView) {}
     
     //Private
     @objc func tapAction(){
@@ -35,7 +35,7 @@ class DialogBaseView:UIView,DiaLogConfigDelegate,UIGestureRecognizerDelegate{
     }
     
     //UIGestureRecognizerDelegate
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if (touch.view?.isEqual(self.containV))! {
             return false;
         }
@@ -47,10 +47,10 @@ class DialogBaseView:UIView,DiaLogConfigDelegate,UIGestureRecognizerDelegate{
 
 
 //自定义视图-自定义示例
-class DiaLogView: DialogBaseView {
+public class DiaLogView: DialogBaseView {
 
     
-    override func initWithConfig(_ config: DiaLogConfig) {
+    public override func initWithConfig(_ config: DiaLogConfig) {
         super.initWithConfig(config);
         self.backgroundColor = config.backColor;
         //内容视图
@@ -108,7 +108,7 @@ class DiaLogView: DialogBaseView {
     }
     
     
-    override func didAddSubviews(superV: UIView) {
+    public override func didAddSubviews(superV: UIView) {
         self.mas_makeConstraints { (make) in
             make?.left.top()?.right()?.bottom()?.mas_equalTo()(superV);
         }
@@ -135,10 +135,10 @@ class DiaLogView: DialogBaseView {
 
 
 //Toust
-class DiaLogToustView:DialogBaseView{
+public class DiaLogToustView:DialogBaseView{
     
     //实现代理方法，初始化视图
-    override func initWithConfig(_ config: DiaLogConfig) {
+    public override func initWithConfig(_ config: DiaLogConfig) {
         super.initWithConfig(config);
         //背景色
         self.backgroundColor = UIColor.colorHexValue("000000", alpha: 0.7);
@@ -164,7 +164,7 @@ class DiaLogToustView:DialogBaseView{
     }
     
     
-    override func didAddSubviews(superV: UIView) {
+    public override func didAddSubviews(superV: UIView) {
         self.mas_makeConstraints { (make) in
             make?.center.mas_equalTo()(superV);
             make?.size.mas_equalTo()(self.containSize);

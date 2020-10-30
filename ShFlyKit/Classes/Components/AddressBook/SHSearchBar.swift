@@ -10,7 +10,7 @@ import UIKit
 
 
 //搜索的代理协议
-@objc protocol SHSearchBarDelegate:NSObjectProtocol {
+@objc public protocol SHSearchBarDelegate:NSObjectProtocol {
     //输入的文字发生改变
     func textDidChange(_ text:String)
     //开始编辑
@@ -23,7 +23,7 @@ import UIKit
 
 
 //搜索栏
-class SHSearchBar: UIView{
+public class SHSearchBar: UIView{
     //输入框
     public weak var delegate:SHSearchBarDelegate?           //代理
     public var searchTextField:UISpanTextField!             //输入的文本输入框--有内边距

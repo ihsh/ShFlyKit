@@ -10,7 +10,7 @@ import UIKit
 
 
 //给定的视频资源，抽取某个时间的帧
-class LiveMovieFrame: NSObject {
+public class LiveMovieFrame: NSObject {
     
     
     //给定视频的URL获取某一帧

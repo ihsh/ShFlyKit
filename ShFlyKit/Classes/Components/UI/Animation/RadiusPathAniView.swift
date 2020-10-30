@@ -10,14 +10,14 @@ import UIKit
 import QuartzCore
 
 
-protocol RadiusPathAniViewDelegate:NSObjectProtocol {
+public protocol RadiusPathAniViewDelegate:NSObjectProtocol {
     //选中了某个下标
     func itemTapIndex(_ index:NSInteger);
 }
 
 
 ///展示半径径向展开的动画
-class RadiusPathAniView: UIView,RadiusCenterBtnDelegate,RadiusPathBtnDelegate {
+public class RadiusPathAniView: UIView,RadiusCenterBtnDelegate,RadiusPathBtnDelegate {
     //Variable
     public weak var delegate:RadiusPathAniViewDelegate?         //代理对象
     public var bloomRadius:CGFloat = 105                        //半径
@@ -73,7 +73,7 @@ class RadiusPathAniView: UIView,RadiusCenterBtnDelegate,RadiusPathBtnDelegate {
     
     //Delegate
     //中间按钮点击
-    func centerBtnTapped() {
+    public func centerBtnTapped() {
         if self.isBloom {
             self.pathCenterFold()
         }else{
@@ -83,7 +83,7 @@ class RadiusPathAniView: UIView,RadiusCenterBtnDelegate,RadiusPathBtnDelegate {
     
     
     //按钮点击
-    func itemBtnTap(btn: RadiusPathBtn) {
+    public func itemBtnTap(btn: RadiusPathBtn) {
 
         let senderBtn = self.itemBottons[btn.tag];
         //选中的按钮放大和消失
@@ -250,13 +250,13 @@ class RadiusPathAniView: UIView,RadiusCenterBtnDelegate,RadiusPathBtnDelegate {
 
 
 
-protocol RadiusPathBtnDelegate:NSObjectProtocol {
+public protocol RadiusPathBtnDelegate:NSObjectProtocol {
     func itemBtnTap(btn:RadiusPathBtn);
 }
 
 
 //自定义的展开按钮
-class RadiusPathBtn:UIImageView{
+public class RadiusPathBtn:UIImageView{
     //Variable
     public weak var delegate:RadiusPathBtnDelegate?
     private var frontImg:UIImageView!                  //最上层的图片
@@ -280,13 +280,13 @@ class RadiusPathBtn:UIImageView{
     }
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.isHighlighted = false;
         self.frontImg.isHighlighted = true;
     }
     
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event)
         let touch = ((touches as NSSet).anyObject() as AnyObject)
         let curPoint = touch.location(in: self);
@@ -302,7 +302,7 @@ class RadiusPathBtn:UIImageView{
     }
     
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         delegate?.itemBtnTap(btn: self);
         self.isHighlighted = false;
         self.frontImg.isHighlighted = false;
@@ -320,15 +320,14 @@ class RadiusPathBtn:UIImageView{
 
 
 
-protocol RadiusCenterBtnDelegate:NSObjectProtocol {
+public protocol RadiusCenterBtnDelegate:NSObjectProtocol {
     func centerBtnTapped();
 }
 
 
 //中间按钮
-class RadiusCenterBtn: UIImageView {
+public class RadiusCenterBtn: UIImageView {
     public weak var delegate:RadiusCenterBtnDelegate?
-    
     
     override init(image: UIImage?, highlightedImage: UIImage?) {
         super.init(image: image, highlightedImage: highlightedImage);
@@ -345,12 +344,12 @@ class RadiusCenterBtn: UIImageView {
         return CGRect(x: -origin.size.width/2.0, y: -origin.size.height/2.0, width: origin.size.width*5, height: origin.size.height*5);
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.isHighlighted = true;
         delegate?.centerBtnTapped();
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event)
         let touch = ((touches as NSSet).anyObject() as AnyObject)
         let curPoint = touch.location(in: self);
@@ -362,7 +361,7 @@ class RadiusCenterBtn: UIImageView {
         self.isHighlighted = true;
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.isHighlighted = false;
     }
     

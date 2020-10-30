@@ -11,18 +11,18 @@
 import UIKit
 
 //弯曲的边-上边还是下边
-enum CurveFloor{
+public enum CurveFloor{
     case Up,Down
 }
 
 //内弯的方向，是向上还是向下
-enum CurveInnerDirection{
+public enum CurveInnerDirection{
     case Up,Down
 }
 
 
 //画弧线的UIView,只在水平方向,上边或者下边
-class CurveView: UIView {
+public class CurveView: UIView {
     //Variable
     public var offset:CGFloat = 30                      //偏移的距离--0的话就没有变化
     public var fillColor:UIColor = UIColor.white        //填充的颜色
@@ -43,7 +43,7 @@ class CurveView: UIView {
     
     
     
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         let x = rect.origin.x;
         let y = rect.origin.y;
         let width = rect.size.width;

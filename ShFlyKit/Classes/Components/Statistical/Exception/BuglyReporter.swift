@@ -16,11 +16,11 @@ import UIKit
  libc++.dylib 或 libc++.tbd
  */
 
-class BuglyReporter: NSObject {
+public class BuglyReporter: NSObject {
 
     
     //注册bugly
-    class func initBugLyWithAppkey(appKey:String,crashHandle:Bool = true) -> Void {
+    public class func initBugLyWithAppkey(appKey:String,crashHandle:Bool = true) -> Void {
         let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"];
         let currentDevice:UIDevice = UIDevice.current;
         let deviceID:NSMutableString = NSMutableString.init(string: (currentDevice.identifierForVendor?.uuidString)!);
@@ -44,7 +44,7 @@ class BuglyReporter: NSObject {
     
     
     //初始化崩溃处理类
-    class func bugCrashHandleEnale()->Void{
+    public class func bugCrashHandleEnale()->Void{
         //DEBUG下要关掉，可以发现问题
 //        CrashHandler.makeEffective()
     }

@@ -10,7 +10,7 @@ import UIKit
 
 
 //UI代理
-@objc protocol SHAdressBookUIDelegate:NSObjectProtocol {
+@objc public protocol SHAdressBookUIDelegate:NSObjectProtocol {
     //代理返回cell
     @objc optional func cellForIndexPath(_ cell:UITableViewCell,indexPath: IndexPath, contact:SHAddressItem)->UITableViewCell
     //点击选择了Cell
@@ -19,7 +19,7 @@ import UIKit
 
 
 //通讯录显示界面
-class SHAdressBookUI: UIViewController,UITableViewDataSource,UITableViewDelegate,HeatBeatTimerDelegate,SHSearchBarDelegate {
+public class SHAdressBookUI: UIViewController,UITableViewDataSource,UITableViewDelegate,HeatBeatTimerDelegate,SHSearchBarDelegate {
     //Variable
     private var mainView:UIView!
     private var dataSource:[SHAddressSection] = []           //分数的数据
@@ -43,7 +43,7 @@ class SHAdressBookUI: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         self.view.backgroundColor = UIColor.white;
         //创建一个在安全区域内的视图
         self.mainView = UIScreenFit.createMainView();
@@ -118,7 +118,7 @@ class SHAdressBookUI: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     
     //HeatBeatTimerDelegate--可换用简单定时器回调的方式
-    func timeTaskCalled(identifier: String) {
+    public func timeTaskCalled(identifier: String) {
         let time = NSDate().timeIntervalSince1970;
         if fabs(time - selectTimeStamp) > 1{
             bigShowView.isHidden = true;
@@ -127,7 +127,7 @@ class SHAdressBookUI: UIViewController,UITableViewDataSource,UITableViewDelegate
 
     
     //SHSearchBarDelegate
-    func textDidChange(_ text: String) {
+    public func textDidChange(_ text: String) {
         isSearching = true;
         searchTableV.isHidden = (isSearching == false)
         //筛选结果
@@ -176,13 +176,13 @@ class SHAdressBookUI: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     
     //停止搜索
-    func textDidEndEdit() {
+    public func textDidEndEdit() {
         searchTableV.isHidden = true;
     }
     
     
     //键盘高度变更
-    func keyboardChangeFrame(_ height: CGFloat) {
+    public func keyboardChangeFrame(_ height: CGFloat) {
         searchTableV.mas_remakeConstraints { (maker) in
             maker?.left.right()?.mas_equalTo()(self.mainView);
             maker?.top.mas_equalTo()(searchView.mas_bottom);
@@ -192,7 +192,7 @@ class SHAdressBookUI: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     
     //UITableViewDataSource
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         if tableView.isEqual(searchTableV) {
             return 1;
         }
@@ -200,7 +200,7 @@ class SHAdressBookUI: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.isEqual(searchTableV) {
             return searchDataSource.count;
         }
@@ -209,7 +209,7 @@ class SHAdressBookUI: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:AddressBookCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AddressBookCell;
         cell.selectionStyle = .none;
         if (tableView.isEqual(searchTableV)){
@@ -232,7 +232,7 @@ class SHAdressBookUI: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var contact:SHAddressItem!
         if tableView.isEqual(searchTableV) {
             contact = searchDataSource[indexPath.row];
@@ -242,14 +242,14 @@ class SHAdressBookUI: UIViewController,UITableViewDataSource,UITableViewDelegate
         }
         delegate?.didSelectCell?(indexPath, contact: contact);
     }
+
     
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return sectionHeight;
     }
     
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         view.backgroundColor = sectionHeaderBackColor;
         let label = UILabel()
@@ -271,7 +271,7 @@ class SHAdressBookUI: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     
     //索引的显示数据
-    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         if tableView.isEqual(searchTableV) == false{
              return sectionIndexs;
         }
@@ -280,7 +280,7 @@ class SHAdressBookUI: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     
     //滚动索引，显示字母
-    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+    public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         let character = sectionIndexs[index];
         bigLabel.text = character;
         selectTimeStamp = NSDate().timeIntervalSince1970;
@@ -294,7 +294,7 @@ class SHAdressBookUI: UIViewController,UITableViewDataSource,UITableViewDelegate
 
 
 //联系人Cell
-class AddressBookCell: UITableViewCell {
+public class AddressBookCell: UITableViewCell {
     public var headpImgV:UIImageView!           //头像
     public var headpLabel:UILabel!              //头像文字
     public var name:UILabel!                    //名字

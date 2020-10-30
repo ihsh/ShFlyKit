@@ -9,10 +9,8 @@
 import UIKit
 
 
-///显示一连串标签的视图
 
-
-class TipsModel: NSObject {
+public class TipsModel: NSObject {
     public var text:String!                                                 //文本
     public var textColor = UIColor.white                                    //文字颜色
     public var font = kFont(12)                                             //文字大小
@@ -23,13 +21,14 @@ class TipsModel: NSObject {
 
 
 //代理协议
-protocol MulTipsViewDelegate : NSObjectProtocol {
+public protocol MulTipsViewDelegate : NSObjectProtocol {
     //点击的下标和对应的文本
     func tipsClickIn(index:NSInteger,text:String)
 }
 
 
-class MulTipsView: UIView {
+///显示一连串标签的视图
+public class MulTipsView: UIView {
     
     private weak var tipDelegate:MulTipsViewDelegate?//代理对象
 

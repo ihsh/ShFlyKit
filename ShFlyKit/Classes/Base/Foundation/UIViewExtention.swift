@@ -9,7 +9,7 @@
 import UIKit
 
 
-extension UIView{
+public extension UIView{
     
     //清除当前子视图
     func clearSubviews(){

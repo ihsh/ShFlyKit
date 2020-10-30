@@ -10,7 +10,7 @@ import UIKit
 
 
 //代理实现协议-自定义的UIView
-protocol DiaLogConfigDelegate:NSObjectProtocol {
+public protocol DiaLogConfigDelegate:NSObjectProtocol {
     //实现自定义视图的初始化
     func initWithConfig(_ config:DiaLogConfig)
     //已经添加到视图上
@@ -20,17 +20,17 @@ protocol DiaLogConfigDelegate:NSObjectProtocol {
 
 
 //弹窗处理回调
-typealias DialogActionHandler = ((_ action:String)->Void)
+public typealias DialogActionHandler = ((_ action:String)->Void)
 
 
 //类型
-enum DiaLogType {
+public enum DiaLogType {
     case System,ActionSheet,Toust,Custom
 }
 
 
 //弹框的配置
-class DiaLogConfig:NSObject{
+public class DiaLogConfig:NSObject{
     //Variable
     public var type:DiaLogType = .System                //弹窗类型
     public var delegate:DiaLogConfigDelegate?           //自定义视图作为代理，实现视图的初始化方法
@@ -49,7 +49,7 @@ class DiaLogConfig:NSObject{
     public var extras:[String:Any] = [:]                //其余额外信息
     
     
-    class func initConfig(title:String?,msg:String?,type:DiaLogType,delegateView:DiaLogConfigDelegate?,
+    public class func initConfig(title:String?,msg:String?,type:DiaLogType,delegateView:DiaLogConfigDelegate?,
                           comfirm:DiaLogAction,cancel:DiaLogAction)->DiaLogConfig{
         let config = DiaLogConfig()
         config.title = title;
@@ -70,7 +70,7 @@ class DiaLogConfig:NSObject{
 
 
 //弹框Action
-class DiaLogAction: NSObject {
+public class DiaLogAction: NSObject {
     public var action:DialogActionHandler?      //处理回调
     public var title:String!                    //按钮的标题
     public var destructive:Bool = false         //是否是破坏性的
@@ -79,7 +79,7 @@ class DiaLogAction: NSObject {
     public var font:UIFont = kFont(14)
     
     
-    class func initAction(_ title:String,action:@escaping DialogActionHandler,
+    public class func initAction(_ title:String,action:@escaping DialogActionHandler,
                           destructive:Bool = false)->DiaLogAction{
         let act = DiaLogAction()
         act.action = action;

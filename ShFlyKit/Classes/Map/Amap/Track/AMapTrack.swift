@@ -9,7 +9,7 @@
 import UIKit
 
 
-class AMapTrackPoint: NSObject {
+public class AMapTrackPoint: NSObject {
     public var coordinate:CLLocationCoordinate2D!
     public var locateTime:TimeInterval!
     public var speed:Double!    //速度 km/h
@@ -20,7 +20,7 @@ class AMapTrackPoint: NSObject {
 }
 
 
-class AMapTrackObject: NSObject {
+public class AMapTrackObject: NSObject {
     public var trackID:String!
     public var distance:UInt!
     public var duration:TimeInterval!
@@ -29,7 +29,7 @@ class AMapTrackObject: NSObject {
 
 
 
-class AMapTrack: NSObject {
+public class AMapTrack: NSObject {
     public var distanceFilter:CLLocationDistance!
     public var desiredAccurary:CLLocationAccuracy!
     

@@ -11,9 +11,9 @@ import AVFoundation
 
 ///语音播放类
 
-class SpeechSynthesizer: NSObject,AVSpeechSynthesizerDelegate{
+public class SpeechSynthesizer: NSObject,AVSpeechSynthesizerDelegate{
     /// MARK: - Variable
-    static  let shareInstance = SpeechSynthesizer.init()     //单例
+    public static let shareInstance = SpeechSynthesizer.init()     //单例
     private var speechSynthesizer:AVSpeechSynthesizer!      
 
     

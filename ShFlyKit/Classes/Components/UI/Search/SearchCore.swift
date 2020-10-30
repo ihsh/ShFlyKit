@@ -10,7 +10,7 @@ import UIKit
 
 
 ///简单搜索查找
-class SearchCore:NSObject{
+public class SearchCore:NSObject{
     //Variable
     private var matchs:[String] = []            //匹配用字符串
     private var indexes:[Int] = []              //下标记录

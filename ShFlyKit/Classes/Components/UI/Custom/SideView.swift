@@ -10,9 +10,9 @@ import UIKit
 
 
 ///侧边栏视图控制
-class SideViewManager: UIView {
+public class SideViewManager: UIView {
     //Variable
-    static let shared = SideViewManager()
+    public static let shared = SideViewManager()
     private var sideView:UIView?                                        //侧边视图
     
     public var sideMargin:CGFloat = ScreenSize().width/4.0*3            //侧边展开时的宽度
@@ -57,7 +57,7 @@ class SideViewManager: UIView {
    
     
     //点击收回
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event);
         let touch = ((touches as NSSet).anyObject() as AnyObject);
         let point = touch.location(in: self);

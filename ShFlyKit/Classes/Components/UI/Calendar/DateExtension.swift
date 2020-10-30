@@ -10,7 +10,7 @@ import UIKit
 
 
 //日期的扩展
-extension Date{
+public extension Date{
     ///Variable
     static private let calendar:NSCalendar = NSCalendar.init(identifier: .gregorian)!                   //公历
     static private let localCalendar:NSCalendar = NSCalendar.init(calendarIdentifier: .chinese)!        //农历
@@ -22,7 +22,7 @@ extension Date{
     
     
     ///偏移月份得到的时间
-    public func offsetMonthDate(_ offset:Int,middle:Bool = false)->Date{
+    func offsetMonthDate(_ offset:Int,middle:Bool = false)->Date{
         let components:NSDateComponents = Date.calendar.components([.year,.month,.day], from: self) as NSDateComponents;
         //定位到当月中间日子
         if middle == true{
@@ -49,21 +49,21 @@ extension Date{
     
     
     //获取年月日
-    public func dateForYMD()->(Int,Int,Int){
+    func dateForYMD()->(Int,Int,Int){
         let components:NSDateComponents = Date.calendar.components([.year,.month,.day], from: self) as NSDateComponents;
         return (components.year,components.month,components.day);
     }
     
     
     //当月总天数
-    public func totolDaysInMonth()->Int{
+    func totolDaysInMonth()->Int{
         let total = NSCalendar.current.range(of: .day, in: .month, for: self)?.count ?? 0;
         return total;
     }
     
     
     //返回每个月的第一天 0-6 周日到周六
-    public func firstWeekDayInMonth(sundayFirst:Bool = true)->Int{
+    func firstWeekDayInMonth(sundayFirst:Bool = true)->Int{
         let calendar:NSCalendar = Date.calendar;
         let components:NSDateComponents = calendar.components([.year,.month,.day,.weekday], from: self) as NSDateComponents;
         components.day = 1;
@@ -76,7 +76,7 @@ extension Date{
     
     
     //日期的星期
-    public func weekDayOfDay(sundayFirst:Bool = true)->Int{
+    func weekDayOfDay(sundayFirst:Bool = true)->Int{
         let calendar:NSCalendar = Date.calendar;
         let components:NSDateComponents = calendar.components([.year,.month,.day,.weekday], from: self) as NSDateComponents;
         let week = components.weekday;
@@ -85,7 +85,7 @@ extension Date{
     
     
     //是否是这个月
-    public func isCurent(focusDay:Bool = false)->Bool{
+    func isCurent(focusDay:Bool = false)->Bool{
         let components:NSDateComponents = Date.calendar.components([.year,.month,.day,.weekday], from: self) as NSDateComponents;
         let curenCom:NSDateComponents = Date.calendar.components([.year,.month,.day,.weekday], from: Date()) as NSDateComponents;
         if focusDay {
@@ -97,7 +97,7 @@ extension Date{
     
     
     //普通农历
-    public func lunalText()->String{
+    func lunalText()->String{
         let days = ["初一","初二","初三","初四","初五","初六","初七","初八","初九","初十",
                     "十一","十二","十三","十四","十五","十六","十七","十八","十九","二十",
                     "廿一","廿二","廿三","廿四","廿五","廿六","廿七","廿八","廿九","三十"];
@@ -117,7 +117,7 @@ extension Date{
     
     
     //农历节日
-    public func lunalHoliday()->String?{
+    func lunalHoliday()->String?{
         let localCompo:NSDateComponents = Date.localCalendar.components([.year,.month,.day], from: self) as NSDateComponents;
         let month = localCompo.month;
         let day = localCompo.day;
@@ -143,7 +143,7 @@ extension Date{
     
     
     //获取公历的节日
-    static public func getGregorianHoliday(_ year:Int,month:Int,day:Int)->String?{
+    static func getGregorianHoliday(_ year:Int,month:Int,day:Int)->String?{
         let fixDays = ["1-1":"元旦","2-14":"情人节","3-12":"植树节","4-1":"愚人节","5-1":"劳动节",
                        "5-4":"青年节","6-1":"儿童节","7-1":"建党节","8-1":"建军节","9-10":"教师节",
                        "10-1":"国庆节","10-31":"万圣节","12-24":"平安夜","12-25":"圣诞节"];
@@ -225,7 +225,7 @@ extension Date{
     
     
     //返回农历的年份
-    static public func lunalYear(_ year:Int)->String{
+    static func lunalYear(_ year:Int)->String{
         //0是为了计算方便，是整除的时候，其实是整除数
         let tiangan = ["4":"甲","5":"乙","6":"丙","7":"丁","8":"戊","9":"已","0":"庚","1":"辛","2":"壬","3":"癸"];
         let dizhi = ["4":"子","5":"丑","6":"寅","7":"卯","8":"辰","9":"巳","0":"午","11":"未","12":"申","1":"酉","2":"戌","3":"亥"];
@@ -238,7 +238,7 @@ extension Date{
     
     
     //获取一年的24节气分布  --  返回格式 ["1-5":"小寒"]
-    static public func get24SolarDay(_ year:Int)->[(String,String)]{
+    static func get24SolarDay(_ year:Int)->[(String,String)]{
         //数据--[月份:[节气:[21世纪C值，20世纪C值]]]
         let solars = ["1":["小寒":[5.4055,6.11],"大寒":[20.12,20.84]],
                       "2":["立春":[3.87,4.15],"雨水":[18.73,18.73]],
@@ -329,7 +329,7 @@ extension Date{
     
     
     //返回日期数
-    static public func daysCount(year:Int,month:Int)->Int{
+    static func daysCount(year:Int,month:Int)->Int{
         switch month {
         case 1,3,5,7,8,10,12:
             return 31;

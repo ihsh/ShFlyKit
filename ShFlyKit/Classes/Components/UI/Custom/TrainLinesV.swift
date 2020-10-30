@@ -10,14 +10,14 @@ import UIKit
 
 
 //协议
-protocol TrainLinesVDelegate {
+public protocol TrainLinesVDelegate {
     //选取了起点和终点
     func selectStations(start:String,end:String)
 }
 
 
 ///站点路线图
-class TrainLinesV: UIView {
+public class TrainLinesV: UIView {
     //Variable
     private var data:TrainStationData!                                                  //数据的引用
     public var delegate:TrainLinesVDelegate?                                            //代理对象
@@ -218,7 +218,7 @@ class TrainLinesV: UIView {
 
 
 ///站点概览信息
-class TrainStationData: NSObject {
+public class TrainStationData: NSObject {
     //Variable
     public private(set) var items:[TrainStationItem] = []
     //配置
@@ -287,7 +287,7 @@ class TrainStationData: NSObject {
 
 
 ///站点信息
-class TrainStationItem: NSObject {
+public class TrainStationItem: NSObject {
     //Variable
     public var rect:CGRect!                 //显示的坐标
     public var name:String!                 //标题

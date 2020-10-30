@@ -10,15 +10,16 @@ import UIKit
 import AMapSearchKit
 import AMapNaviKit
 
-///位置选点类
 
-protocol AmapPoiSelectDelegate {
+
+public protocol AmapPoiSelectDelegate {
     //选中的poi的地理位置
     func selectPoiResultForLocation(_ location:CLLocationCoordinate2D)
 }
 
 
-class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultTableDelegate{
+///位置选点类
+public class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultTableDelegate{
     //UI定制
     public var zoomLevel:CGFloat = 17                               //放大倍数
     public var tableHeight:CGFloat = ScreenSize().height/2            //表视图高度
@@ -48,7 +49,7 @@ class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultTableDel
     
     
     // MARK: - Load
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         //初始化表视图
         self.initTableView()
@@ -59,7 +60,7 @@ class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultTableDel
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         //初始化中心点
         self.initCenterView()
@@ -169,7 +170,7 @@ class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultTableDel
     
     
     // MARK: - Delegate
-    func didTableSelectedChanged(selectedPoi: AMapPOI) {
+    public func didTableSelectedChanged(selectedPoi: AMapPOI) {
         //防止两次点击
         if (self.isMapViewRegionChangedFromTableView == true) {
             return;
@@ -186,7 +187,7 @@ class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultTableDel
     
     
     //点击位置选项
-    func didPositionUserLocation() {
+    public func didPositionUserLocation() {
         if (self.isMapViewRegionChangedFromTableView == true) {
             return;
         }
@@ -196,14 +197,14 @@ class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultTableDel
     
     
     //加载更多
-    func didLoadMoreBtnClick() {
+    public func didLoadMoreBtnClick() {
         self.searchPage += 1;
         self.search.searchPoiWithCenterCoordinate(coord: self.maMapView.centerCoordinate, type: self.currentType, page: self.searchPage)
     }
     
     
     // MARK: - MAMapViewDelegate
-    func mapView(_ mapView: MAMapView!, regionDidChangeAnimated animated: Bool) {
+    public func mapView(_ mapView: MAMapView!, regionDidChangeAnimated animated: Bool) {
         //来自地图本身的区域变化
         if (self.isMapViewRegionChangedFromTableView == false && self.maMapView.userTrackingMode == .none) {
             self.actionSearchAroundAt(coordinate: self.maMapView.centerCoordinate);
@@ -213,7 +214,7 @@ class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultTableDel
     
     
     
-    func mapView(_ mapView: MAMapView!, didUpdate userLocation: MAUserLocation!, updatingLocation: Bool) {
+    public func mapView(_ mapView: MAMapView!, didUpdate userLocation: MAUserLocation!, updatingLocation: Bool) {
         if (updatingLocation == false || userLocation.location.horizontalAccuracy < 0) {
             return;
         }
@@ -227,7 +228,7 @@ class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultTableDel
     }
     
     
-    func mapView(_ mapView: MAMapView!, didChange mode: MAUserTrackingMode, animated: Bool) {
+    public func mapView(_ mapView: MAMapView!, didChange mode: MAUserTrackingMode, animated: Bool) {
         if (mode == .none) {
             self.locationBtn.setImage(UIImage.name(gpsNormalImageName), for: .normal)
         }else{
@@ -236,7 +237,7 @@ class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultTableDel
     }
     
     
-    func mapView(_ mapView: MAMapView!, didFailToLocateUserWithError error: Error!) {
+    public func mapView(_ mapView: MAMapView!, didFailToLocateUserWithError error: Error!) {
         
     }
    

@@ -11,7 +11,7 @@ import Contacts
 
 
 //通讯录数据类
-class SHAddressBook: NSObject {
+public class SHAddressBook: NSObject {
     
     //获取通讯录数据集
     class public func fetchData(callBack:@escaping ((_ contacts:[SHAddressItem],_ msg:String)->Void)){
@@ -163,29 +163,28 @@ class SHAddressBook: NSObject {
 
 
 //通讯录模型
-class SHAddressItem: NSObject {
-    @objc public var surname:String?                       //姓氏
-    @objc public var name:String!                          //名字
-    @objc public var organazation:String?                  //公司名称
-    @objc public var showName:String!                      //显示的名字
-    @objc public var headp:UIImage?                        //头像
-    @objc public var phones:[String] = []                  //电话号码数组
-    @objc public var mails:[String] = []                   //邮箱
-    @objc public var address:[SHAddressDetail] = []        //地址数组
+public class SHAddressItem: NSObject {
+    public var surname:String?                       //姓氏
+    public var name:String!                          //名字
+    public var organazation:String?                  //公司名称
+    @objc public var showName:String!                //显示的名字
+    public var headp:UIImage?                        //头像
+    public var phones:[String] = []                  //电话号码数组
+    public var mails:[String] = []                   //邮箱
+    public var address:[SHAddressDetail] = []        //地址数组
     
-    @objc public var headpTextBackColor:UIColor?           //头像的文字背景颜色
+    public var headpTextBackColor:UIColor?           //头像的文字背景颜色
 }
 
 
-
 //地址详情
-class SHAddressDetail:NSObject{
-    @objc public var country:String!                       //国籍
-    @objc public var province:String!                      //省
-    @objc public var city:String!                          //市
-    @objc public var area:String!                          //区/县
-    @objc public var street:String!                        //街道，剩余完整地址
-    @objc public var fullAddress:String!                   //拼接的完整地址
+public class SHAddressDetail:NSObject{
+    public var country:String!                       //国籍
+    public var province:String!                      //省
+    public var city:String!                          //市
+    public var area:String!                          //区/县
+    public var street:String!                        //街道，剩余完整地址
+    public var fullAddress:String!                   //拼接的完整地址
     
     
     //合成完整地址
@@ -198,7 +197,7 @@ class SHAddressDetail:NSObject{
 
 
 //段模型
-class SHAddressSection: NSObject {
+public class SHAddressSection: NSObject {
     public var character:String!
     public var contacts:[SHAddressItem] = []
 }

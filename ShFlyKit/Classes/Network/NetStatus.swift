@@ -11,7 +11,7 @@ import AFNetworking
 
 
 ///联网方式
-enum ConnectMethod {
+public enum ConnectMethod {
     case Wifi,        //WIFI
          HotPoint,    //热点-要省流量
          Via4G,       //蜂窝移动网络4G
@@ -21,7 +21,7 @@ enum ConnectMethod {
 
 
 ///网络状况收集类
-class NetStatus: NSObject,HeatBeatTimerDelegate{
+public class NetStatus: NSObject,HeatBeatTimerDelegate{
     ///MARK
     static let shareInstance = NetStatus.init()                           //单例，缓存数据
     private var afNetManager = AFNetworkReachabilityManager.shared()        //AFNetworking

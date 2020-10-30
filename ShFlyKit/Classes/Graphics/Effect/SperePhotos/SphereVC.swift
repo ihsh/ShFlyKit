@@ -10,11 +10,11 @@ import UIKit
 import Masonry
 
 ///立体相册控制器
-class SphereVC: UIViewController {
+public class SphereVC: UIViewController {
     //variable
     private var sphereV:SphereView!
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         sphereV = SphereView()
         sphereV.backgroundColor = .white;
@@ -27,7 +27,7 @@ class SphereVC: UIViewController {
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         var array:[UIView] = []
         for _ in 0...52 {

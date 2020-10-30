@@ -12,7 +12,7 @@ import UIKit
 
 
 ///代理返回路况颜色，纹理
-@objc protocol AMapMathServiceDelegate : NSObjectProtocol {
+@objc public protocol AMapMathServiceDelegate : NSObjectProtocol {
     //由代理返回颜色
     @objc optional func colorForStatus(status:AMapNaviRouteStatus)->UIColor?
     //由代理返回图片纹理
@@ -21,7 +21,7 @@ import UIKit
 
 
 ///高德计算服务类
-class AMapMathService: NSObject {
+public class AMapMathService: NSObject {
     /// MARK: - Variable
     static let shareInstance = AMapMathService.init()       //服务类单例
     public weak var delegate:AMapMathServiceDelegate?       //服务类的代理对象

@@ -10,14 +10,14 @@ import UIKit
 
 
 //画路径类
-class LockPathLayer: CALayer {
+public class LockPathLayer: CALayer {
     //Variable
     public var passwordView:LockPasswordView!       //密码视图
     public var showPath:Bool = true                 //是否显示路径
     public var isError:Bool = false
     
     //绘制
-    override func draw(in ctx: CGContext) {
+    public override func draw(in ctx: CGContext) {
         //当前没有在跟踪就不执行
         if (self.passwordView.isTracking == false || showPath == false) {
             return

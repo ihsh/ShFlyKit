@@ -11,7 +11,7 @@ import CommonCrypto
 
 
 ///消息认证码算法，是含有密钥散列函数算法，兼容了MD5和SHA算法的特性
-enum CryptoAlgorithm{
+public enum CryptoAlgorithm{
     case MD5, SHA1, SHA224, SHA256, SHA384, SHA512
     
     var HMACAlgorithm:CCHmacAlgorithm{
@@ -39,12 +39,13 @@ enum CryptoAlgorithm{
         }
         return Int(result)
     }
+    
 }
 
 
 
 ///加密
-extension String {
+public extension String {
     
     
     var md5: String! {
@@ -123,7 +124,7 @@ extension String {
     
     
     //base64加密
-    public func base64Encode()->String{
+    func base64Encode()->String{
         let data = self.data(using: String.Encoding.utf8)
         let base64String = data?.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
         return base64String!
@@ -131,7 +132,7 @@ extension String {
     
     
     //base64解密
-    public func base64Decoding()->String{
+    func base64Decoding()->String{
         let decodedData = NSData(base64Encoded: self, options: NSData.Base64DecodingOptions.init(rawValue: 0))
         let decodedString = NSString(data: decodedData! as Data, encoding: String.Encoding.utf8.rawValue)! as String
         return decodedString

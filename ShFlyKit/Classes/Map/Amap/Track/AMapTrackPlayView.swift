@@ -10,18 +10,16 @@ import UIKit
 import AMapNaviKit
 
 
-///显示地图轨迹视图类
-
-
 //轨迹类
-class TrackModel: NSObject {
+public class TrackModel: NSObject {
     public var coodinate:CLLocationCoordinate2D!
     public var speed:Double = 0
     public var timestamp:TimeInterval = 0
 }
 
 
-class AMapTrackPlayView: UIView,MAMapViewDelegate{
+///显示地图轨迹视图类
+public class AMapTrackPlayView: UIView,MAMapViewDelegate{
     // MARK: - Variable
     public var lineWidth:CGFloat = 6
     
@@ -85,7 +83,7 @@ class AMapTrackPlayView: UIView,MAMapViewDelegate{
     
     // MARK: - Delegate
     //显示轨迹
-    func mapView(_ mapView: MAMapView!, rendererFor overlay: MAOverlay!) -> MAOverlayRenderer! {
+    public func mapView(_ mapView: MAMapView!, rendererFor overlay: MAOverlay!) -> MAOverlayRenderer! {
         if (overlay.isKind(of: MAMultiPolyline.self)) {
             let render = MAMultiColoredPolylineRenderer.init(polyline:_polyLine);
             render?.lineWidth = lineWidth;

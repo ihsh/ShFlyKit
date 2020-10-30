@@ -11,7 +11,7 @@ import Masonry
 
 
 //手写板-涂鸦,白板
-class HandBoardView: UIView {
+public class HandBoardView: UIView {
     //Variable
     public var painColor:UIColor = .black           //涂鸦颜色
     public var painLineWidth:CGFloat = 2            //涂鸦线宽
@@ -71,7 +71,7 @@ class HandBoardView: UIView {
     }
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event);
         self.backgroundColor = .clear;
         let touch = ((touches as NSSet).anyObject() as AnyObject);
@@ -88,7 +88,7 @@ class HandBoardView: UIView {
     }
     
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event);
         let touch = ((touches as NSSet).anyObject() as AnyObject);
         let point = touch.location(in: self);
@@ -101,7 +101,7 @@ class HandBoardView: UIView {
     }
     
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event);
         let touch = ((touches as NSSet).anyObject() as AnyObject);
         let point = touch.location(in: self);
@@ -120,7 +120,7 @@ class HandBoardView: UIView {
     }
     
     
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         let ctx = UIGraphicsGetCurrentContext();
         //完成一次绘制
         func strokePaths(path:PainPathContent){
@@ -161,7 +161,7 @@ class HandBoardView: UIView {
 
 
 //手写板混合背景图片
-class HandBoardMixImageView: UIView {
+public class HandBoardMixImageView: UIView {
     //Variable
     public private(set) var imageV = UIImageView()      //背景图片
     public private(set) var handBoard:HandBoardView!    //涂鸦板
@@ -211,7 +211,7 @@ class HandBoardMixImageView: UIView {
 
 
 ///路径信息
-class PainPathContent:NSObject{
+public class PainPathContent:NSObject{
     public var path:UIBezierPath = UIBezierPath()
     public var color:UIColor!
 }

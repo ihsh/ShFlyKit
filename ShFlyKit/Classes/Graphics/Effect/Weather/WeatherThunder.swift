@@ -10,7 +10,7 @@ import UIKit
 
 
 //闪电图层
-class WeatherThunder: IgnoreTouchView {
+public class WeatherThunder: IgnoreTouchView {
     //Variable
     public var config:WeatherConfig.Thunder!            //配置
     private var pointArr:[CGPoint] = []                 //主干路径点

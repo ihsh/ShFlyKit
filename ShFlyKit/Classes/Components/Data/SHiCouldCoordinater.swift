@@ -13,7 +13,7 @@ import CloudKit
 //要测试iCloud功能，需要一个付费的iOS 开发者账号。 至少要2台iOS设备才可以测试数据同步功能。（iOS Simulator无法做iCloud Storage的测试）
 
 //代理
-protocol SHiCloudDelegate:NSObjectProtocol {
+public protocol SHiCloudDelegate:NSObjectProtocol {
     //h返回数据
     func responseWith(record:CKRecord,error:Error)
     //保存反馈
@@ -22,9 +22,9 @@ protocol SHiCloudDelegate:NSObjectProtocol {
 
 
 ///iCloud云存储
-class SHiCouldCoordinater: NSObject {
+public class SHiCouldCoordinater: NSObject {
     ///Variable
-    static let shared = SHiCouldCoordinater()
+    public static let shared = SHiCouldCoordinater()
     public weak var deleagete:SHiCloudDelegate?
     
     
@@ -36,7 +36,7 @@ class SHiCouldCoordinater: NSObject {
     
     
     //添加单条记录
-    func addCloudDataWithPublic(isPublic:Bool,recordID:String,dict:NSDictionary,recordType:String = "User")->Bool{
+    public func addCloudDataWithPublic(isPublic:Bool,recordID:String,dict:NSDictionary,recordType:String = "User")->Bool{
         let container:CKContainer = CKContainer.default()
         //公共数据/私有数据
         let database:CKDatabase = isPublic ? container.publicCloudDatabase : container.privateCloudDatabase
@@ -59,7 +59,7 @@ class SHiCouldCoordinater: NSObject {
     
     
     //增加带图片的提交 图片的保存,需要用到CKAsset,他的初始化需要一个URL,所以这里,我先把图片数据保存到本地沙盒,生成一个URL,然后再去创建CKAsset:
-    func saveImageData(isPublic:Bool,recordID:String,image:UIImage,recordType:String = "Image")->Void{
+    public func saveImageData(isPublic:Bool,recordID:String,image:UIImage,recordType:String = "Image")->Void{
         //先保存到本地沙盒，生成一个URL
         var data = UIImagePNGRepresentation(image)
         if data == nil {
@@ -93,7 +93,7 @@ class SHiCouldCoordinater: NSObject {
         
     
     //查找单条记录
-    func searchRecord(isPublic:Bool,recordID:String)->Void{
+    public func searchRecord(isPublic:Bool,recordID:String)->Void{
         //获得指定的ID
         let noteID = CKRecordID.init(recordName: recordID)
         //获得容器
@@ -107,7 +107,7 @@ class SHiCouldCoordinater: NSObject {
     
     
     //查找多条记录
-    func searchMulRecords(isPublic:Bool,recordType:String = "User")->Void{
+    public func searchMulRecords(isPublic:Bool,recordType:String = "User")->Void{
         let container = CKContainer.default()
         let database = isPublic ? container.publicCloudDatabase : container.privateCloudDatabase
         //谓词
@@ -121,7 +121,7 @@ class SHiCouldCoordinater: NSObject {
     
     
     //更新一条记录，首先找到这一条，再进行修改
-    func updateRecord(isPublic:Bool,recordID:String,recordType:String = "User",newDict:NSDictionary)->Void{
+    public func updateRecord(isPublic:Bool,recordID:String,recordType:String = "User",newDict:NSDictionary)->Void{
         //获得指定的ID
         let noteID = CKRecordID.init(recordName: recordID)
         let container = CKContainer.default()
@@ -142,7 +142,7 @@ class SHiCouldCoordinater: NSObject {
     
     
     //删除一条记录
-    func deleteRecord(isPublic:Bool,recordID:String)->Void{
+    public func deleteRecord(isPublic:Bool,recordID:String)->Void{
         //获得指定的ID
         let noteID = CKRecordID.init(recordName: recordID)
         let container = CKContainer.default()

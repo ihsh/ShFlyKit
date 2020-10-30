@@ -12,7 +12,7 @@ import AMapNaviKit
 ///海量点图层控制类
 
 
-class AMapMulPoint: NSObject {
+public class AMapMulPoint: NSObject {
     //MARK
     private var mapView:MAMapView!
     private var coordinates:[CLLocationCoordinate2D] = []       //保存所有的点

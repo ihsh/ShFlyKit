@@ -12,7 +12,7 @@ import Masonry
 
 
 //自带录音音量测量的波纹图
-class AvRecordWave: UIView ,DisplayDelegate{
+public class AvRecordWave: UIView ,DisplayDelegate{
     //Variable
     public var recorder:AVAudioRecorder!
     public var wave:LineWaver!
@@ -30,7 +30,7 @@ class AvRecordWave: UIView ,DisplayDelegate{
         wave.initConfig();
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -53,7 +53,7 @@ class AvRecordWave: UIView ,DisplayDelegate{
     
     
     //CADisplay回调
-    func displayCalled() {
+    public func displayCalled() {
         recorder.updateMeters();
         let normalizedValue = CGFloat(pow(10, recorder.averagePower(forChannel: 0) / 40));
         wave.updateAmplitude(normalizedValue);

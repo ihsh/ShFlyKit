@@ -11,7 +11,7 @@ import AMapLocationKit
 import AMapNaviKit
 
 ///地理围栏代理
-@objc protocol AMapGeoFenceDelegate : NSObjectProtocol {
+@objc public protocol AMapGeoFenceDelegate : NSObjectProtocol {
     //地理围栏添加成功
     @objc optional func fenceAddSuccess(_ customID:String);
     //地理围栏添加失败
@@ -22,7 +22,7 @@ import AMapNaviKit
 
 
 ///地理围栏类
-class AMapGeoFence: NSObject,AMapGeoFenceManagerDelegate{
+public class AMapGeoFence: NSObject,AMapGeoFenceManagerDelegate{
     ///MARK
     private var geoFenceManager:AMapGeoFenceManager!
     public  weak var delegate:AMapGeoFenceDelegate?
@@ -86,7 +86,7 @@ class AMapGeoFence: NSObject,AMapGeoFenceManagerDelegate{
     
     
     ///MARK-AMapGeoFenceManagerDelegate
-    func amapGeoFenceManager(_ manager: AMapGeoFenceManager!, didAddRegionForMonitoringFinished regions: [AMapGeoFenceRegion]!, customID: String!, error: Error!) {
+    public func amapGeoFenceManager(_ manager: AMapGeoFenceManager!, didAddRegionForMonitoringFinished regions: [AMapGeoFenceRegion]!, customID: String!, error: Error!) {
         if error != nil {
             delegate?.fenceAddFailed?(customID);
         }else{
@@ -101,7 +101,7 @@ class AMapGeoFence: NSObject,AMapGeoFenceManagerDelegate{
     
     
     //地理围栏状态改变
-    func amapGeoFenceManager(_ manager: AMapGeoFenceManager!, didGeoFencesStatusChangedFor region: AMapGeoFenceRegion!, customID: String!, error: Error!) {
+    public func amapGeoFenceManager(_ manager: AMapGeoFenceManager!, didGeoFencesStatusChangedFor region: AMapGeoFenceRegion!, customID: String!, error: Error!) {
         if error == nil {
             let status = region.fenceStatus;
             delegate?.fenceStatusChange(status);
@@ -109,12 +109,12 @@ class AMapGeoFence: NSObject,AMapGeoFenceManagerDelegate{
     }
     
     
-    func amapLocationManager(_ manager: AMapGeoFenceManager!, doRequireTemporaryFullAccuracyAuth locationManager: CLLocationManager!, completion: ((Error?) -> Void)!) {
+    public func amapLocationManager(_ manager: AMapGeoFenceManager!, doRequireTemporaryFullAccuracyAuth locationManager: CLLocationManager!, completion: ((Error?) -> Void)!) {
         
     }
 
     
-    func amapGeoFenceManager(_ manager: AMapGeoFenceManager!, doRequireLocationAuth locationManager: CLLocationManager!) {
+    public func amapGeoFenceManager(_ manager: AMapGeoFenceManager!, doRequireLocationAuth locationManager: CLLocationManager!) {
         
     }
     

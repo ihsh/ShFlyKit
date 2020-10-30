@@ -11,7 +11,7 @@ import AMapSearchKit
 
 //位置选点中表格视图控件
 
-protocol AMapPoiResultTableDelegate {
+public protocol AMapPoiResultTableDelegate {
     //选择某个POI
     func didTableSelectedChanged(selectedPoi:AMapPOI)
     //点击加载更多
@@ -21,7 +21,7 @@ protocol AMapPoiResultTableDelegate {
 }
 
 
-class AMapPoiResultTable: UIView,UITableViewDataSource,UITableViewDelegate,AMapSearchDelegate {
+public class AMapPoiResultTable: UIView,UITableViewDataSource,UITableViewDelegate,AMapSearchDelegate {
     //MARK
     public var delegate:AMapPoiResultTableDelegate!                 //搜索类的代理
 
@@ -53,7 +53,7 @@ class AMapPoiResultTable: UIView,UITableViewDataSource,UITableViewDelegate,AMapS
     
     // MARK: - Delegate
     //搜索的结果返回
-    func onPOISearchDone(_ request: AMapPOISearchBaseRequest!, response: AMapPOISearchResponse!) {
+    public func onPOISearchDone(_ request: AMapPOISearchBaseRequest!, response: AMapPOISearchResponse!) {
         if self.isFromMoreBtn == true {
             self.isFromMoreBtn = false
         }else{
@@ -71,7 +71,7 @@ class AMapPoiResultTable: UIView,UITableViewDataSource,UITableViewDelegate,AMapS
     }
     
     
-    func onReGeocodeSearchDone(_ request: AMapReGeocodeSearchRequest!, response: AMapReGeocodeSearchResponse!) {
+    public func onReGeocodeSearchDone(_ request: AMapReGeocodeSearchRequest!, response: AMapReGeocodeSearchResponse!) {
         if response.regeocode != nil {
             self.currentAdress = response.regeocode.formattedAddress;//反编译的结果
             
@@ -83,7 +83,7 @@ class AMapPoiResultTable: UIView,UITableViewDataSource,UITableViewDelegate,AMapS
     
     
     // MARK: - Delegate
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath);
         cell?.accessoryType = .checkmark;
         self.selectedIndexPath = indexPath as NSIndexPath;
@@ -101,14 +101,14 @@ class AMapPoiResultTable: UIView,UITableViewDataSource,UITableViewDelegate,AMapS
     
     
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath);
         cell?.accessoryType = .none;
     }
     
     
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let reuseIndentifier = "reuseIndentifier";
         var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: reuseIndentifier);
         if  cell == nil {
@@ -133,7 +133,7 @@ class AMapPoiResultTable: UIView,UITableViewDataSource,UITableViewDelegate,AMapS
     }
     
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0) {
             return 1;
         }else{
@@ -142,7 +142,7 @@ class AMapPoiResultTable: UIView,UITableViewDataSource,UITableViewDelegate,AMapS
     }
     
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 2;
     }
     

@@ -12,7 +12,7 @@ import AVFoundation
 
 
 //通用的JS回调处理类
-class SHJsActionHandler: NSObject ,SHPhoneAssetsToolDelegate {
+public class SHJsActionHandler: NSObject ,SHPhoneAssetsToolDelegate {
     //Variable
     private var callBackName:String!                //通用回调的名称
     public  var callMoreName:String!                //更多回调的名称
@@ -93,14 +93,14 @@ class SHJsActionHandler: NSObject ,SHPhoneAssetsToolDelegate {
     
     
     //SHPhoneAssetsToolDelegate
-    func permissionDenyed(_ msg: String) {
+    public func permissionDenyed(_ msg: String) {
         showToust(msg, action: currentAction, success: false);
     }
     
     
     
     //获取了一张照片
-    func pickerImage(_ image: UIImage) {
+    private func pickerImage(_ image: UIImage) {
         let imageData:Data = UIImageJPEGRepresentation(image, 1.0) ?? Data();
         var base64Str:String = imageData.base64EncodedString(options: .lineLength64Characters);
         base64Str = base64Str.replacingOccurrences(of: "\r\n", with: "");
@@ -111,7 +111,7 @@ class SHJsActionHandler: NSObject ,SHPhoneAssetsToolDelegate {
     
     
     //获取了视频地址
-    func pickerVedio(_ url: URL) {
+    private func pickerVedio(_ url: URL) {
         
     }
     

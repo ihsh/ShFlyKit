@@ -9,7 +9,7 @@
 import UIKit
 import AMapNaviKit
 
-class AMapBaseView: UIView,MAMapViewDelegate,MAMultiPointOverlayRendererDelegate{
+public class AMapBaseView: UIView,MAMapViewDelegate,MAMultiPointOverlayRendererDelegate{
     //mark
     public var mapView:MAMapView!
     
@@ -80,7 +80,7 @@ class AMapBaseView: UIView,MAMapViewDelegate,MAMultiPointOverlayRendererDelegate
     
     
     
-    func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
+    public func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
         if annotation.isKind(of: MAUserLocation.self) {
             return nil;
         }
@@ -103,7 +103,7 @@ class AMapBaseView: UIView,MAMapViewDelegate,MAMultiPointOverlayRendererDelegate
     
     
     
-    func mapView(_ mapView: MAMapView!, rendererFor overlay: MAOverlay!) -> MAOverlayRenderer! {
+    public func mapView(_ mapView: MAMapView!, rendererFor overlay: MAOverlay!) -> MAOverlayRenderer! {
         //海量点图层
         if (overlay.isKind(of: MAMultiPointOverlay.self)){
             let renderer = MAMultiPointOverlayRenderer(multiPointOverlay: overlay as? MAMultiPointOverlay)
@@ -118,7 +118,7 @@ class AMapBaseView: UIView,MAMapViewDelegate,MAMultiPointOverlayRendererDelegate
     }
     
     
-    func multiPointOverlayRenderer(_ renderer: MAMultiPointOverlayRenderer!, didItemTapped item: MAMultiPointItem!) {
+    public func multiPointOverlayRenderer(_ renderer: MAMultiPointOverlayRenderer!, didItemTapped item: MAMultiPointItem!) {
         
     }
 }

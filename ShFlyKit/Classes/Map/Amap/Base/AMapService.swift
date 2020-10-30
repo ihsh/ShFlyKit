@@ -17,13 +17,13 @@ import AMapNaviKit
 
 
 ///导航类型
-enum RoutePlanType {
+public enum RoutePlanType {
     case Drive,Transit,Walk   //开车，公交，走路
 }
 
 
 ///调用高德地图服务类
-class AMapService: NSObject,AMapSearchDelegate {
+public class AMapService: NSObject,AMapSearchDelegate {
     /// MARK: - Variable
     public var searchAPI = AMapSearchAPI()
     //!!!请自行设置search的代理，在该类里面写返回结果的处理

@@ -11,7 +11,7 @@ import Masonry
 
 
 ///输入视图的键盘accessary
-class InputAccessaryView: UIView {
+public class InputAccessaryView: UIView {
     ///Variable
     public var backColor:UIColor = UIColor.colorHexValue("F3F4F5")
     public var cancelBtn:UIButton!

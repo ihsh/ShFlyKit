@@ -12,7 +12,7 @@ import AFNetworking
 
 
 ///网络代理类
-protocol SHNetManagerDelegate:NSObjectProtocol {
+public protocol SHNetManagerDelegate:NSObjectProtocol {
     //返回响应报文
     func responseWithResult(_ result:Any?);
 }
@@ -25,7 +25,7 @@ public enum Environment {
 
 
 ///请求类
-class NetManager: NSObject , HeatBeatTimerDelegate{
+public class NetManager: NSObject , HeatBeatTimerDelegate{
     //MARK
     static  let shareInstance = NetManager.init()                                     //单例
     private var netStatus = NetStatus.shareInstance                                   //状况信息

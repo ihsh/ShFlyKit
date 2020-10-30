@@ -12,7 +12,7 @@ import LocalAuthentication
 
 
 ///检查的结果
-protocol SecurityDelegate {
+public protocol SecurityDelegate {
     func securityCheckResult(result:Bool,msg:String?)
 }
 
@@ -27,7 +27,7 @@ public enum CheckType{
 
 
 //安全验证类
-class SecurityCheck: NSObject {
+public class SecurityCheck: NSObject {
     // MARK: - Variable
     public var holdVC:UIViewController?                     //承载的控制器
     public var biometryTip:String = "需要验证您的身份"

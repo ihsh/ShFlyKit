@@ -11,7 +11,7 @@ import YYModel
 
 
 ///请求回调
-typealias ResponseBlock = (_ ret:Int,_ msg:String,_ resp:NSDictionary)->()
+public typealias ResponseBlock = (_ ret:Int,_ msg:String,_ resp:NSDictionary)->()
 
 
 ///请求方法
@@ -21,7 +21,7 @@ public enum Method {
 
 
 ///请求类
-class BaseRequest: NSObject ,SHNetManagerDelegate{
+public class BaseRequest: NSObject ,SHNetManagerDelegate{
     //必选
     public var method = Method.GET                                                   //请求方法
     public var url:String!                                                           //请求地址
@@ -81,7 +81,7 @@ class BaseRequest: NSObject ,SHNetManagerDelegate{
     
     
     ///MARK-SHNetManagerDelegate
-    func responseWithResult(_ result: Any?) {
+    public func responseWithResult(_ result: Any?) {
         //根据字典还是数组组装数据,是否指定特殊解析的key
         func pairGenenate(_ data:Any,pairKey:String?)->Any{
             var matchClass:AnyClass?
@@ -227,7 +227,7 @@ class BaseRequest: NSObject ,SHNetManagerDelegate{
 
 
 ///创建数据匹配项
-class BaseMatch:NSObject{
+public class BaseMatch:NSObject{
     //ret
     public var ret:String = "ret"
     //msg

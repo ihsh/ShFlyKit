@@ -10,13 +10,13 @@ import UIKit
 
 
 //选中的样式
-enum CalendarSelectStyle{
+public enum CalendarSelectStyle{
     case CircleFill,SquareFill,SquarePath
 }
 
 
 ///显示的配置
-class CalendarUIConfig: NSObject {
+public class CalendarUIConfig: NSObject {
     //variable
     //选中时的样式
     public var selectStyle:CalendarSelectStyle = .SquarePath

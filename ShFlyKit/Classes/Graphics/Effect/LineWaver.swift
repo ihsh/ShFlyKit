@@ -10,7 +10,7 @@ import UIKit
 
 
 //线状波浪图
-class LineWaver: UIView {
+public class LineWaver: UIView {
     //Variable
     public var numberOfWaves:NSInteger = 10                             //线条数
     public var waveColors:[UIColor] = [UIColor.randomColor()]           //颜色数组，按顺序取颜色，超出范围取最后一个下标的颜色

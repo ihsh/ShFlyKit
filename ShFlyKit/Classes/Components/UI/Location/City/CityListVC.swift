@@ -11,7 +11,7 @@ import UIKit
 
 
 ///代理
-protocol CityListDelegate : NSObjectProtocol{
+public protocol CityListDelegate : NSObjectProtocol{
     //选择城市
     func chooseCity(_ city:CityItem)
     //调用定位
@@ -20,7 +20,7 @@ protocol CityListDelegate : NSObjectProtocol{
 
 
 ///城市列表--选择城市
-class CityListVC: UIViewController , UITableViewDataSource,UITableViewDelegate , CityHeadViewDelegate {
+public class CityListVC: UIViewController , UITableViewDataSource,UITableViewDelegate , CityHeadViewDelegate {
     ///Varable
     public weak var delegate:CityListDelegate?
     public var allCitys:[CityItem] = []             //全部城市数据
@@ -39,7 +39,7 @@ class CityListVC: UIViewController , UITableViewDataSource,UITableViewDelegate ,
     
     
     ///Load
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "城市列表";
         self.view.backgroundColor = UIColor.white;
@@ -115,19 +115,19 @@ class CityListVC: UIViewController , UITableViewDataSource,UITableViewDelegate ,
     
 
     ///Delegate
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count;
     }
     
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let pre = sectionTitles[section];
         let arr = sectionDic[pre];
         return arr?.count ?? 0;
     }
     
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:CityCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CityCell;
         let pre = sectionTitles[indexPath.section];
         let arr = sectionDic[pre];
@@ -138,7 +138,7 @@ class CityListVC: UIViewController , UITableViewDataSource,UITableViewDelegate ,
     }
     
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             return headV;
         }else{
@@ -155,7 +155,7 @@ class CityListVC: UIViewController , UITableViewDataSource,UITableViewDelegate ,
     }
     
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return headV.allHeight;
         }
@@ -163,7 +163,7 @@ class CityListVC: UIViewController , UITableViewDataSource,UITableViewDelegate ,
     }
     
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let pre = sectionTitles[indexPath.section];
         let arr = sectionDic[pre];
         let item = arr?[indexPath.row];
@@ -172,13 +172,13 @@ class CityListVC: UIViewController , UITableViewDataSource,UITableViewDelegate ,
     
     
     //索引的显示数据
-    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return sectionTitles;
     }
     
     
     //代理方法
-    func selectCity(_ city: CityItem) {
+    public func selectCity(_ city: CityItem) {
         delegate?.chooseCity(city);
         if (self.presentingViewController != nil) {
             self.dismiss(animated: true, completion: nil);
@@ -189,12 +189,12 @@ class CityListVC: UIViewController , UITableViewDataSource,UITableViewDelegate ,
     
     
     //请求重新定位
-    func callUserLocation() {
+    public func callUserLocation() {
         delegate?.callUserLocation()
     }
     
     
-    func tableViewScrollEnable(_ enable: Bool) {
+    public func tableViewScrollEnable(_ enable: Bool) {
         self.tableV.isScrollEnabled = enable;
     }
     
@@ -206,7 +206,7 @@ class CityListVC: UIViewController , UITableViewDataSource,UITableViewDelegate ,
 
 
 //自定义Cell
-class CityCell:UITableViewCell{
+public class CityCell:UITableViewCell{
     public static var font:UIFont = kFont(14)                                       //字号
     public static var textColor:UIColor = UIColor.colorHexValue("4A4A4A")           //文字颜色
     public static var backColor:UIColor = .white

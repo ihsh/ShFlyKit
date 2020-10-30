@@ -11,7 +11,7 @@ import StoreKit
 
 
 //应用商城评分类
-class AppScore: NSObject {
+public class AppScore: NSObject {
     
     
     //判断系统是否开了评分的入口

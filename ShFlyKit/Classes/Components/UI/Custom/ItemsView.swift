@@ -10,7 +10,7 @@ import UIKit
 
 
 //协议
-@objc protocol ItemsViewDelegate:NSObjectProtocol {
+@objc public protocol ItemsViewDelegate:NSObjectProtocol {
     @objc optional func objClick(_ index:Int)
     @objc optional func objClickTitle(_ title:String)
     @objc optional func customViewForIndexPath(row:Int,column:Int)->UIView
@@ -18,7 +18,7 @@ import UIKit
 
 
 ///自定义的多选项视图
-class ItemsView: UIView {
+public class ItemsView: UIView {
     ///variable
     public weak var delegate:ItemsViewDelegate?
     public var leftEdge:CGFloat = 16                                    //左边缘距离

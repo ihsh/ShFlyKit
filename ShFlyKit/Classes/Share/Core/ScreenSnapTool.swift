@@ -11,7 +11,7 @@ import Photos
 
 
 //截屏的代理
-@objc protocol ScreenSnapToolDelegate:NSObjectProtocol {
+@objc public protocol ScreenSnapToolDelegate:NSObjectProtocol {
     //发生了截屏操作
     func DidTakeScreenshot(image:UIImage,window:UIWindow)
     //录屏状态改变
@@ -20,9 +20,9 @@ import Photos
 
 
 //截屏控制类
-class ScreenSnapTool: NSObject {
+public class ScreenSnapTool: NSObject {
     //Variable
-    static let shared = ScreenSnapTool()                    //单例
+    public static let shared = ScreenSnapTool()                    //单例
     private var delegates:[ScreenSnapModel] = []            //代理对象数组
     
     
@@ -103,6 +103,6 @@ class ScreenSnapTool: NSObject {
 
 
 //解除强引用用
-class ScreenSnapModel:NSObject{
+public class ScreenSnapModel:NSObject{
     public weak var delegate:ScreenSnapToolDelegate?
 }

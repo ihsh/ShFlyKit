@@ -10,7 +10,7 @@ import UIKit
 import Masonry
 
 //UI的代理
-@objc protocol SHShareUIDelegate:NSObjectProtocol {
+@objc public protocol SHShareUIDelegate:NSObjectProtocol {
     //处理点击
     func shareClick(config:ShareConfig)
     //由代理对Cell进行数据填充
@@ -19,7 +19,7 @@ import Masonry
 
 
 ///分享工具类UI
-class SHShareUI: UIView,UICollectionViewDelegate,UICollectionViewDataSource{
+public class SHShareUI: UIView,UICollectionViewDelegate,UICollectionViewDataSource{
     //Variable
     public weak var delegate:SHShareUIDelegate?             //UI代理
     public var activitys:[ShareConfig] = []                 //第一行分享功能数据
@@ -188,7 +188,7 @@ class SHShareUI: UIView,UICollectionViewDelegate,UICollectionViewDataSource{
     
     
     //UICollectionViewDataSource
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (collectionView.isEqual(mainCollectionV)) {
             return activitys.count;
         }else{
@@ -196,7 +196,7 @@ class SHShareUI: UIView,UICollectionViewDelegate,UICollectionViewDataSource{
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let config:ShareConfig!
         if (collectionView.isEqual(mainCollectionV)) {
             config = activitys[indexPath.row];
@@ -214,7 +214,8 @@ class SHShareUI: UIView,UICollectionViewDelegate,UICollectionViewDataSource{
         return defaultCell;
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let config:ShareConfig!
         if (collectionView.isEqual(mainCollectionV)) {
             config = activitys[indexPath.row];
@@ -228,7 +229,7 @@ class SHShareUI: UIView,UICollectionViewDelegate,UICollectionViewDataSource{
 
 
 //分享UI的配置项
-class ShareConfig:NSObject{
+public class ShareConfig:NSObject{
     //Variable
     public var title:String!
     public var image:UIImage!
@@ -245,7 +246,7 @@ class ShareConfig:NSObject{
 
 
 //分享UI的cell
-class ShareDefaultCell: UICollectionViewCell {
+public class ShareDefaultCell: UICollectionViewCell {
     //Variable
     public var imageV:UIImageView!          //图标
     public var titleL:UILabel!              //标题
@@ -253,6 +254,7 @@ class ShareDefaultCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame);
         imageV = UIImageView()
+        imageV.isUserInteractionEnabled = true;
         self.contentView.addSubview(imageV);
         imageV.mas_makeConstraints { (maker) in
             maker?.centerY.mas_equalTo()(self.contentView)?.offset()(-10);

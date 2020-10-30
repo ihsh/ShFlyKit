@@ -10,7 +10,7 @@ import UIKit
 
 
 //显示进度的label-从左往右-歌词动效
-class ProgressLabel: UILabel {
+public class ProgressLabel: UILabel {
     //Vrriable
     public private(set) var allProgress:CGFloat = 0  //整体进度-(包括多行的情况)
     //Private
@@ -78,7 +78,7 @@ class ProgressLabel: UILabel {
     }
     
     
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         super.draw(rect);
         //当前行
         let fillRect = CGRect(x: 0, y: self.rowHeight * CGFloat(self.curRow),

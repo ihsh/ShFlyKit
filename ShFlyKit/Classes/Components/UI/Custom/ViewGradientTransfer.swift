@@ -11,7 +11,7 @@ import UIKit
 
 
 ///视图滑动过程中顶部导航栏变化视图
-class ViewGradientTransfer: UIView {
+public class ViewGradientTransfer: UIView {
     ///MARK-Variable
     private var tableview:UITableView!
     private var customNavView:UIView!
@@ -48,7 +48,7 @@ class ViewGradientTransfer: UIView {
     
     
     ///MARK-UIScrollViewDelegate
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         let point:CGPoint = self.tableview .value(forKeyPath: "contentOffset") as! CGPoint;
         let base:CGFloat = -navHeight; //基准线
 

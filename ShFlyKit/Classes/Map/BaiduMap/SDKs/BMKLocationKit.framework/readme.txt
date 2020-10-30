@@ -5,7 +5,7 @@
     是
 
 3、是否为Bitcode：
-    是
+    否
 
 4、集成方法：
     http://lbsyun.baidu.com/index.php?title=ios-locsdk

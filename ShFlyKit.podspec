@@ -40,42 +40,46 @@ Pod::Spec.new do |spec|
   
   #基础库
   spec.subspec 'Base' do |sp|
-        sp.source_files = 'ShFlyKit/Classes/Base/**/*'
+        sp.source_files = 'ShFlyKit/Classes/Base/**/*.{h,m,swift}'
+        sp.public_header_files = 'ShFlyKit/Classes/Base/**/*.h'
   end
   
   #图表
   spec.subspec 'Chart' do |sp|
-        sp.source_files = 'ShFlyKit/Classes/Chart/**/*'
+        sp.source_files = 'ShFlyKit/Classes/Chart/**/*.{h,m,swift}'
+        sp.public_header_files = 'ShFlyKit/Classes/Chart/**/*.h'
         sp.dependency 'ShFlyKit/Base'
   end
 
   #多媒体
   spec.subspec 'Media' do |sp|
-        sp.source_files = 'ShFlyKit/Classes/Media/**/*'
+        sp.source_files = 'ShFlyKit/Classes/Media/**/*.{h,m,swift}'
+        sp.public_header_files = 'ShFlyKit/Classes/Media/**/*.h'
         sp.dependency 'ShFlyKit/Base'
   end
 
   #网络请求
   spec.subspec 'Network' do |sp|
-        sp.source_files = 'ShFlyKit/Classes/Network/**/*'
+        sp.source_files = 'ShFlyKit/Classes/Network/**/*.{h,m,swift}'
+        sp.public_header_files = 'ShFlyKit/Classes/Network/**/*.h'
         sp.dependency 'ShFlyKit/Base'
   end
 
   #网络直连
   spec.subspec 'Server' do |sp|
-        sp.source_files = 'ShFlyKit/Classes/Server/**/*'
+        sp.source_files = 'ShFlyKit/Classes/Server/**/*.{h,m,swift}'
+        sp.public_header_files = 'ShFlyKit/Classes/Server/**/*.h'
         sp.dependency 'ShFlyKit/Base'
   end
    
   #图形图像
   spec.subspec 'Graphics' do |sp|
-        sp.source_files = 'ShFlyKit/Classes/Graphics/**/*'
+        sp.source_files = 'ShFlyKit/Classes/Graphics/**/*.{h,m,swift}'
+        sp.public_header_files = 'ShFlyKit/Classes/Graphics/**/*.h'
         sp.dependency 'ShFlyKit/Base'
         sp.dependency 'ShFlyKit/Media'
         sp.dependency 'AipOcrSdk'
-        sp.resource_bundles = {
-            'Graphics' => ['ShFlyKit/Assets/Graphics/**/*']
-        }
+        sp.resources = ['ShFlyKit/Assets/Graphics/**/*']
   end
   
   #UI组件
@@ -85,9 +89,7 @@ Pod::Spec.new do |spec|
         sp.dependency 'ShFlyKit/Media'
         sp.dependency 'ShFlyKit/Graphics'
         sp.dependency 'GT3Captcha'
-        sp.resource_bundles = {
-            'Components' => ['ShFlyKit/Assets/Components/**/*']
-        }
+        sp.resources = ['ShFlyKit/Assets/Components/**/*']
   end
 
   #分享
@@ -95,12 +97,13 @@ Pod::Spec.new do |spec|
         sp.source_files = 'ShFlyKit/Classes/Share/**/*.{h,m,swift}'
         sp.public_header_files = 'ShFlyKit/Classes/Share/**/*.h'
         sp.dependency 'ShFlyKit/Base'
-        
+
         sp.frameworks = 'SystemConfiguration','Security', 'CoreGraphics', 'WebKit'
         sp.libraries = "c++", "z","sqlite3"
         sp.ios.vendored_frameworks = 'ShFlyKit/Classes/Share/lib/Tencent/TencentOpenAPI.framework'
         sp.resources = 'ShFlyKit/Classes/Share/lib/Weibo/WeiboSDK.bundle'
         sp.vendored_libraries = 'ShFlyKit/Classes/Share/lib/Wechat/libWeChatSDK.a','ShFlyKit/Classes/Share/lib/Weibo/libWeiboSDK.a'
+        sp.resources = ['ShFlyKit/Assets/Share/**/*']
   end
 
   #支付
@@ -115,21 +118,19 @@ Pod::Spec.new do |spec|
         sp.ios.vendored_frameworks = 'ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.framework'
         sp.resources = 'ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle'
         sp.vendored_libraries = 'ShFlyKit/Classes/Pay/**/*.a'
-        sp.resource_bundles = {
-            'Pay' => ['ShFlyKit/Assets/Pay/**/*']
-        }
+        sp.resources = ['ShFlyKit/Assets/Pay/**/*']
 
   end
   
   #地图
   spec.subspec 'Map' do |sp|
         sp.dependency 'ShFlyKit/Base'
-        
+        sp.resources = ['ShFlyKit/Assets/Map/**/*']
         sp.subspec 'General' do |gesp|
             gesp.public_header_files = 'ShFlyKit/Classes/Map/General/**/*.h'
             gesp.source_files = 'ShFlyKit/Classes/Map/General/**/*.{h,m,swift}'
         end
-        
+
         sp.subspec 'Amap' do |asp|
             asp.source_files = 'ShFlyKit/Classes/Map/Amap/**/*.{h,m,swift}'
             asp.public_header_files = 'ShFlyKit/Classes/Map/Amap/**/*.h'
@@ -140,17 +141,16 @@ Pod::Spec.new do |spec|
             asp.dependency 'AMapNavi'
         end
   
-        sp.subspec 'BaiduMap' do |bsp|
-            bsp.source_files = 'ShFlyKit/Classes/Map/BaiduMap/**/*.{h,m,swift}'
-            bsp.public_header_files = 'ShFlyKit/Classes/Map/BaiduMap/**/*.h'
-            bsp.dependency 'ShFlyKit/Map/General'
-
-            bsp.ios.vendored_frameworks = 'ShFlyKit/Classes/Map/BaiduMap/SDKs/*.framework'
-            bsp.vendored_libraries = 'ShFlyKit/Classes/Map/BaiduMap/SDKs/thirdlibs/*.a'
-            bsp.frameworks = 'CoreLocation', 'QuartzCore', 'OpenGLES', 'SystemConfiguration', 'CoreGraphics', 'Security', 'CoreTelephony', 'MobileCoreServices','AdSupport'
-            bsp.libraries = 'sqlite3', 'c++'
-            bsp.resource = 'ShFlyKit/Classes/Map/BaiduMap/SDKs/BaiduMapAPI_Map.framework/mapapi.bundle'
-        end
+#        sp.subspec 'BaiduMap' do |bsp|
+#            bsp.source_files = 'ShFlyKit/Classes/Map/BaiduMap/**/*.{h,m,swift}'
+#            bsp.public_header_files = 'ShFlyKit/Classes/Map/BaiduMap/**/*.h'
+#            bsp.dependency 'ShFlyKit/Map/General'
+#            bsp.ios.vendored_frameworks = 'ShFlyKit/Classes/Map/BaiduMap/SDKs/*.framework'
+#            bsp.vendored_libraries = 'ShFlyKit/Classes/Map/BaiduMap/SDKs/thirdlibs/*.a'
+#            bsp.frameworks = 'CoreLocation', 'QuartzCore', 'OpenGLES', 'SystemConfiguration', 'CoreGraphics', 'Security', 'CoreTelephony', 'MobileCoreServices','AdSupport'
+#            bsp.libraries = 'sqlite3', 'c++'
+#            bsp.resource = 'ShFlyKit/Classes/Map/BaiduMap/SDKs/BaiduMapAPI_Map.framework/mapapi.bundle'
+#        end
   end
   
   

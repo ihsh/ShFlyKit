@@ -10,13 +10,13 @@ import UIKit
 
 
 //右侧更多按钮样式
-enum RightBarItemStyle{
+public enum RightBarItemStyle{
     case Icon,Word          //图标样式,文字样式
 }
 
 
 //自定义的Web导航栏
-class SHWebNavBar: UIView {
+public class SHWebNavBar: UIView {
     //Variable
     public var backItem:UIButton!                   //返回按钮
     public var closeItem:UIButton!                  //关闭按钮

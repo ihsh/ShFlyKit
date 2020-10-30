@@ -9,23 +9,23 @@
 import UIKit
 
 //点击的代理协议
-@objc protocol AutoScrollDelegate:NSObjectProtocol {
+@objc public protocol AutoScrollDelegate:NSObjectProtocol {
     //点击选中的下标
     func scrollDidSelect(index:NSInteger)
 }
 
 //滚动方向
-@objc enum ScrollDirection:Int {
+@objc public enum ScrollDirection:Int {
     case Horizontal,Vertical
 }
 
 
 ///滚动的容器类--自动无限循环滚动/手动循环滚动  水平/垂直方向  翻页/不翻页
-class AutoScrollView: UIView,DisplayDelegate,UIScrollViewDelegate,HeatBeatTimerDelegate {
+public class AutoScrollView: UIView,DisplayDelegate,UIScrollViewDelegate,HeatBeatTimerDelegate {
     //mark-variable
     public weak var delegate:AutoScrollDelegate?        //点击代理--设置了代理后自动添加点击
-    private (set) var scrollWidth:CGFloat = 0           //滚动视图宽度
-    private (set) var scrollHeight:CGFloat = 0          //滚动视图高度
+    public private (set) var scrollWidth:CGFloat = 0    //滚动视图宽度
+    public private (set) var scrollHeight:CGFloat = 0   //滚动视图高度
     public  var autoScroll:Bool = true                  //是否自动滚动
     public  var pageEnable:Bool = false                 //是否翻页
     public  var pageInterval:NSInteger = 5              //翻页的时间间隔
@@ -177,7 +177,7 @@ class AutoScrollView: UIView,DisplayDelegate,UIScrollViewDelegate,HeatBeatTimerD
     
     
     //CADisplay回调--自动滚动--不翻页---水平垂直--匀速
-    func displayCalled() {
+    public func displayCalled() {
         var value:CGFloat  = CGFloat(step) * rate + startPoint;
         if value > (direction == ScrollDirection.Horizontal ? contentWidth + startPoint : contentHeight + startPoint) {
             value = startPoint;
@@ -192,7 +192,7 @@ class AutoScrollView: UIView,DisplayDelegate,UIScrollViewDelegate,HeatBeatTimerD
     
     
     //手动滚动--水平/垂直
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    private func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if direction == ScrollDirection.Horizontal{
             let offset = scrollView.contentOffset.x;
             if offset > contentWidth + startPoint {
@@ -213,7 +213,7 @@ class AutoScrollView: UIView,DisplayDelegate,UIScrollViewDelegate,HeatBeatTimerD
     
     
     //定时器回调-水平/垂直-自动-翻页滚动
-    func timeTaskCalled(identifier: String) {
+    public func timeTaskCalled(identifier: String) {
         //steo相当于秒数
         step += 1;
         //当达到秒数间隔执行

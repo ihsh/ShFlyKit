@@ -10,7 +10,7 @@ import UIKit
 
 
 //代理方法
-protocol CalendarBaseVDelegate:NSObjectProtocol {
+public protocol CalendarBaseVDelegate:NSObjectProtocol {
     //勾选了某年月日
     func choose(year:Int,month:Int,day:Int,isToday:Bool);
     //滑动到的年月
@@ -19,7 +19,7 @@ protocol CalendarBaseVDelegate:NSObjectProtocol {
 
 
 ///日历视图本身
-class CalendarBaseV: UIView , UICollectionViewDataSource , UICollectionViewDelegate ,UICollectionViewDelegateFlowLayout , UIScrollViewDelegate{
+public class CalendarBaseV: UIView , UICollectionViewDataSource , UICollectionViewDelegate ,UICollectionViewDelegateFlowLayout , UIScrollViewDelegate{
     //Variable
     public var config = CalendarUIConfig()                          //UI配置项
     public weak var delegate:CalendarBaseVDelegate?                 //代理对象
@@ -71,7 +71,7 @@ class CalendarBaseV: UIView , UICollectionViewDataSource , UICollectionViewDeleg
     }
     
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews();
         let width = self.width;
         let height = self.height;
@@ -201,7 +201,7 @@ class CalendarBaseV: UIView , UICollectionViewDataSource , UICollectionViewDeleg
     
     
     ///UIScrollViewDelegate
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let width = self.width;
         if direction == 1 {
             currentIndex -= 1;
@@ -219,13 +219,13 @@ class CalendarBaseV: UIView , UICollectionViewDataSource , UICollectionViewDeleg
     
     
     //开始滚动
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    private func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
          direction = 0;
     }
     
     
     //判断方向
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let width = self.width;
         let x = scrollView.contentOffset.x;
         let sub = fabs(x-lastX);
@@ -239,7 +239,7 @@ class CalendarBaseV: UIView , UICollectionViewDataSource , UICollectionViewDeleg
     
     
     ///UICollectionView
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag >= dataSource.count {
             return 0;
         }
@@ -248,7 +248,7 @@ class CalendarBaseV: UIView , UICollectionViewDataSource , UICollectionViewDeleg
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:CalendarCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CalendarCell;
         let data = dataSource[collectionView.tag];
         let day = data.days[indexPath.row];
@@ -257,12 +257,12 @@ class CalendarBaseV: UIView , UICollectionViewDataSource , UICollectionViewDeleg
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width / 7.0, height: config.cellHeight);
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let sectionData = dataSource[collectionView.tag];
         //选中的日子
@@ -288,7 +288,7 @@ class CalendarBaseV: UIView , UICollectionViewDataSource , UICollectionViewDeleg
 
 
 //日历上显示星期的条
-class CalendarBar:UIView{
+public class CalendarBar:UIView{
     //Variable
     static let barHeight:CGFloat = 40                                                       //高度
     public var bgColor:UIColor = UIColor.colorRGB(red: 242, green: 244, blue: 246)          //背景颜色
@@ -331,7 +331,7 @@ class CalendarBar:UIView{
 
 
 ///日历视图与顶部条结合
-class CalenDarV:UIView{
+public class CalenDarV:UIView{
     //Variable
     public var topBar:CalendarBar!                  //顶部条
     public var calendar:CalendarBaseV!              //日历本身

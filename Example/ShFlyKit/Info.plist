@@ -2,8 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDevelopmentRegion - 2</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>iOS框架</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>MKDirectionsRequest</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.apple.maps.directionsrequest</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -15,14 +32,108 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>mqqapi</string>
+		<string>mqq</string>
+		<string>mqqOpensdkSSoLogin</string>
+		<string>mqqconnect</string>
+		<string>mqqopensdkdataline</string>
+		<string>mqqopensdkgrouptribeshare</string>
+		<string>mqqopensdkfriend</string>
+		<string>mqqopensdkapimqqopensdkapiV2</string>
+		<string>mqqopensdkapiV3</string>
+		<string>mqzoneopensdk</string>
+		<string>wtloginmqq</string>
+		<string>wtloginmqq2</string>
+		<string>mqqwpa</string>
+		<string>mqzone</string>
+		<string>mqzonev2</string>
+		<string>mqzoneshare</string>
+		<string>wtloginqzone</string>
+		<string>mqzonewx</string>
+		<string>mqzoneopensdkapiV2</string>
+		<string>mqzoneopensdkapi19</string>
+		<string>mqzoneopensdkapi</string>
+		<string>mqzoneopensdk</string>
+		<string>baidumap</string>
+		<string>iosamap</string>
+		<string>weibosdk2.5</string>
+		<string>weibosdk</string>
+		<string>sinaweibo</string>
+		<string>sinaweibohd</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>LSRequiresIPhoneOS - 2</key>
+	<true/>
+	<key>MKDirectionsApplicationSupportedModes</key>
+	<array>
+		<string>MKDirectionsModeBike</string>
+		<string>MKDirectionsModeBus</string>
+		<string>MKDirectionsModeCar</string>
+		<string>MKDirectionsModeFerry</string>
+		<string>MKDirectionsModeOther</string>
+		<string>MKDirectionsModePedestrian</string>
+		<string>MKDirectionsModePlane</string>
+		<string>MKDirectionsModeRideShare</string>
+		<string>MKDirectionsModeStreetCar</string>
+		<string>MKDirectionsModeSubway</string>
+		<string>MKDirectionsModeTaxi</string>
+		<string>MKDirectionsModeTrain</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>需要打开蓝牙，否则无法进行蓝牙连接服务</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>需要打开日历，否则无法访问您的日历</string>
+	<key>NSCameraUsageDescription</key>
+	<string>需要打开相机，否则无法拍照录像</string>
+	<key>NSContactsUsageDescription</key>
+	<string>需要打开通讯录权限，否则无法访问您的通讯录信息</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>需要打开面部识别，否则无法使用面部识别</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>需要打开健康访问权限，否则无法访问您的健康信息</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>需要打开健康访问权限，否则无法更新您的健康记录</string>
+	<key>NSHomeKitUsageDescription</key>
+	<string>需要打开HomeKit权限，否则无法操作智能家居</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>需要打开定位，否则无法定位导航</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>需要打开定位，否则无法定位导航</string>
+	<key>NSLocationUsageDescription</key>
+	<string>需要打开定位，否则无法定位导航</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>需要打开定位，否则无法定位导航</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>需要打开麦克风，否则无法通话录音</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>需要访问您的相册，否则无法使用照片</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>需要访问您的相册，否则无法使用照片</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>需要允许此app访问提醒事项</string>
+	<key>NSSiriUsageDescription</key>
+	<string>需要访问您的siri，否则无法使用语音识别</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UILaunchStoryboardName - 2</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
@@ -30,10 +141,17 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
+	</array>
+	<key>UISupportedInterfaceOrientations - 2</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 </dict>
 </plist>

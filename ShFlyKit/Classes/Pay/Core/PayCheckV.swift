@@ -10,7 +10,7 @@ import UIKit
 import Masonry
 
 ///支付结果页查询代理
-@objc protocol PayCheckDelegate:NSObjectProtocol {
+@objc public protocol PayCheckDelegate:NSObjectProtocol {
     //支付回调
     @objc func checkResult(suc:Bool);
     //重新唤起支付
@@ -21,9 +21,9 @@ import Masonry
 
 
 ///支付结果确认页
-class PayCheckV: UIView , HeatBeatTimerDelegate{
+public class PayCheckV: UIView , HeatBeatTimerDelegate{
     //Variable
-    static let shared = PayCheckV(frame: CGRect.zero)//单例
+    public static let shared = PayCheckV(frame: CGRect.zero)//单例
     public var payView:UIView?                      //支付的视图
     public weak var delegate:PayCheckDelegate?      //代理对象
     
@@ -195,7 +195,7 @@ class PayCheckV: UIView , HeatBeatTimerDelegate{
     
     
     //定时器调用
-    func timeTaskCalled(identifier: String) {
+    public func timeTaskCalled(identifier: String) {
         if orderNo != nil {
             delegate?.requestOrderPayResult(orderNo: orderNo, first: false);
         }
@@ -203,7 +203,7 @@ class PayCheckV: UIView , HeatBeatTimerDelegate{
     
     
     //定时器调用次数调用
-    func timeCallTimes(times: Int, identifier: String) {
+    private func timeCallTimes(times: Int, identifier: String) {
         if times >= checkTimes {
             leftBtn.isHidden = false;
             rightBtn.isHidden = false;

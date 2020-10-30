@@ -10,7 +10,7 @@ import UIKit
 
 
 //选择的密码
-protocol PassWordDeleagate:NSObjectProtocol {
+public protocol PassWordDeleagate:NSObjectProtocol {
     func passWordDidEndInput(pwd:String)            //密码输入完成
     func passWordDidChange(pwd:String)              //密码改变中
     func passWordDidChangeIndex(index:Int,select:Bool)
@@ -18,7 +18,7 @@ protocol PassWordDeleagate:NSObjectProtocol {
 
 
 ///圈选密码类
-class LockPasswordView: UIView {
+public class LockPasswordView: UIView {
     // MARK
     public weak var delegate:PassWordDeleagate?
     public var forbid:Bool = false                          //禁止操作
@@ -121,7 +121,7 @@ class LockPasswordView: UIView {
     
     
     ///Touches
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         if forbid {
             return;
@@ -154,7 +154,7 @@ class LockPasswordView: UIView {
     
     
     //移动过程中
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event)
         if forbid {
             return;
@@ -185,7 +185,7 @@ class LockPasswordView: UIView {
     
     
     //触摸结束
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         if forbid {
             return;
@@ -204,7 +204,7 @@ class LockPasswordView: UIView {
     
     
     //触摸取消
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
         //清空轨迹
         self.resetTrackingState()
@@ -258,7 +258,7 @@ class LockPasswordView: UIView {
     }
     
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         self.setLayerFrames()
     }

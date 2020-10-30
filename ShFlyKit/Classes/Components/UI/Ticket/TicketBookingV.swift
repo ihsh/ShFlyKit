@@ -10,7 +10,7 @@ import UIKit
 
 
 //协议
-protocol TicketBookingDelegate:NSObjectProtocol {
+public protocol TicketBookingDelegate:NSObjectProtocol {
     //座位发生变化-当前选中的数量和发生变化的座位
     func seatsValueChanged(_ count:Int,seat:TicketSeatInfo)
     //达到最高座位限制-代理弹提示语
@@ -19,7 +19,7 @@ protocol TicketBookingDelegate:NSObjectProtocol {
 
 
 ///订票视图
-class TicketBookingV: UIView , UIScrollViewDelegate ,HeatBeatTimerDelegate {
+public class TicketBookingV: UIView , UIScrollViewDelegate ,HeatBeatTimerDelegate {
     //Variable
     public weak var delegate:TicketBookingDelegate?
     public var config = TicketUIConfig()                    //视图的UI配置
@@ -89,7 +89,7 @@ class TicketBookingV: UIView , UIScrollViewDelegate ,HeatBeatTimerDelegate {
     
     
     ///Delegate
-    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+    public func scrollViewDidZoom(_ scrollView: UIScrollView) {
         if scrollView.isEqual(scrollV) {
             //重新绘制屏幕弧边
             let path = CGMutablePath();
@@ -111,7 +111,7 @@ class TicketBookingV: UIView , UIScrollViewDelegate ,HeatBeatTimerDelegate {
     }
      
     
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+    public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         if scrollView.isEqual(scrollV){
             return zoomV;
         }
@@ -119,30 +119,30 @@ class TicketBookingV: UIView , UIScrollViewDelegate ,HeatBeatTimerDelegate {
     }
     
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         updateScroll(scrollView, animate: false)
         thumbnailV.alpha = 1;
         scrollLastTime = Date().timeIntervalSince1970;
     }
     
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         updateScroll(scrollView, animate: false)
     }
     
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         updateScroll(scrollView, animate: false)
     }
     
     
-    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+    public func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
         updateScroll(scrollView, animate: true)
     }
     
     
     //HeatBeatTimerDelegate
-    func timeTaskCalled(identifier: String) {
+    public func timeTaskCalled(identifier: String) {
         let time = Date().timeIntervalSince1970;
         if scrollLastTime != nil {
             let sub = time - scrollLastTime;
@@ -587,7 +587,7 @@ class TicketBookingV: UIView , UIScrollViewDelegate ,HeatBeatTimerDelegate {
 
     
     ///指示条--定义为内部类--为了重写hitTest方法
-    class IndicaterV: UIView {
+    public class IndicaterV: UIView {
     
         //视图初始化
         class public func initWithTickets(_ data:TicketInfo,maxHeight:CGFloat,config:TicketUIConfig)->IndicaterV{
@@ -624,7 +624,7 @@ class TicketBookingV: UIView , UIScrollViewDelegate ,HeatBeatTimerDelegate {
      
         
         //想避开自己，点击能触发底下的按钮，需要在该视图里面写hitTest方法
-        override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
             let hitView = super.hitTest(point, with: event);
             //如果点击在当前视图，则透过到下层
             if hitView?.isKind(of: type(of: self)) ?? false {

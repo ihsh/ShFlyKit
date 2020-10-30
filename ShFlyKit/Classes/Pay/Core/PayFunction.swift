@@ -10,7 +10,7 @@ import UIKit
 import PassKit
 
 //支持的支付方式
-enum PayType {
+public enum PayType {
     case ZhiFubao,WeChat,Union,ApplePay, Wallet,Cash,Custom                   //支付宝，微信，银联(云闪付),ApplePay,个人钱包,现金,自定义
 }
 
@@ -197,7 +197,7 @@ class PayFunction: NSObject,WXApiDelegate,UPAPayPluginDelegate{
     
     
     //支付宝回调处理
-    private func alipayResultHandle(result:NSDictionary)->Void{
+    public func alipayResultHandle(result:NSDictionary)->Void{
         let resultStatus:NSString? = result.value(forKey: "resultStatus") as? NSString;
         let pair:BlockPair = pairForType(PayType.ZhiFubao);
         if (resultStatus?.integerValue == 9000) {
@@ -215,7 +215,7 @@ class PayFunction: NSObject,WXApiDelegate,UPAPayPluginDelegate{
     
     
     //银联云闪付的回调
-    private func unionpayResultHandle(url:URL){
+    public func unionpayResultHandle(url:URL){
         let pair:BlockPair = pairForType(PayType.Union);
         UPPaymentControl.default()?.handlePaymentResult(url, complete: { (code, data) in
             if (code == "success"){
@@ -230,7 +230,7 @@ class PayFunction: NSObject,WXApiDelegate,UPAPayPluginDelegate{
     
     
     //微信回调--WXApiDelegate
-    private func onResp(_ resp: PayResp!) {
+    public func onResp(_ resp: PayResp!) {
         let pair:BlockPair = pairForType(PayType.WeChat);
         if resp.errCode == WXSuccess.rawValue {
             pair.successBlock(resp.returnKey);

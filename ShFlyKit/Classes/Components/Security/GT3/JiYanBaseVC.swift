@@ -11,13 +11,13 @@ import GT3Captcha
 
 
 //使用极验的基础控制器
-class JiYanBaseVC: UIViewController,GT3CaptchaManagerDelegate,GT3CaptchaButtonDelegate {
+open class JiYanBaseVC: UIViewController,GT3CaptchaManagerDelegate,GT3CaptchaButtonDelegate {
     //Variable
-    private var manager:GT3CaptchaManager?
+    public var manager:GT3CaptchaManager?
     public var captchBtn:GT3CaptchaButton!              //极验的按钮
     
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         self.view.backgroundColor = UIColor.white;
     }
     
@@ -40,7 +40,7 @@ class JiYanBaseVC: UIViewController,GT3CaptchaManagerDelegate,GT3CaptchaButtonDe
 
     
     ///Delegate
-    func gtCaptcha(_ manager: GT3CaptchaManager!, errorHandler error: GT3Error!) {
+    public func gtCaptcha(_ manager: GT3CaptchaManager!, errorHandler error: GT3Error!) {
         if (error.code == -999) {
             // 请求被意外中断, 一般由用户进行取消操作导致, 可忽略错误
         }else if (error.code == -10) {
@@ -53,7 +53,7 @@ class JiYanBaseVC: UIViewController,GT3CaptchaManagerDelegate,GT3CaptchaButtonDe
     }
 
     
-    func gtCaptcha(_ manager: GT3CaptchaManager!, didReceiveSecondaryCaptchaData data: Data!, response: URLResponse!, error: GT3Error!, decisionHandler: ((GT3SecondaryCaptchaPolicy) -> Void)!) {
+    public func gtCaptcha(_ manager: GT3CaptchaManager!, didReceiveSecondaryCaptchaData data: Data!, response: URLResponse!, error: GT3Error!, decisionHandler: ((GT3SecondaryCaptchaPolicy) -> Void)!) {
         decisionHandler(.allow)
     }
     
