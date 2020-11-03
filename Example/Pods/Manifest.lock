@@ -51,7 +51,6 @@ PODS:
     - ShFlyKit/Media (= 1.0.7)
     - ShFlyKit/Network (= 1.0.7)
     - ShFlyKit/Pay (= 1.0.7)
-    - ShFlyKit/Server (= 1.0.7)
     - ShFlyKit/Share (= 1.0.7)
     - YYModel
   - ShFlyKit/Base (1.0.7):
@@ -147,14 +146,6 @@ PODS:
     - ShFlyKit/Graphics
     - ShFlyKit/Share
     - YYModel
-  - ShFlyKit/Server (1.0.7):
-    - AFNetworking
-    - Bugly
-    - FMDB
-    - Masonry
-    - SDWebImage
-    - ShFlyKit/Base
-    - YYModel
   - ShFlyKit/Share (1.0.7):
     - AFNetworking
     - Bugly
@@ -199,7 +190,7 @@ SPEC CHECKSUMS:
   GT3Captcha: 6c2724cf9a2e7c3411b1cc1b2aa56b76be48df87
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: b69257f4ab14e9b6a2ef53e910fdf914d8f757c1
-  ShFlyKit: c4ddbd86d6701f7afe698c1f4d1b588a04c36f76
+  ShFlyKit: ec1dab2bfcec0fa3e834f5fd3416665b34b4268f
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
 PODFILE CHECKSUM: 19d25e61bfee25b15bf4cc49a5b2c49071371384

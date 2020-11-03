@@ -9,6 +9,7 @@
 import UIKit
 import AMapNaviKit
 
+
 public class AMapBaseView: UIView,MAMapViewDelegate,MAMultiPointOverlayRendererDelegate{
     //mark
     public var mapView:MAMapView!
@@ -79,7 +80,6 @@ public class AMapBaseView: UIView,MAMapViewDelegate,MAMultiPointOverlayRendererD
     }
     
     
-    
     public func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
         if annotation.isKind(of: MAUserLocation.self) {
             return nil;
@@ -87,22 +87,7 @@ public class AMapBaseView: UIView,MAMapViewDelegate,MAMultiPointOverlayRendererD
         return nil;
     }
 
-    
-//    func mapView(_ mapView: MAMapView!, rendererFor overlay: MAOverlay!) -> MAOverlayRenderer! {
-//        let customUser = MAUserLocationRepresentation()
-//        customUser.showsAccuracyRing = true   //显示精度圈
-//        customUser.showsHeadingIndicator = true //是否开启方向指示器
-//        customUser.fillColor = UIColor.green;
-//        customUser.strokeColor = UIColor.blue;
-//        customUser.lineWidth = 2;
-//        customUser.enablePulseAnnimation = true;    //律动效果
-////        customUser.locationDotBgColor =
-////        customUser.image =
-//
-//    }
-    
-    
-    
+
     public func mapView(_ mapView: MAMapView!, rendererFor overlay: MAOverlay!) -> MAOverlayRenderer! {
         //海量点图层
         if (overlay.isKind(of: MAMultiPointOverlay.self)){
@@ -121,4 +106,6 @@ public class AMapBaseView: UIView,MAMapViewDelegate,MAMultiPointOverlayRendererD
     public func multiPointOverlayRenderer(_ renderer: MAMultiPointOverlayRenderer!, didItemTapped item: MAMultiPointItem!) {
         
     }
+    
+    
 }

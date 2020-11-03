@@ -192,7 +192,7 @@ public class AutoScrollView: UIView,DisplayDelegate,UIScrollViewDelegate,HeatBea
     
     
     //手动滚动--水平/垂直
-    private func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if direction == ScrollDirection.Horizontal{
             let offset = scrollView.contentOffset.x;
             if offset > contentWidth + startPoint {

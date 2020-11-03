@@ -61,7 +61,7 @@ public class AMapDriveNavigateVC: UIViewController,AMapNaviDriveViewDelegate {
         self.driveView = AMapNaviDriveView()
         self.driveView!.trackingMode = .carNorth;       //车头超北
         self.driveView!.delegate = self;
-        self.driveView!.autoSwitchDayNightType = true;  //自动切换日夜
+        self.driveView?.mapViewModeType = .dayNightAuto;
         self.driveView!.showGreyAfterPass = true;       //走过的路线变灰色
         
         self.driveView!.showScale = true;               //显示比例尺

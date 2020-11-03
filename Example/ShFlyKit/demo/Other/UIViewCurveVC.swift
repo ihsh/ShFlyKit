@@ -47,15 +47,15 @@ class UIViewCurveVC: UIViewController,VerifyCodeViewDelegate {
     
         
         let view = UIView(for: UIColor.randomColor());
-        main.addSubview(view);
-        view.mas_makeConstraints { (make) in
+        main.addSubview(view!);
+        view!.mas_makeConstraints { (make) in
             make?.centerX.mas_equalTo()(main);
             make?.top.mas_equalTo()(curView.mas_bottom)?.offset()(10);
             make?.width.mas_equalTo()(50);
             make?.height.mas_equalTo()(50);
         }
-        view.setShadow(.gray, opacity: 0.9, offset: CGSize(width: 0, height: 2), radius: 5);
-        view.setRadius(5, corners: UIRectCorner.topLeft )
+        view!.setShadow(.gray, opacity: 0.9, offset: CGSize(width: 0, height: 2), radius: 5);
+        view!.setRadius(5, corners: UIRectCorner.topLeft )
         
         
         

@@ -22,7 +22,7 @@ import Photos
 //截屏控制类
 public class ScreenSnapTool: NSObject {
     //Variable
-    public static let shared = ScreenSnapTool()                    //单例
+    public static let shared = ScreenSnapTool()             //单例
     private var delegates:[ScreenSnapModel] = []            //代理对象数组
     
     

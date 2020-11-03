@@ -26,7 +26,7 @@ public enum TTSStatus{
 ///TTS语音播放
 public class TTSManager: NSObject , AVSpeechSynthesizerDelegate {
     //variable
-    static let shared = TTSManager()
+    public static let shared = TTSManager()
     //只读
     public private(set) var currentStatus:TTSStatus!
     public private(set) var synthesizer = AVSpeechSynthesizer()

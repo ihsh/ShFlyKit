@@ -158,7 +158,7 @@ public class AMapTrackingVC: UIViewController,MAMapViewDelegate{
             weakSelf?.addFullTrace(arr);
             self.totalTraceLength += distance;
         }) { (errCode:Int32, errDesc:String?) in
-            print(errDesc);
+            print(errDesc ?? "");
             weakSelf?.isSaving = false;
         }
     }

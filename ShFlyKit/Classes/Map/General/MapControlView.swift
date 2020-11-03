@@ -9,8 +9,8 @@
 import UIKit
 import Masonry
 
-///地图上控制层，处理空白与按钮的点击
 
+///地图上控制层，处理空白与按钮的点击
 public class MapControlView: UIView {
     // MARK: - 属性
     public var bottomBar:UIView!              //底部视图

@@ -10,6 +10,7 @@ import UIKit
 import QuartzCore
 import Masonry
 
+
 @objc public protocol PayCodeViewDelegate:NSObjectProtocol {
     //点击放大条形码
     @objc optional func amplifyBarCode(_ code:String)

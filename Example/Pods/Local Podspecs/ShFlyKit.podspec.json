@@ -88,16 +88,6 @@
       }
     },
     {
-      "name": "Server",
-      "source_files": "ShFlyKit/Classes/Server/**/*.{h,m,swift}",
-      "public_header_files": "ShFlyKit/Classes/Server/**/*.h",
-      "dependencies": {
-        "ShFlyKit/Base": [
-
-        ]
-      }
-    },
-    {
       "name": "Graphics",
       "source_files": "ShFlyKit/Classes/Graphics/**/*.{h,m,swift}",
       "public_header_files": "ShFlyKit/Classes/Graphics/**/*.h",

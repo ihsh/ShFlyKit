@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,ScreenSnapToolDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
         //集成Bugly
         BuglyReporter.initBugLyWithAppkey(appKey: "3864583fc1");
         //高德地图

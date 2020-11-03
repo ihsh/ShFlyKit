@@ -21,9 +21,9 @@ public class FilePathManager: NSObject {
         do{
             if FileManager.default.fileExists(atPath: url.path) {
                 let attr = try FileManager.default.attributesOfItem(atPath: url.path)
-                let fileSize = attr[FileAttributeKey.size];
+                _ = attr[FileAttributeKey.size];
                 let dict = attr as NSDictionary
-                let size = dict.fileSize();
+                _ = dict.fileSize();
                 
             }
         }catch{

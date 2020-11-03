@@ -8,6 +8,7 @@
 
 import CoreImage
 
+
 //CGImage扩展
 public extension CGImage{
     
@@ -16,7 +17,6 @@ public extension CGImage{
         return CIImage(cgImage: self);
     }
 }
-
 
 
 //颜色分解

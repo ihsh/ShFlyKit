@@ -127,7 +127,7 @@ public class MetrolLineV: UIView , UIScrollViewDelegate , CAAnimationDelegate ,L
     
     
     //绘制动画
-    func drawLine(_ value:PlanInfo,i:Int) {
+    private func drawLine(_ value:PlanInfo,i:Int) {
         //绘制动画
         let path = UIBezierPath()
         path.move(to: convertPoint(value.start, rate: rate));

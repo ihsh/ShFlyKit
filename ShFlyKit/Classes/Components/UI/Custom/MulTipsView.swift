@@ -9,7 +9,7 @@
 import UIKit
 
 
-
+//标签模型
 public class TipsModel: NSObject {
     public var text:String!                                                 //文本
     public var textColor = UIColor.white                                    //文字颜色
@@ -35,7 +35,6 @@ public class MulTipsView: UIView {
     public var numberOfLines:Int = 1            //可换行数 0为无限制
     public var cornerRadius:CGFloat = 5         //全局圆角
     public var innerSpan:CGFloat = 3            //内部间距
-    
     public var rowHeight:CGFloat = 18           //行高
     public var columnSpan:CGFloat = 5           //水平间距
     public var rowSpan:CGFloat = 5              //垂直方向间距

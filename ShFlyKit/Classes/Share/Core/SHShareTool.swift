@@ -34,14 +34,14 @@ public enum LoginType{
 
 
 //登录的回调Block
-typealias LoginBlock = ((_ type:LoginType, _ logined:Bool,_ msg:String)->Void)
+public typealias LoginBlock = ((_ type:LoginType, _ logined:Bool,_ msg:String)->Void)
 
 
 ///第三方分享、登录的工具类
 class SHShareTool: NSObject,MFMessageComposeViewControllerDelegate,
 WeiboSDKDelegate,WXApiDelegate,TencentLoginDelegate,TencentSessionDelegate{
     //Variable
-    static let shared = SHShareTool()
+    public static let shared = SHShareTool()
     private var tencentOauth:TencentOAuth!          //腾讯oauth认证
     private var wbToken:String!                     //微博的token
     private var shareObject:ShareObjct!             //分享的模型,包括回调
@@ -287,7 +287,7 @@ WeiboSDKDelegate,WXApiDelegate,TencentLoginDelegate,TencentSessionDelegate{
     
     
     //MFMessageComposeViewController短信回调
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+    public func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         controller.dismiss(animated: true, completion: nil);
         if shareObject != nil{
             if (result == MessageComposeResult.sent) {
@@ -329,29 +329,29 @@ WeiboSDKDelegate,WXApiDelegate,TencentLoginDelegate,TencentSessionDelegate{
     
     ///分享的回调
     //WXApiDelegate
-    func onResp(_ resp: BaseResp!) {
+    public func onResp(_ resp: BaseResp) {
         if resp.isKind(of: SendMessageToWXResp.self) {
             if shareObject != nil{
                 if (resp.errCode == 0){
                     shareObject.success?(shareObject.shareType);
                 }else{
-                    shareObject.failure?(shareObject.shareType,Int(resp!.errCode),resp.errStr)
+                    shareObject.failure?(shareObject.shareType,Int(resp.errCode),resp.errStr)
                 }
             }
         }else if (resp.isKind(of: SendAuthResp.self)){
             if (resp.errCode == 0){
                 loginBlock?(.WeChat,true,"登录成功");
             }else{
-                loginBlock?(.WeChat,false,resp?.errStr ?? String(format: "%ld", resp?.errCode ?? -999));
+                loginBlock?(.WeChat,false,resp.errStr );
             }
         }
     }
     
     
     //WeiBoSDK Delegate
-    func didReceiveWeiboRequest(_ request: WBBaseRequest!) {}
+    public func didReceiveWeiboRequest(_ request: WBBaseRequest!) {}
     
-    func didReceiveWeiboResponse(_ response: WBBaseResponse!) {
+    public func didReceiveWeiboResponse(_ response: WBBaseResponse!) {
         //如果能成功跳转微博客户端，分享会走if里面
         if (response.isKind(of: WBSendMessageToWeiboResponse.self)){
             let weiboResponse:WBSendMessageToWeiboResponse = response as! WBSendMessageToWeiboResponse;
@@ -382,13 +382,13 @@ WeiboSDKDelegate,WXApiDelegate,TencentLoginDelegate,TencentSessionDelegate{
     
     ///登录的回调
     //TencentSessionDelegate
-    func tencentDidLogin() {
+    public func tencentDidLogin() {
         loginBlock?(.QQ,true,"登录成功");
     }
     
-    func tencentDidNotNetWork() {}
+    public func tencentDidNotNetWork() {}
     
-    func tencentDidNotLogin(_ cancelled: Bool) {
+    public func tencentDidNotLogin(_ cancelled: Bool) {
         loginBlock?(.QQ,false,cancelled ? "用户取消登录" : "登录失败");
     }
     
@@ -403,12 +403,12 @@ class QQInterfacePair:NSObject,QQApiInterfaceDelegate{
     public var shareObject:ShareObjct!             //分享的模型
     
     //QQApiInterfaceDelegate
-    func onReq(_ req: QQBaseReq!) {}
+    public func onReq(_ req: QQBaseReq!) {}
     
-    func isOnlineResponse(_ response: [AnyHashable : Any]!) {}
+    public func isOnlineResponse(_ response: [AnyHashable : Any]!) {}
     
     
-    func onResp(_ resp: QQBaseResp!) {
+    public func onResp(_ resp: QQBaseResp!) {
         if (Int.init(resp.result) == 0) {
             shareObject.success?(shareObject.shareType);
         }else{
@@ -420,7 +420,7 @@ class QQInterfacePair:NSObject,QQApiInterfaceDelegate{
 
 
 //分享的内容模型
-class ShareObjct:NSObject{
+public class ShareObjct:NSObject{
     public var shareType:ShareType!                 //分享的类型
     public var mediaType:ShareMediaType!            //分享的内容类型
     public var title:String!                        //标题

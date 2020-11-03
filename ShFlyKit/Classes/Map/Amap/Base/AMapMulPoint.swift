@@ -9,9 +9,8 @@
 import UIKit
 import AMapNaviKit
 
+
 ///海量点图层控制类
-
-
 public class AMapMulPoint: NSObject {
     //MARK
     private var mapView:MAMapView!
@@ -50,5 +49,6 @@ public class AMapMulPoint: NSObject {
         self.mapView.add(overlay);
         self.lastOverlay = overlay;
     }
+    
     
 }

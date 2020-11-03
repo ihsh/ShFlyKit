@@ -66,12 +66,12 @@ public class ActivityView: UIView,HeatBeatTimerDelegate{
             let fvc = activity.focusView?.viewController();
             //如果锁定视图控制器存在且不是当前显示的
             if (fvc != nil) {
-                if vc.isEqual(fvc) == false {return}
+                if vc!.isEqual(fvc) == false {return}
             }
             var same = activity.ignoreWindow;
             //window总会有一个成员UILayoutContainerView,如果当前有弹窗等，会有别的视图UIView
             if window.subviews.count <= 1 {
-                same = vc.view.isEqual(activity.focusView!);
+                same = vc!.view.isEqual(activity.focusView!);
             }else{
                 //有弹窗
                 for sub in window.subviews {

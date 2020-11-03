@@ -9,6 +9,7 @@
 import UIKit
 import Masonry
 
+
 public class AudioPlayerUI: UIView {
     private var player:AudioPlayer!
     

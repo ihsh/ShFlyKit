@@ -45,7 +45,7 @@ public class AMapWeather: NSObject,AMapSearchDelegate {
     
     
     //天气结果回调成功
-    func onWeatherSearchDone(_ request: AMapWeatherSearchRequest!, response: AMapWeatherSearchResponse!) {
+    public func onWeatherSearchDone(_ request: AMapWeatherSearchRequest!, response: AMapWeatherSearchResponse!) {
         let array = response.lives;
         var result:[AMapLocalWeatherLive] = [];
         if array != nil {
@@ -60,7 +60,7 @@ public class AMapWeather: NSObject,AMapSearchDelegate {
     
     
     //天气搜索失败
-    func aMapSearchRequest(_ request: Any!, didFailWithError error: Error!) {
+    public func aMapSearchRequest(_ request: Any!, didFailWithError error: Error!) {
         delegate?.weatherSearchFailed!();
         print("天气搜索失败");
     }

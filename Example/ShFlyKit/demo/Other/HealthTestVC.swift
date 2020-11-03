@@ -64,11 +64,11 @@ class HealthTestVC: UITableViewController {
             })
         case 7:
             health.sexQuery { (sex, error) in
-                print(sex?.description);
+                print(sex?.description as Any);
             }
         case 8:
             health.birthQuery { (birth, error) in
-                print(birth?.description);
+                print(birth?.description as Any);
             }
         case 9:
             health.calorieActive(for: HealthKit.predicate(forPreday: 3)) { (calorie, error) in

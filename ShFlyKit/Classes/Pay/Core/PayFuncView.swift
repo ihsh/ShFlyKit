@@ -105,7 +105,6 @@ public class PayFuncView: UIView , UIGestureRecognizerDelegate , HeatBeatTimerDe
     }
 
     
-    
     //HeatBeatTimerDelegate
     public func timeCallTimes(times: Int, identifier: String) {
         //上次发起的时间
@@ -121,6 +120,51 @@ public class PayFuncView: UIView , UIGestureRecognizerDelegate , HeatBeatTimerDe
         }
     }
     
+    
+    //PayTypeDelegate
+    public func viewForUnFoldMore() -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor.white;
+        //线
+        let line = UIView();
+        line.backgroundColor = UIColor.colorHexValue("000000",alpha: 0.12);
+        view.addSubview(line);
+        line.mas_makeConstraints { (maker) in
+            maker?.top.left()?.right()?.mas_equalTo()(view);
+            maker?.height.mas_equalTo()(0.5);
+        }
+        let label = UILabel.initText("展开更多支付方式", font: kFont(12), textColor: UIColor.colorHexValue("9E9E9E"), alignment: .left, super: view);
+        label.mas_makeConstraints { (maker) in
+            maker?.centerY.mas_equalTo()(view);
+            maker?.left.mas_equalTo()(24);
+        }
+        let imagV = UIImageView.init(image: UIImage.name("ic_payment_arrow_adown"));
+        view.addSubview(imagV);
+        imagV.mas_makeConstraints { (maker) in
+            maker?.left.mas_equalTo()(label.mas_right)?.offset()(8);
+            maker?.centerY.mas_equalTo()(label);
+        }
+        //点击按钮
+        let btn = UIButton()
+        view.addSubview(btn);
+        btn.addTarget(self, action: #selector(unFoldPayTypes), for: .touchUpInside);
+        btn.mas_makeConstraints { (maker) in
+            maker?.left.top()?.right()?.bottom()?.mas_equalTo()(view);
+        }
+        return view;
+    }
+    
+    
+    //展开的视图高度
+    public func heightForUnFoldMore() -> CGFloat {
+        return 56;
+    }
+    
+    
+    //自定义cell
+    public func customCellForIndex(indexPath: IndexPath, data: PayTypeData) -> UITableViewCell? {
+        return nil;
+    }
     
     
     ///Private
@@ -190,52 +234,6 @@ public class PayFuncView: UIView , UIGestureRecognizerDelegate , HeatBeatTimerDe
             maker?.bottom.mas_equalTo()(payBtn.mas_top)?.offset()(-10);
             maker?.height.mas_equalTo()(height);
         }
-    }
-    
-    
-    //PayTypeDelegate
-    public func viewForUnFoldMore() -> UIView {
-        let view = UIView()
-        view.backgroundColor = UIColor.white;
-        //线
-        let line = UIView();
-        line.backgroundColor = UIColor.colorHexValue("000000",alpha: 0.12);
-        view.addSubview(line);
-        line.mas_makeConstraints { (maker) in
-            maker?.top.left()?.right()?.mas_equalTo()(view);
-            maker?.height.mas_equalTo()(0.5);
-        }
-        let label = UILabel.initText("展开更多支付方式", font: kFont(12), textColor: UIColor.colorHexValue("9E9E9E"), alignment: .left, super: view);
-        label.mas_makeConstraints { (maker) in
-            maker?.centerY.mas_equalTo()(view);
-            maker?.left.mas_equalTo()(24);
-        }
-        let imagV = UIImageView.init(image: UIImage.name("ic_payment_arrow_adown"));
-        view.addSubview(imagV);
-        imagV.mas_makeConstraints { (maker) in
-            maker?.left.mas_equalTo()(label.mas_right)?.offset()(8);
-            maker?.centerY.mas_equalTo()(label);
-        }
-        //点击按钮
-        let btn = UIButton()
-        view.addSubview(btn);
-        btn.addTarget(self, action: #selector(unFoldPayTypes), for: .touchUpInside);
-        btn.mas_makeConstraints { (maker) in
-            maker?.left.top()?.right()?.bottom()?.mas_equalTo()(view);
-        }
-        return view;
-    }
-    
-    
-    //展开的视图高度
-    public func heightForUnFoldMore() -> CGFloat {
-        return 56;
-    }
-    
-    
-    //自定义cell
-    public func customCellForIndex(indexPath: IndexPath, data: PayTypeData) -> UITableViewCell? {
-        return nil;
     }
     
     

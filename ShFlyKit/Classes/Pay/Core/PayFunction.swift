@@ -9,6 +9,7 @@
 import UIKit
 import PassKit
 
+
 //支持的支付方式
 public enum PayType {
     case ZhiFubao,WeChat,Union,ApplePay, Wallet,Cash,Custom                   //支付宝，微信，银联(云闪付),ApplePay,个人钱包,现金,自定义
@@ -16,12 +17,12 @@ public enum PayType {
 
 
 //支付的回调Block
-typealias SuccessCall = ((_ result:Any)->Void)                  //成功回调
-typealias FailureCall = ((_ ret:Int,_ msg:String?)->Void)       //失败回调
+public typealias SuccessCall = ((_ result:Any)->Void)                  //成功回调
+public typealias FailureCall = ((_ ret:Int,_ msg:String?)->Void)       //失败回调
 
 
 ///回调调用对
-class BlockPair: NSObject {
+public class BlockPair: NSObject {
     //Variable
     public var successBlock:SuccessCall!
     public var failureBlock:FailureCall!
@@ -41,7 +42,7 @@ class BlockPair: NSObject {
 ///支付控制单例
 class PayFunction: NSObject,WXApiDelegate,UPAPayPluginDelegate{
     //Variable
-    static  let shared = PayFunction.init()                     //单例
+    public  static  let shared = PayFunction.init()             //单例
     private var blockArray:[BlockPair] = []                     //回调对数组
     //配置信息
     private var wechatAppId:String!                             //微信AppId
@@ -242,7 +243,7 @@ class PayFunction: NSObject,WXApiDelegate,UPAPayPluginDelegate{
     
     
     //ApplePay的回调  UPAPayPluginDelegate
-    func upaPayPluginResult(_ payResult: UPPayResult!) {
+    public func upaPayPluginResult(_ payResult: UPPayResult!) {
         let pair = pairForType(PayType.ApplePay);
         switch payResult.paymentResultStatus {
         case .success:

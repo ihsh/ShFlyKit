@@ -64,13 +64,6 @@ Pod::Spec.new do |spec|
         sp.public_header_files = 'ShFlyKit/Classes/Network/**/*.h'
         sp.dependency 'ShFlyKit/Base'
   end
-
-  #网络直连
-  spec.subspec 'Server' do |sp|
-        sp.source_files = 'ShFlyKit/Classes/Server/**/*.{h,m,swift}'
-        sp.public_header_files = 'ShFlyKit/Classes/Server/**/*.h'
-        sp.dependency 'ShFlyKit/Base'
-  end
    
   #图形图像
   spec.subspec 'Graphics' do |sp|

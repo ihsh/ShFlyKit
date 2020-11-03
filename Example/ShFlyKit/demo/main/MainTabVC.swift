@@ -26,7 +26,7 @@ class MainTabVC: UIViewController,SHPhoneAssetsToolDelegate,ItemsViewDelegate,Ti
                      "地铁线路","文字路径","日历","打印","视频",
                      "图表","音乐","订票","站点","付款码",
                      "扫码","立体相册","天气动画","涂鸦","弹窗","时间轴",
-                     "系统信息","传文件","路径动画","日历日程"];
+                     "系统信息","路径动画","日历日程"];
         self.initSubViews();
     }
     
@@ -238,9 +238,6 @@ class MainTabVC: UIViewController,SHPhoneAssetsToolDelegate,ItemsViewDelegate,Ti
             view.loadData(data: [model,model2,model3])
         }else if (title == "系统信息"){
             let vc = SystemInfoVC();
-            self.navigationController?.pushViewController(vc, animated: true);
-        }else if (title == "传文件"){
-            let vc = DirectTransferVC();
             self.navigationController?.pushViewController(vc, animated: true);
         }else if (title == "路径动画"){
             let view = UIView();

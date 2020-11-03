@@ -10,6 +10,7 @@ import UIKit
 import FMDB
 import YYModel
 
+
 ///数据持久化方式
 public enum SaveType{
     case UserDefault,   //保存配置

@@ -232,7 +232,7 @@ static int _prefetchedNum = 10;
 }
 
 
--(unsigned int)getFrameCount{
+-(NSUInteger)getFrameCount{
     return self.images.count;
 }
 

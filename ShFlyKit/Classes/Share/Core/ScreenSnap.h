@@ -11,7 +11,7 @@
 #import <WebKit/WebKit.h>
 #import <AVKit/AVKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
+
 
 @interface ScreenSnap : NSObject
 //普通截图，针对一般的视图上添加视图的情况，未使用layer和openGL渲染的视图上使用
@@ -28,4 +28,4 @@ NS_ASSUME_NONNULL_BEGIN
 +(UIImage*)avAssetFrameFromUrl:(NSURL*)movieUrl sec:(NSUInteger)sec;
 @end
 
-NS_ASSUME_NONNULL_END
+

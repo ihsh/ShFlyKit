@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 //获取对应下标的帧图片
 -(UIImage*)getFrameWithIndex:(NSUInteger)index;
 //获取总帧数
--(unsigned int)getFrameCount;
+-(NSUInteger)getFrameCount;
 @end
 
 NS_ASSUME_NONNULL_END

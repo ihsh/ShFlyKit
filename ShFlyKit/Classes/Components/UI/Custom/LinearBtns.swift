@@ -8,8 +8,6 @@
 
 import UIKit
 
-///用于创建连续的水平/垂直方向的大小一致，中间有分割线的按钮群
-
 
 //线性方向枚举值-水平，垂直
 public enum LinearDirection{
@@ -17,6 +15,7 @@ public enum LinearDirection{
 }
 
 
+///用于创建连续的水平/垂直方向的大小一致，中间有分割线的按钮群
 public class LinearBtns: UIView {
 
     //用于操作的视图数组
@@ -166,8 +165,8 @@ public class LinearBtns: UIView {
                     if dashline == true{
                         line = UIView(forDashLineSize: CGSize(width: 1, height: height), color: lineColor, length: 2, space: 2)
                     }
-                    containView.addSubview(line);
-                    line.mas_makeConstraints { (maker) in
+                    containView.addSubview(line!);
+                    line!.mas_makeConstraints { (maker) in
                         if viewIndex == nextIndex{
                             maker?.left.mas_equalTo()(lastBtn.mas_right);
                         }else{
@@ -221,8 +220,8 @@ public class LinearBtns: UIView {
                     if dashline == true{
                         line = UIView(forDashLineSize: CGSize(width: width, height: 1), color: lineColor, length: 2, space: 2)
                     }
-                    containView.addSubview(line);
-                    line.mas_makeConstraints { (maker) in
+                    containView.addSubview(line!);
+                    line!.mas_makeConstraints { (maker) in
                         if viewIndex == nextIndex{
                             maker?.top.mas_equalTo()(lastBtn.mas_bottom);
                         }else{

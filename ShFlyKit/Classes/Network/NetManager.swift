@@ -10,7 +10,6 @@ import UIKit
 import AFNetworking
 
 
-
 ///网络代理类
 public protocol SHNetManagerDelegate:NSObjectProtocol {
     //返回响应报文
@@ -59,7 +58,7 @@ public class NetManager: NSObject , HeatBeatTimerDelegate{
     
     
     //定时器回调-重试失败的情况
-    func timeTaskCalled(identifier: String) {
+    public func timeTaskCalled(identifier: String) {
         let req:BaseRequest? = retryArray.firstObject as? BaseRequest;
         if req != nil {
             //确认是否继续
@@ -100,7 +99,7 @@ public class NetManager: NSObject , HeatBeatTimerDelegate{
 
     
     //开始请求
-    func request(_ request:BaseRequest)->Void{
+    public func request(_ request:BaseRequest)->Void{
         //字典转字符串
         func dictToJsonString(dict:NSDictionary)->String{
             let data:Data? = try? JSONSerialization.data(withJSONObject: dict, options: [])

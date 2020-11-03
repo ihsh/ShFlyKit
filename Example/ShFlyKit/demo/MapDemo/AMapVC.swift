@@ -140,6 +140,7 @@ class AMapVC: UIViewController {
         default:
             remark = "未定义";
         }
+        print(remark);
     }
 
 }

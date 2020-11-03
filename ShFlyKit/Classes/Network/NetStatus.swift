@@ -79,7 +79,7 @@ public class NetStatus: NSObject,HeatBeatTimerDelegate{
 
     
     ///MARK-HeatBeatTimerDelegate
-    func timeTaskCalled(identifier: String) {
+    public func timeTaskCalled(identifier: String) {
         //获取新的ping值，查看网络状况
         if identifier == "checkNetQuantity" {
             pingInfo.updatePingTime();

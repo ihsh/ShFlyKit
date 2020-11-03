@@ -64,13 +64,6 @@ public class HandBoardView: UIView {
     
     
     
-    
-    ///Private
-    private func midPoint(p1:CGPoint,p2:CGPoint)->CGPoint{
-        return CGPoint(x: (p1.x+p2.x)*0.5, y: (p1.y+p2.y)*0.5);
-    }
-    
-    
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event);
         self.backgroundColor = .clear;
@@ -93,7 +86,7 @@ public class HandBoardView: UIView {
         let touch = ((touches as NSSet).anyObject() as AnyObject);
         let point = touch.location(in: self);
         let previous = touch.previousLocation(in: self);
-        let mid = midPoint(p1: previous, p2: point);
+        let mid = midPoint(of: previous, point2: point);
         //路径加点
         curPath.path.addQuadCurve(to: mid, controlPoint: previous);
         
@@ -189,7 +182,7 @@ public class HandBoardMixImageView: UIView {
     
     
     //混合输出照片
-    public func generateMixImage()->UIImage{
+    public func generateMixImage()->UIImage?{
         let image1 = imageV.image;
         let image2 = handBoard.getFinalImage();
         //混合

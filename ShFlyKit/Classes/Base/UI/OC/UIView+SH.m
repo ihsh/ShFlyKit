@@ -183,4 +183,10 @@
     return snapshotImage;
 }
 
+
+-(CGPoint)midPointOfPoint:(CGPoint)p1 point2:(CGPoint)p2{
+    return CGPointMake((p1.x+p2.x)/2.0, (p1.y+p2.y)/2.0);
+}
+
+
 @end

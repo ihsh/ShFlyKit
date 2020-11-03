@@ -66,7 +66,7 @@ public class LineWaver: UIView {
     
     
     //更新振幅
-    func updateAmplitude(_ value:CGFloat) {
+    public func updateAmplitude(_ value:CGFloat) {
         self.phase += self.phaseShift;
         self.amplitude = fmax(value, self.idleAmplitude);
         self.updateMeters();

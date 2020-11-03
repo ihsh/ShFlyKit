@@ -27,7 +27,11 @@
 + (void)save:(NSString *)service data:(id)data {
     NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
     SecItemDelete((CFDictionaryRef)keychainQuery);
-    [keychainQuery setObject:[NSKeyedArchiver archivedDataWithRootObject:data requiringSecureCoding:YES error:nil] forKey:(id)kSecValueData];
+    if (@available(iOS 11.0, *)) {
+        [keychainQuery setObject:[NSKeyedArchiver archivedDataWithRootObject:data requiringSecureCoding:YES error:nil] forKey:(id)kSecValueData];
+    } else {
+        // Fallback on earlier versions
+    }
     SecItemAdd((CFDictionaryRef)keychainQuery, NULL);
 }
 

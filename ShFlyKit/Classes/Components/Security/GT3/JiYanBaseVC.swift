@@ -58,7 +58,7 @@ open class JiYanBaseVC: UIViewController,GT3CaptchaManagerDelegate,GT3CaptchaBut
     }
     
     
-    func captchaButtonShouldBeginTapAction(_ button: GT3CaptchaButton!) -> Bool {
+    public func captchaButtonShouldBeginTapAction(_ button: GT3CaptchaButton!) -> Bool {
         return true;
     }
    

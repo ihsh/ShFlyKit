@@ -141,7 +141,7 @@ public class QRCodeRecognizer:UIView,AVCaptureMetadataOutputObjectsDelegate,
     
     
     //识别照片
-    private func pickerImage(_ image: UIImage) {
+    public func pickerImage(_ image: UIImage) {
         //声明一格CIDetector,并设定识别类型CIDetectorTypeQRCode
         let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh]);
         

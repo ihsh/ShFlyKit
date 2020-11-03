@@ -100,7 +100,7 @@ public class SHJsActionHandler: NSObject ,SHPhoneAssetsToolDelegate {
     
     
     //获取了一张照片
-    private func pickerImage(_ image: UIImage) {
+    public func pickerImage(_ image: UIImage) {
         let imageData:Data = UIImageJPEGRepresentation(image, 1.0) ?? Data();
         var base64Str:String = imageData.base64EncodedString(options: .lineLength64Characters);
         base64Str = base64Str.replacingOccurrences(of: "\r\n", with: "");
@@ -111,7 +111,7 @@ public class SHJsActionHandler: NSObject ,SHPhoneAssetsToolDelegate {
     
     
     //获取了视频地址
-    private func pickerVedio(_ url: URL) {
+    public func pickerVedio(_ url: URL) {
         
     }
     

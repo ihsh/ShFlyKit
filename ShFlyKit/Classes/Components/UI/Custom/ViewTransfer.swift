@@ -9,15 +9,13 @@
 import UIKit
 
 
-//用于在这个界面上加载一个蒙层并使目标视图做指向运行的视图加载器
-
-
 //动画方向
 public enum TransDirection{
     case Top,Left,Bottom,Right,Center,FromPoint
 }
 
 
+//用于在这个界面上加载一个蒙层并使目标视图做指向运行的视图加载器
 public class ViewTransfer: UIView {
     // MARK: - 属性
     private var direction:TransDirection!  //运动的方向
@@ -27,7 +25,11 @@ public class ViewTransfer: UIView {
     
     
     // MARK: - 做动画
-    class public func transfer(direction:TransDirection,transView:UIView,blur:Bool = false,animated:Bool = true,backColor:UIColor = UIColor.colorHexValue("000000",alpha: 0.5))->Void{
+    class public func transfer(direction:TransDirection,
+                               transView:UIView,
+                               blur:Bool = false,
+                               animated:Bool = true,
+                               backColor:UIColor = UIColor.colorHexValue("000000",alpha: 0.5))->Void{
         
         let instance = ViewTransfer();
         instance.direction = direction;

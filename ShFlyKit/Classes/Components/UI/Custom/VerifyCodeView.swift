@@ -82,7 +82,7 @@ public class VerifyCodeView: UIView,CustomTextFieldDelegate,UITextFieldDelegate 
         //输入框
         textField = CustomTextField()
         let leftView = UIView(for: .clear);
-        leftView.frame = CGRect(x: 0, y: 0, width: widHeight/2.0-lineWidth, height: 0)
+        leftView!.frame = CGRect(x: 0, y: 0, width: widHeight/2.0-lineWidth, height: 0)
         textField.leftView = leftView;
         textField.leftViewMode = .always;
         textField.contentVerticalAlignment = .center;

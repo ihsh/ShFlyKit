@@ -32,7 +32,7 @@ public class TrainLinesV: UIView {
     
     //显示数据
     public func showStations(_ data:TrainStationData){
-        //保存对数据的引用
+        //保存数据
         self.data = data;
         //移除子视图
         for sub in self.subviews {

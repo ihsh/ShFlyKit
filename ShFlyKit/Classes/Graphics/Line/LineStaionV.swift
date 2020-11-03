@@ -20,7 +20,7 @@ public protocol LineDataSource:NSObjectProtocol {
 //站点信息处理类
 public class LineStaionV: UIView {
     //Variable
-    static let shared = LineStaionV()              //单例
+    public static let shared = LineStaionV()       //单例
     public weak var delegate:LineDataSource?       //代理
     public var limit:Int = 5                       //取结果最大限制
     

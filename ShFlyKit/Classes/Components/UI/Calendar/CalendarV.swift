@@ -290,7 +290,7 @@ public class CalendarBaseV: UIView , UICollectionViewDataSource , UICollectionVi
 //日历上显示星期的条
 public class CalendarBar:UIView{
     //Variable
-    static let barHeight:CGFloat = 40                                                       //高度
+    public static let barHeight:CGFloat = 40                                                       //高度
     public var bgColor:UIColor = UIColor.colorRGB(red: 242, green: 244, blue: 246)          //背景颜色
     public var workColor:UIColor = UIColor.colorRGB(red: 143, green: 149, blue: 164)        //工作日颜色
     public var weekendColor:UIColor = UIColor.colorRGB(red: 246, green: 200, blue: 75)      //周末的颜色

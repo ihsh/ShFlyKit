@@ -142,8 +142,6 @@ public class DynamicInfo:NSObject{//从不变到变化越快的
         batteryState = SystemInfo.stateOfBattery()
         //总内存大小
         memoryTotal = SystemInfo.totalMemorySize()
-        //剩余可用磁盘容量
-//        leftDiskRate = SystemInfo.leftDiskSizeRate()
         //IP地址
         ipAddress = SystemInfo.deviceIPAdress()
         //wifi名称

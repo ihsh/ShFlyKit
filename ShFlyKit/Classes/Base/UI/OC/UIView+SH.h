@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (SH)
 @property (nonatomic,assign) CGFloat x;                     //x
@@ -40,7 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(CGRect)onTouchRect;
 //截图
 -(UIImage*)normalSnapshotImage;
+//两点的中点
+-(CGPoint)midPointOfPoint:(CGPoint)p1 point2:(CGPoint)p2;
 
 @end
 
-NS_ASSUME_NONNULL_END

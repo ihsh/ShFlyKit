@@ -9,14 +9,13 @@
 import UIKit
 
 
-//用于一般性的在导航栏位置的搜索条带按键的布局和事件控件
-
 //布局类型
 public enum LayoutType{
     case Inner,Outer
 }
 
 
+//用于一般性的在导航栏位置的搜索条带按键的布局和事件控件
 public class SearchBar: UIView {
     // MARK: - 按钮存储
     private let _leftOutBtns = NSMutableArray()

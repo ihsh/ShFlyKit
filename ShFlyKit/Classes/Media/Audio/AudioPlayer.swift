@@ -33,7 +33,7 @@ public class AudioPlayer: NSObject {
     
     private func playRemote(){
         let url = URL.init(fileURLWithPath: "");
-        let playItem = AVPlayerItem.init(url: url);
+        _ = AVPlayerItem.init(url: url);
     }
     
     
