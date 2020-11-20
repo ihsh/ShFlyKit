@@ -21,7 +21,7 @@ Pod::Spec.new do |spec|
     'CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF' => 'NO',
     'OTHER_LDFLAGS' => '-ObjC',
     'LIBRARY_SEARCH_PATHS' => ['$(inherited)'],
-    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'   
   }
   #其他配置
   spec.libraries = "c++"

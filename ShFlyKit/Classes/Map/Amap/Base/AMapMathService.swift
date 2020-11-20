@@ -40,9 +40,7 @@ public class AMapMathService: NSObject {
             return ([],[],[],[])
         }
         //获取路线坐标串
-        guard let oriCoordinateArray = aRoute.routeCoordinates else {
-            return ([],[],[],[])
-        }
+        let oriCoordinateArray = aRoute.routeCoordinates;
         //获取路径的交通状况信息
         guard let trafficStatus = AMapNaviDriveManager.sharedInstance().getTrafficStatuses(withStartPosition: 0, distance: Int32(aRoute.routeLength)) else {
             return ([],[],[],[])
