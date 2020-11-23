@@ -26,4 +26,21 @@ public extension String {
         return self.components(separatedBy: .whitespaces).joined(separator: "");
     }
     
+    
+    //decimal字符串
+    static func formatLu(value:CGFloat,decimal:UInt)->String{
+        switch decimal {
+        case 1:
+            return String(format: "%.1f", value);
+        case 2:
+            return String(format: "%.2f", value);
+        case 3:
+            return String(format: "%.3f", value);
+        case 4:
+            return String(format: "%.4f", value);
+        default:
+            return String(format: "%.f", value);
+        }
+    }
+    
 }

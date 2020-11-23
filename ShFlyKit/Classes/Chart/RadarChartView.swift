@@ -10,7 +10,7 @@ import UIKit
 
 
 ///雷达图
-public class RadarChartView: UIView {
+public class RadarChartView: UIView ,CAAnimationDelegate {
     //Public
     public var showSize:CGSize = CGSize(width: 300, height: 300);   //显示的大小
     //Private
@@ -19,6 +19,7 @@ public class RadarChartView: UIView {
     private var pointsPlot:[CGPoint] = []   //端点的数组
     private var pointsDesc:[CGPoint] = []   //描述文字的坐标
     private var chartPlotLayer:CAShapeLayer!//雷达图层
+    private var animateFinished:Bool = false//动画结束
     
     
     //绘制视图
@@ -85,9 +86,28 @@ public class RadarChartView: UIView {
                 str.draw(in: rect, withAttributes: attributes as! [NSAttributedStringKey : Any]);
             }
         }
-        
+        //显示值
+        if data.showVaues && self.animateFinished {
+            for (i,item) in data.dataSet.enumerated() {
+                let str:NSString = String.formatLu(value: item.value, decimal: data.decimalCount) as! NSString;
+                let pos:CGPoint = pointsPlot[i];
+                let attributes = NSMutableDictionary();
+                attributes.setValue(data.valueSize, forKey: NSAttributedStringKey.font.rawValue);
+                attributes.setValue(data.valueColor, forKey: NSAttributedStringKey.foregroundColor.rawValue);
+                let width:CGFloat = str.width(with: data.valueSize);
+                let height:CGFloat = str.height(forWidth: CGFloat(MAXFLOAT), font: data.valueSize);
+                let rect:CGRect = CGRect(x: pos.x - width/2.0, y: pos.y - height/2.0, width: width, height: height);
+                str.draw(in: rect, withAttributes: attributes as! [NSAttributedStringKey : Any]);
+            }
+        }
     }
     
+    
+    //动画结束
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        self.animateFinished = true;
+        self.setNeedsDisplay();
+    }
     
     
     ///Private
@@ -202,6 +222,7 @@ public class RadarChartView: UIView {
         rotateAni.toValue = 0;
     
         let group = CAAnimationGroup();
+        group.delegate = self;
         if data.animateRotate {
             group.animations = [scaleAni,opaAni, rotateAni];
         }else{
@@ -220,14 +241,18 @@ public class RadarChartView: UIView {
 public class RadarShowData:NSObject{
     public var clockWise:Bool = true       //顺时针
     public var showDesc:Bool = true        //显示描述
+    public var showVaues:Bool = true       //是否显示值
+    public var decimalCount:UInt = 0       //小数点位数
     public var displayAnimated:Bool = true //展示动画
     public var animateRotate:Bool = true   //动画中是否旋转
     public var animateDuration:TimeInterval = 1 //动画时长
     
     public var backColor:UIColor = .black  //背景色
     public var lineColor:UIColor = UIColor.colorHexValue("FFFFFF", alpha: 0.4)  //网格线颜色
-    public var fontColor:UIColor = .white
+    public var fontColor:UIColor = .white  //坐标轴文字颜色
     public var fontSize:UIFont = .systemFont(ofSize: 12)
+    public var valueColor:UIColor = .white //值颜色
+    public var valueSize:UIFont = .systemFont(ofSize: 12)
     public var fillColor:UIColor = UIColor.colorHexValue("FFFFFF", alpha: 0.2)  //填充色
     public var strokeColor:UIColor = .white                                     //图层边缘线颜色
     
