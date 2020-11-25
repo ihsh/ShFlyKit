@@ -1,5 +1,5 @@
 //
-//  PieChartShowView.swift
+//  PieChartTwo.swift
 //  SHKit
 //
 //  Created by hsh on 2019/3/5.
@@ -11,7 +11,7 @@ import UIKit
 
 
 ///饼图-简易绘制
-public class PieChartShowView: UIView {
+public class PieChartTwo: UIView {
     //mark-Variable
     private var radius:CGFloat = 0                  //绘制圆的半径
     private var comonents:[PieComponent] = []       //绘制的数据

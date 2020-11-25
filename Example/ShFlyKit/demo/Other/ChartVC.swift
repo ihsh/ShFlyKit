@@ -9,13 +9,12 @@
 import UIKit
 
 class ChartVC: UITableViewController {
-    let actionArr:NSArray = ["pieChart","雷达图"]
+    let actionArr:NSArray = ["pieChart","雷达图","折线图"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white;
-        
     }
     
     
@@ -37,21 +36,18 @@ class ChartVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str:String = actionArr[indexPath.row] as! String;
         if str == "pieChart" {
-            let pie = PieChartShowView()
+            let pie = PieChartTwo()
             var components:[PieComponent] = [];
             for index in 0...8 {
                 let pie = PieComponent.initValue(CGFloat(2+index), color: UIColor.randomColor(), content: "一二三四", textColor: UIColor.randomColor());
                 components.append(pie);
             }
             pie.showChart(components);
-            pie.frame = CGRect(x: 00, y: 00, width: 400, height: 400);
-            
-            let zoomV = ChartZoomView();
-            zoomV.setZoomView(pie);
+            pie.frame = CGRect(x: 10, y: 00, width: 350, height: 350);
             
             let vc = TransVC();
-            vc.showView = zoomV;
-            vc.showRect = CGRect(x: 0, y: 100, width: 400, height: 400);
+            vc.showView = pie;
+            vc.showRect = CGRect(x: 0, y: 100, width: 350, height: 350);
             self.navigationController?.pushViewController(vc, animated: true);
         }else if str == "雷达图"{
             let view = RadarChartView()
@@ -76,6 +72,22 @@ class ChartVC: UITableViewController {
             let item9 = RadarShowData.RadarDataItem.initItem(85, desc: "物理");
             data.appendArray([item1,item2,item3,item4,item5,item6,item7,item8,item9]);
             view.drawData(data);
+        }else if str == "折线图"{
+            let view = LineChartView()
+            view.backgroundColor = UIColor.white;
+            let vc = TransVC();
+            vc.backColor = UIColor.white
+            vc.showView = view;
+            self.navigationController?.pushViewController(vc, animated: true);
+            
+            let data:LineChartData = LineChartData();
+            data.addOriginData([(30,"一月"),(-20,"二月"),(-50,"三月"),(45,"四月"),(70,"五月"),(60,"六月"),
+                                (90,"七月"),(95,"八月"),(100,"十月"),(130,"十一月"),(120,"十二月")])
+            let color = data.lineColor;
+            data.shadowColor = [color.withAlphaComponent(0.9).cgColor,color.withAlphaComponent(0.7).cgColor,
+                                color.withAlphaComponent(0.5).cgColor,color.withAlphaComponent(0.3).cgColor,
+                                color.withAlphaComponent(0.02).cgColor]
+            view.showData(data);
         }
         
     }

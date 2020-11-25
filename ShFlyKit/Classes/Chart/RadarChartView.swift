@@ -256,12 +256,13 @@ public class RadarShowData:NSObject{
     public var fillColor:UIColor = UIColor.colorHexValue("FFFFFF", alpha: 0.2)  //填充色
     public var strokeColor:UIColor = .white                                     //图层边缘线颜色
     
-    public var dataSet:[RadarDataItem] = [] //数据
+    
     public var fixMax:CGFloat = 0           //设置的固定大小
     public var valueDivider:CGFloat = 15    //设置的径向分段距离值
     public var margin:CGFloat = 30          //径向端点与视图边缘的距离
     public var descMargin:CGFloat = 6       //文字区域边缘和端点之间的距离
     public var valueRate:CGFloat = 1        //实际显示的值与valueDivider的比值 压缩比例
+    public private(set) var dataSet:[RadarDataItem] = [] //数据
     public private(set) var calculMax:CGFloat = 0  //计算得出的最大值
     public private(set) var plotCircles:Int!       //计算得出的多边形个数
     
@@ -287,6 +288,12 @@ public class RadarShowData:NSObject{
     public func appendArray(_ array:[RadarDataItem]){
         self.dataSet.append(contentsOf: array);
         self.calculValue();
+    }
+    
+    
+    ///清除
+    public func clear(){
+        self.dataSet.removeAll();
     }
     
     
