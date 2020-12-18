@@ -10,29 +10,110 @@
 import UIKit
 
 
+
+//内容如果超出使用的滚动系列
+public class LineChartScrollV:UIView ,UIScrollViewDelegate{
+    //显示区域
+    public var showRect:CGRect = CGRect(x: 0, y: 0, width: ScreenSize().width, height: 300)
+    //私有滚动视图
+    private var scrollV:UIScrollView!
+    private var lineChart:LineChartView!
+    
+    
+    //显示需要滚动的视图
+    public func showData(_ data:LineChartData){
+        self.backgroundColor = UIColor.white;
+        //设置可滚动
+        if lineChart == nil {
+            scrollV = UIScrollView();
+            scrollV.backgroundColor = UIColor.clear;
+            scrollV.showsHorizontalScrollIndicator = false;
+            scrollV.bounces = false;
+            scrollV.delegate = self;
+            scrollV.layer.masksToBounds = false;
+            self.addSubview(scrollV);
+            lineChart = LineChartView();
+            lineChart.drawYaxis = false;
+            lineChart.showRect = showRect;
+            scrollV.addSubview(lineChart);
+        }
+        lineChart.showData(data);
+        scrollV.frame = CGRect(x: lineChart.baseX, y: 0, width: ScreenSize().width-lineChart.baseX, height: lineChart.layerFrame.height+data.margins.bottom);
+        lineChart.frame = CGRect(x: 0-lineChart.baseX, y: 0, width: lineChart.layerFrame.width+lineChart.baseX, height: showRect.height);
+        scrollV.contentSize = CGSize(width: lineChart.scrollX+lineChart.baseX, height: 0);
+        //绘制Y轴
+        self.setNeedsDisplay();
+    }
+    
+    
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scollX = scrollView.contentOffset.x;
+        if scollX < lineChart.data.circleWidth {
+            scrollV.layer.masksToBounds = false;
+        }else{
+            scrollV.layer.masksToBounds = true;
+        }
+    }
+    
+    
+    //单单绘制Y坐标
+    public override func draw(_ rect: CGRect) {
+        super.draw(rect);
+        let data:LineChartData = lineChart.data;
+        //没有数据
+        if data == nil {
+            return;
+        }
+        let ctx = UIGraphicsGetCurrentContext();
+        ctx?.setStrokeColor(data.lineColor.cgColor);
+        ctx?.setLineWidth(data.lineWidth);
+        //绘制Y轴
+        ctx?.setStrokeColor(data.lineColor.cgColor);
+        ctx?.move(to: CGPoint(x: lineChart.baseX, y: lineChart.baseY));
+        ctx?.addLine(to: CGPoint(x: lineChart.baseX, y: data.margins.top));
+        ctx?.strokePath();
+        for (i,pos) in lineChart.yAxisPoints.enumerated() {
+            let desc:NSString = lineChart.yAxisValues[i] as NSString;
+            let width:CGFloat = desc.width(with: data.font);
+            let rect = CGRect(x: pos.x-6-width, y: pos.y, width: width, height: 20);
+            let attributes = NSMutableDictionary();
+            attributes.setValue(data.font, forKey: NSAttributedStringKey.font.rawValue);
+            attributes.setValue(data.fontColor, forKey: NSAttributedStringKey.foregroundColor.rawValue);
+            desc.draw(in: rect, withAttributes: attributes as! [NSAttributedStringKey : Any]);
+        }
+    }
+    
+    
+}
+
+
 ///折线图
 public class LineChartView: UIView , CAAnimationDelegate {
     //public
     public var showRect:CGRect = CGRect(x: 0, y: 0, width: ScreenSize().width, height: 300)
+    public var drawYaxis:Bool = true                         //绘制U轴
+    public private (set) var layerFrame:CGRect!              //显示阴影的图层
+    public private (set) var baseX:CGFloat = 0               //左下角的起点X
+    public private (set) var baseY:CGFloat = 0               //左下角的起点Y
+    public private (set) var scrollX:CGFloat = 0             //可滚动区域
+    public private (set) var data:LineChartData!             //数据
+    public private (set) var pointsLine:[CGPoint] = []       //线的点
+    public private (set) var yAxisPoints:[CGPoint] = []      //Y坐标的点群
+    public private (set) var yAxisValues:[String] = []       //Y坐标的值的点群
+    public private (set) var xAxisPoints:[CGPoint] = []      //x坐标的点群
     
-    //private
-    private var data:LineChartData!
-    private var baseX:CGFloat = 0
-    private var baseY:CGFloat = 0
-    private var layerFrame:CGRect!
-    private var pointsLine:[CGPoint] = []
-    private var yAxisPoints:[CGPoint] = []
-    private var yAxisValues:[String] = []
-    private var xAxisPoints:[CGPoint] = []
     
     
     ///Interface
     public func showData(_ data:LineChartData){
         self.data = data;
+        self.backgroundColor = UIColor.clear;
         //计算值
         self.calculValues();
         //显示
         self.setNeedsDisplay();
+        //显示动画
+        
     }
 
     
@@ -43,66 +124,71 @@ public class LineChartView: UIView , CAAnimationDelegate {
         if data == nil {
             return;
         }
-        
         let ctx = UIGraphicsGetCurrentContext();
         ctx?.setStrokeColor(data.lineColor.cgColor);
         ctx?.setLineWidth(data.lineWidth);
         //绘制x轴
         ctx?.move(to: CGPoint(x: baseX, y: baseY));
-        let rightX = baseX + (ScreenSize().width-data.margins.left-data.margins.right);
+        let rightX = scrollX+baseX+20;
         ctx?.addLine(to: CGPoint(x: rightX, y: baseY));
         ctx?.strokePath();
         for (i,pos) in xAxisPoints.enumerated() {
             let da = self.data.dataSet[i];
             let desc:NSString = da.axisDesc as NSString;
-            let width:CGFloat = desc.width(with: self.data.font);
-            let rect = CGRect(x: pos.x - width/2.0, y: pos.y + 20, width: width, height: 20);
+            var rect:CGRect!
+            if data.xAxisValueHorizon {
+                let width:CGFloat = desc.width(with: data.font);
+                rect = CGRect(x: pos.x - width/2.0, y: pos.y + 15, width: width, height: height);
+            }else{
+                let height:CGFloat = desc.height(forWidth: 20, font: data.font);
+                rect = CGRect(x: pos.x - 5, y: pos.y + 10, width: 20, height: height);
+            }
             let attributes = NSMutableDictionary();
             attributes.setValue(data.font, forKey: NSAttributedStringKey.font.rawValue);
             attributes.setValue(data.fontColor, forKey: NSAttributedStringKey.foregroundColor.rawValue);
             desc.draw(in: rect, withAttributes: attributes as! [NSAttributedStringKey : Any]);
         }
-        //绘制Y轴
-        ctx?.setStrokeColor(data.lineColor.cgColor);
-        ctx?.move(to: CGPoint(x: baseX, y: baseY));
-        ctx?.addLine(to: CGPoint(x: baseX, y: data.margins.top));
-        ctx?.strokePath();
-        for (i,pos) in yAxisPoints.enumerated() {
-            let desc:NSString = yAxisValues[i] as NSString;
-            let width:CGFloat = desc.width(with: self.data.font);
-            let rect = CGRect(x: pos.x-6-width, y: pos.y, width: width, height: 20);
-            let attributes = NSMutableDictionary();
-            attributes.setValue(data.font, forKey: NSAttributedStringKey.font.rawValue);
-            attributes.setValue(data.fontColor, forKey: NSAttributedStringKey.foregroundColor.rawValue);
-            desc.draw(in: rect, withAttributes: attributes as! [NSAttributedStringKey : Any]);
+        if drawYaxis {
+            //绘制Y轴
+            ctx?.setStrokeColor(data.lineColor.cgColor);
+            ctx?.move(to: CGPoint(x: baseX, y: baseY));
+            ctx?.addLine(to: CGPoint(x: baseX, y: data.margins.top));
+            ctx?.strokePath();
+            for (i,pos) in yAxisPoints.enumerated() {
+                let desc:NSString = yAxisValues[i] as NSString;
+                let width:CGFloat = desc.width(with: data.font);
+                let rect = CGRect(x: pos.x-6-width, y: pos.y, width: width, height: 20);
+                let attributes = NSMutableDictionary();
+                attributes.setValue(data.font, forKey: NSAttributedStringKey.font.rawValue);
+                attributes.setValue(data.fontColor, forKey: NSAttributedStringKey.foregroundColor.rawValue);
+                desc.draw(in: rect, withAttributes: attributes as! [NSAttributedStringKey : Any]);
+            }
         }
-        ctx?.setStrokeColor(data.lineColor.cgColor);
         //画网格线
         if data.drawGrid {
             ctx?.setStrokeColor(data.gridColor.cgColor);
             ctx?.setLineWidth(0.5);
-            for pos in yAxisPoints {
-                ctx?.move(to: CGPoint(x: pos.x + 1, y: pos.y));
-                if pos.y != baseY {
-                    ctx?.addLine(to: CGPoint(x: rightX, y: pos.y));
-                }
-            }
-            for pos in xAxisPoints {
-                ctx?.move(to: CGPoint(x: pos.x, y: pos.y-1));
-                if pos.x != baseX {
-                    ctx?.addLine(to: CGPoint(x: pos.x, y: data.margins.top));
-                }
-            }
-            let dashes:[CGFloat] = [10.0,8.0];
-            ctx?.setLineDash(phase: 0, lengths: dashes);
-            ctx?.strokePath();
             
-            ctx?.setLineWidth(data.lineWidth);
-            ctx?.setStrokeColor(data.lineColor.cgColor);
-            ctx?.setLineDash(phase: 0, lengths: [10,0]);
+            var startY:CGFloat = data.margins.top;
+            while startY < baseY {
+                ctx?.move(to: CGPoint(x: baseX + 1, y: startY));
+                ctx?.addLine(to: CGPoint(x: rightX, y: startY));
+                startY += max(2,data.gridYspan);
+            }
+            var startX:CGFloat = data.margins.left;
+            while startX <= rightX {
+                ctx?.move(to: CGPoint(x: min(startX, rightX), y: data.margins.top));
+                ctx?.addLine(to: CGPoint(x: min(startX, rightX), y: baseY));
+                startX += data.gridXspan;
+            }
+            //画虚线
+            ctx?.setLineDash(phase: 0, lengths: data.lineDash);
+            ctx?.strokePath();
         }
         
         //线的path
+        ctx?.setLineWidth(data.lineWidth);
+        ctx?.setStrokeColor(data.lineColor.cgColor);
         let path:CGMutablePath = CGMutablePath()
         //阴影的path
         let drawPath:CGMutablePath = CGMutablePath();
@@ -134,18 +220,6 @@ public class LineChartView: UIView , CAAnimationDelegate {
             layer.mask = shape;
             self.layer.addSublayer(layer);
         }
-        //画圈
-        if data.drawCircle {
-            ctx?.setStrokeColor(data.circleColor.cgColor);
-            for pos in pointsLine {
-                let rect = CGRect(x: pos.x - 3, y: pos.y-3, width: 6, height: 6);
-                ctx?.setFillColor(UIColor.white.cgColor);
-                ctx?.fill(rect);
-                ctx?.addEllipse(in: rect);
-                ctx?.setFillColor(data.circleColor.cgColor);
-                ctx?.fillPath()
-            }
-        }
         //画值
         if data.drawValues {
             for (i,pos) in pointsLine.enumerated() {
@@ -159,17 +233,24 @@ public class LineChartView: UIView , CAAnimationDelegate {
                 desc.draw(in: rect, withAttributes: attributes as! [NSAttributedStringKey : Any]);
             }
         }
+        //画圈
+        if data.drawCircle {
+            ctx?.setStrokeColor(data.circleColor.cgColor);
+            for pos in pointsLine {
+                let rect = CGRect(x: pos.x - (data.circleWidth/2.0), y: pos.y-(data.circleWidth/2.0), width: data.circleWidth, height: data.circleWidth);
+                ctx?.setFillColor(UIColor.white.cgColor);
+                ctx?.fill(rect);
+                ctx?.addEllipse(in: rect);
+                ctx?.setFillColor(data.circleColor.cgColor);
+                ctx?.fillPath()
+            }
+        }
+        
         
     }
     
     
-    
-    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        
-    }
-    
-    
-    
+
     ///private method
     public func calculValues(){
         //最大可显示范围
@@ -192,6 +273,8 @@ public class LineChartView: UIView , CAAnimationDelegate {
         //当预期太大的时候,重新计算
         if (data.targetXspan * CGFloat(data.dataSet.count) > width) {
             xSpan = width / CGFloat(data.dataSet.count);
+            xSpan = max(xSpan,data.minXspan);
+            data.gridXspan = xSpan;
         }
         
         
@@ -231,6 +314,7 @@ public class LineChartView: UIView , CAAnimationDelegate {
             maxXValue = max(maxXValue,x);
             pointsLine.append(CGPoint(x: x, y: y));
         }
+        scrollX = maxXValue - baseX;
         //图层的范围
         layerFrame = CGRect(x: 0, y: 0, width:maxXValue, height: fabs(baseY-minYValue));
     }
@@ -245,27 +329,32 @@ public class LineChartView: UIView , CAAnimationDelegate {
 public class LineChartData:NSObject{
     public var animate:Bool = false             //是否动画
     public var lowLimit:CGFloat = 0             //底部限制
-    public var drawCircle:Bool = true          //是否画圈
-    public var drawValues:Bool = true          //画值
-    public var circleColor:UIColor = UIColor.randomColor()
+    public var drawCircle:Bool = true           //是否画圈
+    public var drawValues:Bool = true           //画值
     public var drawShadow:Bool = true           //绘制阴影
     public var isSmooth:Bool = false            //是否使用顺滑曲线处理
     public var xAxisTop:Bool = false            //X轴绘制在上面
-    public var drawGrid:Bool = true
+    public var drawGrid:Bool = true             //绘制网格
+    public var gridYspan:CGFloat = 30
+    public var gridXspan:CGFloat = 30
+    public var xAxisValueHorizon = true         //X轴文字是否水平
     
-    public var margins:UIEdgeInsets = UIEdgeInsets(top: 24, left: 32, bottom: 24, right: 32)//间距
-    
+    public var margins:UIEdgeInsets = UIEdgeInsets(top: 24, left: 32, bottom: 40, right: 32)//间距
     public var xOffset:CGFloat = 0              //绘制的点的X偏移
     public var yOffset:CGFloat = 0              //绘制的点的Y偏移
     public var yAxisCount:UInt = 5              //Y轴的点数量
     public var yAxisDecimalCount:UInt = 0       //Y轴值的小数位数
-    public var targetXspan:CGFloat = 30                 //期待X方向上的间隔
-    public var lineWidth:CGFloat = 1                    //线宽
+    public var targetXspan:CGFloat = 30         //期待X方向上的间隔
+    public var minXspan:CGFloat = 1             //最小可接受间距
+    public var lineWidth:CGFloat = 1            //线宽
+    public var lineDash:[CGFloat] = [10,0]      //虚线样式
     public var lineColor:UIColor = UIColor.randomColor()//线颜色
     public var gridColor:UIColor = UIColor.colorHexValue("F0F0F0")
     public var font:UIFont = .systemFont(ofSize: 12);
     public var fontColor:UIColor = .black
-    public var shadowColor:[CGColor] = []               //阴影颜色组
+    public var circleColor:UIColor = UIColor.randomColor()
+    public var circleWidth:CGFloat = 6          //圆圈半径
+    public var shadowColor:[CGColor] = []       //阴影颜色组
     
     
     public private (set) var dataSet:[LineData] = []//数据

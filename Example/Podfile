@@ -1,9 +1,10 @@
+source 'https://cdn.cocoapods.org/'
+
 use_frameworks!
 use_modular_headers!
 platform :ios, '10.0'
 inhibit_all_warnings!
 install! 'cocoapods', :deterministic_uuids => false
-
 target 'ShFlyKit_Example' do
   pod 'ShFlyKit', :path => '../'
 end
