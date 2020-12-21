@@ -79,7 +79,6 @@ class ChartVC: UITableViewController {
             vc.backColor = UIColor.white
             vc.showView = view;
             self.navigationController?.pushViewController(vc, animated: true);
-            
             let data:LineChartData = LineChartData();
             data.minXspan = 20;
             data.xAxisValueHorizon = false;
