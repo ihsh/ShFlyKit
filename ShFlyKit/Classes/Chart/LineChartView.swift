@@ -166,9 +166,14 @@ public class LineChartView: UIView , CAAnimationDelegate ,DisplayDelegate {
         //绘制x轴
         ctx?.setStrokeColor(data.lineColor.cgColor);
         ctx?.setLineWidth(data.lineWidth);
-        ctx?.move(to: CGPoint(x: baseX, y: baseY));
         let rightX = scrollX+baseX+20;
-        ctx?.addLine(to: CGPoint(x: rightX, y: baseY));
+        if data.xAxisTop {
+            ctx?.move(to: CGPoint(x: baseX, y: data.margins.top));
+            ctx?.addLine(to: CGPoint(x: rightX, y: data.margins.top));
+        }else{
+            ctx?.move(to: CGPoint(x: baseX, y: baseY));
+            ctx?.addLine(to: CGPoint(x: rightX, y: baseY));
+        }
         ctx?.strokePath();
         //绘制X轴值
         for (i,pos) in xAxisPoints.enumerated() {
@@ -206,12 +211,18 @@ public class LineChartView: UIView , CAAnimationDelegate ,DisplayDelegate {
         if data.drawGrid {
             ctx?.setStrokeColor(data.gridColor.cgColor);
             ctx?.setLineWidth(data.gridLineWidth);
-            ctx?.move(to: CGPoint(x: baseX, y: data.margins.top));
-            ctx?.addLine(to: CGPoint(x: rightX, y: data.margins.top));
-            ctx?.addLine(to: CGPoint(x: rightX, y: baseY));
+            if data.xAxisTop {
+                ctx?.move(to: CGPoint(x: baseX, y: baseY));
+                ctx?.addLine(to: CGPoint(x: rightX, y: baseY));
+                ctx?.addLine(to: CGPoint(x: rightX, y: data.margins.top));
+            }else{
+                ctx?.move(to: CGPoint(x: baseX, y: data.margins.top));
+                ctx?.addLine(to: CGPoint(x: rightX, y: data.margins.top));
+                ctx?.addLine(to: CGPoint(x: rightX, y: baseY));
+            }
             ctx?.strokePath();
             
-            var startY:CGFloat = data.margins.top;
+            var startY:CGFloat = data.xAxisTop ? data.margins.top + data.gridYspan : data.margins.top;
             while startY < baseY {
                 ctx?.move(to: CGPoint(x: baseX + 1, y: startY));
                 ctx?.addLine(to: CGPoint(x: rightX, y: startY));
@@ -233,7 +244,7 @@ public class LineChartView: UIView , CAAnimationDelegate ,DisplayDelegate {
         let path:CGMutablePath = CGMutablePath()
         //阴影的path
         let drawPath:CGMutablePath = CGMutablePath();
-        drawPath.move(to: CGPoint(x: baseX, y: baseY));
+        drawPath.move(to: CGPoint(x: baseX+data.xOffset, y: baseY));
         
         //计算路径
         var lastPos:CGPoint!
@@ -263,7 +274,7 @@ public class LineChartView: UIView , CAAnimationDelegate ,DisplayDelegate {
         }
         //闭环
         drawPath.addLine(to: CGPoint(x: lastPos.x, y: baseY));
-        drawPath.addLine(to: CGPoint(x: baseX, y: baseY));
+        drawPath.addLine(to: CGPoint(x: baseX+data.xOffset, y: baseY));
         //绘制
         ctx?.setStrokeColor(data.lineColor.cgColor);
         ctx?.setLineWidth(data.lineWidth)
@@ -315,6 +326,8 @@ public class LineChartView: UIView , CAAnimationDelegate ,DisplayDelegate {
             }
         }
         
+        
+        
     }
     
     
@@ -352,13 +365,8 @@ public class LineChartView: UIView , CAAnimationDelegate ,DisplayDelegate {
         //X轴的绘制点
         xAxisPoints.removeAll();
         for (i,pos) in data.dataSet.enumerated() {
-            if data.xAxisTop {
-                let point:CGPoint = CGPoint(x: baseX + xSpan * CGFloat(i), y: data.margins.top);
-                xAxisPoints.append(point);
-            }else{
-                let point:CGPoint = CGPoint(x: baseX + xSpan * CGFloat(i), y: baseY);
-                xAxisPoints.append(point);
-            }
+            let point:CGPoint = CGPoint(x: baseX + xSpan * CGFloat(i) + data.xOffset, y: baseY);
+            xAxisPoints.append(point);
         }
         //Y轴的绘制点
         let yDivider:CGFloat = range / CGFloat(data.yAxisCount);//值的值分段距离
@@ -366,7 +374,7 @@ public class LineChartView: UIView , CAAnimationDelegate ,DisplayDelegate {
         yAxisValues.removeAll();
         for i in 0...data.yAxisCount {
             let value = minY + yDivider * CGFloat(i);
-            let y = baseY - yDivider * CGFloat(i) * rate - 10;
+            let y = baseY - yDivider * CGFloat(i) * rate - 10 + data.yOffset;
             let str = String.formatLu(value: value, decimal: data.yAxisDecimalCount);
             yAxisValues.append(str);
             yAxisPoints.append(CGPoint(x: baseX, y: y));
@@ -423,7 +431,7 @@ public class LineChartData:NSObject{
     public var gridXspan:CGFloat = 30           //网格X间距
     public var gridColor:UIColor = UIColor.colorHexValue("F0F0F0")
     public var gridLineWidth:CGFloat = 0.5      //线宽
-    public var lineDash:[CGFloat] = [3,3]      //虚线样式
+    public var lineDash:[CGFloat] = [3,3]       //虚线样式
     //圆圈
     public var drawCircle:Bool = true           //是否画圈
     public var circleColor:UIColor = UIColor.randomColor()
