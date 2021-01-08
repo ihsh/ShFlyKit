@@ -9,7 +9,7 @@
 import UIKit
 
 class ChartVC: UITableViewController {
-    let actionArr:NSArray = ["pieChart","雷达图","折线图"]
+    let actionArr:NSArray = ["pieChart","雷达图","折线图","饼图"]
     
     
     override func viewDidLoad() {
@@ -90,6 +90,23 @@ class ChartVC: UITableViewController {
                                 UIColor.randomColor().withAlphaComponent(0.3).cgColor,
                                 color.withAlphaComponent(0.02).cgColor]
             view.showData(data);
+        }else if str == "饼图"{
+            let view = PieChartView()
+            view.backgroundColor = UIColor.white;
+            let vc = TransVC();
+            vc.backColor = UIColor.white
+            vc.showView = view;
+            self.navigationController?.pushViewController(vc, animated: true);
+            
+            let data = PieData();
+            data.sliceEnable = false;
+            let entry1 = PieData.Entry.inits(value: 100,desc: "语文");
+            let entry2 = PieData.Entry.inits(value: 30,desc: "体育");
+            let entry3 = PieData.Entry.inits(value: 130,desc: "数学");
+            let entry4 = PieData.Entry.inits(value: 40,desc: "美术");
+            let entry5 = PieData.Entry.inits(value: 50,desc: "其他");
+            data.dataSet.append(contentsOf: [entry1,entry2,entry3,entry4,entry5]);
+            view .showPie(data);
         }
         
     }
