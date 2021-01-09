@@ -270,7 +270,7 @@ class MainTabVC: UIViewController,SHPhoneAssetsToolDelegate,ItemsViewDelegate,Ti
             self.navigationController?.pushViewController(vc, animated: true);
         }else if (title == "日历日程"){
             let handle = CalendarEventHandler()
-//            handle.saveCalendar(title: "生产系统发布", location: "18:00，23楼-有成长会议室", note: "", start: Date().addingTimeInterval(120), durations: 300, alarmOffset: -60);
+
             handle.callEKEventEdit(holdVC: self);
           
         }

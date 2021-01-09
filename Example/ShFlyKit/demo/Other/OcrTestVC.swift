@@ -18,7 +18,7 @@ class OcrTestVC:UITableViewController {
         self.title = "OCR"
         self.tableView.reloadData()
         ocrScan = OCRScan()
-        ocrScan.authWithAK("02zCXz2EZ8599xpencKB5c8p", SK: "xGEdGFVtVGNyDPu9GRz2DGz7LkQz72wU")
+        ocrScan.authWithAK("xxx", SK: "xxx")
     }
     
     

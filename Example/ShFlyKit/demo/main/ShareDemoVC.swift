@@ -32,10 +32,6 @@ class ShareDemoVC: UIViewController ,SHShareUIDelegate{
         shareUI.contentOffset = 10;
         shareUI.defaultShow();
         
-//        //注册
-//        SHShareTool.shared.registerAppkey(appkey: "1103723213", appType: .QQ);
-//        SHShareTool.shared.registerAppkey(appkey: "wxfd70622bd4c6c05a", appType: .WeChat);
-//        SHShareTool.shared.registerAppkey(appkey: "605564040", appType: .Weibo);
         
     }
     
@@ -51,27 +47,9 @@ class ShareDemoVC: UIViewController ,SHShareUIDelegate{
     
     func shareClick(config: ShareConfig) {
         if config.type != nil {
-            let baidu = "http://url.cn/5MQ02l1";
-//            let object = ShareObjct.initObject(.Music, "分享链接", "翻牌行动快递0元寄",baidu, config.image, { (type) in
-//
-//            }) { (type, retCode, msg) in
-//
-//            }
-//            SHShareTool.shared.share(type: config.type!, dataObject: object);
+
         }else{
-//            if config.title == "QQ登录" {
-//                SHShareTool.shared.login({ (type, suc, msg) in
-//
-//                }, type: LoginType.QQ);
-//            }else if (config.title == "微信登录"){
-//                SHShareTool.shared.login({ (type, suc, msg) in
-//
-//                }, type: LoginType.WeChat, scope: "", state: "");
-//            }else if (config.title == "微博登录"){
-//                SHShareTool.shared.login({ (type, suc, msg) in
-//
-//                }, type: LoginType.Weibo);
-//            }
+
         }
        
     }

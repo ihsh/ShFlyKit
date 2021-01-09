@@ -106,9 +106,10 @@ class ChartVC: UITableViewController {
             
             let desc:[String] = ["语文","数学","英语"];
             let colors:[UIColor] = [.randomColor(),.randomColor(),.randomColor()];
-            let set1 = BarChartData.BarEntrySet.initEntrySet(values: [20,30,60], descs: desc, colors: colors);
-            
-            
+            let set1 = BarChartData.BarEntrySet.initEntrySet(values: [20,30,60], descs: desc, colors: colors,Xdesc: "1月");
+            let set2 = BarChartData.BarEntrySet.initEntrySet(values: [60,80,50], descs: desc, colors: colors,Xdesc: "2月");
+            let set3 = BarChartData.BarEntrySet.initEntrySet(values: [30,50,70], descs: desc, colors: colors,Xdesc: "3月");
+            data.dataSets.append(contentsOf: [set1,set2,set3]);
             view.showBar(data: data);
         }
         

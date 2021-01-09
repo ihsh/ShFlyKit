@@ -11,6 +11,7 @@ import UIKit
 ///条形图
 public class BarChart: UIView {
     //private
+    private var data:BarChartData!
     private var scrollV:UIScrollView!
     private var yAxisLayer:CAShapeLayer!
     private var xAxisLayer:CAShapeLayer!
@@ -23,11 +24,34 @@ public class BarChart: UIView {
     
     ///Interface
     public func showBar(data:BarChartData){
+        
+        self.data = data;
         //配置视图
         self.configSubLayers(data: data);
+        //计算数据
+        self.calculData();
+        //绘制
+        self.drawLayers();
+    }
+    
+    
+    private func drawLayers(){
+        
+    }
+    
+    
+    private func calculData(){
+        var ma:Double = 0;
+        for set in self.data.dataSets {
+            for entry in set.entrys {
+                ma = max(ma,entry.value);
+            }
+        }
+        
         
         
     }
+    
     
     
     ///配置视图属性
@@ -78,8 +102,6 @@ public class BarChart: UIView {
     }
     
     
-
-    
     
 }
 
@@ -91,6 +113,8 @@ public class BarChartData:NSObject{
     public var backColor:UIColor = .white
     public var valueSpan:CGFloat = 1
     public var valueWidth:CGFloat = 10
+    public var valueTopSpan:CGFloat = 20
+    public var showRect:CGRect = CGRect(x: 0, y: 0, width: ScreenSize().width, height: 300)
     
     public var drawXAxis:Bool = true
     public var drawYAxis:Bool = true
