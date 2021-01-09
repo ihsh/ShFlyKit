@@ -15,6 +15,7 @@ public class PieChartView: UIView  {
     public private(set) var textLayers:[CATextLayer] = []   //文字图层
     public private(set) var otherLayer:[CALayer] = []       //其他附属图层-分割线,线，两个中心图层
     public private(set) var centerLayer:CAShapeLayer!       //中心图层
+    public private(set) var centerLargeLayer:CAShapeLayer!  //中心大圆
     //private
     private var layers:[CAShapeLayer] = []          //饼图图层
     private var data:PieData!                       //数据
@@ -161,14 +162,14 @@ public class PieChartView: UIView  {
                 let pathLarge = CGMutablePath();
                 pathLarge.move(to: center);
                 pathLarge.addArc(center: center, radius: data.holeRadius+data.circleExpand, startAngle: 0, endAngle: 6.3, clockwise: false);
-                let layerLarge = CAShapeLayer();
-                layerLarge.fillColor = UIColor.white.withAlphaComponent(data.circleLargeAlpha).cgColor;
-                layerLarge.strokeColor = UIColor.clear.cgColor;
-                layerLarge.zPosition = 2;
-                layerLarge.path = pathLarge;
+                centerLargeLayer = CAShapeLayer();
+                centerLargeLayer.fillColor = data.circleLargeColor.withAlphaComponent(data.circleLargeAlpha).cgColor;
+                centerLargeLayer.strokeColor = UIColor.clear.cgColor;
+                centerLargeLayer.zPosition = 2;
+                centerLargeLayer.path = pathLarge;
                 
-                self.layer.addSublayer(layerLarge);
-                self.otherLayer.append(layerLarge);
+                self.layer.addSublayer(centerLargeLayer);
+                self.otherLayer.append(centerLargeLayer);
                 
                 self.layer.addSublayer(centerLayer);
                 self.otherLayer.append(centerLayer);
@@ -406,8 +407,9 @@ public class PieData:NSObject{
     public var radius:CGFloat = 130                 //圆半径
     public var holeRadius:CGFloat = 40              //中心圆半径
     public var circleExpand:CGFloat = 6             //中心大圆比中心圆多加的半径
-    public var circleHoldAlpha:CGFloat = 0.9        //中心圆的透明度
-    public var circleLargeAlpha:CGFloat = 0.8       //中心大圆的透明度
+    public var circleHoldAlpha:CGFloat = 1          //中心圆的透明度
+    public var circleLargeAlpha:CGFloat = 0.3       //中心大圆的透明度
+    public var circleLargeColor:UIColor = .black    //中心大圆颜色
     ///动画
     public var animateEnable:Bool = true            //动画展开
     public var animateStartAngle:CGFloat = 0        //展开角度

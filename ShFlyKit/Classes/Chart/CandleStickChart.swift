@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CandleStickChart: UIView {
+public class CandleStickChart: UIView {
 
   
 

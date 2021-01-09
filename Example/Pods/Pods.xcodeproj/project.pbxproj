@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = AMapFoundation;
+			productName = AMapFoundation;
 		};
 		4A68CFD979D413A619DF631BB121D98F /* Bugly */ = {
 			isa = PBXAggregateTarget;
@@ -24,6 +25,7 @@
 			dependencies = (
 			);
 			name = Bugly;
+			productName = Bugly;
 		};
 		54F872FDE6669F86C58C8075211FE643 /* AMapSearch */ = {
 			isa = PBXAggregateTarget;
@@ -34,6 +36,7 @@
 				46EB2E00006310 /* PBXTargetDependency */,
 			);
 			name = AMapSearch;
+			productName = AMapSearch;
 		};
 		76FC4BD053060892BF844AC0192A184C /* AMapNavi */ = {
 			isa = PBXAggregateTarget;
@@ -44,6 +47,7 @@
 				46EB2E000062F0 /* PBXTargetDependency */,
 			);
 			name = AMapNavi;
+			productName = AMapNavi;
 		};
 		971676D1C9A11C105647D995975ACE4F /* AMapLocation */ = {
 			isa = PBXAggregateTarget;
@@ -54,6 +58,7 @@
 				46EB2E000062D0 /* PBXTargetDependency */,
 			);
 			name = AMapLocation;
+			productName = AMapLocation;
 		};
 		A0CEF461CE12EA202D1A6BEA469BB296 /* AipOcrSdk */ = {
 			isa = PBXAggregateTarget;
@@ -63,6 +68,7 @@
 			dependencies = (
 			);
 			name = AipOcrSdk;
+			productName = AipOcrSdk;
 		};
 		D338A12AA95F241836E9BC2764FB75B6 /* GT3Captcha */ = {
 			isa = PBXAggregateTarget;
@@ -72,6 +78,7 @@
 			dependencies = (
 			);
 			name = GT3Captcha;
+			productName = GT3Captcha;
 		};
 /* End PBXAggregateTarget section */
 
@@ -362,7 +369,6 @@
 		46EB2E00004FC0 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00001A20 /* BarChart.swift */; };
 		46EB2E00004FD0 /* CandleStickChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00001A30 /* CandleStickChart.swift */; };
 		46EB2E00004FE0 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00001A40 /* LineChartView.swift */; };
-		46EB2E00004FF0 /* PieChartTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00001A50 /* PieChartTwo.swift */; };
 		46EB2E00005000 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00001A60 /* PieChartView.swift */; };
 		46EB2E00005010 /* RadarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00001A70 /* RadarChartView.swift */; };
 		46EB2E00005020 /* ChartZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00001A90 /* ChartZoomView.swift */; };
@@ -784,8 +790,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1FFED36A657123030ABB700256D73F15 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Masonry.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		46EB2E00000180 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		1FFED36A657123030ABB700256D73F15 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46EB2E00000180 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		46EB2E00000190 /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
 		46EB2E000001B0 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		46EB2E000001C0 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
@@ -1169,7 +1175,6 @@
 		46EB2E00001A20 /* BarChart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarChart.swift; path = ShFlyKit/Classes/Chart/BarChart.swift; sourceTree = "<group>"; };
 		46EB2E00001A30 /* CandleStickChart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CandleStickChart.swift; path = ShFlyKit/Classes/Chart/CandleStickChart.swift; sourceTree = "<group>"; };
 		46EB2E00001A40 /* LineChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineChartView.swift; path = ShFlyKit/Classes/Chart/LineChartView.swift; sourceTree = "<group>"; };
-		46EB2E00001A50 /* PieChartTwo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChartTwo.swift; path = ShFlyKit/Classes/Chart/PieChartTwo.swift; sourceTree = "<group>"; };
 		46EB2E00001A60 /* PieChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChartView.swift; path = ShFlyKit/Classes/Chart/PieChartView.swift; sourceTree = "<group>"; };
 		46EB2E00001A70 /* RadarChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RadarChartView.swift; path = ShFlyKit/Classes/Chart/RadarChartView.swift; sourceTree = "<group>"; };
 		46EB2E00001A90 /* ChartZoomView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChartZoomView.swift; sourceTree = "<group>"; };
@@ -1264,7 +1269,7 @@
 		46EB2E000021D0 /* SHLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SHLabel.h; sourceTree = "<group>"; };
 		46EB2E000021E0 /* SHLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SHLabel.m; sourceTree = "<group>"; };
 		46EB2E000021F0 /* SHLabelPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SHLabelPath.h; sourceTree = "<group>"; };
-		46EB2E00002200 /* SHLabelPath.mm */ = {isa = PBXFileReference; includeInIndex = 1; path = SHLabelPath.mm; sourceTree = "<group>"; };
+		46EB2E00002200 /* SHLabelPath.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = SHLabelPath.mm; sourceTree = "<group>"; };
 		46EB2E00002210 /* SHPath.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = SHPath.cpp; sourceTree = "<group>"; };
 		46EB2E00002220 /* SHPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SHPath.h; sourceTree = "<group>"; };
 		46EB2E00002230 /* UIBezierPath+TextPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+TextPath.h"; sourceTree = "<group>"; };
@@ -1428,11 +1433,11 @@
 		46EB2E00002FA0 /* ic_navbar_close@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ic_navbar_close@3x.png"; path = "../../../Assets/Components/WebView/ic_navbar_close@3x.png"; sourceTree = "<group>"; };
 		46EB2E00002FB0 /* ic_navbar_more@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ic_navbar_more@2x.png"; path = "../../../Assets/Components/WebView/ic_navbar_more@2x.png"; sourceTree = "<group>"; };
 		46EB2E00002FC0 /* ic_navbar_more@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ic_navbar_more@3x.png"; path = "../../../Assets/Components/WebView/ic_navbar_more@3x.png"; sourceTree = "<group>"; };
-		46EB2E00002FD0 /* UI */ = {isa = PBXFileReference; includeInIndex = 1; name = UI; path = ShFlyKit/Assets/Components/UI; sourceTree = "<group>"; };
-		46EB2E00002FE0 /* Animation */ = {isa = PBXFileReference; includeInIndex = 1; name = Animation; path = ../../../Assets/Components/UI/Animation; sourceTree = "<group>"; };
-		46EB2E00002FF0 /* Ticket */ = {isa = PBXFileReference; includeInIndex = 1; name = Ticket; path = ../../../Assets/Components/UI/Ticket; sourceTree = "<group>"; };
-		46EB2E00003000 /* WebView */ = {isa = PBXFileReference; includeInIndex = 1; name = WebView; path = ShFlyKit/Assets/Components/WebView; sourceTree = "<group>"; };
-		46EB2E00003010 /* piggy.JPG */ = {isa = PBXFileReference; includeInIndex = 1; name = piggy.JPG; path = ../../../../Assets/Graphics/Effect/SperePhotos/piggy.JPG; sourceTree = "<group>"; };
+		46EB2E00002FD0 /* UI */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = UI; path = ShFlyKit/Assets/Components/UI; sourceTree = "<group>"; };
+		46EB2E00002FE0 /* Animation */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = Animation; path = ../../../Assets/Components/UI/Animation; sourceTree = "<group>"; };
+		46EB2E00002FF0 /* Ticket */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = Ticket; path = ../../../Assets/Components/UI/Ticket; sourceTree = "<group>"; };
+		46EB2E00003000 /* WebView */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = WebView; path = ShFlyKit/Assets/Components/WebView; sourceTree = "<group>"; };
+		46EB2E00003010 /* piggy.JPG */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.jpeg; name = piggy.JPG; path = ../../../../Assets/Graphics/Effect/SperePhotos/piggy.JPG; sourceTree = "<group>"; };
 		46EB2E00003020 /* ele_rainLine1.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = ele_rainLine1.png; path = ../../../../Assets/Graphics/Effect/Weather/ele_rainLine1.png; sourceTree = "<group>"; };
 		46EB2E00003030 /* ele_rainLine2.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = ele_rainLine2.png; path = ../../../../Assets/Graphics/Effect/Weather/ele_rainLine2.png; sourceTree = "<group>"; };
 		46EB2E00003040 /* ele_rainLine3.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = ele_rainLine3.png; path = ../../../../Assets/Graphics/Effect/Weather/ele_rainLine3.png; sourceTree = "<group>"; };
@@ -1456,10 +1461,10 @@
 		46EB2E00003160 /* red_paceket@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "red_paceket@3x.png"; path = "../../../../Assets/Graphics/Effect/Weather/red_paceket@3x.png"; sourceTree = "<group>"; };
 		46EB2E00003170 /* line.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = line.plist; path = ../../../Assets/Graphics/Line/line.plist; sourceTree = "<group>"; };
 		46EB2E00003180 /* shenzhen.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = shenzhen.png; path = ../../../Assets/Graphics/Line/shenzhen.png; sourceTree = "<group>"; };
-		46EB2E00003190 /* Effect */ = {isa = PBXFileReference; includeInIndex = 1; name = Effect; path = ShFlyKit/Assets/Graphics/Effect; sourceTree = "<group>"; };
-		46EB2E000031A0 /* SperePhotos */ = {isa = PBXFileReference; includeInIndex = 1; name = SperePhotos; path = ../../../Assets/Graphics/Effect/SperePhotos; sourceTree = "<group>"; };
-		46EB2E000031B0 /* Weather */ = {isa = PBXFileReference; includeInIndex = 1; name = Weather; path = ../../../Assets/Graphics/Effect/Weather; sourceTree = "<group>"; };
-		46EB2E000031C0 /* Line */ = {isa = PBXFileReference; includeInIndex = 1; name = Line; path = ShFlyKit/Assets/Graphics/Line; sourceTree = "<group>"; };
+		46EB2E00003190 /* Effect */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = Effect; path = ShFlyKit/Assets/Graphics/Effect; sourceTree = "<group>"; };
+		46EB2E000031A0 /* SperePhotos */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = SperePhotos; path = ../../../Assets/Graphics/Effect/SperePhotos; sourceTree = "<group>"; };
+		46EB2E000031B0 /* Weather */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = Weather; path = ../../../Assets/Graphics/Effect/Weather; sourceTree = "<group>"; };
+		46EB2E000031C0 /* Line */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = Line; path = ShFlyKit/Assets/Graphics/Line; sourceTree = "<group>"; };
 		46EB2E000031D0 /* ball@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ball@2x.png"; path = "ShFlyKit/Assets/Map/ball@2x.png"; sourceTree = "<group>"; };
 		46EB2E000031E0 /* camera@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "camera@2x.png"; path = "ShFlyKit/Assets/Map/camera@2x.png"; sourceTree = "<group>"; };
 		46EB2E000031F0 /* car2@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "car2@2x.png"; path = "ShFlyKit/Assets/Map/car2@2x.png"; sourceTree = "<group>"; };
@@ -1474,7 +1479,7 @@
 		46EB2E00003280 /* gpsnormal@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "gpsnormal@3x.png"; path = "ShFlyKit/Assets/Map/gpsnormal@3x.png"; sourceTree = "<group>"; };
 		46EB2E00003290 /* gpssearchbutton@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "gpssearchbutton@2x.png"; path = "ShFlyKit/Assets/Map/gpssearchbutton@2x.png"; sourceTree = "<group>"; };
 		46EB2E000032A0 /* gpssearchbutton@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "gpssearchbutton@3x.png"; path = "ShFlyKit/Assets/Map/gpssearchbutton@3x.png"; sourceTree = "<group>"; };
-		46EB2E000032B0 /* locate_btn.jpg */ = {isa = PBXFileReference; includeInIndex = 1; name = locate_btn.jpg; path = ShFlyKit/Assets/Map/locate_btn.jpg; sourceTree = "<group>"; };
+		46EB2E000032B0 /* locate_btn.jpg */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.jpeg; name = locate_btn.jpg; path = ShFlyKit/Assets/Map/locate_btn.jpg; sourceTree = "<group>"; };
 		46EB2E000032C0 /* location _drop_blue@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "location _drop_blue@2x.png"; path = "ShFlyKit/Assets/Map/location _drop_blue@2x.png"; sourceTree = "<group>"; };
 		46EB2E000032D0 /* location_end@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "location_end@2x.png"; path = "ShFlyKit/Assets/Map/location_end@2x.png"; sourceTree = "<group>"; };
 		46EB2E000032E0 /* location_point@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "location_point@2x.png"; path = "ShFlyKit/Assets/Map/location_point@2x.png"; sourceTree = "<group>"; };
@@ -1524,9 +1529,9 @@
 		46EB2E000035A0 /* share_wechat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = share_wechat.png; path = ShFlyKit/Assets/Share/share_wechat.png; sourceTree = "<group>"; };
 		46EB2E000035B0 /* share_wechat_favorite.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = share_wechat_favorite.png; path = ShFlyKit/Assets/Share/share_wechat_favorite.png; sourceTree = "<group>"; };
 		46EB2E000035C0 /* share_wechat_timeline.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = share_wechat_timeline.png; path = ShFlyKit/Assets/Share/share_wechat_timeline.png; sourceTree = "<group>"; };
-		46EB2E000035E0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		46EB2E000035F0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		46EB2E00003600 /* ShFlyKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = ShFlyKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		46EB2E000035E0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		46EB2E000035F0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		46EB2E00003600 /* ShFlyKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ShFlyKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		46EB2E000036B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		46EB2E000038F0 /* AFNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.debug.xcconfig; sourceTree = "<group>"; };
 		46EB2E00003900 /* AFNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.release.xcconfig; sourceTree = "<group>"; };
@@ -1597,12 +1602,12 @@
 		46EB2E000060E0 /* Pods-ShFlyKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ShFlyKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		46EB2E000060F0 /* Pods-ShFlyKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ShFlyKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		46EB2E00006100 /* Pods-ShFlyKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ShFlyKit_Example-dummy.m"; sourceTree = "<group>"; };
-		693569CD3FDE3A4D4BF471A56520A6E7 /* Pods_ShFlyKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ShFlyKit_Example.framework; path = "Pods-ShFlyKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3A80BA70CFB7F75C5391BEBBBA8C9DA /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FMDB.framework; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4FA15D44DF6BAC7550EDEED10862AA3 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AFNetworking.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImage.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF9D47AFE17830CEB292994B94477EF8 /* ShFlyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ShFlyKit.framework; path = ShFlyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E460D5B0416D36F66EE8EC89E5D2FA0A /* YYModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YYModel.framework; path = YYModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		693569CD3FDE3A4D4BF471A56520A6E7 /* Pods_ShFlyKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShFlyKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3A80BA70CFB7F75C5391BEBBBA8C9DA /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4FA15D44DF6BAC7550EDEED10862AA3 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF9D47AFE17830CEB292994B94477EF8 /* ShFlyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ShFlyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E460D5B0416D36F66EE8EC89E5D2FA0A /* YYModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YYModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1748,7 +1753,6 @@
 				46EB2E000038E0 /* Support Files */,
 				46EB2E000002B0 /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -1766,7 +1770,6 @@
 				46EB2E00002C20 /* Frameworks */,
 				46EB2E000039C0 /* Support Files */,
 			);
-			name = AMapFoundation;
 			path = AMapFoundation;
 			sourceTree = "<group>";
 		};
@@ -1784,7 +1787,6 @@
 				46EB2E00002C40 /* Frameworks */,
 				46EB2E00003A30 /* Support Files */,
 			);
-			name = AMapLocation;
 			path = AMapLocation;
 			sourceTree = "<group>";
 		};
@@ -1881,7 +1883,6 @@
 				46EB2E00002DF0 /* Resources */,
 				46EB2E00003AA0 /* Support Files */,
 			);
-			name = AMapNavi;
 			path = AMapNavi;
 			sourceTree = "<group>";
 		};
@@ -1899,7 +1900,6 @@
 				46EB2E00002C80 /* Frameworks */,
 				46EB2E00003B10 /* Support Files */,
 			);
-			name = AMapSearch;
 			path = AMapSearch;
 			sourceTree = "<group>";
 		};
@@ -1911,7 +1911,6 @@
 				46EB2E00002D00 /* IdcardQuality */,
 				46EB2E00003B80 /* Support Files */,
 			);
-			name = AipOcrSdk;
 			path = AipOcrSdk;
 			sourceTree = "<group>";
 		};
@@ -1921,7 +1920,6 @@
 				46EB2E00002D30 /* Frameworks */,
 				46EB2E00003BF0 /* Support Files */,
 			);
-			name = Bugly;
 			path = Bugly;
 			sourceTree = "<group>";
 		};
@@ -1931,7 +1929,6 @@
 				46EB2E00000AD0 /* standard */,
 				46EB2E00003D70 /* Support Files */,
 			);
-			name = FMDB;
 			path = FMDB;
 			sourceTree = "<group>";
 		};
@@ -1942,7 +1939,6 @@
 				46EB2E00002E20 /* Resources */,
 				46EB2E00003E50 /* Support Files */,
 			);
-			name = GT3Captcha;
 			path = GT3Captcha;
 			sourceTree = "<group>";
 		};
@@ -1976,7 +1972,6 @@
 				46EB2E00000D10 /* ViewController+MASAdditions.m */,
 				46EB2E000040B0 /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -1986,7 +1981,6 @@
 				46EB2E00000D20 /* Core */,
 				46EB2E00004AD0 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -2019,7 +2013,6 @@
 				46EB2E00002C10 /* YYModel.h */,
 				46EB2E00005EB0 /* Support Files */,
 			);
-			name = YYModel;
 			path = YYModel;
 			sourceTree = "<group>";
 		};
@@ -2303,7 +2296,6 @@
 				46EB2E00001760 /* WeakProxy.h */,
 				46EB2E00001770 /* WeakProxy.m */,
 			);
-			name = OC;
 			path = OC;
 			sourceTree = "<group>";
 		};
@@ -2355,7 +2347,6 @@
 				46EB2E000019D0 /* UIViewController+SH.h */,
 				46EB2E000019E0 /* UIViewController+SH.m */,
 			);
-			name = OC;
 			path = OC;
 			sourceTree = "<group>";
 		};
@@ -2365,7 +2356,6 @@
 				46EB2E00001A20 /* BarChart.swift */,
 				46EB2E00001A30 /* CandleStickChart.swift */,
 				46EB2E00001A40 /* LineChartView.swift */,
-				46EB2E00001A50 /* PieChartTwo.swift */,
 				46EB2E00001A60 /* PieChartView.swift */,
 				46EB2E00001A70 /* RadarChartView.swift */,
 				46EB2E00001A80 /* Tool */,
@@ -2468,7 +2458,6 @@
 			children = (
 				46EB2E00001BE0 /* JiYanBaseVC.swift */,
 			);
-			name = GT3;
 			path = GT3;
 			sourceTree = "<group>";
 		};
@@ -2481,7 +2470,6 @@
 				46EB2E00001C30 /* LockPathLayer.swift */,
 				46EB2E00001C40 /* LockScreenVC.swift */,
 			);
-			name = LockScreen;
 			path = LockScreen;
 			sourceTree = "<group>";
 		};
@@ -2500,7 +2488,6 @@
 				46EB2E00001C80 /* BuglyReporter.swift */,
 				46EB2E00001C90 /* Crash */,
 			);
-			name = Exception;
 			path = Exception;
 			sourceTree = "<group>";
 		};
@@ -2514,7 +2501,6 @@
 				46EB2E00001E30 /* KVO */,
 				46EB2E00001E60 /* UI */,
 			);
-			name = Crash;
 			path = Crash;
 			sourceTree = "<group>";
 		};
@@ -2538,7 +2524,6 @@
 				46EB2E00001DB0 /* NSString+Crash.h */,
 				46EB2E00001DC0 /* NSString+Crash.m */,
 			);
-			name = Foundation;
 			path = Foundation;
 			sourceTree = "<group>";
 		};
@@ -2551,7 +2536,6 @@
 				46EB2E00001E10 /* NSObject+Crash.h */,
 				46EB2E00001E20 /* NSObject+Crash.m */,
 			);
-			name = General;
 			path = General;
 			sourceTree = "<group>";
 		};
@@ -2561,7 +2545,6 @@
 				46EB2E00001E40 /* CrashKVOMapManager.h */,
 				46EB2E00001E50 /* CrashKVOMapManager.m */,
 			);
-			name = KVO;
 			path = KVO;
 			sourceTree = "<group>";
 		};
@@ -2571,7 +2554,6 @@
 				46EB2E00001E70 /* UIView+Crash.h */,
 				46EB2E00001E80 /* UIView+Crash.m */,
 			);
-			name = UI;
 			path = UI;
 			sourceTree = "<group>";
 		};
@@ -2603,7 +2585,6 @@
 				46EB2E00001ED0 /* CADisplayGifImageView.h */,
 				46EB2E00001EE0 /* CADisplayGifImageView.m */,
 			);
-			name = AnimateGif;
 			path = AnimateGif;
 			sourceTree = "<group>";
 		};
@@ -2628,7 +2609,6 @@
 				46EB2E00002F30 /* chooser-moment-icon-thought@2x.png */,
 				46EB2E00001F00 /* RadiusPathAniView.swift */,
 			);
-			name = Animation;
 			path = Animation;
 			sourceTree = "<group>";
 		};
@@ -2642,7 +2622,6 @@
 				46EB2E00001F60 /* CalendarV.swift */,
 				46EB2E00001F70 /* DateExtension.swift */,
 			);
-			name = Calendar;
 			path = Calendar;
 			sourceTree = "<group>";
 		};
@@ -2666,7 +2645,6 @@
 				46EB2E00002070 /* ViewGradientTransfer.swift */,
 				46EB2E00002080 /* ViewTransfer.swift */,
 			);
-			name = Custom;
 			path = Custom;
 			sourceTree = "<group>";
 		};
@@ -2677,7 +2655,6 @@
 				46EB2E000020B0 /* DiaLogConfig.swift */,
 				46EB2E000020C0 /* DiaLogView.swift */,
 			);
-			name = Dialog;
 			path = Dialog;
 			sourceTree = "<group>";
 		};
@@ -2688,7 +2665,6 @@
 				46EB2E000020F0 /* AttributeLabel.m */,
 				46EB2E00002100 /* ProgressLabel.swift */,
 			);
-			name = label;
 			path = label;
 			sourceTree = "<group>";
 		};
@@ -2698,7 +2674,6 @@
 				46EB2E00002120 /* City */,
 				46EB2E00002160 /* Picker */,
 			);
-			name = Location;
 			path = Location;
 			sourceTree = "<group>";
 		};
@@ -2709,7 +2684,6 @@
 				46EB2E00002140 /* CityItem.swift */,
 				46EB2E00002150 /* CityListVC.swift */,
 			);
-			name = City;
 			path = City;
 			sourceTree = "<group>";
 		};
@@ -2720,7 +2694,6 @@
 				46EB2E00002180 /* LocationZonePickerV.swift */,
 				46EB2E00002190 /* LocationZoneTableV.swift */,
 			);
-			name = Picker;
 			path = Picker;
 			sourceTree = "<group>";
 		};
@@ -2738,7 +2711,6 @@
 				46EB2E00002230 /* UIBezierPath+TextPath.h */,
 				46EB2E00002240 /* UIBezierPath+TextPath.m */,
 			);
-			name = Path;
 			path = Path;
 			sourceTree = "<group>";
 		};
@@ -2750,7 +2722,6 @@
 				46EB2E00002280 /* SearchCore.swift */,
 				46EB2E00002290 /* SearchTextField.swift */,
 			);
-			name = Search;
 			path = Search;
 			sourceTree = "<group>";
 		};
@@ -2764,7 +2735,6 @@
 				46EB2E000022C0 /* TicketInfoModel.swift */,
 				46EB2E000022D0 /* TicketUIConfig.swift */,
 			);
-			name = Ticket;
 			path = Ticket;
 			sourceTree = "<group>";
 		};
@@ -2827,7 +2797,6 @@
 				46EB2E000023F0 /* SphereVC.swift */,
 				46EB2E00002400 /* SphereView.swift */,
 			);
-			name = SperePhotos;
 			path = SperePhotos;
 			sourceTree = "<group>";
 		};
@@ -2860,7 +2829,6 @@
 				46EB2E00002440 /* WeatherEffect.swift */,
 				46EB2E00002450 /* WeatherThunder.swift */,
 			);
-			name = Weather;
 			path = Weather;
 			sourceTree = "<group>";
 		};
@@ -2903,7 +2871,6 @@
 				46EB2E000024F0 /* UIImage+QRCode.h */,
 				46EB2E00002500 /* UIImage+QRCode.m */,
 			);
-			name = Generate;
 			path = Generate;
 			sourceTree = "<group>";
 		};
@@ -2914,7 +2881,6 @@
 				46EB2E00002530 /* QRCodeRecognizerVC.swift */,
 				46EB2E00002540 /* ScanAnimateLayer.swift */,
 			);
-			name = Scan;
 			path = Scan;
 			sourceTree = "<group>";
 		};
@@ -3096,7 +3062,6 @@
 				46EB2E000028A0 /* liveSourceModel.h */,
 				46EB2E000028B0 /* liveSourceModel.m */,
 			);
-			name = livePhoto;
 			path = livePhoto;
 			sourceTree = "<group>";
 		};
@@ -3180,7 +3145,6 @@
 			children = (
 				46EB2E000029D0 /* AlipaySDK.framework */,
 			);
-			name = Alipay;
 			path = Alipay;
 			sourceTree = "<group>";
 		};
@@ -3189,7 +3153,6 @@
 			children = (
 				46EB2E000029E0 /* Headers */,
 			);
-			name = AlipaySDK.framework;
 			path = AlipaySDK.framework;
 			sourceTree = "<group>";
 		};
@@ -3201,7 +3164,6 @@
 				46EB2E00002A10 /* AlipaySDK.h */,
 				46EB2E00002A20 /* APayAuthInfo.h */,
 			);
-			name = Headers;
 			path = Headers;
 			sourceTree = "<group>";
 		};
@@ -3262,7 +3224,6 @@
 			children = (
 				46EB2E00002B00 /* TencentOpenAPI.framework */,
 			);
-			name = Tencent;
 			path = Tencent;
 			sourceTree = "<group>";
 		};
@@ -3271,7 +3232,6 @@
 			children = (
 				46EB2E00002B10 /* Headers */,
 			);
-			name = TencentOpenAPI.framework;
 			path = TencentOpenAPI.framework;
 			sourceTree = "<group>";
 		};
@@ -3283,7 +3243,6 @@
 				46EB2E00002B40 /* sdkdef.h */,
 				46EB2E00002B50 /* TencentOAuth.h */,
 			);
-			name = Headers;
 			path = Headers;
 			sourceTree = "<group>";
 		};
@@ -3294,7 +3253,6 @@
 				46EB2E00002B80 /* WXApi.h */,
 				46EB2E00002B90 /* WXApiObject.h */,
 			);
-			name = Wechat;
 			path = Wechat;
 			sourceTree = "<group>";
 		};
@@ -3304,7 +3262,6 @@
 				46EB2E00002BB0 /* WBHttpRequest.h */,
 				46EB2E00002BC0 /* WeiboSDK.h */,
 			);
-			name = Weibo;
 			path = Weibo;
 			sourceTree = "<group>";
 		};
@@ -4386,7 +4343,6 @@
 				46EB2E00005B80 /* PayFunction.swift in Sources */,
 				46EB2E00005B90 /* PayFuncView.swift in Sources */,
 				46EB2E00005BA0 /* PayTypeV.swift in Sources */,
-				46EB2E00004FF0 /* PieChartTwo.swift in Sources */,
 				46EB2E00005000 /* PieChartView.swift in Sources */,
 				46EB2E00005200 /* PreviewTool.swift in Sources */,
 				46EB2E00005210 /* Printer.swift in Sources */,
@@ -4779,8 +4735,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

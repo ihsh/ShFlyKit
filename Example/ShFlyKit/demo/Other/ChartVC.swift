@@ -9,7 +9,7 @@
 import UIKit
 
 class ChartVC: UITableViewController {
-    let actionArr:NSArray = ["pieChart","雷达图","折线图","饼图"]
+    let actionArr:NSArray = ["雷达图","折线图","饼图","bar"]
     
     
     override func viewDidLoad() {
@@ -35,21 +35,7 @@ class ChartVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str:String = actionArr[indexPath.row] as! String;
-        if str == "pieChart" {
-            let pie = PieChartTwo()
-            var components:[PieComponent] = [];
-            for index in 0...8 {
-                let pie = PieComponent.initValue(CGFloat(2+index), color: UIColor.randomColor(), content: "一二三四", textColor: UIColor.randomColor());
-                components.append(pie);
-            }
-            pie.showChart(components);
-            pie.frame = CGRect(x: 10, y: 00, width: 350, height: 350);
-            
-            let vc = TransVC();
-            vc.showView = pie;
-            vc.showRect = CGRect(x: 0, y: 100, width: 350, height: 350);
-            self.navigationController?.pushViewController(vc, animated: true);
-        }else if str == "雷达图"{
+        if str == "雷达图"{
             let view = RadarChartView()
             view.showSize = CGSize(width: 300, height: 300);
             
@@ -92,13 +78,13 @@ class ChartVC: UITableViewController {
             view.showData(data);
         }else if str == "饼图"{
             let view = PieChartView()
-            view.backgroundColor = UIColor.white;
             let vc = TransVC();
             vc.backColor = UIColor.white
             vc.showView = view;
             self.navigationController?.pushViewController(vc, animated: true);
             
             let data = PieData();
+            data.style = .Circle
             data.sliceEnable = false;
             let entry1 = PieData.Entry.inits(value: 100,desc: "语文");
             let entry2 = PieData.Entry.inits(value: 30,desc: "体育");
@@ -107,6 +93,23 @@ class ChartVC: UITableViewController {
             let entry5 = PieData.Entry.inits(value: 50,desc: "其他");
             data.dataSet.append(contentsOf: [entry1,entry2,entry3,entry4,entry5]);
             view .showPie(data);
+        }else if str == "bar"{
+            let view = BarChart()
+            view.backgroundColor = UIColor.white;
+            
+            let vc = TransVC();
+            vc.backColor = UIColor.white
+            vc.showView = view;
+            self.navigationController?.pushViewController(vc, animated: true);
+            
+            let data = BarChartData();
+            
+            let desc:[String] = ["语文","数学","英语"];
+            let colors:[UIColor] = [.randomColor(),.randomColor(),.randomColor()];
+            let set1 = BarChartData.BarEntrySet.initEntrySet(values: [20,30,60], descs: desc, colors: colors);
+            
+            
+            view.showBar(data: data);
         }
         
     }
