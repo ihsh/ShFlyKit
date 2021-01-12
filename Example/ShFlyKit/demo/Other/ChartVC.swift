@@ -94,6 +94,7 @@ class ChartVC: UITableViewController {
             data.dataSet.append(contentsOf: [entry1,entry2,entry3,entry4,entry5]);
             view .showPie(data);
         }else if str == "bar"{
+            
             let view = BarChart()
             view.backgroundColor = UIColor.white;
             
@@ -103,13 +104,19 @@ class ChartVC: UITableViewController {
             self.navigationController?.pushViewController(vc, animated: true);
             
             let data = BarChartData();
+            data.tintDescs = ["语文","数学","英语","化学","物理","生物"];
+            data.gradientColors = [.randomColor(),.randomColor(),.randomColor(),.randomColor(),.randomColor(),.randomColor(),.randomColor()]
+            let desc:[String] = [];
+            let colors:[UIColor] = [.randomColor(),.randomColor(),.randomColor(),.randomColor(),.randomColor(),.randomColor()];
+            data.tintColors = colors;
             
-            let desc:[String] = ["语文","数学","英语"];
-            let colors:[UIColor] = [.randomColor(),.randomColor(),.randomColor()];
-            let set1 = BarChartData.BarEntrySet.initEntrySet(values: [20,30,60], descs: desc, colors: colors,Xdesc: "1月");
-            let set2 = BarChartData.BarEntrySet.initEntrySet(values: [60,80,50], descs: desc, colors: colors,Xdesc: "2月");
-            let set3 = BarChartData.BarEntrySet.initEntrySet(values: [30,50,70], descs: desc, colors: colors,Xdesc: "3月");
-            data.dataSets.append(contentsOf: [set1,set2,set3]);
+            let set1 = BarChartData.BarEntrySet.initEntrySet(values: [20,30,60,60,80,50], descs: desc, colors: colors,Xdesc: "1月");
+            let set2 = BarChartData.BarEntrySet.initEntrySet(values: [60,80,50,30,50,70], descs: desc, colors: colors,Xdesc: "2月");
+            let set3 = BarChartData.BarEntrySet.initEntrySet(values: [30,50,70,11,43,45], descs: desc, colors: colors,Xdesc: "3月");
+            let set4 = BarChartData.BarEntrySet.initEntrySet(values: [20,30,60,60,80,50], descs: desc, colors: colors,Xdesc: "4月");
+            let set5 = BarChartData.BarEntrySet.initEntrySet(values: [60,80,50,30,50,70], descs: desc, colors: colors,Xdesc: "5月");
+            let set6 = BarChartData.BarEntrySet.initEntrySet(values: [30,50,120,11,43,45], descs: desc, colors: colors,Xdesc: "6月");
+            data.dataSets.append(contentsOf: [set1,set2,set3,set4,set5,set6]);
             view.showBar(data: data);
         }
         
