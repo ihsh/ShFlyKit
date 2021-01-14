@@ -10,7 +10,7 @@ import UIKit
 
 ///条形图
 public class BarChart: UIView {
-    //public
+    //publics
     public private(set) var showLayerV:UIView!                      //条形图加载图层
     //private
     private var data:BarChartData!
@@ -478,12 +478,12 @@ public class BarChartData:NSObject{
     public var grddientSpan:CGFloat = 0                 //渐变间距的计算属性
     ///绘制示例
     public var drawTint:Bool = true
-    public var tintSize:CGSize = CGSize(width: 10, height: 10)
-    public var tintColorDescMargin:CGFloat = 6
-    public var tintSpan:CGFloat = 16
-    public var tintDescs:[String] = []
-    public var tintColors:[UIColor] = []
-    public var tintMargin:UIEdgeInsets = UIEdgeInsets(top: 30, left: 10, bottom: 0, right: 16)
+    public var tintSize:CGSize = CGSize(width: 10, height: 10)//示例的颜色块区域大小
+    public var tintColorDescMargin:CGFloat = 6                //示例的颜色块与文字间距
+    public var tintSpan:CGFloat = 16                          //示例之间的间距
+    public var tintDescs:[String] = []                        //示例的描述文案
+    public var tintColors:[UIColor] = []                      //示例的颜色
+    public var tintMargin:UIEdgeInsets = UIEdgeInsets(top: 30, left: 10, bottom: 0, right: 16)//上左右间距，底部间距不使用
     
     
     ///条形图单个横向数据，可以有多个条形

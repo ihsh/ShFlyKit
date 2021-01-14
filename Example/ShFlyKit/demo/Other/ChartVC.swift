@@ -9,7 +9,7 @@
 import UIKit
 
 class ChartVC: UITableViewController {
-    let actionArr:NSArray = ["雷达图","折线图","饼图","bar"]
+    let actionArr:NSArray = ["雷达图","折线图","饼图","bar","星级图"]
     
     
     override func viewDidLoad() {
@@ -97,19 +97,19 @@ class ChartVC: UITableViewController {
             
             let view = BarChart()
             view.backgroundColor = UIColor.white;
-            
+
             let vc = TransVC();
             vc.backColor = UIColor.white
             vc.showView = view;
             self.navigationController?.pushViewController(vc, animated: true);
-            
+
             let data = BarChartData();
             data.tintDescs = ["语文","数学","英语","化学","物理","生物"];
             data.gradientColors = [.randomColor(),.randomColor(),.randomColor(),.randomColor(),.randomColor(),.randomColor(),.randomColor()]
             let desc:[String] = [];
             let colors:[UIColor] = [.randomColor(),.randomColor(),.randomColor(),.randomColor(),.randomColor(),.randomColor()];
             data.tintColors = colors;
-            
+
             let set1 = BarChartData.BarEntrySet.initEntrySet(values: [20,30,60,60,80,50], descs: desc, colors: colors,Xdesc: "1月");
             let set2 = BarChartData.BarEntrySet.initEntrySet(values: [60,80,50,30,50,70], descs: desc, colors: colors,Xdesc: "2月");
             let set3 = BarChartData.BarEntrySet.initEntrySet(values: [30,50,70,11,43,45], descs: desc, colors: colors,Xdesc: "3月");
@@ -118,6 +118,22 @@ class ChartVC: UITableViewController {
             let set6 = BarChartData.BarEntrySet.initEntrySet(values: [30,50,120,11,43,45], descs: desc, colors: colors,Xdesc: "6月");
             data.dataSets.append(contentsOf: [set1,set2,set3,set4,set5,set6]);
             view.showBar(data: data);
+
+        }else if (str == "星级图"){
+            let view = StarDistributionV()
+            let vc = TransVC();
+            vc.backColor = UIColor.white
+            vc.showView = view;
+            self.navigationController?.pushViewController(vc, animated: true);
+            
+//            view.showStars([CGPoint(x: 30, y: 200),
+//                            CGPoint(x: 70, y: 200),
+//                            CGPoint(x: 110, y: 200),
+//                            CGPoint(x: 150, y: 200),
+//                            CGPoint(x: 190, y: 200),
+//                            CGPoint(x: 230, y: 200)], color: .randomColor(), total: 6, current: 5, radius: 10, innerRadius: 5)
+//
+            view.drawDistribution(rates: [50,25,10,9,6]);
         }
         
     }
