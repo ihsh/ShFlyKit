@@ -12,6 +12,12 @@
 
 #pragma mark - 系统设置的url跳转
 
++ (BOOL)canOpenURLString:(NSString *)urlString {
+    NSURL *url = [NSURL URLWithString:urlString];
+    return [[UIApplication sharedApplication] canOpenURL:url];
+}
+
+
 + (void)openUrlString:(NSString *)urlString{
     NSURL* url = [NSURL URLWithString:urlString];
     UIApplication *app = [UIApplication sharedApplication];

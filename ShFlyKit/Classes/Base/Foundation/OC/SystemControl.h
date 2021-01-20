@@ -11,6 +11,8 @@
 
 @interface SystemControl : NSObject
 #pragma mark - 系统设置的url跳转
+/// 是否能打开指定 URL Scheme
++ (BOOL)canOpenURLString:(NSString *)urlString;
 
 ///打开路径
 + (void)openUrlString:(NSString*)urlString;

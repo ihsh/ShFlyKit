@@ -67,7 +67,7 @@ static NSString* const kMediumUrlMethod = @"initWithParameter:";
     }
     // 最后一个元素作为目标控制器标识
     NSString* targetVCStr = [pathElts lastObject];
-    className = [self hllVCClassForString:targetVCStr];
+    className = [self VCClassForString:targetVCStr];
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     NSString *queryStr = [url query];
@@ -89,8 +89,8 @@ static NSString* const kMediumUrlMethod = @"initWithParameter:";
 
 
 
-+ (NSString*)hllVCClassForString:(NSString*)str{
-    return [NSString stringWithFormat:@"HLL%@%@VC",[[str substringToIndex:1] uppercaseString],[str substringFromIndex:1]];
++ (NSString*)VCClassForString:(NSString*)str{
+    return [NSString stringWithFormat:@"%@%@VC",[[str substringToIndex:1] uppercaseString],[str substringFromIndex:1]];
 }
 
 /**
@@ -104,7 +104,7 @@ static NSString* const kMediumUrlMethod = @"initWithParameter:";
     BOOL setTabSuccess = NO;
     UINavigationController* naviVC = nil;
     
-    NSString* tabClass = [self hllVCClassForString:vcTag];
+    NSString* tabClass = [self VCClassForString:vcTag];
     UIViewController* rootVC = [[UIApplication sharedApplication].delegate window].rootViewController;
     
     if ([rootVC isKindOfClass:[UITabBarController class]]) {

@@ -59,15 +59,13 @@ class ChartVC: UITableViewController {
             data.appendArray([item1,item2,item3,item4,item5,item6,item7,item8,item9]);
             view.drawData(data);
         }else if str == "折线图"{
-            let view = LineChartScrollV()
+            let view = LineChartView()
             view.backgroundColor = UIColor.white;
             let vc = TransVC();
             vc.backColor = UIColor.white
             vc.showView = view;
             self.navigationController?.pushViewController(vc, animated: true);
             let data:LineChartData = LineChartData();
-            data.minXspan = 20;
-            data.xAxisValueHorizon = false;
             data.addOriginData([(30,"一月"),(20,"二月"),(50,"三月"),(45,"四月"),(70,"五月"),(60,"六月"),
                                 (90,"七月"),(95,"八月"),(100,"十月"),(130,"十一月"),(120,"十二月"),(100,"十三"),(30,"十四"),(80,"十五"),(70,"十六"),(100,"十月"),(130,"十一月"),(120,"十二月"),(100,"十三"),(30,"十四"),(80,"十五"),(70,"十六"),(100,"十月"),(130,"十一月"),(120,"十二月"),(100,"十三"),(30,"十四"),(80,"十五"),(70,"十六"),(100,"十月"),(130,"十一月"),(120,"十二月"),(100,"十三"),(30,"十四"),(80,"十五"),(70,"十六")])
             let color = data.lineColor;

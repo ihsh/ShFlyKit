@@ -10,15 +10,15 @@ import UIKit
 
 ///条形图
 public class BarChart: UIView {
-    //publics
-    public private(set) var showLayerV:UIView!                      //条形图加载图层
+    //public
+    public private(set) var showLayerV:UIView!          //条形图加载图层
+    public private(set) var data:BarChartData!
     //private
-    private var data:BarChartData!
     private var scrollV:UIScrollView!                   //滚动视图,左右有间距，上下全贴合
     private var yAxisLayer:CAShapeLayer!                //Y轴图层
     private var xAxisLayer:CAShapeLayer!                //X轴图层
     private var gridLayer:CAShapeLayer!                 //网格图层
-
+    
     private var yAxisTextLayers:[CATextLayer] = []      //Y轴的文字图层
     private var xAxisTextLayers:[CATextLayer] = []      //X轴的文字图层
     private var valueTextLayers:[CATextLayer] = []      //条形图值图层
@@ -58,7 +58,8 @@ public class BarChart: UIView {
     private func drawYAxis(){
         //绘制线
         let yPath = CGMutablePath();
-        yPath.move(to: CGPoint(x: data.margins.left - data.XYAxisLineWidth, y: data.showRect.height - data.margins.bottom + data.XYAxisLineWidth));
+        yPath.move(to: CGPoint(x: data.margins.left - data.XYAxisLineWidth,
+                               y: data.showRect.height - data.margins.bottom + data.XYAxisLineWidth));
         yPath.addLine(to: CGPoint(x:data.margins.left - data.XYAxisLineWidth , y: data.margins.top));
         yAxisLayer.path = yPath;
         //绘制值
@@ -95,7 +96,9 @@ public class BarChart: UIView {
                 let font:UIFont = UIFont.systemFont(ofSize: data.xAxisValueFontSize);
                 let textWidth:CGFloat = nsStr.width(with: font);                //文字宽度
                 let height:CGFloat = nsStr.height(forWidth: width, font: font);
-                let rect = CGRect(x: startX + width/2.0 - textWidth/2.0, y: y + data.xAxisValueTop, width: textWidth, height: height);  //文字居中整个set
+                let rect = CGRect(x: startX + width/2.0 - textWidth/2.0,
+                                  y: y + data.xAxisValueTop,
+                                  width: textWidth, height: height);  //文字居中整个set
                 let layer = CATextLayer();
                 layer.contentsScale = UIScreen.main.scale;
                 layer.fontSize = data.xAxisValueFontSize;

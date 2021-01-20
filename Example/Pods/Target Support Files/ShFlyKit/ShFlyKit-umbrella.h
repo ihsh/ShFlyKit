@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "Localization.h"
 #import "NSArray+SH.h"
 #import "NSDate+SH.h"
 #import "NSObject+Properties.h"

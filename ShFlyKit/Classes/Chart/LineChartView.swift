@@ -10,440 +10,368 @@
 import UIKit
 
 
-
-///LineChartView多加一个滚动容器
-public class LineChartScrollV:UIView ,UIScrollViewDelegate{
-    //可修改其属性
-    public private(set) var lineChart:LineChartView!
-    //私有滚动视图
-    private var scrollV:UIScrollView!
-    
-    
-    
-    ///Interface
-    public func showData(_ data:LineChartData){
-        self.backgroundColor = data.backColor;
-        //设置可滚动
-        if lineChart == nil {
-            scrollV = UIScrollView();
-            scrollV.backgroundColor = UIColor.clear;
-            scrollV.showsHorizontalScrollIndicator = false;
-            scrollV.bounces = false;
-            self.addSubview(scrollV);
-            
-            lineChart = LineChartView();
-            lineChart.drawYaxis = false;
-            scrollV.addSubview(lineChart);
-        }
-        //是否要处理边缘
-        if data.drawCircle || data.drawValues {
-            scrollV.delegate = self;
-            scrollV.layer.masksToBounds = false;
-        }else{
-            scrollV.delegate = nil;
-            scrollV.layer.masksToBounds = true;
-        }
-        //显示数据，并计算出坐标值
-        lineChart.showData(data);
-        scrollV.mas_remakeConstraints { (make) in
-            make?.left.mas_equalTo()(self)?.offset()(lineChart.baseX);
-            make?.top.right()?.bottom()?.mas_equalTo()(self);
-        };
-        //图表坐标
-        lineChart.frame = CGRect(x: 0-lineChart.baseX, y: 0, width: lineChart.layerFrame.width+lineChart.baseX, height: lineChart.showRect.height);
-        scrollV.contentSize = CGSize(width: lineChart.scrollX+lineChart.baseX, height: 0);
-        //绘制Y轴
-        self.setNeedsDisplay();
-    }
-    
-    
-    //控制最左坐标值的显示
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scollX = scrollView.contentOffset.x;
-        if scollX < lineChart.data.circleWidth {
-            scrollV.layer.masksToBounds = false;
-        }else{
-            scrollV.layer.masksToBounds = true;
-            lineChart.tmpPause = true;
-        }
-    }
-    
-    
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        lineChart.tmpPause = false;
-    }
-    
-    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        lineChart.tmpPause = false;
-    }
-    
-    
-    //单单绘制Y轴
-    public override func draw(_ rect: CGRect) {
-        super.draw(rect);
-        let data:LineChartData = lineChart.data;
-        if data == nil {return}
-        let ctx = UIGraphicsGetCurrentContext();
-        ctx?.setStrokeColor(data.lineColor.cgColor);
-        ctx?.setLineWidth(data.lineWidth);
-        //绘制Y轴
-        ctx?.setStrokeColor(data.lineColor.cgColor);
-        ctx?.move(to: CGPoint(x: lineChart.baseX, y: lineChart.baseY));
-        ctx?.addLine(to: CGPoint(x: lineChart.baseX, y: data.margins.top));
-        ctx?.strokePath();
-        for (i,pos) in lineChart.yAxisPoints.enumerated() {
-            let desc:NSString = lineChart.yAxisValues[i] as NSString;
-            let width:CGFloat = desc.width(with: data.font);
-            let rect = CGRect(x: pos.x-6-width, y: pos.y, width: width, height: 20);
-            let attributes = NSMutableDictionary();
-            attributes.setValue(data.font, forKey: NSAttributedStringKey.font.rawValue);
-            attributes.setValue(data.fontColor, forKey: NSAttributedStringKey.foregroundColor.rawValue);
-            desc.draw(in: rect, withAttributes: attributes as! [NSAttributedStringKey : Any]);
-        }
-    }
-    
-    
-}
-
-
-
-
 ///折线图
-public class LineChartView: UIView , CAAnimationDelegate ,DisplayDelegate {
+public class LineChartView: UIView {
     //public
-    public var showRect:CGRect = CGRect(x: 0, y: 0, width: ScreenSize().width, height: 300)
-    public var drawYaxis:Bool = true                         //绘制Y轴
-    public var tmpPause:Bool = false                         //动画暂停
-    public private (set) var layerFrame:CGRect!              //显示阴影的图层的坐标
-    public private (set) var baseX:CGFloat = 0               //左下角的起点X
-    public private (set) var baseY:CGFloat = 0               //左下角的起点Y
-    public private (set) var scrollX:CGFloat = 0             //可滚动区域
-    public private (set) var data:LineChartData!             //数据
-    public private (set) var pointsLine:[CGPoint] = []       //线的点群
-    public private (set) var yAxisPoints:[CGPoint] = []      //Y坐标的点群
-    public private (set) var yAxisValues:[String] = []       //Y坐标的值的点群
-    public private (set) var xAxisPoints:[CGPoint] = []      //x坐标的点群
-    
-    private var shadowLayer:CAGradientLayer!                 //阴影图层
-    private var animateStep:CGFloat = 0                      //动画进度
+    public private(set) var data:LineChartData!                 //数据
+    public private(set) var showLayerV:UIView!                  //展示视图
+    //Private
+    private var scrollV:UIScrollView!                           //滚动视图
+    //图层
+    private var lineLayer:CAShapeLayer!                         //线条
+    private var circleLayer:CAShapeLayer!                       //圆圈
+    private var gridLayer:CAShapeLayer!                         //网格
+    private var yAxisLayer:CAShapeLayer!                        //Y轴
+    private var xAxisLayer:CAShapeLayer!                        //X轴
+    private var shadowLayer:CAGradientLayer!                    //阴影
+    //图层管理
+    private var yAxisValueLayers:[CATextLayer] = []             //Y轴字符
+    private var xAxisValueLayers:[CATextLayer] = []             //X轴字符
+    //运算值
+    private var contentSizeX:CGFloat = 0                        //可滚动区域
+    private var rate:CGFloat = 0                                //视图高度与值范围的比例
+    private var minValue:CGFloat = 0                            //值的最小值
     
     
     
     ///Interface
     public func showData(_ data:LineChartData){
         self.data = data;
-        self.backgroundColor = UIColor.clear;
-        //计算值
-        self.calculValues();
+        self.backgroundColor = data.backColor;
         //显示
-        self.setNeedsDisplay();
+        self.drawLayers();
         //显示动画
         if data.animate {
-            animateStep = data.margins.left;
-            HeatBeatTimer.shared.addDisplayTask(self);
+            let ani = CABasicAnimation.init(keyPath: "strokeEnd");
+            ani.duration = 5;
+            ani.fromValue = 0;
+            ani.toValue = 1;
+            ani.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
+            ani.isRemovedOnCompletion = true;
+            lineLayer.add(ani, forKey: "ani");
         }
     }
     
     
-    public func displayCalled() {
-        if animateStep < layerFrame.width {
-            if tmpPause == false {
-                animateStep += data.aniStep;
-                self.setNeedsDisplay();
+    
+    ///绘制图层
+    public func drawLayers(){
+        //配置视图
+        self.configLayers();
+        //计算数据
+        self.calculData();
+        //绘制图层
+        drawYaxis();
+        drawXaxis();
+        drawGrid();
+        drawLine();
+    }
+    
+    
+    ///计算数据
+    private func calculData(){
+        contentSizeX = 0;
+        var mi:CGFloat = 0;
+        var ma:CGFloat = 0;
+        for entry in data.dataSet {
+            contentSizeX += data.xSpan;
+            mi = min(mi, entry.value);
+            ma = max(ma, entry.value);
+        }
+        //屏幕高度-上距离-下距离-图表最高点与图表上边距离
+        let yRange:CGFloat = data.showRect.height - data.margins.top - data.margins.bottom - data.lineTop;
+        let range:CGFloat = ma - mi;
+        rate = yRange / range;
+        minValue = mi;
+    }
+    
+    
+    ///绘制Y轴
+    private func drawYaxis(){
+        //轴线
+        if data.drawYaxis {
+            let path = CGMutablePath();
+            path.move(to: CGPoint(x: data.margins.left - data.xyAxisLineWidth,
+                                  y: data.showRect.height - data.margins.bottom));
+            path.addLine(to: CGPoint(x: data.margins.left - data.xyAxisLineWidth, y: data.margins.top));
+            yAxisLayer.path = path;
+        }
+        //绘制轴线上的文字
+        if data.drawYaxisValues {
+            let yRange:CGFloat = data.showRect.height - data.margins.top - data.margins.bottom - data.lineTop;
+            let count:Int = Int(ceil(yRange/data.gridYspan));
+            let bottomY:CGFloat = data.showRect.height - data.margins.bottom;
+            let divide = data.gridYspan;
+            for i in 0...count {
+                let str = String.formatLu(value: divide * CGFloat(i) * rate, decimal: data.yAxisDecimalCount);
+                let nsStr = NSString(string: str);
+                let width = nsStr.width(with: UIFont.systemFont(ofSize: data.yAxisValueFontSize));
+                let height = nsStr.height(forWidth: 100, font: UIFont.systemFont(ofSize: data.yAxisValueFontSize));
+                let rect = CGRect(x: data.margins.left - width - data.yAxisValueTailSpan,
+                                  y: bottomY - divide * CGFloat(i) - height/2.0, width: width, height: height);
+                let layer = CATextLayer();
+                layer.contentsScale = UIScreen.main.scale;
+                layer.fontSize = data.yAxisValueFontSize;
+                layer.string = str;
+                layer.frame = rect;
+                layer.foregroundColor = data.yAxisValueColor.cgColor;
+                yAxisLayer.addSublayer(layer);
             }
-        }else{
-            HeatBeatTimer.shared.cancelDisplayTask(self);
         }
     }
+    
+    
+    ///绘制X轴
+    private func drawXaxis(){
+        let xPath = CGMutablePath();
+        let y:CGFloat = data.showRect.height - data.margins.bottom - data.margins.top;
+        xPath.move(to: CGPoint(x: 0, y: y));
+        xPath.addLine(to: CGPoint(x: contentSizeX, y: y));
+        xAxisLayer.path = xPath;
+        //绘制X轴文字
+        if data.drawXaxisValues {
+            let startY = data.showRect.height - data.margins.bottom;
+            for (i,entry) in data.dataSet.enumerated() {
+                let nsStr = NSString(string: entry.axisDesc);
+                let width:CGFloat = nsStr.width(with: UIFont.systemFont(ofSize: data.xAxisValueFontSize));
+                let height:CGFloat = nsStr.height(forWidth: 100,
+                                                  font: UIFont.systemFont(ofSize: data.xAxisValueFontSize));
+                let rect = CGRect(x: CGFloat(i) * data.xSpan - data.xSpan/2.0, y: startY, width:width, height: height);
+                let layer = CATextLayer();
+                layer.contentsScale = UIScreen.main.scale;
+                layer.fontSize = data.xAxisValueFontSize;
+                layer.string = entry.axisDesc;
+                layer.frame = rect;
+                layer.foregroundColor = data.xAxisValueColor.cgColor;
+                xAxisLayer.addSublayer(layer);
+            }
+        }
+    }
+    
+    
+    ///绘制网格
+    private func drawGrid(){
+        if data.drawYGrid || data.drawXGrid {
+            let gridPath = CGMutablePath();
+            let topY:CGFloat = data.margins.top;
+            let bottomY:CGFloat = data.showRect.height - data.margins.bottom - data.xyAxisLineWidth - data.margins.top;
+            //竖向
+            if data.drawYGrid {
+                var startX:CGFloat = data.gridXspan;
+                while startX < (contentSizeX)  {
+                    gridPath.move(to: CGPoint(x: min(startX, (contentSizeX)), y: bottomY));
+                    gridPath.addLine(to: CGPoint(x: min(startX, (contentSizeX)), y: 0));
+                    startX += data.gridXspan;
+                }
+            }
+            //横向
+            if data.drawXGrid {
+                var startY:CGFloat = bottomY-data.gridYspan;
+                while startY > topY {
+                    gridPath.move(to: CGPoint(x: 0, y: max(startY, topY)));
+                    gridPath.addLine(to: CGPoint(x: contentSizeX, y: max(startY, topY)));
+                    startY -= data.gridYspan;
+                }
+            }
+            //边缘线
+            gridPath.move(to: CGPoint(x: data.margins.left, y: 0));
+            gridPath.addLine(to: CGPoint(x: contentSizeX, y: 0));
+            gridPath.move(to: CGPoint(x: contentSizeX, y: 0));
+            gridPath.addLine(to: CGPoint(x: contentSizeX, y: bottomY));
+            gridLayer.path = gridPath;
+        }
+    }
+    
+    
+    ///绘制主体
+    private func drawLine(){
+        //绘制线和点
+        let path = CGMutablePath();
+        let circlePath = CGMutablePath();
+        let shadowPath = CGMutablePath();
+        
+        shadowPath.move(to: CGPoint(x: 0, y: data.showRect.height - data.margins.bottom));
+        let bottomY:CGFloat = data.showRect.height - data.margins.bottom;
+        
+        for (i,entry) in data.dataSet.enumerated() {
+            let range:CGFloat = (entry.value - minValue) * rate;
+            let y:CGFloat = bottomY - range;
+            let pos:CGPoint = CGPoint(x: CGFloat(i) * data.xSpan, y: y);
+            if i == 0 {
+                path.move(to: pos);
+            }else{
+                path.addLine(to: pos);
+            }
+            shadowPath.addLine(to: pos);
+            if i == data.dataSet.count - 1 {
+                shadowPath.addLine(to: CGPoint(x: pos.x, y: data.showRect.height - data.margins.bottom));
+                shadowPath.addLine(to: CGPoint(x: 0, y: data.showRect.height - data.margins.bottom));
+            }
+            circlePath.move(to: pos);
+            circlePath.addArc(center: pos, radius: data.circleRadius, startAngle: 0, endAngle: 6.3, clockwise: true);
+        }
+        lineLayer.path = path;
+        circleLayer.path = circlePath;
+        //绘制阴影
+        drawShadow(path: shadowPath);
+        
+        showLayerV.frame = CGRect(x: 0, y: data.margins.top, width: contentSizeX, height: data.showRect.height - data.margins.top - data.margins.bottom);
+        scrollV.contentSize = CGSize(width: contentSizeX, height: 0);
+    }
+    
+    
+    private func drawShadow(path:CGMutablePath){
+        let shape = CAShapeLayer();
+        shape.path = path;
+        
+        
+//        shadowLayer.frame = CGRect(x: 0, y: 0, width: contentSizeX, height: data.showRect.height - data.margins.bottom - data.margins.top);
+        shadowLayer.mask = shape;
+        
+        let ani = CABasicAnimation.init(keyPath: "colors");
+        ani.duration = 5;
+        ani.fromValue = 0;
+        ani.toValue = 1;
+        ani.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
+        ani.isRemovedOnCompletion = true;
+        shadowLayer.add(ani, forKey: "c");
+    }
+    
+    
+    ///配置视图
+    private func configLayers(){
+        //初始化视图
+        self.initSubViews();
+        //配置视图
+        scrollV.frame = CGRect(x: data.margins.left, y: 0,
+                               width: (data.showRect.width - data.margins.left - data.margins.right),
+                               height: data.showRect.height);
+        
+        
+    }
+    
+    
+    private func initSubViews(){
+        if scrollV == nil {
+            scrollV = UIScrollView();
+            scrollV.backgroundColor = UIColor.clear;
+            scrollV.bounces = false;
+            scrollV.showsHorizontalScrollIndicator = false
+            self.addSubview(scrollV);
+        }
+        if showLayerV == nil {
+            showLayerV = UIView();
+            scrollV.addSubview(showLayerV);
+        }
+        
+        if gridLayer == nil {
+            gridLayer = CAShapeLayer();
+            gridLayer.strokeColor = data.gridColor.cgColor;
+            gridLayer.fillColor = UIColor.clear.cgColor;
+            gridLayer.lineWidth = data.gridLineWidth;
+            gridLayer.lineDashPattern = data.lineDash;
+            showLayerV.layer.addSublayer(gridLayer);
+        }
+        if yAxisLayer == nil {
+            yAxisLayer = CAShapeLayer();
+            yAxisLayer.strokeColor = data.xyAxisLineColor.cgColor;
+            yAxisLayer.fillColor = UIColor.clear.cgColor;
+            yAxisLayer.lineWidth = data.xyAxisLineWidth;
+            self.layer.addSublayer(yAxisLayer);
+        }
+        if xAxisLayer == nil {
+            xAxisLayer = CAShapeLayer();
+            xAxisLayer.strokeColor = data.xyAxisLineColor.cgColor;
+            xAxisLayer.fillColor = UIColor.clear.cgColor;
+            xAxisLayer.lineWidth = data.xyAxisLineWidth;
+            showLayerV.layer.addSublayer(xAxisLayer);
+        }
+        if shadowLayer == nil {
+            shadowLayer = CAGradientLayer();
+            shadowLayer.startPoint = CGPoint(x: 0.5, y: 0);
+            shadowLayer.endPoint = CGPoint(x: 0.5, y: 1);
+            shadowLayer.locations = data.shadowLocations;
+            shadowLayer.colors = data.shadowColor;
+            showLayerV.layer.addSublayer(shadowLayer);
+        }
+        if lineLayer == nil {
+            lineLayer = CAShapeLayer();
+            lineLayer.lineWidth = data.lineWidth;
+            lineLayer.strokeColor = data.lineColor.cgColor;
+            lineLayer.fillColor = UIColor.clear.cgColor;
+            lineLayer.lineJoin = kCALineCapRound;
+            showLayerV.layer.addSublayer(lineLayer);
+        }
+        if circleLayer == nil {
+            circleLayer = CAShapeLayer();
+            circleLayer.lineWidth = 1;
+            circleLayer.strokeColor = data.circleColor.cgColor;
+            circleLayer.fillColor = data.circleColor.cgColor;
+            showLayerV.layer.addSublayer(circleLayer);
+        }
+    }
+    
 
-    
-    //绘制方法
-    public override func draw(_ rect: CGRect) {
-        super.draw(rect);
-        //没有数据
-        if data == nil {return}
-        let ctx = UIGraphicsGetCurrentContext();
-        //绘制x轴
-        ctx?.setStrokeColor(data.lineColor.cgColor);
-        ctx?.setLineWidth(data.lineWidth);
-        let rightX = scrollX+baseX+20;
-        if data.xAxisTop {
-            ctx?.move(to: CGPoint(x: baseX, y: data.margins.top));
-            ctx?.addLine(to: CGPoint(x: rightX, y: data.margins.top));
-        }else{
-            ctx?.move(to: CGPoint(x: baseX, y: baseY));
-            ctx?.addLine(to: CGPoint(x: rightX, y: baseY));
-        }
-        ctx?.strokePath();
-        //绘制X轴值
-        for (i,pos) in xAxisPoints.enumerated() {
-            let da = self.data.dataSet[i];
-            let desc:NSString = da.axisDesc as NSString;
-            var rect:CGRect!
-            if data.xAxisValueHorizon {
-                let width:CGFloat = desc.width(with: data.font);
-                rect = CGRect(x: pos.x - width/2.0, y: pos.y + 15, width: width, height: height);
-            }else{
-                let height:CGFloat = desc.height(forWidth: 20, font: data.font);
-                rect = CGRect(x: pos.x - 5, y: pos.y + 10, width: 20, height: height);
-            }
-            let attributes = NSMutableDictionary();
-            attributes.setValue(data.font, forKey: NSAttributedStringKey.font.rawValue);
-            attributes.setValue(data.fontColor, forKey: NSAttributedStringKey.foregroundColor.rawValue);
-            desc.draw(in: rect, withAttributes: attributes as! [NSAttributedStringKey : Any]);
-        }
-        //绘制Y轴
-        if drawYaxis {
-            ctx?.move(to: CGPoint(x: baseX, y: baseY));
-            ctx?.addLine(to: CGPoint(x: baseX, y: data.margins.top));
-            ctx?.strokePath();
-            for (i,pos) in yAxisPoints.enumerated() {
-                let desc:NSString = yAxisValues[i] as NSString;
-                let width:CGFloat = desc.width(with: data.font);
-                let rect = CGRect(x: pos.x-6-width, y: pos.y, width: width, height: 20);
-                let attributes = NSMutableDictionary();
-                attributes.setValue(data.font, forKey: NSAttributedStringKey.font.rawValue);
-                attributes.setValue(data.fontColor, forKey: NSAttributedStringKey.foregroundColor.rawValue);
-                desc.draw(in: rect, withAttributes: attributes as! [NSAttributedStringKey : Any]);
-            }
-        }
-        //画网格线
-        if data.drawGrid {
-            ctx?.setStrokeColor(data.gridColor.cgColor);
-            ctx?.setLineWidth(data.gridLineWidth);
-            if data.xAxisTop {
-                ctx?.move(to: CGPoint(x: baseX, y: baseY));
-                ctx?.addLine(to: CGPoint(x: rightX, y: baseY));
-                ctx?.addLine(to: CGPoint(x: rightX, y: data.margins.top));
-            }else{
-                ctx?.move(to: CGPoint(x: baseX, y: data.margins.top));
-                ctx?.addLine(to: CGPoint(x: rightX, y: data.margins.top));
-                ctx?.addLine(to: CGPoint(x: rightX, y: baseY));
-            }
-            ctx?.strokePath();
-            
-            var startY:CGFloat = data.xAxisTop ? data.margins.top + data.gridYspan : data.margins.top;
-            while startY < baseY {
-                ctx?.move(to: CGPoint(x: baseX + 1, y: startY));
-                ctx?.addLine(to: CGPoint(x: rightX, y: startY));
-                startY += max(2,data.gridYspan);
-            }
-            var startX:CGFloat = data.margins.left;
-            startX += data.gridXspan;//不与Y轴重叠
-            while startX <= rightX {
-                ctx?.move(to: CGPoint(x: min(startX, rightX), y: data.margins.top));
-                ctx?.addLine(to: CGPoint(x: min(startX, rightX), y: baseY));
-                startX += data.gridXspan;
-            }
-            //画虚线
-            ctx?.setLineDash(phase: 0, lengths: data.lineDash);
-            ctx?.strokePath();
-        }
-        
-        //线的path
-        let path:CGMutablePath = CGMutablePath()
-        //阴影的path
-        let drawPath:CGMutablePath = CGMutablePath();
-        drawPath.move(to: CGPoint(x: baseX+data.xOffset, y: baseY));
-        
-        //计算路径
-        var lastPos:CGPoint!
-        for (i,pos) in pointsLine.enumerated() {
-            if pos.x < animateStep || data.animate == false {
-                if i == 0 {
-                    path.move(to: pos);
-                }else{
-                    path.addLine(to: pos);
-                }
-                drawPath.addLine(to: pos);
-                lastPos = pos;
-            }else{
-                //创建临时点
-                let posPre:CGPoint = (i - 1) < 0 ? pointsLine[i] : pointsLine[i-1];
-                let yrange:CGFloat = pos.y - posPre.y;
-                let xRange:CGFloat = pos.x - posPre.x;
-                let xRate:CGFloat = fabs(animateStep-posPre.x)/xRange;
-                let ysub:CGFloat = yrange * xRate;
-                let finalY:CGFloat = posPre.y + ysub;
-                let finalPos = CGPoint(x: animateStep, y: finalY);
-                path.addLine(to: finalPos);
-                drawPath.addLine(to: finalPos);
-                lastPos = finalPos;
-                break;
-            }
-        }
-        //闭环
-        drawPath.addLine(to: CGPoint(x: lastPos.x, y: baseY));
-        drawPath.addLine(to: CGPoint(x: baseX+data.xOffset, y: baseY));
-        //绘制
-        ctx?.setStrokeColor(data.lineColor.cgColor);
-        ctx?.setLineWidth(data.lineWidth)
-        ctx?.setLineDash(phase: 0, lengths: [10,0]);//去除虚线
-        ctx?.addPath(path);
-        ctx?.strokePath();
-        //阴影的图层
-        if data.drawShadow {
-            if shadowLayer == nil {
-                shadowLayer = CAGradientLayer()
-                shadowLayer.frame = layerFrame;
-                shadowLayer.startPoint = CGPoint(x: 0.5, y: 0);
-                shadowLayer.endPoint = CGPoint(x: 0.5, y: 1);
-                shadowLayer.locations = data.shadowLocations;
-                shadowLayer.colors = data.shadowColor;
-                self.layer.addSublayer(shadowLayer);
-            }
-            let shape = CAShapeLayer();
-            shape.path = drawPath;
-            shadowLayer.mask = shape;
-        }
-        //画值
-        if data.drawValues {
-            for (i,pos) in pointsLine.enumerated() {
-                if pos.x < animateStep || data.animate == false {
-                    let str = String.formatLu(value: self.data.dataSet[i].value, decimal: self.data.yAxisDecimalCount);
-                    let desc:NSString = str as NSString;
-                    let width:CGFloat = desc.width(with: self.data.font);
-                    let rect = CGRect(x: pos.x-width/2.0, y: pos.y-18, width: width, height: 20);
-                    let attributes = NSMutableDictionary();
-                    attributes.setValue(data.font, forKey: NSAttributedStringKey.font.rawValue);
-                    attributes.setValue(data.fontColor, forKey: NSAttributedStringKey.foregroundColor.rawValue);
-                    desc.draw(in: rect, withAttributes: attributes as! [NSAttributedStringKey : Any]);
-                }
-            }
-        }
-        //画圈
-        if data.drawCircle {
-            ctx?.setStrokeColor(data.circleColor.cgColor);
-            for pos in pointsLine {
-                if pos.x < animateStep || data.animate == false {
-                    let rect = CGRect(x: pos.x - (data.circleWidth/2.0), y: pos.y-(data.circleWidth/2.0), width: data.circleWidth, height: data.circleWidth);
-                    ctx?.setFillColor(UIColor.white.cgColor);
-                    ctx?.fill(rect);
-                    ctx?.addEllipse(in: rect);
-                    ctx?.setFillColor(data.circleColor.cgColor);
-                    ctx?.fillPath()
-                }
-            }
-        }
-        
-        
-        
-    }
-    
-    
 
-    ///private method
-    public func calculValues(){
-        //最大可显示范围
-        let width = ScreenSize().width - (data.margins.left + data.margins.right);
-        let height = showRect.height - (data.margins.top + data.margins.bottom);
-        
-        //y值的范围
-        var minY:CGFloat = 0;
-        var maxY:CGFloat = 0;
-        for pos in data.dataSet {
-            minY = min(minY,pos.value);
-            maxY = max(maxY,pos.value);
-        }
-        let range = maxY - minY;
-        //高度换算比例
-        let rate:CGFloat = height >= range ? 1 : (height/range);
-        
-        //x方向的间距
-        var xSpan:CGFloat = data.targetXspan;
-        //当预期太大的时候,重新计算
-        if (data.targetXspan * CGFloat(data.dataSet.count) > width) {
-            xSpan = width / CGFloat(data.dataSet.count);
-            xSpan = max(xSpan,data.minXspan);
-            data.gridXspan = xSpan;
-        }
-        
-        
-        baseX = data.margins.left;
-        baseY = data.margins.top + height;
-        
-        //X轴的绘制点
-        xAxisPoints.removeAll();
-        for (i,pos) in data.dataSet.enumerated() {
-            let point:CGPoint = CGPoint(x: baseX + xSpan * CGFloat(i) + data.xOffset, y: baseY);
-            xAxisPoints.append(point);
-        }
-        //Y轴的绘制点
-        let yDivider:CGFloat = range / CGFloat(data.yAxisCount);//值的值分段距离
-        yAxisPoints.removeAll();
-        yAxisValues.removeAll();
-        for i in 0...data.yAxisCount {
-            let value = minY + yDivider * CGFloat(i);
-            let y = baseY - yDivider * CGFloat(i) * rate - 10 + data.yOffset;
-            let str = String.formatLu(value: value, decimal: data.yAxisDecimalCount);
-            yAxisValues.append(str);
-            yAxisPoints.append(CGPoint(x: baseX, y: y));
-        }
-        //值的位置
-        var minYValue:CGFloat = 0;
-        var maxXValue:CGFloat = 0;
-        pointsLine.removeAll();
-        for (i,pos) in data.dataSet.enumerated() {
-            let x:CGFloat = baseX + data.xOffset + xSpan * CGFloat(i);
-            let y:CGFloat = baseY - fabs(pos.value - minY) * rate + data.yOffset;
-            minYValue = min(minYValue,y);
-            maxXValue = max(maxXValue,x);
-            pointsLine.append(CGPoint(x: x, y: y));
-        }
-        scrollX = maxXValue - baseX;
-        //图层的范围
-        layerFrame = CGRect(x: 0, y: 0, width:maxXValue, height: fabs(baseY-minYValue));
-    }
-    
     
 }
 
 
 
-
 ///折线图数据
 public class LineChartData:NSObject{
+    ///数据
+    public private (set) var dataSet:[LineData] = []//数据
     //UI配置
     public var margins:UIEdgeInsets = UIEdgeInsets(top: 24, left: 32, bottom: 40, right: 32)//间距
-    public var xOffset:CGFloat = 0              //绘制的点的X偏移
-    public var yOffset:CGFloat = 0              //绘制的点的Y偏移
-    public var targetXspan:CGFloat = 30         //期待X方向上的间隔
-    public var minXspan:CGFloat = 2             //最小可接受间距
+    public var lineTop:CGFloat = 30
+    public var showRect:CGRect = CGRect(x: 0, y: 0, width: ScreenSize().width, height: 300)
     public var backColor:UIColor = UIColor.white//背景色
     //动画
     public var animate:Bool = true              //是否动画
-    public var aniStep:CGFloat = 2              //动画步进值
-    //坐标轴
-    public var xAxisTop:Bool = false            //X轴绘制在上面
-    public var xAxisValueHorizon = true         //X轴文字是否水平
-    public var yAxisCount:UInt = 5              //Y轴的点数量
-    public var yAxisDecimalCount:UInt = 0       //Y轴值的小数位数
-    //值
-    public var drawValues:Bool = true           //画值
-    public var font:UIFont = .systemFont(ofSize: 12);
-    public var fontColor:UIColor = .black
+    public var animateDuration:TimeInterval = 2 //动画时长
     //线
     public var lineWidth:CGFloat = 1            //线宽
+         
     public var lineColor:UIColor = UIColor.randomColor()//线颜色
-    //网格
-    public var drawGrid:Bool = true             //绘制网格
-    public var gridYspan:CGFloat = 30           //网格Y间距
-    public var gridXspan:CGFloat = 30           //网格X间距
-    public var gridColor:UIColor = UIColor.colorHexValue("F0F0F0")
-    public var gridLineWidth:CGFloat = 0.5      //线宽
-    public var lineDash:[CGFloat] = [3,3]       //虚线样式
+    public var xSpan:CGFloat = 20
     //圆圈
     public var drawCircle:Bool = true           //是否画圈
-    public var circleColor:UIColor = UIColor.randomColor()
-    public var circleWidth:CGFloat = 6          //圆圈半径
+    public var circleColor:UIColor = UIColor.randomColor()//圆圈的颜色
+    public var circleRadius:CGFloat = 2
+    public var fillCircle:Bool = true
+    //Y轴
+    public var drawYaxis:Bool = true            //绘制Y轴
+    public var drawYaxisValues:Bool = true      //绘制Y轴数据
+    public var yAxisDecimalCount:UInt = 0       //Y轴值的小数位数
+    public var yAxisValueColor:UIColor = .black
+    public var yAxisValueFontSize:CGFloat = 8
+    public var yAxisValueTailSpan:CGFloat = 6
+    //X轴
+    public var drawXaxisValues:Bool = true
+    public var xyAxisLineWidth:CGFloat = 1      //坐标轴线宽
+    public var xyAxisLineColor:UIColor = .black
+    public var xAxisValueHorizon = true         //X轴文字是否水平
+    public var xAxisValueFontSize:CGFloat = 12
+    public var xAxisValueColor:UIColor = .black
+    //值
+    public var drawValues:Bool = true           //画值
+    public var valueFont:UIFont = .systemFont(ofSize: 12)
+    public var valuefontColor:UIColor = .black
+    //网格
+    public var drawYGrid:Bool = true            //绘制Y方向网格
+    public var drawXGrid:Bool = true            //绘制X方向网格
+    public var gridYspan:CGFloat = 30           //网格Y间距
+    public var gridXspan:CGFloat = 30           //网格X间距
+    public var gridColor:UIColor = UIColor.colorHexValue("F0F0F0")//网格颜色
+    public var gridLineWidth:CGFloat = 1        //线宽
+    public var lineDash:[NSNumber] = [2,10]     //虚线样式
     //阴影
     public var drawShadow:Bool = true           //绘制阴影
     public var shadowColor:[CGColor] = []       //阴影颜色组
     public var shadowLocations:[NSNumber] = [0.1,0.3,0.5,0.7,0.9]
+
     
-    
-    ///数据
-    public private (set) var dataSet:[LineData] = []//数据
     
     
     ///添加已经生成的数据
@@ -460,12 +388,6 @@ public class LineChartData:NSObject{
             data.axisDesc = item.1;
             dataSet.append(data);
         }
-    }
-    
-    
-    ///清空
-    public func clear(){
-        self.dataSet.removeAll();
     }
     
     
