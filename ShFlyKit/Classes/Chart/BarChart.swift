@@ -13,6 +13,8 @@ public class BarChart: UIView {
     //public
     public private(set) var showLayerV:UIView!          //条形图加载图层
     public private(set) var data:BarChartData!
+    public var contentSizeX:CGFloat = 0                 //整个横向内容区域-计算属性
+    public var showRect:CGRect = CGRect(x: 0, y: 0, width: ScreenSize().width, height: 300)//显示的区域
     //private
     private var scrollV:UIScrollView!                   //滚动视图,左右有间距，上下全贴合
     private var yAxisLayer:CAShapeLayer!                //Y轴图层
@@ -54,12 +56,12 @@ public class BarChart: UIView {
     }
     
     
-    //绘制Y轴
+    ///绘制Y轴
     private func drawYAxis(){
         //绘制线
         let yPath = CGMutablePath();
         yPath.move(to: CGPoint(x: data.margins.left - data.XYAxisLineWidth,
-                               y: data.showRect.height - data.margins.bottom + data.XYAxisLineWidth));
+                               y: showRect.height - data.margins.bottom + data.XYAxisLineWidth));
         yPath.addLine(to: CGPoint(x:data.margins.left - data.XYAxisLineWidth , y: data.margins.top));
         yAxisLayer.path = yPath;
         //绘制值
@@ -79,13 +81,13 @@ public class BarChart: UIView {
     }
     
     
-    //绘制X轴
+    ///绘制X轴
     private func drawXAxis(){
         //绘制线
         let xPath = CGMutablePath();
-        let y:CGFloat = data.showRect.height - data.margins.bottom - data.margins.top;
+        let y:CGFloat = showRect.height - data.margins.bottom - data.margins.top;
         xPath.move(to: CGPoint(x: 0, y: y));
-        xPath.addLine(to: CGPoint(x: data.contentSizeX + data.valueRightSpan, y: y));
+        xPath.addLine(to: CGPoint(x: contentSizeX + data.valueRightSpan, y: y));
         xAxisLayer.path = xPath;
         //绘制值
         if data.drawXAxisValues {
@@ -119,13 +121,13 @@ public class BarChart: UIView {
         if data.drawGridX || data.drawGridY {
             let gridPath = CGMutablePath();
             let topY:CGFloat = 0;
-            let bottomY:CGFloat = data.showRect.height - data.margins.bottom - data.margins.top - data.XYAxisLineWidth;
+            let bottomY:CGFloat = showRect.height - data.margins.bottom - data.margins.top - data.XYAxisLineWidth;
             //竖向
             if data.drawGridY {
                 var startX:CGFloat = data.gridXspan;
-                while startX < (data.contentSizeX + data.valueRightSpan)  {
-                    gridPath.move(to: CGPoint(x: min(startX, (data.contentSizeX + data.valueRightSpan)), y: bottomY));
-                    gridPath.addLine(to: CGPoint(x: min(startX, (data.contentSizeX + data.valueRightSpan)), y: 0));
+                while startX < (contentSizeX + data.valueRightSpan)  {
+                    gridPath.move(to: CGPoint(x: min(startX, (contentSizeX + data.valueRightSpan)), y: bottomY));
+                    gridPath.addLine(to: CGPoint(x: min(startX, (contentSizeX + data.valueRightSpan)), y: 0));
                     startX += data.gridXspan;
                 }
             }
@@ -134,15 +136,15 @@ public class BarChart: UIView {
                 var startY:CGFloat = bottomY-data.gridYspan;
                 while startY > topY {
                     gridPath.move(to: CGPoint(x: 0, y: max(startY, topY)));
-                    gridPath.addLine(to: CGPoint(x: data.contentSizeX + data.valueRightSpan, y: max(startY, topY)));
+                    gridPath.addLine(to: CGPoint(x: contentSizeX + data.valueRightSpan, y: max(startY, topY)));
                     startY -= data.gridYspan;
                 }
             }
             //边缘线
             gridPath.move(to: CGPoint(x: 0, y: 0));
-            gridPath.addLine(to: CGPoint(x: data.contentSizeX + data.valueRightSpan, y: 0));
-            gridPath.move(to: CGPoint(x: data.contentSizeX + data.valueRightSpan - data.XYAxisLineWidth, y: 0));
-            gridPath.addLine(to: CGPoint(x: data.contentSizeX + data.valueRightSpan - data.XYAxisLineWidth, y: bottomY));
+            gridPath.addLine(to: CGPoint(x: contentSizeX + data.valueRightSpan, y: 0));
+            gridPath.move(to: CGPoint(x: contentSizeX + data.valueRightSpan - data.XYAxisLineWidth, y: 0));
+            gridPath.addLine(to: CGPoint(x: contentSizeX + data.valueRightSpan - data.XYAxisLineWidth, y: bottomY));
             gridLayer.path = gridPath;
         }
     }
@@ -208,10 +210,10 @@ public class BarChart: UIView {
         }
         //设置坐标
         showLayerV.frame = CGRect(x: 0, y: data.margins.top,
-                                  width: data.contentSizeX + data.valueRightSpan,
-                                  height: (data.showRect.height-data.margins.top-data.margins.bottom));
+                                  width: contentSizeX + data.valueRightSpan,
+                                  height: (showRect.height-data.margins.top-data.margins.bottom));
         //设置滚动范围
-        scrollV.contentSize = CGSize(width: data.contentSizeX + data.valueRightSpan, height: 0);
+        scrollV.contentSize = CGSize(width: contentSizeX + data.valueRightSpan, height: 0);
     }
     
     
@@ -221,7 +223,7 @@ public class BarChart: UIView {
         
         if (data.drawTint && (data.tintDescs.count == data.tintColors.count)) {
             let startX:CGFloat = data.margins.left + data.tintMargin.left;
-            let startY:CGFloat = data.showRect.height - data.margins.bottom + data.tintMargin.top;
+            let startY:CGFloat = showRect.height - data.margins.bottom + data.tintMargin.top;
             
             var x = startX;
             var y = startY;
@@ -257,7 +259,7 @@ public class BarChart: UIView {
     }
     
     
-    //计算数据
+    ///计算数据
     private func calculData(){
         //计算最大最小值
         var ma:Double = 0;
@@ -272,12 +274,12 @@ public class BarChart: UIView {
             }
         }
         //计算范围，每个像素对应值的比例
-        let yRange:CGFloat = data.showRect.height - data.margins.top - data.margins.bottom - data.valueTopSpan - data.XYAxisLineWidth;
+        let yRange:CGFloat = showRect.height - data.margins.top - data.margins.bottom - data.valueTopSpan - data.XYAxisLineWidth;
         let range:CGFloat = CGFloat(ma - mi);
         let rate:CGFloat = yRange / range;
         //生成单个条形图的坐标信息
         var startX:CGFloat = 0;
-        let startY:CGFloat = (data.showRect.height - data.margins.bottom - data.margins.top);
+        let startY:CGFloat = (showRect.height - data.margins.bottom - data.margins.top);
         for set in self.data.dataSets {
             for entry in set.entrys {
                 let height = CGFloat(entry.value)*rate;
@@ -287,10 +289,10 @@ public class BarChart: UIView {
             }
             startX += data.setValueSpan;
         }
-        data.contentSizeX = startX;
+        contentSizeX = startX;
         //Y轴值的文字和坐标
         if data.drawYAxisValues {
-            var tmpY:CGFloat = data.showRect.height - data.margins.bottom;
+            var tmpY:CGFloat = showRect.height - data.margins.bottom;
             var step:Int = 0;
             while tmpY >= data.margins.top {
                 let value:Double = mi + Double(data.gridYspan / rate) * Double(step);
@@ -372,6 +374,7 @@ public class BarChart: UIView {
     
     /////移除旧视图
     private func removeAllShowLayer(){
+        
         func removeLayerInArray(arr:[CALayer]){
             for layer in arr {
                 layer.removeFromSuperlayer();
@@ -429,6 +432,15 @@ public class BarChart: UIView {
 
 
 
+
+
+
+
+
+
+
+
+
 ///条形图数据
 public class BarChartData:NSObject{
     
@@ -437,8 +449,6 @@ public class BarChartData:NSObject{
     public var backColor:UIColor = .white               //背景色
     public var valueTopSpan:CGFloat = 20                //条形图最高的距离整个显示区域顶部的间距
     public var valueRightSpan:CGFloat = 20              //整个图表最右多出的剪头间距
-    public var showRect:CGRect = CGRect(x: 0, y: 0, width: ScreenSize().width, height: 300)//显示的区域
-    public var contentSizeX:CGFloat = 0                 //整个横向内容区域-计算属性
     public var XYAxisLineWidth:CGFloat = 1              //XY轴线宽
     public var XYAxisColor:UIColor = .black             //XY轴线颜色
     public var margins:UIEdgeInsets = UIEdgeInsets.init(top: 30, left: 35, bottom: 30, right: 30)//图形距离屏幕间距
@@ -464,9 +474,6 @@ public class BarChartData:NSObject{
     public var yAxisValueColor:UIColor = .black         //Y轴文字颜色
     public var yAxisValuesFontSize:CGFloat = 10         //Y轴字号大小
     public var yAxisValueTailSpan:CGFloat = 6           //Y轴文字距离Y轴的向右间距
-    ///Y轴计算属性
-    public var yAxisValues:[String] = []                //Y轴显示的值
-    public var yAxisValuesRects:[CGRect] = []           //Y轴值显示的坐标
     ///网格
     public var drawGridX:Bool = true                    //是否绘制横向网格
     public var drawGridY:Bool = true                    //是否绘制竖向网格
@@ -487,6 +494,11 @@ public class BarChartData:NSObject{
     public var tintDescs:[String] = []                        //示例的描述文案
     public var tintColors:[UIColor] = []                      //示例的颜色
     public var tintMargin:UIEdgeInsets = UIEdgeInsets(top: 30, left: 10, bottom: 0, right: 16)//上左右间距，底部间距不使用
+    
+    ///计算属性
+    public var yAxisValues:[String] = []                //Y轴显示的值
+    public var yAxisValuesRects:[CGRect] = []           //Y轴值显示的坐标
+    
     
     
     ///条形图单个横向数据，可以有多个条形

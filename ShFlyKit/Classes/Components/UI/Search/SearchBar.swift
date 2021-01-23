@@ -35,7 +35,7 @@ public class SearchBar: UIView {
     class public func initSearchBar(placeHolder:String,type:LayoutType,radius:CGFloat = 5,barHeight:CGFloat = 50)->SearchBar{
         let searchBar = SearchBar();
         searchBar._layOutType = type;
-        searchBar._textField = UITextField.initPlaceHolder(placeHolder, super: searchBar);
+        searchBar._textField = UITextField.initPlaceHolder(placeHolder, superView: searchBar);
         let attribute = [NSAttributedStringKey.foregroundColor:UIColor.colorHexValue("9E9E9E"),
                          NSAttributedStringKey.font:kFont(14)];
         let attriStr = NSAttributedString(string: placeHolder, attributes: attribute);

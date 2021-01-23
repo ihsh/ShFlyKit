@@ -8,11 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface UITextField (SH)
 
-+(instancetype)initPlaceHolder:(NSString*)placeHolder super:(nullable UIView*)superView;
++(instancetype)initPlaceHolder:(NSString*)placeHolder superView:(UIView*)superView;
+
+
+///限制输入长度
+- (void)limitTextLength:(int)length;
+
+///禁止输入emoji
+- (void)banEmoji;
+
+///禁止输入汉字
+- (void)banChinese;
+
+
 @end
 
-NS_ASSUME_NONNULL_END
+

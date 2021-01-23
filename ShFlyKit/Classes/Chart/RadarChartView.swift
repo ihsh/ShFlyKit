@@ -111,6 +111,7 @@ public class RadarChartView: UIView ,CAAnimationDelegate {
     
     
     ///Private
+    ///计算绘制数据
     private func calculateChartPoints(){
         //计算基础值
         var angles:[CGFloat] = [];
@@ -166,13 +167,12 @@ public class RadarChartView: UIView ,CAAnimationDelegate {
             }
             pointsGrid.append(array);
         }
-        
     }
     
     
-    //执行绘制
+    ///执行绘制
     private func drawChart(){
-        //绘制
+        //绘制网格
         self.setNeedsDisplay();
         //绘制圈层
         self.drawPlotLayer();
@@ -183,9 +183,9 @@ public class RadarChartView: UIView ,CAAnimationDelegate {
     }
     
     
-    //绘制雷达图层
+    ///绘制雷达图层
     private func drawPlotLayer(){
-        
+        //数据围起来的区域图层
         if self.chartPlotLayer == nil {
             self.chartPlotLayer = CAShapeLayer();
             self.chartPlotLayer.lineCap = kCALineCapButt;
@@ -209,21 +209,24 @@ public class RadarChartView: UIView ,CAAnimationDelegate {
     }
     
     
-    //添加动画组
+    ///添加动画组
     private func addAnimationIfNeed(){
+        //缩放动画
         let scaleAni = CABasicAnimation.init(keyPath: "transform.scale");
         scaleAni.fromValue = 0;
         scaleAni.toValue = 1;
+        //透明度动画
         let opaAni = CABasicAnimation.init(keyPath: "opacity")
         opaAni.fromValue = 0;
         opaAni.toValue = 1;
-        let rotateAni = CABasicAnimation.init(keyPath: "transform.rotation.z");
-        rotateAni.fromValue = M_PI;
-        rotateAni.toValue = 0;
-    
+        //动画组
         let group = CAAnimationGroup();
         group.delegate = self;
         if data.animateRotate {
+            //旋转动画
+            let rotateAni = CABasicAnimation.init(keyPath: "transform.rotation.z");
+            rotateAni.fromValue = M_PI;
+            rotateAni.toValue = 0;
             group.animations = [scaleAni,opaAni, rotateAni];
         }else{
             group.animations = [scaleAni,opaAni];
@@ -237,34 +240,53 @@ public class RadarChartView: UIView ,CAAnimationDelegate {
 
 
 
-//雷达图显示数据
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///雷达图显示数据
 public class RadarShowData:NSObject{
+    //主配置
     public var clockWise:Bool = true       //顺时针
-    public var showDesc:Bool = true        //显示描述
-    public var showVaues:Bool = true       //是否显示值
-    public var decimalCount:UInt = 0       //小数点位数
-    public var displayAnimated:Bool = true //展示动画
-    public var animateRotate:Bool = true   //动画中是否旋转
-    public var animateDuration:TimeInterval = 1 //动画时长
-    
     public var backColor:UIColor = .black  //背景色
     public var lineColor:UIColor = UIColor.colorHexValue("FFFFFF", alpha: 0.4)  //网格线颜色
-    public var fontColor:UIColor = .white  //坐标轴文字颜色
-    public var fontSize:UIFont = .systemFont(ofSize: 12)
-    public var valueColor:UIColor = .white //值颜色
-    public var valueSize:UIFont = .systemFont(ofSize: 12)
-    public var fillColor:UIColor = UIColor.colorHexValue("FFFFFF", alpha: 0.2)  //填充色
-    public var strokeColor:UIColor = .white                                     //图层边缘线颜色
-    
-    
-    public var fixMax:CGFloat = 0           //设置的固定大小
+    public var fillColor:UIColor = UIColor.colorHexValue("FFFFFF", alpha: 0.2)  //中间图层填充色
+    public var strokeColor:UIColor = .white                                     //中间图层边线颜色
+    //其他配置
+    public var decimalCount:UInt = 0        //小数点位数
+    public var fixMax:CGFloat = 0           //设置的固定大小 0是未设置
     public var valueDivider:CGFloat = 15    //设置的径向分段距离值
     public var margin:CGFloat = 30          //径向端点与视图边缘的距离
     public var descMargin:CGFloat = 6       //文字区域边缘和端点之间的距离
-    public var valueRate:CGFloat = 1        //实际显示的值与valueDivider的比值 压缩比例
-    public private(set) var dataSet:[RadarDataItem] = [] //数据
+   
+    //动画
+    public var displayAnimated:Bool = true //展示动画
+    public var animateRotate:Bool = true   //动画中是否旋转
+    public var animateDuration:TimeInterval = 1 //动画时长
+    //描述
+    public var showDesc:Bool = true        //显示描述
+    public var fontColor:UIColor = .white  //坐标轴文字颜色
+    public var fontSize:UIFont = .systemFont(ofSize: 12)
+    //值
+    public var showVaues:Bool = true       //是否显示值
+    public var valueColor:UIColor = .white //值颜色
+    public var valueSize:UIFont = .systemFont(ofSize: 12)
+    //计算的中间值
+    public private(set) var dataSet:[RadarDataItem] = []//数据
+    public var valueRate:CGFloat = 1               //实际显示的值与valueDivider的比值 压缩比例
     public private(set) var calculMax:CGFloat = 0  //计算得出的最大值
     public private(set) var plotCircles:Int!       //计算得出的多边形个数
+    
     
     
     ///计算值

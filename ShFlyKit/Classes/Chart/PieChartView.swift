@@ -41,7 +41,7 @@ public class PieChartView: UIView  {
     }
    
     
-    //计算
+    ///计算
     private func calculData(_ data:PieData){
         var total:Double = 0;
         for entry in data.dataSet {
@@ -64,7 +64,7 @@ public class PieChartView: UIView  {
     }
     
     
-    //绘制图层
+    ///绘制图层
     private func drawLayers(){
         let center = data.center;
         //动画
@@ -195,17 +195,6 @@ public class PieChartView: UIView  {
     }
     
     
-    //动画
-    private func animate(){
-        let ani = CABasicAnimation.init(keyPath: "strokeEnd");
-        ani.duration = data.duration;
-        ani.fromValue = 0;
-        ani.toValue = 1;
-        ani.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
-        ani.isRemovedOnCompletion = true;
-        bgCirCleLayer.add(ani, forKey: "circleAnimation");
-    }
-    
     
     ///点击放大
     @objc private func tapClick(tap:UITapGestureRecognizer){
@@ -231,14 +220,14 @@ public class PieChartView: UIView  {
     }
     
     
-    //旋转
+    ///处理旋转
     public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if data.rotationEnable {
             let touch = ((touches as NSSet).anyObject() as AnyObject)
             //两个点
             let pos = touch.location(in: self);
             let center:CGPoint = data.center;//中心
-            //求反正弦
+            //求反正切
             let ab:CGFloat = pos.x - center.x;
             let bc:CGFloat = pos.y - center.y;
             let angle = atan2(bc, ab);
@@ -260,7 +249,19 @@ public class PieChartView: UIView  {
     }
 
     
-    //旋转
+    ///动画
+    private func animate(){
+        let ani = CABasicAnimation.init(keyPath: "strokeEnd");
+        ani.duration = data.duration;
+        ani.fromValue = 0;
+        ani.toValue = 1;
+        ani.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
+        ani.isRemovedOnCompletion = true;
+        bgCirCleLayer.add(ani, forKey: "circleAnimation");
+    }
+    
+    
+    ///旋转
     private func rotation(){
         //添加各个饼图
         let center:CGPoint = data.center;
@@ -302,23 +303,36 @@ public class PieChartView: UIView  {
     }
     
     
-    //生成分割线的路径
+    ///生成分割线的路径
     private func rotationLinesPath()->CGMutablePath{
         let center = data.center;
-        //根据中心、半径、角度生成新点
+        
+        //根据中心、半径、角度生成新点的函数
         func generatePos(radius:CGFloat,angle:CGFloat)->CGPoint{
             let x:CGFloat = radius * cos(angle);
             let y:CGFloat = radius * sin(angle);
             let newPos:CGPoint = CGPoint(x: center.x + x, y: center.y + y);
             return newPos;
         }
-        //计算描述线横折后的终点
+        //计算描述线横折后的终点的函数
         func sidePos(pos:CGPoint,engle:CGFloat)->CGPoint{
             let rate:CGFloat = (fabs(pos.y - center.y)/data.radius);                //计算离中心Y的距离比例
             let length:CGFloat = data.lineLength * rate + data.drawLineInnerEnd;    //越靠近中心线越短
             let new:CGPoint = CGPoint(x: pos.x + ((pos.x < center.x) ? -length : length), y: pos.y);
             return new;
         }
+        //添加动画，加快文字的跟随的函数
+        func addPositionAnimate(layer:CATextLayer,pos:CGPoint){
+            let ani = CABasicAnimation.init(keyPath: "position");
+            ani.duration = 0.1; //再小没效果
+            let rect = layer.frame;
+            ani.fromValue = CGPoint(x: (rect.origin.x + rect.size.width/2.0), y: (rect.origin.y + rect.size.height/2.0));
+            ani.toValue = pos;
+            ani.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
+            ani.isRemovedOnCompletion = true;
+            layer.add(ani, forKey: "postion");
+        }
+        
         //绘制线条
         var tmpPos:[CGPoint] = [];
         let extAngle = startAngle + addAngle;
@@ -336,17 +350,7 @@ public class PieChartView: UIView  {
             }
             tmpPos.append(pos3);
         }
-        //添加动画，加快文字的跟随
-        func addPositionAnimate(layer:CATextLayer,pos:CGPoint){
-            let ani = CABasicAnimation.init(keyPath: "position");
-            ani.duration = 0.1; //再小没效果
-            let rect = layer.frame;
-            ani.fromValue = CGPoint(x: (rect.origin.x + rect.size.width/2.0), y: (rect.origin.y + rect.size.height/2.0));
-            ani.toValue = pos;
-            ani.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
-            ani.isRemovedOnCompletion = true;
-            layer.add(ani, forKey: "postion");
-        }
+        
         //计算文字的坐标
         func makeFrame(first:Bool){
             
@@ -358,7 +362,9 @@ public class PieChartView: UIView  {
                         entry.width = str.width(with: UIFont.systemFont(ofSize: data.descFontSize));
                         entry.height = str.height(forWidth:CGFloat(MAXFLOAT), font: UIFont.systemFont(ofSize: data.descFontSize));
                     }
-                    let pos:CGPoint = tmpPos[i];//取线的终点
+                    //取线的终点
+                    let pos:CGPoint = tmpPos[i];
+                    //在终点的左右边绘制文字
                     let rect:CGRect = CGRect(x: pos.x + ((pos.x < center.x) ? -(entry.width + data.drawLineAndDescSpan) : data.drawLineAndDescSpan),
                                              y: pos.y - entry.height/2.0, width: entry.width, height: entry.height);
                     let layer:CATextLayer = textLayers[i];
@@ -366,6 +372,7 @@ public class PieChartView: UIView  {
                         layer.frame = rect;
                     }else{
                         layer.frame = rect;
+                        //快速移动
                         addPositionAnimate(layer: layer, pos: CGPoint(x: rect.origin.x + rect.size.width/2.0, y: rect.origin.y + rect.size.height/2.0));
                     }
                 }
@@ -392,6 +399,9 @@ public class PieChartView: UIView  {
     }
     
 }
+
+
+
 
 
 

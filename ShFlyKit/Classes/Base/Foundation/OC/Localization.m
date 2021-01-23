@@ -10,6 +10,7 @@
 @implementation Localization
 
 
+///当地语言
 + (NSString *)localLanguage
 {
     NSString *preferredLanguage = [NSLocale preferredLanguages].firstObject;
@@ -23,12 +24,7 @@
 }
 
 
-+ (NSString*)localRegion
-{
-    return [[NSLocale currentLocale] objectForKey:NSLocaleCountryCode];
-}
-
-
+///当地语言的汉字
 + (NSString *)hansLocalLanguage
 {
     NSDictionary* languageDic = @{@"zh-Hans-CN":@"简体中文",
@@ -56,6 +52,14 @@
 }
 
 
+///当前区域
++ (NSString*)localRegion
+{
+    return [[NSLocale currentLocale] objectForKey:NSLocaleCountryCode];
+}
+
+
+///当前区域的中文名
 + (NSString*)hansLocalRegion
 {
     NSDictionary* regionDic = @{@"CN":@"中国",
@@ -72,6 +76,24 @@
     NSString* enRegion = [self localRegion];
     NSString* hansRegion = regionDic[enRegion];
     return hansRegion ? hansRegion : enRegion;
+}
+
+
+///语言的英文code列表
++ (NSDictionary *)localesMap {
+    return @{
+        @"en": @[@"en_AU",@"en_CA",@"en_IN",@"en_IE",
+                @"en_MT",@"en_NZ",@"en_PH",@"en_SG",
+                @"en_ZA",@"en_GB",@"en_US",@"en_AE",
+                @"en-AE",@"en_AS",@"en-AU",@"en_BD",
+                @"en-CA",@"en_EG",@"en_ES",@"en_GB",
+                @"en-GB",@"en_HK",@"en_ID",@"en-IN",
+                @"en_NG",@"en-PH",@"en_PK",@"en-SG",@"en-US"],
+        // Simplified Chinese
+        @"zh_Hans": @[@"zh_CN", @"zh_SG", @"zh-Hans"],
+        // Traditional Chinese
+        @"zh_Hant": @[@"zh_HK", @"zh_TW", @"zh-Hant", @"zh-HK", @"zh-TW"]
+    };
 }
 
 
