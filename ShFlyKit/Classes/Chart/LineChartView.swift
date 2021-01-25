@@ -218,7 +218,7 @@ public class LineChartView: UIView ,CAAnimationDelegate{
         }
         ///添加值
         func addTextLayer(pos:CGPoint,desc:String,index:Int){
-            if index > valueLayers.count {
+            if index >= valueLayers.count {
                 let layer = CATextLayer();
                 layer.contentsScale = UIScreen.main.scale;
                 layer.fontSize = data.valueFontSize;
@@ -272,15 +272,17 @@ public class LineChartView: UIView ,CAAnimationDelegate{
                         path.move(to: endPos);
                     }else{
                         path.addLine(to: endPos);
-                        //线走过了再添加圆圈和值
-                        if end == false {
-                            //添加圆点
-                            circlePath.move(to: pos);
-                            circlePath.addArc(center: pos, radius: data.circleRadius, startAngle: 0, endAngle: 6.3, clockwise: true);
-                            //添加值-重复不添加
-                            addTextLayer(pos: pos, desc: String.formatLu(value: entry.value, decimal: data.valueDecimalCount),index: i);
-                        }
                     }
+                    
+                    //线走过了再添加圆圈和值
+                    if end == false {
+                        //添加圆点
+                        circlePath.move(to: pos);
+                        circlePath.addArc(center: pos, radius: data.circleRadius, startAngle: 0, endAngle: 6.3, clockwise: true);
+                        //添加值-重复不添加
+                        addTextLayer(pos: pos, desc: String.formatLu(value: entry.value, decimal: data.valueDecimalCount),index: i);
+                    }
+                    
                     //阴影部分
                     shadowPath.addLine(to: endPos);
                     //阴影添加尾部
@@ -476,7 +478,7 @@ public class LineChartData:NSObject{
     public var xyAxisLineColor:UIColor = .black
     public var xAxisValueHorizon = false        //X轴文字是否水平
     public var xAxisValueTopSpan:CGFloat = 6    //X轴文字距离X轴距离
-    public var xAxisXoffset:CGFloat = 0         //内容在X轴的偏移
+    public var xAxisXoffset:CGFloat = 10        //内容在X轴的偏移
     public var xAxisValueFontSize:CGFloat = 12
     public var xAxisValueColor:UIColor = .black
     //值

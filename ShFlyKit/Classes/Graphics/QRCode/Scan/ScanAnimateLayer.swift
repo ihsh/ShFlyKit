@@ -40,7 +40,7 @@ public class ScanAnimateLayer:UIView{
     public var waveColor = UIColor.colorHexValue("3994FD")      //动画颜色
     public var maskColor = UIColor.colorHexValue("000000", alpha: 0.3)//遮罩颜色
     //Private
-    private var animateV:AnimateWaveV!                          //动画线图层
+    private var animateV:AnimateWaveV?                          //动画线图层
     private var maskLayer:CAShapeLayer!                         //遮罩层
     
 
@@ -159,28 +159,37 @@ public class ScanAnimateLayer:UIView{
     }
 
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     //启动动画
     public func startAnimate(){
         if animaStyle != .None {
             if animateV == nil {
                 animateV = AnimateWaveV()
-                animateV.backgroundColor = .clear;
-                animateV.superV = self;
-                self.addSubview(animateV);
-                animateV.mas_makeConstraints { (make) in
+                animateV!.backgroundColor = .clear;
+                animateV!.superV = self;
+                self.addSubview(animateV!);
+                animateV!.mas_makeConstraints { (make) in
                     make?.center.mas_equalTo()(self);
                     make?.width.mas_equalTo()(size.width-boardWidth);
                     make?.height.mas_equalTo()(size.height-boardWidth);
                 }
             }
-            animateV.startAnimate();
+            animateV!.startAnimate();
         }
     }
     
     
     //停止动画
     public func stopAnimate(){
-        animateV.stopAnimate();
+        animateV?.stopAnimate();
     }
     
      

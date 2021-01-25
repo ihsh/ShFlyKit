@@ -100,8 +100,8 @@ class UIViewCurveVC: UIViewController,VerifyCodeViewDelegate {
         
         activity.queueActivity(model);
         activity.queueActivity(model2);
-        activity.queueActivity(model3);
-        activity.queueActivity(model4);
+//        activity.queueActivity(model3);
+//        activity.queueActivity(model4);
         
     }
     

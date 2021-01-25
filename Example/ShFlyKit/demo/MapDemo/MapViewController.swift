@@ -10,9 +10,9 @@ import UIKit
 
 class MapViewController: UITableViewController {
     
-     let actionArr:NSArray = ["百度点聚合","百度调用客户端","百度路线规划","百度地图轨迹",
-                              "高德位置选点","高德路线规划","高德地图轨迹","高德小车动画","高德点聚合"]
-    
+//     let actionArr:NSArray = ["百度点聚合","百度调用客户端","百度路线规划","百度地图轨迹",
+//                              "高德位置选点","高德路线规划","高德地图轨迹","高德小车动画","高德点聚合"]
+    let actionArr:NSArray = ["高德位置选点","高德路线规划","高德地图轨迹","高德小车动画","高德点聚合"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

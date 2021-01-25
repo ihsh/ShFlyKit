@@ -96,6 +96,7 @@ class MainTabVC: UIViewController,SHPhoneAssetsToolDelegate,ItemsViewDelegate,Ti
             self.navigationController?.pushViewController(vc, animated: true);
         }else if title == "地铁线路"{
             let vc = UIViewController()
+            vc.view.backgroundColor = UIColor.white;
             let view = MetrolLineV()
             vc.view.addSubview(view);
             view.mas_makeConstraints { (maker) in

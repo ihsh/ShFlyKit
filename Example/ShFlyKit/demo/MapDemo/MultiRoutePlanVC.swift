@@ -70,14 +70,6 @@ class MultiRoutePlanVC: UIViewController,AMapMultlRouteViewDelegate,AMapDriveNav
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated);
-        self.navigationController?.isNavigationBarHidden = false;
-        self.navigationController?.navigationBar.isTranslucent = false;
-        self.navigationController?.isToolbarHidden = true;
-    }
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         //初始化起终点

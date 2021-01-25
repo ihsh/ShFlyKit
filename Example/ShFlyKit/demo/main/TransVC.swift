@@ -50,10 +50,11 @@ class TransVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated);
-        if navColorSame {
-            self.restoreNavTranslucent();
-        }
+//        if navColorSame {
+//            self.restoreNavTranslucent();
+//        }
     }
+
 
 
 }
