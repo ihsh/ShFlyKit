@@ -199,10 +199,11 @@ public class AMapPathTrackView: UIView,MAMapViewDelegate,AMapNaviDriveManagerDel
             return;
         }
         if self.passedTraceLine != nil {
-            self.mapView.remove(self.passedTraceLine)
+            self.passedTraceLine.setPolylineWithCoordinates(&coordinates, count: Int(UInt(coordinates.count)));
+        }else{
+            self.passedTraceLine = MAPolyline(coordinates: &coordinates, count: UInt(coordinates.count));
+            self.mapView.add(passedTraceLine)
         }
-        self.passedTraceLine = MAPolyline(coordinates: &coordinates, count: UInt(coordinates.count));
-        self.mapView.add(passedTraceLine)
     }
     
     

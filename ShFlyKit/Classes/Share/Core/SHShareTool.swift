@@ -170,7 +170,7 @@ WeiboSDKDelegate,WXApiDelegate,TencentLoginDelegate,TencentSessionDelegate{
             object.miniProgramType = WXMiniProgramType.release;     //正式版本
             if dataObject.envirment == .DEV{
                 object.miniProgramType = WXMiniProgramType.test;    //测试版本
-            }else if (dataObject.envirment == .STG){
+            }else if (dataObject.envirment == .PRE){
                 object.miniProgramType = WXMiniProgramType.preview; //预发布版本
             }
             //图片
@@ -439,7 +439,7 @@ public class ShareObjct:NSObject{
     
     //数据环境--主要用于微信小程序
     public enum Envirment{
-        case DEV,STG,PRD
+        case DEV,PRE,PRD
     }
     
     //初始化

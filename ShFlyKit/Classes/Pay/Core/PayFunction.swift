@@ -116,8 +116,8 @@ class PayFunction: NSObject,WXApiDelegate,UPAPayPluginDelegate{
     public func wechatPay(prepayId:String,nonceStr:String,timeStamp:UInt32,package:String,sign:String,pair:BlockPair){
         addPair(pair, type: PayType.WeChat);
         let req:PayReq = PayReq()
-        req.openID = wechatAppId;       //appID
-        req.partnerId = wechatMchId;    //商户号
+        req.openID = wechatAppId;       //appID 签约和支付的appid有不同
+        req.partnerId = wechatMchId;    //商户号 不变
         req.prepayId = prepayId;        //预支付订单
         req.nonceStr = nonceStr;        //随机串，防重发
         req.timeStamp = timeStamp;      //时间戳，防重发

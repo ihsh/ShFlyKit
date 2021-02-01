@@ -203,7 +203,9 @@ static NSString* const kMediumUrlMethod = @"initWithParameter:";
         ||strcmp(retType, @encode(BOOL)) == 0
         ||strcmp(retType, @encode(CGFloat)) == 0
         ||strcmp(retType, @encode(NSUInteger)) == 0) {
+        
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
+        //这里的Index要从2开始，以为0跟1已经被占据了，分别是self（target）,selector(_cmd)
         [invocation setArgument:&params atIndex:2];
         [invocation setArgument:&instanceHandler atIndex:3];
         [invocation setArgument:&dataHandler atIndex:4];

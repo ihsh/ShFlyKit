@@ -10,6 +10,7 @@
 
 @implementation ScreenSnap
 
+
 //普通视图截图
 +(UIImage *)snapNormalView:(UIView *)targerView{
     UIGraphicsBeginImageContextWithOptions(targerView.frame.size, NO, [UIScreen mainScreen].scale);
