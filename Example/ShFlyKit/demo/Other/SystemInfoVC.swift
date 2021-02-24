@@ -42,8 +42,8 @@ class SystemInfoVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         for (key,value) in info {
             self.dataSource.append([key:value]);
         }
-        self.dataSource.append(["内存使用":String(format: "%.2f", SystemInfo.taskUsedMemory())]);
-        self.dataSource.append(["总内存大小":String(format: "%.2f", SystemInfo.totalMemorySize())]);
+        self.dataSource.append(["内存使用":String(format: "%.2fMB", SystemInfo.taskUsedMemory())]);
+        self.dataSource.append(["总内存大小":String(format: "%.2fMB", SystemInfo.totalMemorySize())]);
         self.dataSource.append(["cpu使用率":String(format: "%.2f%%", SystemInfo.cpuUsedPersentage())]);
         self.dataSource.append(["电池电量":String(format: "%.2f%%", SystemInfo.getBatteryQuantity()*100.0)]);
         self.dataSource.append(["低电量模式":SystemInfo.lowPowerModeEnable() ? "打开" : "关闭"]);

@@ -9,7 +9,7 @@
 import UIKit
 import AMapSearchKit
 import AMapNaviKit
-
+import AMapLocationKit
 
 
 public protocol AmapPoiSelectDelegate {
@@ -34,7 +34,7 @@ public class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultT
     public var maMapView:MAMapView!                                  //高德地图
     
     // MARK: - Variable
-    private var search:AMapService!                                //地图搜索类
+    private var search:AMapService!                                  //地图搜索类
     private var tableView:AMapPoiResultTable!                        //显示的表视图
     private var searchTypeSegment:UISegmentedControl!                //分段选择器
     private var locationBtn:UIButton!                                //定位按钮
@@ -57,6 +57,8 @@ public class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultT
         self.initMapView()
         //初始化搜索
         self.initSearch()
+        //唤起定位权限
+        AMapNaviDriveManager.sharedInstance()
     }
     
     
@@ -72,6 +74,8 @@ public class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultT
         self.maMapView.zoomLevel = zoomLevel;
         //显示用户位置
         self.maMapView.showsUserLocation = true;
+        //点击一次定位
+        actionLocation();
     }
     
     
@@ -85,6 +89,7 @@ public class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultT
             maker?.left.top()?.right()?.mas_equalTo()(self.view);
             maker?.bottom.mas_equalTo()(tableView.mas_top);
         }
+       
     }
     
     
@@ -240,7 +245,6 @@ public class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultT
     public func mapView(_ mapView: MAMapView!, didFailToLocateUserWithError error: Error!) {
         
     }
-   
 
     
     // MARK: - Private

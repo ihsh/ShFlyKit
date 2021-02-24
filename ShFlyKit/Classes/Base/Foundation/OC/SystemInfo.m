@@ -111,9 +111,9 @@
 
 
 //Private-格式化数据单位
-+(NSString *)bytesToAvaiUnit:(int)bytes{
++(NSString *)bytesToAvaiUnit:(uint32_t)bytes{
     if(bytes < 1024){
-        return [NSString stringWithFormat:@"%dB", bytes];
+        return [NSString stringWithFormat:@"%ldB", bytes];
     }else if(bytes >= 1024 && bytes < 1024 * 1024){
         return [NSString stringWithFormat:@"%.1fKB", (double)bytes / 1024];
     }else if(bytes >= 1024 * 1024 && bytes < 1024 * 1024 * 1024){

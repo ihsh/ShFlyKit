@@ -108,8 +108,9 @@ class PrintTestVC: UIViewController,SHPhoneAssetsToolDelegate {
     
     @objc private func previewLocal(){
         let tool = PreviewTool()
-        let st = Bundle.main.path(forResource: "test", ofType: "doc");
-        tool.previewLocal(st!,title: "自定义标题");
+        if let st = Bundle.main.path(forResource: "test", ofType: "doc"){
+            tool.previewLocal(st,title: "自定义标题");
+        }
     }
     
     
