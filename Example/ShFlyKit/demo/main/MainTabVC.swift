@@ -175,24 +175,24 @@ class MainTabVC: UIViewController,SHPhoneAssetsToolDelegate,ItemsViewDelegate,Ti
             //闪电
             let thunderConfig = WeatherConfig.Thunder();
             view.thunderFlash(config: thunderConfig);
-//            //添加云
-//            view.addCloud(isRain: true, count: 11,mixColor: UIColor.black);
-//            view.rain(config: WeatherConfig.Rain());
-//            view.sunShine(config: WeatherConfig.Sun());
-//            let config = EmitterConfig()
-//            config.content = UIImage.name("rain");
-//            config.scale = 0.1;
-//            config.scaleRange = 0;
-//            config.position = CGPoint(x: ScreenSize().width/2.0, y: 75);
-//            view.showEmitter(config: config);
-//
-//            let config2 = EmitterConfig()
-//            config2.content = UIImage.name("ele_snow");
-//            config2.scale = 0.3;
-//            config2.scaleRange = 0.3;
-//            config2.spin = 3;
-//            config2.position = CGPoint(x: ScreenSize().width/2.0, y: 75);
-//            view.showEmitter(config: config2);
+            //添加云
+            view.addCloud(isRain: true, count: 11,mixColor: UIColor.black);
+            view.rain(config: WeatherConfig.Rain());
+            view.sunShine(config: WeatherConfig.Sun());
+            let config = EmitterConfig()
+            config.content = UIImage.name("rain");
+            config.scale = 0.1;
+            config.scaleRange = 0;
+            config.position = CGPoint(x: ScreenSize().width/2.0, y: 75);
+            view.showEmitter(config: config);
+
+            let config2 = EmitterConfig()
+            config2.content = UIImage.name("ele_snow");
+            config2.scale = 0.3;
+            config2.scaleRange = 0.3;
+            config2.spin = 3;
+            config2.position = CGPoint(x: ScreenSize().width/2.0, y: 75);
+            view.showEmitter(config: config2);
         }else if title == "涂鸦"{
             let vc = HandBoardVC()
             self.navigationController?.pushViewController(vc, animated: true);

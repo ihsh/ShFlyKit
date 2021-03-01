@@ -72,7 +72,7 @@ Pod::Spec.new do |spec|
         sp.dependency 'ShFlyKit/Base'
         sp.dependency 'ShFlyKit/Media'
         sp.dependency 'AipOcrSdk'
-        sp.resources = ['ShFlyKit/Assets/Graphics/**/*']
+        sp.resources = ['ShFlyKit/Assets/Graphics/*']
   end
   
   #UI组件
@@ -82,7 +82,7 @@ Pod::Spec.new do |spec|
         sp.dependency 'ShFlyKit/Media'
         sp.dependency 'ShFlyKit/Graphics'
         sp.dependency 'GT3Captcha'
-        sp.resources = ['ShFlyKit/Assets/Components/**/*']
+        sp.resources = ['ShFlyKit/Assets/Components/*']
   end
 
   #分享

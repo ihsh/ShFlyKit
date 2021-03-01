@@ -24,9 +24,9 @@ PODS:
   - AMapFoundation (1.6.5.1)
   - AMapLocation (2.6.7):
     - AMapFoundation (~> 1.6.4)
-  - AMapNavi (7.7.1):
+  - AMapNavi (7.8.0):
     - AMapFoundation (~> 1.6.5)
-  - AMapSearch (7.7.0):
+  - AMapSearch (7.8.0):
     - AMapFoundation (~> 1.6.4)
   - Bugly (2.5.71)
   - FMDB (2.7.5):
@@ -34,9 +34,9 @@ PODS:
   - FMDB/standard (2.7.5)
   - GT3Captcha (0.1.6)
   - Masonry (1.1.0)
-  - SDWebImage (5.9.5):
-    - SDWebImage/Core (= 5.9.5)
-  - SDWebImage/Core (5.9.5)
+  - SDWebImage (5.10.4):
+    - SDWebImage/Core (= 5.10.4)
+  - SDWebImage/Core (5.10.4)
   - ShFlyKit (1.0.7):
     - AFNetworking
     - Bugly
@@ -183,14 +183,14 @@ SPEC CHECKSUMS:
   AipOcrSdk: 6d471b3f02ec0a440aa96ea45752298ee3b26d49
   AMapFoundation: b67560a6f21aab81c8c12f84616b55a3833b6253
   AMapLocation: a46c30d9930d0f3a3bd21139d8f845d10ac3f01d
-  AMapNavi: 579e880c7db918b562c3eb1fc290687023dd3edb
-  AMapSearch: 93bccff245dada46060758f828ca1058ec3363fc
+  AMapNavi: ce659052825437090becd14c3bbd5a71b88fcafe
+  AMapSearch: a62d0b2508270dff5a9b05ba3af9fc8843b48c8a
   Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   GT3Captcha: 6c2724cf9a2e7c3411b1cc1b2aa56b76be48df87
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  SDWebImage: 0b2ba0d56479bf6a45ecddbfd5558bea93150d25
-  ShFlyKit: ec1dab2bfcec0fa3e834f5fd3416665b34b4268f
+  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
+  ShFlyKit: f6ac59763c2373abb55d6315a5c3e120c58b6a21
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
 PODFILE CHECKSUM: c7c802561c3549028ab0a3b966bab7d3628bda61

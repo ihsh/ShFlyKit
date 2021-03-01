@@ -103,7 +103,7 @@
         ]
       },
       "resources": [
-        "ShFlyKit/Assets/Graphics/**/*"
+        "ShFlyKit/Assets/Graphics/*"
       ]
     },
     {
@@ -124,7 +124,7 @@
         ]
       },
       "resources": [
-        "ShFlyKit/Assets/Components/**/*"
+        "ShFlyKit/Assets/Components/*"
       ]
     },
     {
