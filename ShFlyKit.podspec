@@ -3,7 +3,7 @@
 Pod::Spec.new do |spec|
   #基础配置
   spec.name         = "ShFlyKit"
-  spec.version      = "1.0.7"
+  spec.version      = "1.0.8"
   spec.summary      = "A framework that is often used in enterprise development"
   spec.description  = <<-DESC
                       A framework that is often used in enterprise developments
@@ -33,6 +33,7 @@ Pod::Spec.new do |spec|
   spec.dependency 'SDWebImage'
   spec.dependency 'FMDB'
   spec.dependency 'AFNetworking'
+  spec.dependency 'YYCache'
   #依赖系统库
   spec.frameworks = "UIKit"
   
@@ -72,7 +73,11 @@ Pod::Spec.new do |spec|
         sp.dependency 'ShFlyKit/Base'
         sp.dependency 'ShFlyKit/Media'
         sp.dependency 'AipOcrSdk'
-        sp.resources = ['ShFlyKit/Assets/Graphics/*']
+        sp.resource_bundles = {
+          'Graphics' => ['ShFlyKit/Assets/Graphics.xcassets']
+        }
+        #为加载plist等非图片文件
+        sp.resources = ['ShFlyKit/Assets/*.plist']
   end
   
   #UI组件
@@ -81,8 +86,9 @@ Pod::Spec.new do |spec|
         sp.dependency 'ShFlyKit/Base'
         sp.dependency 'ShFlyKit/Media'
         sp.dependency 'ShFlyKit/Graphics'
-        sp.dependency 'GT3Captcha'
-        sp.resources = ['ShFlyKit/Assets/Components/*']
+        sp.resource_bundles = {
+          'Components' => ['ShFlyKit/Assets/Components.xcassets']
+        }
   end
 
   #分享
@@ -96,7 +102,9 @@ Pod::Spec.new do |spec|
         sp.ios.vendored_frameworks = 'ShFlyKit/Classes/Share/lib/Tencent/TencentOpenAPI.framework'
         sp.resources = 'ShFlyKit/Classes/Share/lib/Weibo/WeiboSDK.bundle'
         sp.vendored_libraries = 'ShFlyKit/Classes/Share/lib/Wechat/libWeChatSDK.a','ShFlyKit/Classes/Share/lib/Weibo/libWeiboSDK.a'
-        sp.resources = ['ShFlyKit/Assets/Share/**/*']
+        sp.resource_bundles = {
+          'Share' => ['ShFlyKit/Assets/Share.xcassets']
+        }
   end
 
   #支付
@@ -111,14 +119,18 @@ Pod::Spec.new do |spec|
         sp.ios.vendored_frameworks = 'ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.framework'
         sp.resources = 'ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle'
         sp.vendored_libraries = 'ShFlyKit/Classes/Pay/**/*.a'
-        sp.resources = ['ShFlyKit/Assets/Pay/**/*']
+        sp.resource_bundles = {
+          'Pay' => ['ShFlyKit/Assets/Pay.xcassets']
+        }
 
   end
   
   #地图
   spec.subspec 'Map' do |sp|
         sp.dependency 'ShFlyKit/Base'
-        sp.resources = ['ShFlyKit/Assets/Map/**/*']
+        sp.resource_bundles = {
+          'Map' => ['ShFlyKit/Assets/Map.xcassets']
+        }
         sp.subspec 'General' do |gesp|
             gesp.public_header_files = 'ShFlyKit/Classes/Map/General/**/*.h'
             gesp.source_files = 'ShFlyKit/Classes/Map/General/**/*.{h,m,swift}'

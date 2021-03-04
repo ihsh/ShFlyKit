@@ -37,7 +37,7 @@ public class SHWebNavBar: UIView {
         case .Icon:
             moreItem.setTitle(nil, for: .normal);
             //下载icon
-            moreItem.setImage(UIImage.name("ic_navbar_more"), for: .normal);
+            moreItem.setImage(UIImage.name("ic_navbar_more", cls: SHWebNavBar.self, bundleName: "Components"), for: .normal);
         }
     }
     
@@ -80,12 +80,12 @@ public class SHWebNavBar: UIView {
         progressView.isHidden = true;
         //返回按钮
         backItem = UIButton()
-        backItem.setImage(UIImage.name("ic_navbar_back"), for: .normal);
+        backItem.setImage(UIImage.name("ic_navbar_back", cls: SHWebNavBar.self, bundleName: "Components"), for: .normal);
         self.addSubview(backItem);
         backItem.isHidden = false;
         //关闭按钮
         closeItem = UIButton()
-        closeItem.setImage(UIImage.name("ic_navbar_close"), for: .normal);
+        closeItem.setImage(UIImage.name("ic_navbar_close", cls: SHWebNavBar.self, bundleName: "Components"), for: .normal);
         self.addSubview(closeItem);
         closeItem.isHidden = true;
         //更多按钮

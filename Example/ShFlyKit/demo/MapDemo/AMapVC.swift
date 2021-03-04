@@ -48,7 +48,7 @@ class AMapVC: UIViewController {
             maker?.width.mas_equalTo()(100);
             maker?.height.mas_equalTo()(40);
         }
-        let locateBtn = UIButton.initImage(UIImage.name("locate_btn"), back: false, super: controlView.bottomBar);
+        let locateBtn = UIButton.initImage(UIImage.name("locate_btn", cls: AmapPoiSelectVC.self, bundleName: "Map"), back: false, super: controlView.bottomBar);
         locateBtn.setRadius(15);
         locateBtn.tag = 101;
         locateBtn.addTarget(self, action: #selector(btnsClick(sender:)), for: UIControlEvents.touchUpInside);
@@ -68,10 +68,10 @@ class AMapVC: UIViewController {
         }
         
         let width:CGFloat = 30;
-        let setting = UIButtonLayout.init(UIButton.initImage(UIImage.name("person_headp")), left: 6, right: 2, width: width, height: width);
+        let setting = UIButtonLayout.init(UIButton.initImage(UIImage.name("person_headp", cls: AmapPoiSelectVC.self, bundleName: "Map")), left: 6, right: 2, width: width, height: width);
         setting.btn.tag = 102;
         setting.btn.addTarget(self, action: #selector(btnsClick(sender:)), for: UIControlEvents.touchUpInside);
-        let voice = UIButtonLayout.init(UIButton.initImage(UIImage.name("camera")), left: 2, right: 6, width: width, height: width);
+        let voice = UIButtonLayout.init(UIButton.initImage(UIImage.name("camera", cls: AmapPoiSelectVC.self, bundleName: "Map")), left: 2, right: 6, width: width, height: width);
         voice.btn.tag = 103;
         voice.btn.addTarget(self, action: #selector(btnsClick(sender:)), for: UIControlEvents.touchUpInside);
         
@@ -80,16 +80,16 @@ class AMapVC: UIViewController {
         
         
         //右侧按钮
-        let switchBtn = UIButton.initImage(UIImage.name("camera"));
+        let switchBtn = UIButton.initImage(UIImage.name("camera", cls: AmapPoiSelectVC.self, bundleName: "Map"));
         switchBtn.backgroundColor = UIColor.white;
         switchBtn.tag = 104;
         switchBtn.addTarget(self, action: #selector(btnsClick(sender:)), for: UIControlEvents.touchUpInside);
         switchBtn.setRadius(3);
-        let tracffic = UIButton.initImage(UIImage.name("camera"));
+        let tracffic = UIButton.initImage(UIImage.name("camera", cls: AmapPoiSelectVC.self, bundleName: "Map"));
         tracffic.tag = 105;
         tracffic.addTarget(self, action: #selector(btnsClick(sender:)), for: UIControlEvents.touchUpInside);
         
-        let moreBtn = UIButton.initImage(UIImage.name("camera"));
+        let moreBtn = UIButton.initImage(UIImage.name("camera", cls: AmapPoiSelectVC.self, bundleName: "Map"));
         moreBtn.tag = 106;
         moreBtn.addTarget(self, action: #selector(btnsClick(sender:)), for: UIControlEvents.touchUpInside);
         

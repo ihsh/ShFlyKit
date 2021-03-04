@@ -44,9 +44,9 @@ open class AMapMultiRouteView: UIView,MAMapViewDelegate {
     public var wayPoints:[AMapNaviPoint] = []                               //可选路径规划途经点
     
     public var lineWidth:CGFloat = 10                                       //线段宽度
-    public var startImage:UIImage? = UIImage.name("location_start")         //起点的图片
-    public var endImage:UIImage? = UIImage.name("location_end")             //终点的图片
-    public var deSelectTexture:UIImage? = UIImage.name("custtexture_gray")  //未选中的图片纹理
+    public var startImage:UIImage? = UIImage.name("location_start", cls: AMapMultiRouteView.self, bundleName: "Map")         //起点的图片
+    public var endImage:UIImage? = UIImage.name("location_end", cls: AMapMultiRouteView.self, bundleName: "Map")             //终点的图片
+    public var deSelectTexture:UIImage? = UIImage.name("custtexture_gray", cls: AMapMultiRouteView.self, bundleName: "Map")  //未选中的图片纹理
     
     public var needRoutePlan:Bool = false                                   //是否需要导航-程序使用变量-不要设置
 

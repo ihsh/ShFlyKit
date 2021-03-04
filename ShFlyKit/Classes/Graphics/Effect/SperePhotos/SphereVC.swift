@@ -32,7 +32,7 @@ public class SphereVC: UIViewController {
         var array:[UIView] = []
         for _ in 0...52 {
             let btn = UIImageView()
-            let image:UIImage = UIImage.name("piggy");
+            let image:UIImage = UIImage.name("piggy", cls: SphereVC.self, bundleName: "Graphics");
             btn.image = image;
             btn.frame = CGRect(x: 0, y: 0, width: 60, height: 60);
             array.append(btn);

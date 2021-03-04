@@ -23,7 +23,7 @@ class ImageColorFetchVC: UIViewController {
             maker?.top.mas_equalTo()(mainV)?.offset()(20);
             maker?.height.mas_equalTo()(200);
         }
-        fetch.setImage(UIImage.name("jietu"));
+        fetch.setImage(UIImage.name("jietu", cls: ImageColorFetch.self, bundleName: "Graphics"));
         
         let view = UIView()
         mainV.addSubview(view);

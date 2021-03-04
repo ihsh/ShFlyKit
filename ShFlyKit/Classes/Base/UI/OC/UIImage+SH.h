@@ -11,12 +11,21 @@
 
 @interface UIImage (SH)
 
+
+#undef  ImageNamed
+#define ImageNamed(__named__) [UIImage imageNamed:__named__ class:[self class] filePath:[NSString stringWithFormat:@"%s",__FILE__] language:nil]
+
+
+///获取不同bundle内的图片
++(UIImage *)name:(NSString *)name cls:(Class)aClass bundleName:(NSString *)bundleName;
++(UIImage *)name:(NSString *)name cls:(Class)aClass bundleName:(NSString *)bundleName language:(NSString *)language;
+
+///主bundle使用传入名称返回图片，可省略jpg
++(UIImage*)name:(NSString*)name;
 ///图片的宽
 -(CGFloat)width;
 ///图片的高
 -(CGFloat)height;
-//传入名称返回图片，可省略jpg
-+(UIImage*)name:(NSString*)name;
 //划定区域截图
 -(UIImage*)newImageFromOrigin:(UIImage*)origin rect:(CGRect)rect;
 //简单的保存照片
@@ -29,6 +38,7 @@
 +(NSMutableDictionary *)getExifInfoWithImageData:(NSData *)imageData;
 //获取照片的信息
 +(NSDictionary*)imageInformation:(NSURL *)imageUrl;
+
 @end
 
 

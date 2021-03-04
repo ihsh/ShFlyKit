@@ -1,6 +1,6 @@
 {
   "name": "ShFlyKit",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "summary": "A framework that is often used in enterprise development",
   "description": "A framework that is often used in enterprise developments",
   "homepage": "https://github.com/ihsh/ShFlyKit",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/ihsh/ShFlyKit.git",
-    "tag": "1.0.7"
+    "tag": "1.0.8"
   },
   "platforms": {
     "ios": "10.0"
@@ -47,6 +47,9 @@
 
     ],
     "AFNetworking": [
+
+    ],
+    "YYCache": [
 
     ]
   },
@@ -102,8 +105,13 @@
 
         ]
       },
+      "resource_bundles": {
+        "Graphics": [
+          "ShFlyKit/Assets/Graphics.xcassets"
+        ]
+      },
       "resources": [
-        "ShFlyKit/Assets/Graphics/*"
+        "ShFlyKit/Assets/*.plist"
       ]
     },
     {
@@ -118,14 +126,13 @@
         ],
         "ShFlyKit/Graphics": [
 
-        ],
-        "GT3Captcha": [
-
         ]
       },
-      "resources": [
-        "ShFlyKit/Assets/Components/*"
-      ]
+      "resource_bundles": {
+        "Components": [
+          "ShFlyKit/Assets/Components.xcassets"
+        ]
+      }
     },
     {
       "name": "Share",
@@ -150,13 +157,16 @@
       "ios": {
         "vendored_frameworks": "ShFlyKit/Classes/Share/lib/Tencent/TencentOpenAPI.framework"
       },
-      "resources": [
-        "ShFlyKit/Assets/Share/**/*"
-      ],
+      "resources": "ShFlyKit/Classes/Share/lib/Weibo/WeiboSDK.bundle",
       "vendored_libraries": [
         "ShFlyKit/Classes/Share/lib/Wechat/libWeChatSDK.a",
         "ShFlyKit/Classes/Share/lib/Weibo/libWeiboSDK.a"
-      ]
+      ],
+      "resource_bundles": {
+        "Share": [
+          "ShFlyKit/Assets/Share.xcassets"
+        ]
+      }
     },
     {
       "name": "Pay",
@@ -193,10 +203,13 @@
       "ios": {
         "vendored_frameworks": "ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.framework"
       },
-      "resources": [
-        "ShFlyKit/Assets/Pay/**/*"
-      ],
-      "vendored_libraries": "ShFlyKit/Classes/Pay/**/*.a"
+      "resources": "ShFlyKit/Classes/Pay/SDKs/Alipay/AlipaySDK.bundle",
+      "vendored_libraries": "ShFlyKit/Classes/Pay/**/*.a",
+      "resource_bundles": {
+        "Pay": [
+          "ShFlyKit/Assets/Pay.xcassets"
+        ]
+      }
     },
     {
       "name": "Map",
@@ -205,9 +218,11 @@
 
         ]
       },
-      "resources": [
-        "ShFlyKit/Assets/Map/**/*"
-      ],
+      "resource_bundles": {
+        "Map": [
+          "ShFlyKit/Assets/Map.xcassets"
+        ]
+      },
       "subspecs": [
         {
           "name": "General",

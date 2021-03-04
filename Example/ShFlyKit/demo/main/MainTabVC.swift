@@ -104,7 +104,7 @@ class MainTabVC: UIViewController,SHPhoneAssetsToolDelegate,ItemsViewDelegate,Ti
                 maker?.top.mas_equalTo()(vc.view)?.offset()(NavgationBarHeight()+StatusBarHeight());
                 maker?.bottom.mas_equalTo()(vc.view);
             }
-            view.loadLine(img: UIImage.name("shenzhen"));
+            view.loadLine(img: UIImage.name("shenzhen", cls: MetrolLineV.self,  bundleName: "Graphics"));
             self.navigationController?.pushViewController(vc, animated: true);
         }else if title == "日历"{
             let vc = CalendarVC()
@@ -148,7 +148,7 @@ class MainTabVC: UIViewController,SHPhoneAssetsToolDelegate,ItemsViewDelegate,Ti
             view.makeUI();
             vc.showView = view;
             vc.showRect = CGRect(x: 16, y: 30, width: ScreenSize().width-32, height: 450);
-            view.payBankV.updateBankAndLogo("交通银行 信用卡 (0283)", logo: UIImage.name("ic_yinlian"))
+            view.payBankV.updateBankAndLogo("交通银行 信用卡 (0283)", logo: UIImage.name("ic_yinlian", cls: PayCodeView.self,  bundleName: "Graphics"))
             var str:String = String()
             for _ in 0...18{
                 let num = arc4random()%10;
@@ -180,14 +180,14 @@ class MainTabVC: UIViewController,SHPhoneAssetsToolDelegate,ItemsViewDelegate,Ti
             view.rain(config: WeatherConfig.Rain());
             view.sunShine(config: WeatherConfig.Sun());
             let config = EmitterConfig()
-            config.content = UIImage.name("rain");
+            config.content = UIImage.name("rain", cls: WeatherEffect.self,  bundleName: "Graphics");
             config.scale = 0.1;
             config.scaleRange = 0;
             config.position = CGPoint(x: ScreenSize().width/2.0, y: 75);
             view.showEmitter(config: config);
 
             let config2 = EmitterConfig()
-            config2.content = UIImage.name("ele_snow");
+            config2.content = UIImage.name("ele_snow", cls: WeatherEffect.self,  bundleName: "Graphics");
             config2.scale = 0.3;
             config2.scaleRange = 0.3;
             config2.spin = 3;
@@ -244,7 +244,7 @@ class MainTabVC: UIViewController,SHPhoneAssetsToolDelegate,ItemsViewDelegate,Ti
             let view = UIView();
             let radiusV = RadiusPathAniView()
             radiusV.bloomRadius = 150;
-            radiusV.initCenterImg(center: UIImage.name("chooser-button-tab"), hight: UIImage.name("chooser-button-tab-highlighted"));
+            radiusV.initCenterImg(center: UIImage.name("chooser-button-tab", cls: RadiusPathAniView.self,  bundleName: "Components"), hight: UIImage.name("chooser-button-tab-highlighted", cls: RadiusPathAniView.self,  bundleName: "Components"));
             radiusV.addPathItem(norName: "chooser-moment-icon-music", hight: "chooser-moment-icon-music-highlighted",
                                 backImg: "chooser-moment-button",hightBack: "chooser-moment-button-highlighted")
             radiusV.addPathItem(norName: "chooser-moment-icon-place", hight: "chooser-moment-icon-place-highlighted",

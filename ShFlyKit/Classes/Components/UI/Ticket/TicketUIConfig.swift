@@ -108,9 +108,9 @@ public class TicketUIConfig: NSObject {
     
     //图片
     public class Image: NSObject {
-        public var soldImage:UIImage? = UIImage.name("seat_sold")           //已售状态位置的图片
-        public var norImage:UIImage? = UIImage.name("seat_available")       //正常状态位置的图片
-        public var selectImage:UIImage? = UIImage.name("seat_selected")     //选中状态位置的图片
+        public var soldImage:UIImage? = UIImage.name("seat_sold", cls: TicketUIConfig.self, bundleName: "Components")           //已售状态位置的图片
+        public var norImage:UIImage? = UIImage.name("seat_available", cls: TicketUIConfig.self, bundleName: "Components")       //正常状态位置的图片
+        public var selectImage:UIImage? = UIImage.name("seat_selected", cls: TicketUIConfig.self, bundleName: "Components")     //选中状态位置的图片
         public var bestZoneImage:UIImage?                                   //最佳观影区自定义图片
     }
     

@@ -87,7 +87,7 @@ public class WeatherEffect: IgnoreTouchView {
         
         for i in 0...config.count {
             let randomIndex = Int(arc4random()%config.images) + 1;
-            let rainLineV = UIImageView.init(image: UIImage.name(String(format: "%@%ld.png",config.imagePrefix, randomIndex)));
+            let rainLineV = UIImageView.init(image: UIImage.name(String(format: "%@%ld.png",config.imagePrefix, randomIndex), cls: WeatherEffect.self, bundleName: "Graphics"));
             
             if randomIndex == 1{
                 rainLineV.frame = CGRect(x: CGFloat(arc4random()%300) * ScreenSize().width / 320.0,
@@ -211,7 +211,7 @@ public class WeatherEffect: IgnoreTouchView {
             if isRain {
                 cloudImage = mixImage(name: String(format:"ele_white_cloud_%ld.png", num.intValue), color: mixColor);
             }else{
-                cloudImage = UIImage.name(String(format:"ele_white_cloud_%ld.png", num.intValue));
+                cloudImage = UIImage.name(String(format:"ele_white_cloud_%ld.png", num.intValue), cls: WeatherEffect.self, bundleName: "Graphics");
             }
             let offsetX:CGFloat = CGFloat(i * 3 / count - 1) * ScreenSize().width;
             if cloudImage != nil {
@@ -318,7 +318,7 @@ public class WeatherEffect: IgnoreTouchView {
     
     //图片混合颜色
     public func mixImage(name:String,color:UIColor)->UIImage?{
-        let image:UIImage? = UIImage.name(name).withRenderingMode(.alwaysTemplate);
+        let image:UIImage? = UIImage.name(name, cls: WeatherEffect.self, bundleName: "Graphics").withRenderingMode(.alwaysTemplate);
         if image != nil {
             UIGraphicsBeginImageContextWithOptions(image!.size, false, image!.scale);
             color.set();

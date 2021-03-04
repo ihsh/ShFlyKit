@@ -64,7 +64,10 @@ public class RadiusPathAniView: UIView,RadiusCenterBtnDelegate,RadiusPathBtnDele
     //添加按钮
     public func addPathItem(norName:String,hight:String,backImg:String,hightBack:String){
         let btn = RadiusPathBtn();
-        btn.initWith(img: UIImage.name(norName), hight: UIImage.name(hight), backImg: UIImage.name(backImg), backHightImg: UIImage.name(hightBack));
+        btn.initWith(img: UIImage.name(norName, cls: RadiusPathAniView.self, bundleName: "Components"),
+                     hight: UIImage.name(hight, cls: RadiusPathAniView.self, bundleName: "Components"),
+                     backImg: UIImage.name(backImg, cls: RadiusPathAniView.self, bundleName: "Components"),
+                     backHightImg: UIImage.name(hightBack, cls: RadiusPathAniView.self, bundleName: "Components"));
         btn.delegate = self;
         self.itemBottons.append(btn);
     }

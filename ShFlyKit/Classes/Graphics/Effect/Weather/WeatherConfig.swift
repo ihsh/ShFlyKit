@@ -49,15 +49,15 @@ public class WeatherConfig: NSObject {
         public var widthRange:UInt32 = 5                            //浮动宽度范围
         public var xRange:UInt32 = UInt32(ScreenSize().width)       //起点X的范围
         public var yRange:UInt32 = 100                              //起点Y的范围
-        public var image:UIImage = UIImage.name("ele_snow")         //雪花图片
+        public var image:UIImage = UIImage.name("ele_snow", cls: WeatherConfig.self, bundleName: "Graphics")         //雪花图片
     }
     //太阳
     public class Sun:NSObject{
         public var rotationDuration:CGFloat = 80                    //自旋时间
         public var center:CGPoint = CGPoint(x: ScreenSize().height*0.1, y: ScreenSize().height*0.1)//中心店位置
-        public var sunImage:UIImage = UIImage.name("ele_sunnySun")  //太阳图片
+        public var sunImage:UIImage = UIImage.name("ele_sunnySun", cls: WeatherConfig.self, bundleName: "Graphics")  //太阳图片
         public var sunWidth:CGFloat = 200
-        public var shineImage:UIImage? = UIImage.name("ele_sunnySunshine")//耀斑图片
+        public var shineImage:UIImage? = UIImage.name("ele_sunnySunshine", cls: WeatherConfig.self, bundleName: "Graphics")//耀斑图片
         public var shineWidth:CGFloat = 500
     }
 }

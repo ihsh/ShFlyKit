@@ -11,7 +11,7 @@ import UIKit
 
 class SecurityVC: UITableViewController ,SecurityDelegate ,LockScreenDelegate{
     //Varibale
-    let actionArr:NSArray = ["面容识别","图案设置","图案验证","极验"]
+    let actionArr:NSArray = ["面容识别","图案设置","图案验证"]
     var secuityChecker:SecurityCheck!
     
     
@@ -40,9 +40,6 @@ class SecurityVC: UITableViewController ,SecurityDelegate ,LockScreenDelegate{
             secuityChecker.checkWithType(type: .Biometry,delegate: self);
         case 2:
             secuityChecker.checkWithType(type: .Pattern,delegate: self);
-        case 3:
-            let vc = JiYanVC()
-            self.navigationController?.pushViewController(vc, animated: true);
         case 1:
             secuityChecker.checkWithType(type: .PatternSet,delegate: self);
         default:
@@ -80,7 +77,7 @@ class SecurityVC: UITableViewController ,SecurityDelegate ,LockScreenDelegate{
     
     
     func userHeadp() -> UIImage? {
-        return UIImage.name("jietu")
+        return UIImage.name("jietu", cls: SecurityCheck.self, bundleName: "Components");
     }
     
     

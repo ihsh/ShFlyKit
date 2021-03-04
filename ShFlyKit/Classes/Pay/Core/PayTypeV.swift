@@ -195,7 +195,7 @@ public class PayTypeCell: UITableViewCell {
     
     public func loadData(_ data:PayTypeData){
         //勾选的状态
-        selectDot.image = data.isSelect == true ? UIImage.name("ic_selected") : UIImage.name("ic_diselected")
+        selectDot.image = data.isSelect == true ? UIImage.name("ic_selected", cls: PayTypeV.self, bundleName: "Pay") : UIImage.name("ic_diselected", cls: PayTypeV.self, bundleName: "Pay")
         selectDot.isHidden = data.isForbid;
         contenL.text = data.content;
         image1.isHidden = true;
@@ -221,26 +221,26 @@ public class PayTypeCell: UITableViewCell {
         
         switch data.type! {
         case .ZhiFubao:
-            icon.image = UIImage.name("ic_payment_alipay_on");
+            icon.image = UIImage.name("ic_payment_alipay_on", cls: PayTypeV.self, bundleName: "Pay");
             titleLable.text = "支付宝";
         case .WeChat:
-            icon.image = UIImage.name("ic_payment_wechat_on");
+            icon.image = UIImage.name("ic_payment_wechat_on", cls: PayTypeV.self, bundleName: "Pay");
             titleLable.text = "微信";
         case .Union:
-            icon.image = UIImage.name("ic_payment_yunquickpass");
+            icon.image = UIImage.name("ic_payment_yunquickpass", cls: PayTypeV.self, bundleName: "Pay");
             image1.isHidden = false;
             image2.isHidden = false;
             titleLable.text = "云闪付";
         case .ApplePay:
-            icon.image = UIImage.name("ic_payment_applepay");
+            icon.image = UIImage.name("ic_payment_applepay", cls: PayTypeV.self, bundleName: "Pay");
             image1.isHidden = false;
             image2.isHidden = true;
             titleLable.text = "Apple Pay";
         case .Wallet:
-            icon.image = UIImage.name("ic_payment_wallet_on");
+            icon.image = UIImage.name("ic_payment_wallet_on", cls: PayTypeV.self, bundleName: "Pay");
             titleLable.text = "余额支付";
         case .Cash:
-            icon.image = UIImage.name("ic_payment_cash_on");
+            icon.image = UIImage.name("ic_payment_cash_on", cls: PayTypeV.self, bundleName: "Pay");
             titleLable.text = "现金支付";
         default:
             icon.image = nil;
@@ -290,7 +290,7 @@ public class PayTypeCell: UITableViewCell {
         }
         //标识
         image1 = UIImageView()
-        image1.image = UIImage.name("ic_yinlian");
+        image1.image = UIImage.name("ic_yinlian", cls: PayTypeV.self, bundleName: "Pay");
         view.addSubview(image1);
         image1.mas_makeConstraints { (maker) in
             maker?.left.mas_equalTo()(titleLable.mas_right)?.offset()(8);
@@ -298,7 +298,7 @@ public class PayTypeCell: UITableViewCell {
             maker?.size.mas_equalTo()(CGSize(width: 22, height: 14));
         }
         image2 = UIImageView()
-        image2.image = UIImage.name("ic_quickpass");
+        image2.image = UIImage.name("ic_quickpass", cls: PayTypeV.self, bundleName: "Pay");
         view.addSubview(image2);
         image2.mas_makeConstraints { (maker) in
             maker?.left.mas_equalTo()(image1.mas_right)?.offset()(4);

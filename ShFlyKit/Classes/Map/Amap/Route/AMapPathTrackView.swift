@@ -23,9 +23,9 @@ public class AMapPathTrackView: UIView,MAMapViewDelegate,AMapNaviDriveManagerDel
     public weak var delegate:AMapPathTrackViewDelegate?                      //代理
     public var lineWidth:CGFloat = 9;                                        //绘制的线宽
     public var grayColor = UIColor.colorRGB(red: 225, green: 225, blue: 225) //走过的路线的颜色
-    public var carImage:UIImage? = UIImage.name("car")                       //小车的图片
-    public var startImage:UIImage? = UIImage.name("location_start")          //起点的图片
-    public var endImage:UIImage? = UIImage.name("location_end")              //终点的图片
+    public var carImage:UIImage? = UIImage.name("car", cls: AMapPathTrackView.self, bundleName: "Map")                       //小车的图片
+    public var startImage:UIImage? = UIImage.name("location_start", cls: AMapPathTrackView.self, bundleName: "Map")          //起点的图片
+    public var endImage:UIImage? = UIImage.name("location_end", cls: AMapPathTrackView.self, bundleName: "Map")              //终点的图片
     public var zoomLevel:CGFloat = 15                                        //放大level
     public var routeNum:[NSNumber] = []
     

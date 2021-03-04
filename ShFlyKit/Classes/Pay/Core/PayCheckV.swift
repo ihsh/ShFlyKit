@@ -229,12 +229,12 @@ public class PayCheckV: UIView , HeatBeatTimerDelegate{
             markV.addSubview(containV);
             //关闭按钮
             let closeBtn = UIButton()
-            closeBtn.setImage(UIImage.name("navi_close_ex"), for: .normal);
+            closeBtn.setImage(UIImage.name("navi_close_ex", cls: PayCheckV.self, bundleName: "Pay"), for: .normal);
             closeBtn.addTarget(self, action: #selector(dismissFromSuper), for: .touchUpInside);
             containV.addSubview(closeBtn);
             //中间图片，没有结果的时候显示
             errorImagV = UIImageView()
-            errorImagV.image = UIImage.name("icon_attention");
+            errorImagV.image = UIImage.name("icon_attention", cls: PayCheckV.self, bundleName: "Pay");
             containV.addSubview(errorImagV);
             //状态文字
             statusL = UILabel()

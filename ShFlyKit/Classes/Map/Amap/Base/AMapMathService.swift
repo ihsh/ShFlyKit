@@ -152,7 +152,7 @@ public class AMapMathService: NSObject {
         }else{
             imageName = "custtexture_no"
         }
-        var image:UIImage? = UIImage.name(imageName);
+    var image:UIImage? = UIImage.name(imageName, cls: AMapMathService.self, bundleName: "Map");
         if image == nil {
             image = UIImage.init(color: UIColor.colorRGB(red: 97, green: 170, blue: 248), rect: CGRect(x: 0, y: 0, width: 8, height: 8));
         }

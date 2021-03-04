@@ -26,7 +26,7 @@ public class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultT
     public var searchRadius:NSInteger = 800                         //搜索半径
     //["住宅","学校","楼宇","地铁","公交","医院","宾馆","风景","小区","政府","公司","餐饮","汽车","生活","交通","金融","停车场","购物","体育","道路"]
     public var searchTypes:NSArray = ["楼宇","住宅","公交","餐饮"]      //类型
-    public var centerImage:UIImage? = UIImage.name("wateRedBlank")   //中心点图片名字
+    public var centerImage:UIImage? = UIImage.name("wateRedBlank", cls: AmapPoiSelectVC.self, bundleName: "Map")   //中心点图片名字
     public var gpsNormalImageName:String = "gpsnormal"
     public var gpsHighLightImageName:String = "gpssearchbutton"
     
@@ -124,7 +124,7 @@ public class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultT
     
     //初始化定位按钮
     private func initLocationBtn()->Void{
-        self.locationBtn = UIButton.initImage(UIImage.name(gpsNormalImageName));
+        self.locationBtn = UIButton.initImage(UIImage.name(gpsNormalImageName, cls: AmapPoiSelectVC.self, bundleName: "Map"));
         self.locationBtn.autoresizingMask = .flexibleTopMargin;
         self.locationBtn.backgroundColor = UIColor.white;
         self.locationBtn.layer.cornerRadius = 3;
@@ -235,9 +235,9 @@ public class AmapPoiSelectVC: UIViewController,MAMapViewDelegate ,AMapPoiResultT
     
     public func mapView(_ mapView: MAMapView!, didChange mode: MAUserTrackingMode, animated: Bool) {
         if (mode == .none) {
-            self.locationBtn.setImage(UIImage.name(gpsNormalImageName), for: .normal)
+            self.locationBtn.setImage(UIImage.name(gpsNormalImageName, cls: AmapPoiSelectVC.self, bundleName: "Map"), for: .normal)
         }else{
-            self.locationBtn.setImage(UIImage.name(gpsHighLightImageName), for: .normal);
+            self.locationBtn.setImage(UIImage.name(gpsHighLightImageName, cls: AmapPoiSelectVC.self, bundleName: "Map"), for: .normal);
         }
     }
     

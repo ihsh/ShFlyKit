@@ -138,7 +138,7 @@ public class PayFuncView: UIView , UIGestureRecognizerDelegate , HeatBeatTimerDe
             maker?.centerY.mas_equalTo()(view);
             maker?.left.mas_equalTo()(24);
         }
-        let imagV = UIImageView.init(image: UIImage.name("ic_payment_arrow_adown"));
+        let imagV = UIImageView.init(image: UIImage.name("ic_payment_arrow_adown", cls: PayFuncView.self, bundleName: "Pay"));
         view.addSubview(imagV);
         imagV.mas_makeConstraints { (maker) in
             maker?.left.mas_equalTo()(label.mas_right)?.offset()(8);
@@ -267,7 +267,7 @@ public class PayFuncView: UIView , UIGestureRecognizerDelegate , HeatBeatTimerDe
         contentV.frame = CGRect(x: 0, y: ScreenSize().height, width: ScreenSize().width, height: viewHeight);
         //关闭按钮
         let closeBtn = UIButton()
-        closeBtn.setImage(UIImage.name("navi_close_ex"), for: .normal);
+        closeBtn.setImage(UIImage.name("navi_close_ex", cls: PayFuncView.self, bundleName: "Pay"), for: .normal);
         closeBtn.addTarget(self, action: #selector(dismissFromSuper), for: .touchUpInside);
         contentV.addSubview(closeBtn);
         closeBtn.mas_makeConstraints { (maker) in

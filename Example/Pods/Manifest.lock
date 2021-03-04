@@ -32,54 +32,56 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
-  - GT3Captcha (0.1.6)
   - Masonry (1.1.0)
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
   - SDWebImage/Core (5.10.4)
-  - ShFlyKit (1.0.7):
+  - ShFlyKit (1.0.8):
     - AFNetworking
     - Bugly
     - FMDB
     - Masonry
     - SDWebImage
-    - ShFlyKit/Base (= 1.0.7)
-    - ShFlyKit/Chart (= 1.0.7)
-    - ShFlyKit/Components (= 1.0.7)
-    - ShFlyKit/Graphics (= 1.0.7)
-    - ShFlyKit/Map (= 1.0.7)
-    - ShFlyKit/Media (= 1.0.7)
-    - ShFlyKit/Network (= 1.0.7)
-    - ShFlyKit/Pay (= 1.0.7)
-    - ShFlyKit/Share (= 1.0.7)
+    - ShFlyKit/Base (= 1.0.8)
+    - ShFlyKit/Chart (= 1.0.8)
+    - ShFlyKit/Components (= 1.0.8)
+    - ShFlyKit/Graphics (= 1.0.8)
+    - ShFlyKit/Map (= 1.0.8)
+    - ShFlyKit/Media (= 1.0.8)
+    - ShFlyKit/Network (= 1.0.8)
+    - ShFlyKit/Pay (= 1.0.8)
+    - ShFlyKit/Share (= 1.0.8)
+    - YYCache
     - YYModel
-  - ShFlyKit/Base (1.0.7):
+  - ShFlyKit/Base (1.0.8):
     - AFNetworking
     - Bugly
     - FMDB
     - Masonry
     - SDWebImage
+    - YYCache
     - YYModel
-  - ShFlyKit/Chart (1.0.7):
+  - ShFlyKit/Chart (1.0.8):
     - AFNetworking
     - Bugly
     - FMDB
     - Masonry
     - SDWebImage
     - ShFlyKit/Base
+    - YYCache
     - YYModel
-  - ShFlyKit/Components (1.0.7):
+  - ShFlyKit/Components (1.0.8):
     - AFNetworking
     - Bugly
     - FMDB
-    - GT3Captcha
     - Masonry
     - SDWebImage
     - ShFlyKit/Base
     - ShFlyKit/Graphics
     - ShFlyKit/Media
+    - YYCache
     - YYModel
-  - ShFlyKit/Graphics (1.0.7):
+  - ShFlyKit/Graphics (1.0.8):
     - AFNetworking
     - AipOcrSdk
     - Bugly
@@ -88,18 +90,20 @@ PODS:
     - SDWebImage
     - ShFlyKit/Base
     - ShFlyKit/Media
+    - YYCache
     - YYModel
-  - ShFlyKit/Map (1.0.7):
+  - ShFlyKit/Map (1.0.8):
     - AFNetworking
     - Bugly
     - FMDB
     - Masonry
     - SDWebImage
     - ShFlyKit/Base
-    - ShFlyKit/Map/Amap (= 1.0.7)
-    - ShFlyKit/Map/General (= 1.0.7)
+    - ShFlyKit/Map/Amap (= 1.0.8)
+    - ShFlyKit/Map/General (= 1.0.8)
+    - YYCache
     - YYModel
-  - ShFlyKit/Map/Amap (1.0.7):
+  - ShFlyKit/Map/Amap (1.0.8):
     - AFNetworking
     - AMapLocation
     - AMapNavi
@@ -111,32 +115,36 @@ PODS:
     - ShFlyKit/Base
     - ShFlyKit/Components
     - ShFlyKit/Map/General
+    - YYCache
     - YYModel
-  - ShFlyKit/Map/General (1.0.7):
+  - ShFlyKit/Map/General (1.0.8):
     - AFNetworking
     - Bugly
     - FMDB
     - Masonry
     - SDWebImage
     - ShFlyKit/Base
+    - YYCache
     - YYModel
-  - ShFlyKit/Media (1.0.7):
+  - ShFlyKit/Media (1.0.8):
     - AFNetworking
     - Bugly
     - FMDB
     - Masonry
     - SDWebImage
     - ShFlyKit/Base
+    - YYCache
     - YYModel
-  - ShFlyKit/Network (1.0.7):
+  - ShFlyKit/Network (1.0.8):
     - AFNetworking
     - Bugly
     - FMDB
     - Masonry
     - SDWebImage
     - ShFlyKit/Base
+    - YYCache
     - YYModel
-  - ShFlyKit/Pay (1.0.7):
+  - ShFlyKit/Pay (1.0.8):
     - AFNetworking
     - Bugly
     - FMDB
@@ -145,15 +153,18 @@ PODS:
     - ShFlyKit/Base
     - ShFlyKit/Graphics
     - ShFlyKit/Share
+    - YYCache
     - YYModel
-  - ShFlyKit/Share (1.0.7):
+  - ShFlyKit/Share (1.0.8):
     - AFNetworking
     - Bugly
     - FMDB
     - Masonry
     - SDWebImage
     - ShFlyKit/Base
+    - YYCache
     - YYModel
+  - YYCache (1.0.4)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -169,9 +180,9 @@ SPEC REPOS:
     - AMapSearch
     - Bugly
     - FMDB
-    - GT3Captcha
     - Masonry
     - SDWebImage
+    - YYCache
     - YYModel
 
 EXTERNAL SOURCES:
@@ -187,10 +198,10 @@ SPEC CHECKSUMS:
   AMapSearch: a62d0b2508270dff5a9b05ba3af9fc8843b48c8a
   Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  GT3Captcha: 6c2724cf9a2e7c3411b1cc1b2aa56b76be48df87
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
-  ShFlyKit: f6ac59763c2373abb55d6315a5c3e120c58b6a21
+  ShFlyKit: b9fe9a60c0303f84447583801e65eb7ca190dae6
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
 PODFILE CHECKSUM: c7c802561c3549028ab0a3b966bab7d3628bda61

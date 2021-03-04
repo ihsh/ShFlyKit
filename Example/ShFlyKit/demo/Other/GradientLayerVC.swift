@@ -54,7 +54,7 @@ class GradientLayerVC: UIViewController {
         
         let emiterCell:CAEmitterCell = CAEmitterCell()
         //展示的图片
-        emiterCell.contents = UIImage.name("xin2").cgImage;
+        emiterCell.contents = UIImage.name("xin2", cls: GradientLayerVC.self, bundleName: "Components").cgImage;
         //每秒粒子产生个数的乘数因子，会与layer的birthRate相乘，然后确定每秒产生的粒子个数
         emiterCell.birthRate = 20;
         //每个粒子存活时长

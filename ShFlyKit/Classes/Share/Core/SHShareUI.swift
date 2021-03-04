@@ -165,13 +165,13 @@ public class SHShareUI: UIView,UICollectionViewDelegate,UICollectionViewDataSour
         self.setLatout(lineSpace: 0, interitemSpace: 0);
         self.register(anyclass: ShareDefaultCell.self);
         //配置数据
-        let qq = ShareConfig.initConfig(title: "QQ", image: UIImage.name("share_qq"), type: .QQ);
-        let qzone = ShareConfig.initConfig(title: "QQ空间", image: UIImage.name("share_qzone"), type: .QQzone);
-        let wechat = ShareConfig.initConfig(title: "微信好友", image: UIImage.name("share_wechat"), type: .WeChat);
-        let wechatzone = ShareConfig.initConfig(title: "朋友圈", image: UIImage.name("share_wechat_timeline"), type: .WeChatZone);
-        let weibo = ShareConfig.initConfig(title: "微博", image: UIImage.name("share_sina"), type: .Weibo);
-        let sms = ShareConfig.initConfig(title: "短信", image: UIImage.name("share_sina"), type: .SMS);
-        let system = ShareConfig.initConfig(title: "系统", image: UIImage.name("share_sina"), type: .System);
+        let qq = ShareConfig.initConfig(title: "QQ", image: UIImage.name("share_qq", cls: SHShareUI.self, bundleName: "Share"), type: .QQ);
+        let qzone = ShareConfig.initConfig(title: "QQ空间", image: UIImage.name("share_qzone", cls: SHShareUI.self,bundleName: "Share"), type: .QQzone);
+        let wechat = ShareConfig.initConfig(title: "微信好友", image: UIImage.name("share_wechat", cls: SHShareUI.self, bundleName: "Share"), type: .WeChat);
+        let wechatzone = ShareConfig.initConfig(title: "朋友圈", image: UIImage.name("share_wechat_timeline", cls: SHShareUI.self, bundleName: "Share"), type: .WeChatZone);
+        let weibo = ShareConfig.initConfig(title: "微博", image: UIImage.name("share_sina", cls: SHShareUI.self, bundleName: "Share"), type: .Weibo);
+        let sms = ShareConfig.initConfig(title: "短信", image: UIImage.name("share_sina", cls: SHShareUI.self, bundleName: "Share"), type: .SMS);
+        let system = ShareConfig.initConfig(title: "系统", image: UIImage.name("share_sina", cls: SHShareUI.self, bundleName: "Share"), type: .System);
         self.activitys = [wechat,wechatzone,qq,qzone,weibo,sms,system];
         self.show();
     }

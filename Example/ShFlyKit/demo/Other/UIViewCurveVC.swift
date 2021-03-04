@@ -77,7 +77,7 @@ class UIViewCurveVC: UIViewController,VerifyCodeViewDelegate {
         bubble = BubbleMenu();
         bubble.animate = false;
         bubble.backColor = UIColor.colorHexValue("000000",alpha: 0.3)
-        bubble.initMenu(["扫一扫","添加好友","通讯录","面对面"],images: [UIImage.name("seat_available")], startPos: CGPoint(x:ScreenSize().width-40, y: 40));
+        bubble.initMenu(["扫一扫","添加好友","通讯录","面对面"],images: [UIImage.name("seat_available", cls: BubbleMenu.self, bundleName: "Components")], startPos: CGPoint(x:ScreenSize().width-40, y: 40));
         
         
         activity = ActivityView();

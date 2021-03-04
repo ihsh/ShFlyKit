@@ -230,7 +230,7 @@ public class ActivityModel:NSObject{
     
     public var closePosition:ClosePosition = .RightCorner                     //关闭按钮的位置样式
     public var offset:CGSize = CGSize(width: 0, height: 0)                    //关闭按钮对于关键点(右上角/下中心)的偏移
-    public var closeBtnImg = UIImage.name("navi_close_ex")                    //关闭按钮用的图片
+    public var closeBtnImg = UIImage.name("navi_close_ex", cls: ActivityView.self, bundleName: "Components")//关闭按钮用的图片
     public var maskColor:UIColor = UIColor.colorHexValue("000000", alpha: 0.3)//遮罩背景色
     public var animateDuration:TimeInterval = 0.3                             //最小值0.3s
     

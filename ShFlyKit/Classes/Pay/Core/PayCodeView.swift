@@ -239,7 +239,7 @@ public class PayBankPriorityV: UIView {
             make?.centerY.mas_equalTo()(self);
         }
         arrow = UIImageView()
-        arrow.image = UIImage.name("ic_arrow_right_gray");
+        arrow.image = UIImage.name("ic_arrow_right_gray", cls: PayCodeView.self, bundleName: "Pay");
         self.addSubview(arrow);
         arrow.mas_makeConstraints { (make) in
             make?.centerY.mas_equalTo()(self);

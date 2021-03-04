@@ -24,9 +24,9 @@ class ShareDemoVC: UIViewController ,SHShareUIDelegate{
         }
         
         //注册自定义按钮
-        let mini = ShareConfig.initConfig(title: "QQ登录", image: UIImage.name("share_qq"), type: nil);
-        let download = ShareConfig.initConfig(title: "微信登录", image: UIImage.name("share_wechat"), type: nil);
-        let print = ShareConfig.initConfig(title: "微博登录", image: UIImage.name("share_sina"), type: nil);
+        let mini = ShareConfig.initConfig(title: "QQ登录", image: UIImage.name("share_qq", cls: SHShareUI.self, bundleName: "Share"), type: nil);
+        let download = ShareConfig.initConfig(title: "微信登录", image: UIImage.name("share_wechat", cls: SHShareUI.self, bundleName: "Share"), type: nil);
+        let print = ShareConfig.initConfig(title: "微博登录", image: UIImage.name("share_sina", cls: SHShareUI.self, bundleName: "Share"), type: nil);
         shareUI.customActions = [mini,download,print];
         shareUI.boardSpan = 10;
         shareUI.contentOffset = 10;
